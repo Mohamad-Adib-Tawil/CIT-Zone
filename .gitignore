@@ -1,0 +1,11 @@
+.fvm/
+.dart_tool/
+.idea/
+build/
+android/.gradle/
+android/local.properties
+ios/Pods/
+ios/.symlinks/
+macos/Pods/
+macos/.symlinks/
+.DS_Store
