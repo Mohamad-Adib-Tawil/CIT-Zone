@@ -1,17 +1,15 @@
-# cit_zone
+# CIT Zone
 
-A new Flutter project.
+تطبيق تعليمي لطلاب معهد الحاسوب. نُفذت معاينتا الطالب والإدارة داخل Flutter، مع تجهيز اختيار حساب Google من جهة العميل؛ بقية الخدمات والخادم لم تُنفذ بعد.
 
-## Getting Started
+ابدأ من [فهرس الخطط](plans/README.md) لفهم النطاق والمعمارية والأمن ومراحل التنفيذ، واقرأ [قواعد العمل للمساعدين البرمجيين](AGENTS.md) قبل تعديل الكود.
 
-This project is a starting point for a Flutter application.
+نسخة Flutter المضبوطة في `.fvmrc` هي `3.47.2`. قرارات المنهج والاشتراك ومزود الفيديو والتنزيل المحمي معلقة في [سجل القرارات](plans/09-decisions.md).
 
-A few resources to get you started if this is your first Flutter project:
+شغّل `fvm flutter run` لمراجعة شاشة الاستقبال ومعاينتي الطالب والإدارة في وضع التطوير. بيانات المعاينتين تجريبية، ولا تُحفظ المدخلات أو تُنفذ الإجراءات. نسخة الإنتاج لا تعرض المعاينتين حتى يُربط تسجيل الدخول ودور الإدارة بخادم API الخاص. تفاصيل المنفذ والمتبقي في [حالة تنفيذ اللوحة](plans/admin-dashboard/05-implementation-status.md) و[إعداد Google OAuth](plans/implementation/google-oauth-setup.md).
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+[حالة التنفيذ الكاملة قبل الخادم](plans/implementation/2026-09-26-pre-backend-status.md) توضّح ما يمكن تجربته الآن وما يحتاج بيانات المعهد وخادم API.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+أُضيف [أساس اتصال API](plans/implementation/2026-09-26-api-foundation.md) دون ربط endpoint إنتاجي. يُقرأ `APP_ENV` (`development` أو `staging` أو `production`) و`API_BASE_URL` عبر `--dart-define` حين يتوفر الخادم؛ يتطلب الاتصال الخارجي HTTPS، ويسمح عنوان HTTP محلي في التطوير لاختبارات النقل فقط. لا يؤدي تمرير العنوان وحده إلى تسجيل دخول أو إظهار بيانات حقيقية.
+
+يتطلب Android release [مفتاح رفع خاصاً وإعداداً محلياً](plans/implementation/2026-09-26-android-release-signing.md)؛ لم يعد يُوقّع بمفتاح debug.

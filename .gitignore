@@ -1,11 +1,17 @@
 .fvm/
 .dart_tool/
+.flutter-plugins-dependencies
+.flutter-plugins
 .idea/
 build/
 android/.gradle/
 android/local.properties
+android/key.properties
+android/*.jks
+android/*.keystore
 ios/Pods/
 ios/.symlinks/
+ios/Flutter/GoogleSignIn.local.xcconfig
 macos/Pods/
 macos/.symlinks/
 .DS_Store

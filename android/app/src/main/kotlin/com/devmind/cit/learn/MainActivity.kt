@@ -1,4 +1,4 @@
-package com.citzone.cit_zone
+package com.devmind.cit.learn
 
 import io.flutter.embedding.android.FlutterActivity
 
