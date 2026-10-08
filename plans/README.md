@@ -6,6 +6,7 @@
 
 | الملف | الغرض |
 | --- | --- |
+| [00-system-study.md](00-system-study.md) | ملخص النظام والأدوار والمزايا وحالات الاستخدام والقرارات المطلوبة |
 | [01-product.md](01-product.md) | النطاق، المستخدمون، الرحلات، وسياسات المنتج |
 | [02-architecture.md](02-architecture.md) | حدود Flutter والخادم، الطبقات، وهيكل الملفات |
 | [03-curriculum-content.md](03-curriculum-content.md) | الأقسام والسنوات والفصول ونموذج المحتوى |
