@@ -242,7 +242,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AdminPageFrame(
       title: 'الإعدادات',
-      subtitle: 'معلومات لوحة إدارة CIT Zone',
+      subtitle: 'معلومات لوحة إدارة Hasobjy',
       children: [
         AdminPanel(
           child: Column(

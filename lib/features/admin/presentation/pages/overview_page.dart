@@ -24,7 +24,7 @@ class OverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdminPageFrame(
       title: 'لوحة الإدارة',
-      subtitle: 'إليك ما يحدث في منصة CIT Zone اليوم',
+      subtitle: 'إليك ما يحدث في منصة Hasobjy اليوم',
       action: OutlinedButton.icon(
         onPressed: refreshing ? null : onRefresh,
         icon: refreshing

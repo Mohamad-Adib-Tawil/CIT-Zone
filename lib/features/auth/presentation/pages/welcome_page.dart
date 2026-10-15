@@ -120,7 +120,7 @@ class WelcomePage extends StatelessWidget {
                 ],
                 const SizedBox(height: 28),
                 Text(
-                  'هوية Google وحدها لا تمنح حساباً أو اشتراكاً داخل CIT Zone حتى يتحقق خادم التطبيق منها.',
+                  'هوية Google وحدها لا تمنح حساباً أو اشتراكاً داخل Hasobjy حتى يتحقق خادم التطبيق منها.',
                   style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),

@@ -18,7 +18,7 @@ class StudentProfilePage extends StatelessWidget {
           : 'هوية Google المعروضة في معاينة الطالب',
       children: [
         const StudentNotice(
-          'هذه معاينة فقط. هوية Google لا تعني إنشاء حساب CIT Zone أو ربط هذا الجهاز.',
+          'هذه معاينة فقط. هوية Google لا تعني إنشاء حساب Hasobjy أو ربط هذا الجهاز.',
         ),
         const SizedBox(height: 18),
         Card(

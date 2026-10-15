@@ -97,7 +97,7 @@ class _StudentShellState extends State<_StudentShell> {
             final extended = constraints.maxWidth >= 1024;
             return Scaffold(
               appBar: AppBar(
-                title: const Text('CIT Zone · معاينة الطالب'),
+                title: const Text('Hasobjy · معاينة الطالب'),
                 actions: [
                   IconButton(
                     tooltip: 'تحديث المواد النموذجية',

@@ -11,7 +11,7 @@ import '../features/auth/data/google_sign_in_gateway.dart';
 import '../features/auth/domain/google_identity.dart';
 import '../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../features/auth/presentation/pages/google_identity_page.dart';
-import '../features/auth/presentation/pages/welcome_page.dart';
+import '../features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import '../features/student/presentation/pages/student_preview_page.dart';
 
 class CitZoneApp extends StatelessWidget {
@@ -20,7 +20,7 @@ class CitZoneApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CIT Zone',
+      title: 'Hasobjy | حاسوبجي',
       debugShowCheckedModeBanner: false,
       locale: const Locale('ar'),
       supportedLocales: const [Locale('ar')],
@@ -51,22 +51,34 @@ class _AppEntry extends StatelessWidget {
     );
   }
 
-  void _openAdminPreview(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (_) => BlocProvider(
-          create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
-          child: const AdminDashboardPage(),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GoogleIdentityCubit, GoogleIdentityState>(
       builder: (context, state) {
         final cubit = context.read<GoogleIdentityCubit>();
+        const previewFrameName = String.fromEnvironment('HASOBJY_FRAME');
+        if (kDebugMode && previewFrameName == 'STUDENT_PREVIEW') {
+          return StudentPreviewPage(
+            identity: state is GoogleIdentityReady ? state.identity : null,
+          );
+        }
+        if (kDebugMode && previewFrameName == 'ADMIN_PREVIEW') {
+          return BlocProvider(
+            create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
+            child: const AdminDashboardPage(),
+          );
+        }
+        final previewFrame = HasobjyFrameId.fromFrameName(previewFrameName);
+        if (kDebugMode && previewFrame != null) {
+          return HasobjyDesignPage(
+            frameId: previewFrame,
+            identity: state is GoogleIdentityReady ? state.identity : null,
+            onGoogleSignIn: cubit.signIn,
+            onSignOut: cubit.signOut,
+            working: state is GoogleIdentityWorking,
+            error: state is GoogleIdentityError ? state.message : null,
+          );
+        }
         if (state is GoogleIdentityReady) {
           return GoogleIdentityPage(
             identity: state.identity,
@@ -77,15 +89,11 @@ class _AppEntry extends StatelessWidget {
                 : null,
           );
         }
-        return WelcomePage(
-          googleConfigured: cubit.isConfigured,
+        return HasobjyDesignPage(
+          frameId: HasobjyFrameId.aS01,
+          onGoogleSignIn: cubit.signIn,
           working: state is GoogleIdentityWorking,
           error: state is GoogleIdentityError ? state.message : null,
-          onGoogleSignIn: cubit.signIn,
-          onStudentPreview: kDebugMode
-              ? () => _openStudentPreview(context)
-              : null,
-          onAdminPreview: kDebugMode ? () => _openAdminPreview(context) : null,
         );
       },
     );

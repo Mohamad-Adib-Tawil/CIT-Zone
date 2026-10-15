@@ -109,7 +109,7 @@ class _AdminShellState extends State<AdminShell> {
                 const SizedBox(width: 10),
                 Flexible(
                   child: Text(
-                    'CIT Zone',
+                    'Hasobjy',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.titleLarge,

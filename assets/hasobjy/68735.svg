@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon circle">
+<rect width="112" height="112" fill="#1B3F73"/>
+<g id="Frame">
+<path id="Vector" d="M63 32.6667H49C46.4227 32.6667 44.3333 34.756 44.3333 37.3333V74.6667C44.3333 77.244 46.4227 79.3333 49 79.3333H63C65.5773 79.3333 67.6667 77.244 67.6667 74.6667V37.3333C67.6667 34.756 65.5773 32.6667 63 32.6667Z" stroke="#67A8DC" stroke-width="3.6"/>
+<path id="Vector_2" d="M53.6667 70H58.3333" stroke="#67A8DC" stroke-width="3.6" stroke-linecap="round"/>
+</g>
+<path id="Chamfer TL" d="M0 0H14L0 14V0Z" fill="#02112C"/>
+<path id="Chamfer BR" d="M112 98V112H98L112 98Z" fill="#02112C"/>
+</g>
+</svg>

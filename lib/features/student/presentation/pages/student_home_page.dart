@@ -19,7 +19,7 @@ class StudentHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StudentPageFrame(
-      title: 'مرحباً بك في CIT Zone',
+      title: 'مرحباً بك في حاسوبجي',
       subtitle: 'ابدأ من مسارك الدراسي وتعرّف إلى المواد المتاحة',
       children: [
         Container(
