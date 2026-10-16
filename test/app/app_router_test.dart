@@ -8,6 +8,7 @@ import 'package:cit_zone/app/router/app_routes.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/auth/presentation/pages/google_identity_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
+import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
 import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -64,6 +65,7 @@ void main() {
   );
 
   for (final route in [
+    AppRoutes.designGallery,
     AppRoutes.studentPreview,
     AppRoutes.adminPreview,
     AppRoutes.frame('B-S06'),
@@ -96,6 +98,30 @@ void main() {
       });
     }
   }
+
+  testWidgets('Figma gallery opens actual frames without server verification', (
+    tester,
+  ) async {
+    final deps = dependencies();
+    addTearDown(deps.dispose);
+    await tester.pumpWidget(
+      CitZoneApp(dependencies: deps, initialLocation: AppRoutes.designGallery),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
+    await tester.tap(find.text('افتح الرئيسية من Figma — C-01'));
+    await tester.pumpAndSettle();
+    expect(
+      tester.widget<HasobjyDesignPage>(find.byType(HasobjyDesignPage)).frameId,
+      HasobjyFrameId.c01,
+    );
+    expect(find.byType(StudentPreviewPage), findsNothing);
+    expect(find.text('مرحباً أحمد'), findsOneWidget);
+    routerOf(tester).pop();
+    await tester.pumpAndSettle();
+    expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets('identity link waits for restoration without issuing a session', (
     tester,
@@ -156,13 +182,16 @@ void main() {
         router.routeInformationProvider.value.uri.path,
         AppRoutes.googleIdentity,
       );
-      await tester.tap(find.text('معاينة واجهة الطالب'));
+      await tester.tap(
+        find.text('المعاينة الطلابية القديمة — ليست تصميم Figma'),
+      );
       await tester.pumpAndSettle();
       expect(find.byType(StudentPreviewPage), findsOneWidget);
       expect(router.canPop(), isTrue);
       router.pop();
       await tester.pumpAndSettle();
       expect(find.byType(GoogleIdentityPage), findsOneWidget);
+      await tester.ensureVisible(find.text('الخروج من Google'));
       await tester.tap(find.text('الخروج من Google'));
       await tester.pumpAndSettle();
       expect(router.routeInformationProvider.value.uri.path, AppRoutes.signIn);
@@ -187,6 +216,7 @@ void main() {
       addTearDown(deps.dispose);
       await tester.pumpWidget(CitZoneApp(dependencies: deps));
       await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('الخروج من Google'));
       await tester.tap(find.text('الخروج من Google'));
       await tester.pump();
       expect(

@@ -17,8 +17,8 @@ class PreviewActions {
 }
 
 String? previewIcon(BuildContext context, String label) =>
-    hasobjyFrameIconSlots[context.designFrame?.frameName]?[label] ??
-    hasobjyFrameIconSlots[context.designFrame?.baseName]?[label];
+    hasobjyFrameIconSlots[context.designFrame?.baseName]?[label] ??
+    hasobjyFrameIconSlots[context.designFrame?.frameName]?[label];
 
 class PreviewScaffold extends StatelessWidget {
   const PreviewScaffold({

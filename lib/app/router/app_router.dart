@@ -11,6 +11,7 @@ import '../../features/auth/domain/google_identity.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../../features/auth/presentation/pages/google_identity_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_design_page.dart';
+import '../../features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
 import '../../features/student/presentation/pages/student_preview_page.dart';
 import '../di/app_dependencies.dart';
 import 'app_routes.dart';
@@ -59,6 +60,9 @@ class AppRouter {
                   ? identityState.error
                   : null,
               onSignOut: identityCubit.signOut,
+              onFigmaPreview: _previewsEnabled
+                  ? () => context.push(AppRoutes.designGallery)
+                  : null,
               onStudentPreview: _previewsEnabled
                   ? () => context.push(AppRoutes.studentPreview)
                   : null,
@@ -79,6 +83,13 @@ class AppRouter {
           builder: (_, state) => BlocProvider<AdminDashboardCubit>(
             create: (_) => dependencies.createAdminPreviewCubit()..load(),
             child: const AdminDashboardPage(),
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.designGallery,
+          builder: (context, state) => HasobjyFrameGalleryPage(
+            onOpenFrame: (frame) =>
+                context.push(AppRoutes.frame(frame.frameName)),
           ),
         ),
         GoRoute(
@@ -130,6 +141,7 @@ class AppRouter {
     if (!_previewsEnabled) return AppRoutes.signIn;
     final frameName = _dependencies.configuration.previewFrameName;
     return switch (frameName) {
+      'FIGMA_GALLERY' => AppRoutes.designGallery,
       'STUDENT_PREVIEW' => AppRoutes.studentPreview,
       'ADMIN_PREVIEW' => AppRoutes.adminPreview,
       _ when HasobjyFrameId.fromFrameName(frameName) != null => AppRoutes.frame(

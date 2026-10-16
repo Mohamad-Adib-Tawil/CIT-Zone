@@ -9,12 +9,14 @@ class GoogleIdentityPage extends StatelessWidget {
     required this.identity,
     required this.onSignOut,
     this.onStudentPreview,
+    this.onFigmaPreview,
     this.error,
   });
 
   final GoogleIdentity identity;
   final VoidCallback onSignOut;
   final VoidCallback? onStudentPreview;
+  final VoidCallback? onFigmaPreview;
   final String? error;
 
   @override
@@ -76,12 +78,21 @@ class GoogleIdentityPage extends StatelessWidget {
                   style: TextStyle(color: Theme.of(context).colorScheme.error),
                 ),
               ],
+              if (onFigmaPreview != null) ...[
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: onFigmaPreview,
+                  child: const Text('عرض شاشات Figma — دون خادم'),
+                ),
+              ],
               if (onStudentPreview != null) ...[
                 const SizedBox(height: 16),
                 OutlinedButton.icon(
                   onPressed: onStudentPreview,
                   icon: const Icon(Icons.phone_android_rounded),
-                  label: Text(AppLocalizations.of(context).studentPreview),
+                  label: const Text(
+                    'المعاينة الطلابية القديمة — ليست تصميم Figma',
+                  ),
                 ),
               ],
               const SizedBox(height: 12),
