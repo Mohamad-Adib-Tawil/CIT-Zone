@@ -1,3 +1,4 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/hasobjy_design_tokens.dart';
@@ -19,13 +20,13 @@ class HasobjyAcademicInfoScreen extends StatefulWidget {
 }
 
 class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
-  String _department = 'برمجيات';
+  bool _software = true;
   int _year = 2;
 
   @override
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
-      appBarTitle: 'معلوماتك الأكاديمية',
+      appBarTitle: AppLocalizations.of(context).academicInfo,
       onBack: widget.onBack,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
@@ -34,37 +35,37 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
           children: [
             const HasobjyStepper(activeBars: 3),
             const SizedBox(height: 16),
-            const _SectionLabel('القسم'),
+            _SectionLabel(AppLocalizations.of(context).department),
             const SizedBox(height: 16),
-            _AcademicOption(
-              title: 'برمجيات',
-              subtitle: 'مواد البرمجة وتطوير التطبيقات',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).departmentSoftware,
+              subtitle: AppLocalizations.of(context).softwareDescription,
               iconAsset: 'dbeae',
-              selected: _department == 'برمجيات',
-              onTap: () => setState(() => _department = 'برمجيات'),
+              selected: _software,
+              onTap: () => setState(() => _software = true),
             ),
             const SizedBox(height: 16),
-            _AcademicOption(
-              title: 'شبكات',
-              subtitle: 'مواد الشبكات والأنظمة',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).departmentNetworks,
+              subtitle: AppLocalizations.of(context).networksDescription,
               iconAsset: 'f52de',
-              selected: _department == 'شبكات',
-              onTap: () => setState(() => _department = 'شبكات'),
+              selected: !_software,
+              onTap: () => setState(() => _software = false),
             ),
             const SizedBox(height: 16),
-            const _SectionLabel('السنة الدراسية'),
+            _SectionLabel(AppLocalizations.of(context).academicYear),
             const SizedBox(height: 16),
-            _AcademicOption(
-              title: 'السنة الأولى',
-              subtitle: 'الفصل الأول والثاني',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).firstYear,
+              subtitle: AppLocalizations.of(context).firstYearTerms,
               iconAsset: '1ee59',
               selected: _year == 1,
               onTap: () => setState(() => _year = 1),
             ),
             const SizedBox(height: 16),
-            _AcademicOption(
-              title: 'السنة الثانية',
-              subtitle: 'الفصل الثالث والرابع',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).secondYear,
+              subtitle: AppLocalizations.of(context).secondYearTerms,
               iconAsset: '1ee59',
               selected: _year == 2,
               onTap: () => setState(() => _year = 2),
@@ -72,7 +73,10 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
             const SizedBox(height: 16),
             const Spacer(),
             const SizedBox(height: 16),
-            HasobjyButton(label: 'متابعة', onPressed: widget.onContinue),
+            HasobjyButton(
+              label: AppLocalizations.of(context).continueAction,
+              onPressed: widget.onContinue,
+            ),
           ],
         ),
       ),
@@ -88,78 +92,9 @@ class _SectionLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
     title,
-    textAlign: TextAlign.end,
+    textAlign: TextAlign.right,
     style: HasobjyDesignTokens.labelLarge,
   );
-}
-
-class _AcademicOption extends StatelessWidget {
-  const _AcademicOption({
-    required this.title,
-    required this.subtitle,
-    required this.iconAsset,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String title;
-  final String subtitle;
-  final String iconAsset;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: HasobjySurface(
-        height: 100,
-        selected: selected,
-        border: selected
-            ? HasobjyDesignTokens.brand
-            : HasobjyDesignTokens.border,
-        cornerTopLeft: selected ? '21288' : 'b043f',
-        cornerBottomRight: selected ? 'c95e6' : '03567',
-        cornerLine: selected ? '416c4' : '8c8a2',
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          children: [
-            HasobjySvg(selected ? '0fd39' : 'cb103', width: 22, height: 22),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.end,
-                    style: HasobjyDesignTokens.labelLarge.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subtitle,
-                    textAlign: TextAlign.end,
-                    style: HasobjyDesignTokens.bodyMedium,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 12),
-            Container(
-              width: 44,
-              height: 44,
-              color: HasobjyDesignTokens.surfaceSubtle,
-              padding: const EdgeInsets.all(10),
-              child: HasobjySvg(iconAsset, width: 24, height: 24),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
 
 class HasobjyRegistrationSummaryScreen extends StatelessWidget {
@@ -177,50 +112,65 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
-      appBarTitle: 'تأكيد التسجيل',
+      appBarTitle: AppLocalizations.of(context).confirmEnrollment,
       onBack: onBack,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'راجع بياناتك قبل الحفظ',
-              textAlign: TextAlign.end,
+            Text(
+              AppLocalizations.of(context).reviewBeforeSaving,
+              textAlign: TextAlign.right,
               style: HasobjyDesignTokens.titleBold,
             ),
             const SizedBox(height: 16),
-            const HasobjySurface(
+            HasobjySurface(
               height: 158,
               padding: EdgeInsets.all(16),
               cornerLine: '8c8a2',
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
+                spacing: 12,
                 children: [
-                  HasobjyKeyValue('الاسم الرسمي', 'أحمد محمد الحلبي'),
-                  HasobjyKeyValue('القسم', 'برمجيات'),
-                  HasobjyKeyValue('السنة الدراسية', 'السنة الثانية'),
-                  HasobjyKeyValue('الفصل الحالي', 'الفصل الثالث · 2026/2027'),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).officialName,
+                    AppLocalizations.of(context).previewStudentName,
+                  ),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).department,
+                    AppLocalizations.of(context).departmentSoftware,
+                  ),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).academicYear,
+                    AppLocalizations.of(context).secondYear,
+                  ),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).currentTerm,
+                    AppLocalizations.of(context).previewCurrentTerm,
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'سيُسجَّل حسابك على الفصل الجاري، ويمكنك طلب تعديل القسم أو السنة من الدعم لاحقاً.',
-              textAlign: TextAlign.end,
-              style: HasobjyDesignTokens.bodyMedium,
+            Text(
+              AppLocalizations.of(context).enrollmentExplanation,
+              textAlign: TextAlign.right,
+              style: HasobjyDesignTokens.bodyMedium.copyWith(
+                color: HasobjyDesignTokens.textMuted,
+              ),
             ),
             const SizedBox(height: 16),
             const Spacer(),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'تأكيد وبدء الاستخدام',
+              label: AppLocalizations.of(context).confirmAndStart,
               icon: const HasobjySvg('f17a9', width: 24, height: 24),
               onPressed: onConfirm,
             ),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'تعديل البيانات',
+              label: AppLocalizations.of(context).editDetails,
               primary: false,
               onPressed: onEdit,
             ),
@@ -250,45 +200,46 @@ class HasobjyNewTermScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Align(
-              alignment: AlignmentDirectional.centerEnd,
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: HasobjyDesignTokens.selectedSurface,
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: const Text(
-                  'فصل جديد',
-                  style: HasobjyDesignTokens.bodySmall,
-                ),
+              alignment: Alignment.centerRight,
+              child: HasobjyBadge(
+                label: AppLocalizations.of(context).newTerm,
+                background: HasobjyDesignTokens.selectedSurface,
+                foreground: HasobjyDesignTokens.brand,
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'بدأ الفصل الرابع',
-              textAlign: TextAlign.end,
+            Text(
+              AppLocalizations.of(context).previewNewTermTitle,
+              textAlign: TextAlign.right,
               style: HasobjyDesignTokens.titleBold,
             ),
             const SizedBox(height: 16),
-            const Text(
-              'هل ما زلت في القسم والسنة نفسهما؟ نحتاج تأكيدك لتفعيل مواد هذا الفصل.',
-              textAlign: TextAlign.end,
+            Text(
+              AppLocalizations.of(context).confirmAcademicDetails,
+              textAlign: TextAlign.right,
               style: HasobjyDesignTokens.bodyLarge,
             ),
             const SizedBox(height: 16),
-            const HasobjySurface(
+            HasobjySurface(
               height: 124,
               padding: EdgeInsets.all(16),
               cornerLine: '8c8a2',
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
+                spacing: 12,
                 children: [
-                  HasobjyKeyValue('القسم', 'برمجيات'),
-                  HasobjyKeyValue('السنة الدراسية', 'السنة الثانية'),
-                  HasobjyKeyValue('مدة الفصل', '1 فبراير – 15 يونيو 2027'),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).department,
+                    AppLocalizations.of(context).departmentSoftware,
+                  ),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).academicYear,
+                    AppLocalizations.of(context).secondYear,
+                  ),
+                  HasobjyKeyValue(
+                    AppLocalizations.of(context).termDuration,
+                    AppLocalizations.of(context).previewTermDates,
+                  ),
                 ],
               ),
             ),
@@ -296,13 +247,13 @@ class HasobjyNewTermScreen extends StatelessWidget {
             const Spacer(),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'نعم، تأكيد التسجيل',
+              label: AppLocalizations.of(context).confirmEnrollmentYes,
               icon: const HasobjySvg('f17a9', width: 24, height: 24),
               onPressed: onConfirm,
             ),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'تغيّرت بياناتي',
+              label: AppLocalizations.of(context).detailsChanged,
               primary: false,
               onPressed: onChangeDetails,
             ),
@@ -319,16 +270,15 @@ class HasobjyTermStatesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
-      scrollable: true,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'حالات رأس الصفحة الأكاديمي',
-              textAlign: TextAlign.end,
-              style: HasobjyDesignTokens.labelSemiBold,
+              AppLocalizations.of(context).academicHeaderStates,
+              textAlign: TextAlign.right,
+              style: HasobjyDesignTokens.headingMedium,
             ),
             SizedBox(height: 16),
             _ActiveTermCard(),
@@ -347,196 +297,182 @@ class HasobjyTermStatesScreen extends StatelessWidget {
 
 class _ActiveTermCard extends StatelessWidget {
   const _ActiveTermCard();
-
   @override
-  Widget build(BuildContext context) {
-    return HasobjySurface(
-      height: 126,
-      fill: HasobjyDesignTokens.brand,
-      border: HasobjyDesignTokens.brand,
-      cornerTopLeft: '21288',
-      cornerBottomRight: 'c95e6',
-      cornerLine: '8c8a2',
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Text(
-            'الفصل الثالث · 2026/2027',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.labelLargeOnBrand,
+  Widget build(BuildContext context) => HasobjySurface(
+    height: 108,
+    fill: HasobjyDesignTokens.brand,
+    border: null,
+    cornerTopLeft: '21288',
+    cornerBottomRight: 'c95e6',
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          AppLocalizations.of(context).previewCurrentTerm,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.labelSemiBold.copyWith(
+            color: HasobjyDesignTokens.background,
           ),
-          const SizedBox(height: 8),
-          const Text(
-            'ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.bodySmallOnBrand,
-          ),
-          const Spacer(),
-          ClipRRect(
+        ),
+        const SizedBox(height: 12),
+        Text(
+          AppLocalizations.of(context).previewTermCountdown,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.bodyMediumOnBrand,
+        ),
+        const SizedBox(height: 12),
+        Container(
+          height: 6,
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: .3),
             borderRadius: BorderRadius.circular(999),
-            child: const LinearProgressIndicator(
-              value: .6,
-              minHeight: 6,
-              backgroundColor: HasobjyDesignTokens.textMuted,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                HasobjyDesignTokens.textPrimary,
+          ),
+          alignment: Alignment.centerRight,
+          child: FractionallySizedBox(
+            widthFactor: 190 / 310,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(999),
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
 }
 
 class _BetweenTermsCard extends StatelessWidget {
   const _BetweenTermsCard();
-
   @override
-  Widget build(BuildContext context) {
-    return const HasobjySurface(
-      height: 132,
-      fill: HasobjyDesignTokens.warning,
-      border: HasobjyDesignTokens.warning,
-      cornerTopLeft: '21288',
-      cornerBottomRight: 'c95e6',
-      cornerLine: '8c8a2',
-      padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'لا يوجد فصل جارٍ حالياً',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.labelLarge,
+  Widget build(BuildContext context) => HasobjySurface(
+    height: 108,
+    fill: HasobjyDesignTokens.warning,
+    border: null,
+    cornerTopLeft: '21288',
+    cornerBottomRight: 'c95e6',
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          AppLocalizations.of(context).noCurrentTerm,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.labelSemiBold.copyWith(
+            color: HasobjyDesignTokens.warningText,
           ),
-          SizedBox(height: 4),
-          Text(
-            'سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.bodySmall,
+        ),
+        const SizedBox(height: 8),
+        Text(
+          AppLocalizations.of(context).previewNextTermExplanation,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.bodyMedium.copyWith(
+            color: HasobjyDesignTokens.warningText,
           ),
-        ],
-      ),
-    );
-  }
+        ),
+      ],
+    ),
+  );
 }
 
 class _ClosedTermCard extends StatelessWidget {
   const _ClosedTermCard();
-
   @override
-  Widget build(BuildContext context) {
-    return const HasobjySurface(
-      height: 114,
-      fill: HasobjyDesignTokens.surfaceSubtle,
-      border: HasobjyDesignTokens.surfaceSubtle,
-      cornerTopLeft: '21288',
-      cornerBottomRight: 'c95e6',
-      cornerLine: '8c8a2',
-      padding: EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'انتهى الفصل الثالث',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.labelLarge,
-          ),
-          SizedBox(height: 4),
-          Text(
-            'أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.bodySmall,
-          ),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => HasobjySurface(
+    height: 108,
+    fill: HasobjyDesignTokens.surfaceSubtle,
+    border: null,
+    cornerTopLeft: '21288',
+    cornerBottomRight: 'c95e6',
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          AppLocalizations.of(context).previewClosedTermTitle,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.labelSemiBold,
+        ),
+        SizedBox(height: 8),
+        Text(
+          AppLocalizations.of(context).closedTermExplanation,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.bodyMedium,
+        ),
+      ],
+    ),
+  );
 }
 
 class _EnrollmentPostponedCard extends StatelessWidget {
   const _EnrollmentPostponedCard();
-
   @override
-  Widget build(BuildContext context) {
-    return HasobjySurface(
-      height: 124,
-      cornerLine: '8c8a2',
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Align(
-            alignment: AlignmentDirectional.centerEnd,
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              decoration: BoxDecoration(
-                color: HasobjyDesignTokens.surfaceSubtle,
-                borderRadius: BorderRadius.circular(999),
-              ),
-              child: const Text('مؤجَّل', style: HasobjyDesignTokens.bodySmall),
-            ),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'تسجيلك مؤجَّل',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.labelLarge,
-          ),
-          const SizedBox(height: 4),
-          const Text(
-            'تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.',
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.bodySmall,
-          ),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => HasobjySurface(
+    height: 120,
+    cornerTopLeft: '21288',
+    cornerBottomRight: 'c95e6',
+    cornerLine: '8c8a2',
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: HasobjyBadge(label: AppLocalizations.of(context).postponed),
+        ),
+        SizedBox(height: 8),
+        Text(
+          AppLocalizations.of(context).enrollmentPostponed,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.labelSemiBold,
+        ),
+        SizedBox(height: 8),
+        Text(
+          AppLocalizations.of(context).reactivateEnrollment,
+          textAlign: TextAlign.right,
+          style: HasobjyDesignTokens.bodyMedium,
+        ),
+      ],
+    ),
+  );
 }
 
-class HasobjyExamScheduleScreen extends StatefulWidget {
-  const HasobjyExamScheduleScreen({super.key, this.onBack});
+class HasobjyExamScheduleScreen extends StatelessWidget {
+  const HasobjyExamScheduleScreen({
+    super.key,
+    this.onBack,
+    required this.onUnsupportedSupplementary,
+  });
 
   final VoidCallback? onBack;
-
-  @override
-  State<HasobjyExamScheduleScreen> createState() =>
-      _HasobjyExamScheduleScreenState();
-}
-
-class _HasobjyExamScheduleScreenState extends State<HasobjyExamScheduleScreen> {
-  bool _supplementary = false;
+  final VoidCallback onUnsupportedSupplementary;
 
   @override
   Widget build(BuildContext context) {
-    final exams = _supplementary ? _supplementaryExams : _regularExams;
+    final exams = _regularExams(AppLocalizations.of(context));
     return HasobjyFigmaFrame(
-      appBarTitle: 'جدول الامتحانات',
-      onBack: widget.onBack,
-      scrollable: true,
+      appBarTitle: AppLocalizations.of(context).examSchedule,
+      onBack: onBack,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           children: [
             Row(
+              textDirection: TextDirection.ltr,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Expanded(
-                  child: _ExamFilter(
-                    title: 'الدورة التكميلية',
-                    selected: _supplementary,
-                    onTap: () => setState(() => _supplementary = true),
-                  ),
+                _ExamFilter(
+                  title: AppLocalizations.of(context).supplementaryExams,
+                  selected: false,
+                  onTap: onUnsupportedSupplementary,
                 ),
                 const SizedBox(width: 8),
-                Expanded(
-                  child: _ExamFilter(
-                    title: 'الدورة العادية',
-                    selected: !_supplementary,
-                    onTap: () => setState(() => _supplementary = false),
-                  ),
+                _ExamFilter(
+                  title: AppLocalizations.of(context).regularExams,
+                  selected: true,
+                  onTap: null,
                 ),
               ],
             ),
@@ -561,25 +497,24 @@ class _ExamFilter extends StatelessWidget {
 
   final String title;
   final bool selected;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return HasobjyBadge(
+      label: title,
+      background: selected
+          ? HasobjyDesignTokens.selectedSurface
+          : HasobjyDesignTokens.surfaceSubtle,
+      foreground: selected
+          ? HasobjyDesignTokens.brand
+          : HasobjyDesignTokens.textSecondary,
       onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        decoration: BoxDecoration(
-          color: selected
-              ? HasobjyDesignTokens.selectedSurface
-              : HasobjyDesignTokens.surfaceSubtle,
-          borderRadius: BorderRadius.circular(999),
-        ),
-        child: Text(title, style: HasobjyDesignTokens.bodySmall),
-      ),
     );
   }
 }
+
+enum _ExamKind { theoretical, practical }
 
 class _ExamData {
   const _ExamData({
@@ -588,68 +523,43 @@ class _ExamData {
     required this.date,
   });
 
-  final String kind;
+  final _ExamKind kind;
   final String subject;
   final String date;
 }
 
-const _regularExams = [
+List<_ExamData> _regularExams(AppLocalizations strings) => [
   _ExamData(
-    kind: 'نظري',
-    subject: 'البرمجة الكائنية',
-    date: 'الأحد 7 يونيو · 09:00 · القاعة 3',
+    kind: _ExamKind.theoretical,
+    subject: strings.previewOopSubject,
+    date: strings.previewOopExamDate,
   ),
   _ExamData(
-    kind: 'عملي',
-    subject: 'قواعد البيانات',
-    date: 'الثلاثاء 9 يونيو · 11:00 · المخبر 1',
+    kind: _ExamKind.practical,
+    subject: strings.previewDatabaseSubject,
+    date: strings.previewDatabaseExamDate,
   ),
   _ExamData(
-    kind: 'نظري',
-    subject: 'هندسة البرمجيات',
-    date: 'الخميس 11 يونيو · 09:00 · القاعة 2',
+    kind: _ExamKind.theoretical,
+    subject: strings.previewEngineeringSubject,
+    date: strings.previewEngineeringExamDate,
   ),
   _ExamData(
-    kind: 'عملي',
-    subject: 'تطوير الويب',
-    date: 'الأحد 14 يونيو · 10:00 · المخبر 2',
-  ),
-];
-
-const _supplementaryExams = [
-  _ExamData(
-    kind: 'نظري',
-    subject: 'البرمجة الكائنية',
-    date: 'الأحد 21 يونيو · 09:00 · القاعة 3',
-  ),
-  _ExamData(
-    kind: 'عملي',
-    subject: 'قواعد البيانات',
-    date: 'الثلاثاء 23 يونيو · 11:00 · المخبر 1',
-  ),
-  _ExamData(
-    kind: 'نظري',
-    subject: 'هندسة البرمجيات',
-    date: 'الخميس 25 يونيو · 09:00 · القاعة 2',
-  ),
-  _ExamData(
-    kind: 'عملي',
-    subject: 'تطوير الويب',
-    date: 'الأحد 28 يونيو · 10:00 · المخبر 2',
+    kind: _ExamKind.practical,
+    subject: strings.previewWebSubject,
+    date: strings.previewWebExamDate,
   ),
 ];
 
 class _ExamCard extends StatelessWidget {
   const _ExamCard({required this.exam});
-
   final _ExamData exam;
-
   @override
   Widget build(BuildContext context) {
-    final practical = exam.kind == 'عملي';
+    final practical = exam.kind == _ExamKind.practical;
     return HasobjySurface(
+      height: 88,
       cornerLine: '8c8a2',
-      padding: const EdgeInsets.all(16),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -658,32 +568,24 @@ class _ExamCard extends StatelessWidget {
             textDirection: TextDirection.ltr,
             child: Row(
               children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: practical
-                        ? HasobjyDesignTokens.success
-                        : HasobjyDesignTokens.selectedSurface,
-                    borderRadius: BorderRadius.circular(999),
-                  ),
-                  child: Text(
-                    exam.kind,
-                    style: HasobjyDesignTokens.bodySmall.copyWith(
-                      color: practical
-                          ? HasobjyDesignTokens.textPrimary
-                          : HasobjyDesignTokens.brand,
-                    ),
-                  ),
+                HasobjyBadge(
+                  label: practical
+                      ? AppLocalizations.of(context).practicalExam
+                      : AppLocalizations.of(context).theoreticalExam,
+                  background: practical
+                      ? HasobjyDesignTokens.success
+                      : HasobjyDesignTokens.selectedSurface,
+                  foreground: practical
+                      ? HasobjyDesignTokens.successText
+                      : HasobjyDesignTokens.brand,
                 ),
-                const Spacer(),
-                Flexible(
+                const SizedBox(width: 8),
+                Expanded(
                   child: Text(
                     exam.subject,
-                    textAlign: TextAlign.end,
-                    style: HasobjyDesignTokens.labelLarge,
+                    textDirection: TextDirection.rtl,
+                    textAlign: TextAlign.right,
+                    style: HasobjyDesignTokens.labelSemiBold,
                   ),
                 ),
               ],
@@ -692,8 +594,8 @@ class _ExamCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             exam.date,
-            textAlign: TextAlign.end,
-            style: HasobjyDesignTokens.bodySmall,
+            textAlign: TextAlign.right,
+            style: HasobjyDesignTokens.bodyMedium,
           ),
         ],
       ),

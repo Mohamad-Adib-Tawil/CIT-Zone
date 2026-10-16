@@ -1,0 +1,131 @@
+erDiagram
+  admin_accounts {
+    uuid id PK
+    varchar full_name
+    citext email
+    text password_hash
+    text mfa_secret
+    admin_role role
+    boolean is_active
+    timestamptz last_login_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  auth_sessions {
+    uuid id PK
+    uuid device_id
+    varchar refresh_token_hash
+    timestamptz issued_at
+    timestamptz expires_at
+    timestamptz last_used_at
+    timestamptz revoked_at
+    varchar revoked_reason
+    inet ip
+    text user_agent
+  }
+  device_change_requests {
+    uuid id PK
+    uuid new_device_id
+    uuid old_device_id
+    uuid conversation_id
+    text reason
+    request_status status
+    timestamptz requested_at
+    uuid decided_by_admin_id
+    timestamptz decided_at
+    text decision_note
+  }
+  devices {
+    uuid id PK
+    uuid user_id
+    varchar device_fingerprint
+    platform platform
+    varchar manufacturer
+    varchar model
+    varchar os_version
+    varchar app_version
+    text push_token
+    device_status status
+    timestamptz bound_at
+    uuid authorized_by_admin_id
+    timestamptz revoked_at
+    varchar revoke_reason
+    timestamptz last_seen_at
+    inet last_ip
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  oauth_identities {
+    uuid id PK
+    uuid user_id
+    oauth_provider provider
+    varchar provider_subject
+    timestamptz linked_at
+    timestamptz last_login_at
+  }
+  security_events {
+    uuid id PK
+    uuid user_id
+    uuid device_id
+    security_event_kind kind
+    severity severity
+    jsonb details
+    inet ip
+    timestamptz occurred_at
+    uuid reviewed_by_admin_id
+    timestamptz reviewed_at
+  }
+  student_profiles {
+    uuid user_id PK
+    varchar official_full_name
+    varchar father_name
+    varchar university_student_id
+    varchar phone
+    gender gender
+    date birth_date
+    varchar city
+    uuid entry_academic_year_id
+    timestamptz onboarding_completed_at
+    timestamptz created_at
+    timestamptz updated_at
+    boolean legacy_transcript_eligible
+  }
+  user_preferences {
+    uuid user_id PK
+    numeric playback_speed
+    boolean auto_play_next
+    varchar preferred_quality
+    boolean wifi_only_downloads
+    boolean push_enabled
+    boolean exam_reminders_enabled
+    varchar theme
+    varchar language
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  users {
+    uuid id PK
+    citext email
+    varchar display_name
+    text avatar_url
+    user_status status
+    varchar locale
+    timestamptz last_login_at
+    timestamptz terms_accepted_at
+    varchar terms_version
+    timestamptz deleted_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  users ||--o{ oauth_identities : "user_id"
+  users ||--o| student_profiles : "user_id"
+  users ||--o| user_preferences : "user_id"
+  users ||--o{ devices : "user_id"
+  admin_accounts |o--o{ devices : "authorized_by_admin_id"
+  devices ||--o{ device_change_requests : "new_device_id"
+  devices |o--o{ device_change_requests : "old_device_id"
+  admin_accounts |o--o{ device_change_requests : "decided_by_admin_id"
+  devices ||--o{ auth_sessions : "device_id"
+  users |o--o{ security_events : "user_id"
+  devices |o--o{ security_events : "device_id"
+  admin_accounts |o--o{ security_events : "reviewed_by_admin_id"

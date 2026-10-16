@@ -1,3 +1,4 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../auth/domain/google_identity.dart';
@@ -12,7 +13,7 @@ class HasobjyWelcomeScreen extends StatelessWidget {
     this.error,
   });
 
-  final VoidCallback onGoogleSignIn;
+  final VoidCallback? onGoogleSignIn;
   final bool working;
   final String? error;
 
@@ -25,38 +26,47 @@ class HasobjyWelcomeScreen extends StatelessWidget {
           children: [
             const Spacer(),
             const SizedBox(height: 16),
-            const HasobjySvg('902ed', width: 104, height: 104),
-            const SizedBox(height: 16),
             const SizedBox(
-              height: 80,
+              width: 104,
+              height: 104,
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: HasobjySvg('902ed', width: 96, height: 96),
+              ),
+            ),
+            const SizedBox(height: 16),
+            ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 80),
               child: Center(
                 child: Text(
-                  'مرحباً بك في حاسوبجي سيستم',
+                  AppLocalizations.of(context).designWelcomeTitle,
                   textAlign: TextAlign.center,
                   style: HasobjyDesignTokens.display,
                 ),
               ),
             ),
             const SizedBox(height: 16),
-            const SizedBox(
-              height: 78,
+            ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 78),
               child: Text(
-                'دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم',
+                AppLocalizations.of(context).designWelcomeDescription,
                 textAlign: TextAlign.center,
                 style: HasobjyDesignTokens.bodyLarge,
               ),
             ),
+            const SizedBox(height: 16),
             const Spacer(),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'المتابعة عبر Google',
+              label: AppLocalizations.of(context).continueViaGoogle,
+              primary: false,
               onPressed: working ? null : onGoogleSignIn,
               icon: const HasobjySvg('96346', width: 24, height: 24),
               cornerLine: '84987',
             ),
             const SizedBox(height: 16),
-            const Text(
-              'بالمتابعة فأنت توافق على الشروط والأحكام وسياسة الخصوصية',
+            Text(
+              AppLocalizations.of(context).termsConsent,
               textAlign: TextAlign.center,
               style: HasobjyDesignTokens.bodySmall,
             ),
@@ -102,30 +112,30 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
-              'كيف ستستخدم التطبيق؟',
-              textAlign: TextAlign.end,
+            Text(
+              AppLocalizations.of(context).usageQuestion,
+              textAlign: TextAlign.right,
               style: HasobjyDesignTokens.title,
             ),
             const SizedBox(height: 16),
-            const Text(
-              'اختر ما يناسبك، ويمكنك تغيير ذلك لاحقاً من الإعدادات',
-              textAlign: TextAlign.end,
+            Text(
+              AppLocalizations.of(context).usageExplanation,
+              textAlign: TextAlign.right,
               style: HasobjyDesignTokens.bodyMedium,
             ),
             const SizedBox(height: 16),
-            _UsageOption(
-              title: 'طالب في المعهد',
-              subtitle: 'مواد قسمي وسنتي الدراسية، مع الكورسات الإضافية',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).instituteStudent,
+              subtitle: AppLocalizations.of(context)
+                  .instituteStudentDescription,
               iconAsset: '4d691',
               selected: _institute,
               onTap: () => setState(() => _institute = true),
             ),
             const SizedBox(height: 16),
-            _UsageOption(
-              title: 'الكورسات فقط',
-              subtitle:
-                  'أريد التسجيل في الكورسات البرمجية دون ربط حسابي بالمعهد',
+            HasobjySelectionOption(
+              title: AppLocalizations.of(context).coursesOnly,
+              subtitle: AppLocalizations.of(context).coursesOnlyDescription,
               iconAsset: 'dbeae',
               selected: !_institute,
               onTap: () => setState(() => _institute = false),
@@ -134,79 +144,10 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
             const Spacer(),
             const SizedBox(height: 16),
             HasobjyButton(
-              label: 'متابعة',
+              label: AppLocalizations.of(context).continueAction,
               onPressed: _institute
                   ? widget.onContinue
                   : widget.onUnsupportedCoursesOnly,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _UsageOption extends StatelessWidget {
-  const _UsageOption({
-    required this.title,
-    required this.subtitle,
-    required this.iconAsset,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final String title;
-  final String subtitle;
-  final String iconAsset;
-  final bool selected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: HasobjySurface(
-        height: 130,
-        selected: selected,
-        border: selected
-            ? HasobjyDesignTokens.brand
-            : HasobjyDesignTokens.border,
-        cornerTopLeft: selected ? '21288' : 'b043f',
-        cornerBottomRight: selected ? 'c95e6' : '03567',
-        cornerLine: selected ? '416c4' : '8c8a2',
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: Row(
-          children: [
-            HasobjySvg(selected ? '0fd39' : 'cb103', width: 22, height: 22),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    title,
-                    textAlign: TextAlign.end,
-                    style: HasobjyDesignTokens.labelLarge.copyWith(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subtitle,
-                    textAlign: TextAlign.end,
-                    style: HasobjyDesignTokens.bodyMedium,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: 12),
-            Container(
-              width: 44,
-              height: 44,
-              color: HasobjyDesignTokens.surfaceSubtle,
-              padding: const EdgeInsets.all(10),
-              child: HasobjySvg(iconAsset, width: 24, height: 24),
             ),
           ],
         ),
@@ -245,7 +186,7 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
-      appBarTitle: 'معلوماتك الأساسية',
+      appBarTitle: AppLocalizations.of(context).basicInfo,
       onBack: widget.onBack,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
@@ -255,35 +196,39 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
             const HasobjyStepper(activeBars: 2),
             const SizedBox(height: 16),
             HasobjyFormField(
-              label: 'الاسم الرسمي',
-              hint: 'الاسم الثلاثي كما في الهوية',
+              label: AppLocalizations.of(context).officialName,
+              hint: AppLocalizations.of(context).officialNameHint,
               iconAsset: '0699d',
-              helper: 'يظهر في كشف علاماتك وشهاداتك',
+              helper: AppLocalizations.of(context).officialNameHelper,
               controller: _nameController,
             ),
             const SizedBox(height: 16),
             HasobjyFormField(
-              label: 'رقم الهاتف',
+              label: AppLocalizations.of(context).phoneNumber,
               hint: '09xx xxx xxx',
               iconAsset: 'bf992',
-              helper: 'للتواصل عند الحاجة فقط',
+              mirrorIcon: true,
+              helper: AppLocalizations.of(context).phoneHelper,
               controller: _phoneController,
               keyboardType: TextInputType.phone,
               textDirection: TextDirection.ltr,
             ),
             const SizedBox(height: 16),
             HasobjyFormField(
-              label: 'البريد الإلكتروني',
+              label: AppLocalizations.of(context).emailAddress,
               hint: widget.identity?.email ?? 'name@gmail.com',
               iconAsset: '90d15',
-              helper: 'مأخوذ من حساب Google ولا يمكن تعديله',
+              helper: AppLocalizations.of(context).googleEmailHelper,
               enabled: false,
               textDirection: TextDirection.ltr,
             ),
             const SizedBox(height: 16),
             const Spacer(),
             const SizedBox(height: 16),
-            HasobjyButton(label: 'متابعة', onPressed: widget.onContinue),
+            HasobjyButton(
+              label: AppLocalizations.of(context).continueAction,
+              onPressed: widget.onContinue,
+            ),
           ],
         ),
       ),

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-16T07:21:37.020588+00:00",
+  "classification": "diagnostic_only",
+  "acceptance_proven": false,
+  "limitations": [
+    "Activity TotalTime is not Flutter time-to-interactive.",
+    "Entry-screen PSS is not catalog/player/PDF memory.",
+    "No frame timings, iOS footprint, thermal trend or DRM proof.",
+    "Build mode is declared and checked for obvious conflicts, not attested."
+  ],
+  "device": {
+    "serial_sha256": "04ab3fc382bfb33ea4fbc120f5172ecfc4aed71652e00977064492ca0f65a017",
+    "model": "sdk_gphone64_arm64",
+    "android_release": "16",
+    "api": "36",
+    "abi": "arm64-v8a",
+    "emulator": true,
+    "ram_total_kib": 4014920,
+    "display": "Physical size: 1080x2424",
+    "low_power_setting": "0"
+  },
+  "build": {
+    "package": "com.devmind.cit.learn",
+    "mode_declared": "debug",
+    "apk_sha256": "9df26f64e48fba1b89c3c7d6e246a12c26fe89343d72dd561d76fdb592e30e44",
+    "apk_bytes": 112068579,
+    "debuggable": true,
+    "git_head": "e1bb91075418eb78056361ee6bf59a300e8fbf97",
+    "working_tree_dirty": true,
+    "lock_sha256": "3c64a0b1b5e91d0653d669fd25b6baadf7c3fec595d0885027d4de8ee1560567",
+    "fvmrc_sha256": "737e433349b97a1961b900c15b921d20b34e3896ef76192abbf8788901a5ed81"
+  },
+  "scenario": {
+    "activity": "com.devmind.cit.learn/.MainActivity",
+    "settle_seconds": 3,
+    "requested_runs": 3,
+    "network": "Emulator default network, uncontrolled; no API endpoint configured"
+  },
+  "samples": [
+    {
+      "run": 1,
+      "activity_total_ms": 5892,
+      "activity_wait_ms": 5909,
+      "entry_pss_kib": 336087
+    },
+    {
+      "run": 2,
+      "activity_total_ms": 5664,
+      "activity_wait_ms": 5669,
+      "entry_pss_kib": 336681
+    },
+    {
+      "run": 3,
+      "activity_total_ms": 6577,
+      "activity_wait_ms": 6591,
+      "entry_pss_kib": 338312
+    }
+  ],
+  "completed": true,
+  "summary": {
+    "activity_total_ms": {
+      "count": 3,
+      "median": 5892,
+      "p95_nearest_rank": 6577
+    },
+    "activity_wait_ms": {
+      "count": 3,
+      "median": 5909,
+      "p95_nearest_rank": 6591
+    },
+    "entry_pss_kib": {
+      "count": 3,
+      "median": 336681,
+      "p95_nearest_rank": 338312
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "@@locale": "ar",
+  "appTitle": "Hasobjy | حاسوبجي",
+  "@appTitle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleUnavailable": "تسجيل Google غير مُهيأ لهذا الجهاز. راجع إعدادات OAuth.",
+  "@googleUnavailable": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleMissingToken": "لم يصل إثبات الهوية المطلوب من Google. حاول مجدداً.",
+  "@googleMissingToken": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleUnexpected": "تعذر إكمال تسجيل Google. حاول مجدداً.",
+  "@googleUnexpected": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleSignOutFailed": "تعذر تسجيل الخروج من Google. حاول مجدداً.",
+  "@googleSignOutFailed": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "welcomeHeadline": "تعلم مواد المعهد\nفي مكان واحد",
+  "@welcomeHeadline": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "welcomeDescription": "مواد مرتبة حسب قسمك وسنتك وفصلك، ودروس يمكنك العودة إليها بسهولة.",
+  "@welcomeDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "featureCurriculum": "منهج واضح لكل قسم وسنة",
+  "@featureCurriculum": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "featureIntroLesson": "درس تعريفي لكل مادة",
+  "@featureIntroLesson": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "featureProtectedDownload": "تنزيل محمي بعد تفعيل الخدمة",
+  "@featureProtectedDownload": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "continueUsingGoogle": "المتابعة باستخدام Google",
+  "@continueUsingGoogle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleSetupRequired": "يتطلب تسجيل Google إعداد معرّفات OAuth لهذا التطبيق.",
+  "@googleSetupRequired": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "studentPreview": "معاينة واجهة الطالب",
+  "@studentPreview": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "adminPreview": "معاينة لوحة الإدارة",
+  "@adminPreview": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "identityBoundary": "هوية Google وحدها لا تمنح حساباً أو اشتراكاً داخل Hasobjy حتى يتحقق خادم التطبيق منها.",
+  "@identityBoundary": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleAccount": "حساب Google",
+  "@googleAccount": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleIdentity": "هوية Google",
+  "@googleIdentity": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "identityPendingTitle": "بانتظار ربط حساب التطبيق",
+  "@identityPendingTitle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "identityPendingDescription": "تم اختيار حساب Google على هذا الجهاز. لم يتحقق خادم Hasobjy من الهوية بعد، لذلك لا توجد جلسة تطبيق أو صلاحية طالب أو إدارة أو اشتراكات.",
+  "@identityPendingDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleSignOut": "الخروج من Google",
+  "@googleSignOut": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "departmentSoftware": "برمجيات",
+  "@departmentSoftware": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "academicInfo": "معلوماتك الأكاديمية",
+  "@academicInfo": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "department": "القسم",
+  "@department": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "softwareDescription": "مواد البرمجة وتطوير التطبيقات",
+  "@softwareDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "departmentNetworks": "شبكات",
+  "@departmentNetworks": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "networksDescription": "مواد الشبكات والأنظمة",
+  "@networksDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "academicYear": "السنة الدراسية",
+  "@academicYear": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "firstYear": "السنة الأولى",
+  "@firstYear": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "firstYearTerms": "الفصل الأول والثاني",
+  "@firstYearTerms": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "secondYear": "السنة الثانية",
+  "@secondYear": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "secondYearTerms": "الفصل الثالث والرابع",
+  "@secondYearTerms": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "continueAction": "متابعة",
+  "@continueAction": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "confirmEnrollment": "تأكيد التسجيل",
+  "@confirmEnrollment": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "reviewBeforeSaving": "راجع بياناتك قبل الحفظ",
+  "@reviewBeforeSaving": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "officialName": "الاسم الرسمي",
+  "@officialName": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewStudentName": "أحمد محمد الحلبي",
+  "@previewStudentName": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "currentTerm": "الفصل الحالي",
+  "@currentTerm": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewCurrentTerm": "الفصل الثالث · 2026/2027",
+  "@previewCurrentTerm": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "enrollmentExplanation": "سيُسجَّل حسابك على الفصل الجاري، ويمكنك طلب تعديل القسم أو السنة من الدعم لاحقاً.",
+  "@enrollmentExplanation": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "confirmAndStart": "تأكيد وبدء الاستخدام",
+  "@confirmAndStart": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "editDetails": "تعديل البيانات",
+  "@editDetails": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "newTerm": "فصل جديد",
+  "@newTerm": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewNewTermTitle": "بدأ الفصل الرابع",
+  "@previewNewTermTitle": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "confirmAcademicDetails": "هل ما زلت في القسم والسنة نفسهما؟ نحتاج تأكيدك لتفعيل مواد هذا الفصل.",
+  "@confirmAcademicDetails": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "termDuration": "مدة الفصل",
+  "@termDuration": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewTermDates": "1 فبراير – 15 يونيو 2027",
+  "@previewTermDates": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "confirmEnrollmentYes": "نعم، تأكيد التسجيل",
+  "@confirmEnrollmentYes": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "detailsChanged": "تغيّرت بياناتي",
+  "@detailsChanged": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "academicHeaderStates": "حالات رأس الصفحة الأكاديمي",
+  "@academicHeaderStates": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewTermCountdown": "ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو",
+  "@previewTermCountdown": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "noCurrentTerm": "لا يوجد فصل جارٍ حالياً",
+  "@noCurrentTerm": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewNextTermExplanation": "سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.",
+  "@previewNextTermExplanation": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewClosedTermTitle": "انتهى الفصل الثالث",
+  "@previewClosedTermTitle": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "closedTermExplanation": "أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.",
+  "@closedTermExplanation": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "postponed": "مؤجَّل",
+  "@postponed": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "enrollmentPostponed": "تسجيلك مؤجَّل",
+  "@enrollmentPostponed": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "reactivateEnrollment": "تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.",
+  "@reactivateEnrollment": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "examSchedule": "جدول الامتحانات",
+  "@examSchedule": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "supplementaryExams": "الدورة التكميلية",
+  "@supplementaryExams": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "regularExams": "الدورة العادية",
+  "@regularExams": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "theoreticalExam": "نظري",
+  "@theoreticalExam": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewOopSubject": "البرمجة الكائنية",
+  "@previewOopSubject": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewOopExamDate": "الأحد 7 يونيو · 09:00 · القاعة 3",
+  "@previewOopExamDate": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "practicalExam": "عملي",
+  "@practicalExam": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewDatabaseSubject": "قواعد البيانات",
+  "@previewDatabaseSubject": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewDatabaseExamDate": "الثلاثاء 9 يونيو · 11:00 · المخبر 1",
+  "@previewDatabaseExamDate": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewEngineeringSubject": "هندسة البرمجيات",
+  "@previewEngineeringSubject": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewEngineeringExamDate": "الخميس 11 يونيو · 09:00 · القاعة 2",
+  "@previewEngineeringExamDate": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewWebSubject": "تطوير الويب",
+  "@previewWebSubject": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "previewWebExamDate": "الأحد 14 يونيو · 10:00 · المخبر 2",
+  "@previewWebExamDate": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "deviceConflictTitle": "هذا الحساب مرتبط بجهاز آخر",
+  "@deviceConflictTitle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "deviceConflictDescription": "يمكن استخدام الحساب على جهاز واحد فقط. لتغيير الجهاز أرسل طلباً للإدارة وسنراجعه في أقرب وقت.",
+  "@deviceConflictDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "requestDeviceTransfer": "طلب تغيير الجهاز",
+  "@requestDeviceTransfer": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "signOut": "تسجيل الخروج",
+  "@signOut": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "newDevice": "الجهاز الجديد",
+  "@newDevice": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "transferReason": "سبب التغيير",
+  "@transferReason": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "transferReasonHint": "مثال: تغيّر هاتفي أو فُقد الجهاز القديم",
+  "@transferReasonHint": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "transferReviewHelper": "سيصل طلبك إلى الإدارة للمراجعة",
+  "@transferReviewHelper": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "submitRequest": "إرسال الطلب",
+  "@submitRequest": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "requestStatus": "حالة الطلب",
+  "@requestStatus": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "underReview": "قيد المراجعة",
+  "@underReview": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "requestUnderReview": "طلبك قيد المراجعة",
+  "@requestUnderReview": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "previewRequestSent": "أُرسل الطلب اليوم 12:50. سيصلك إشعار فور اتخاذ القرار.",
+  "@previewRequestSent": {
+    "description": "Design preview fixture only; not server data or policy."
+  },
+  "requestedDevice": "الجهاز المطلوب",
+  "@requestedDevice": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "contactSupport": "التواصل مع الدعم",
+  "@contactSupport": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "designWelcomeTitle": "مرحباً بك في حاسوبجي سيستم",
+  "@designWelcomeTitle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "designWelcomeDescription": "دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم",
+  "@designWelcomeDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "continueViaGoogle": "المتابعة عبر Google",
+  "@continueViaGoogle": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "termsConsent": "بالمتابعة فأنت توافق على الشروط والأحكام وسياسة الخصوصية",
+  "@termsConsent": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "usageQuestion": "كيف ستستخدم التطبيق؟",
+  "@usageQuestion": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "usageExplanation": "اختر ما يناسبك، ويمكنك تغيير ذلك لاحقاً من الإعدادات",
+  "@usageExplanation": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "instituteStudent": "طالب في المعهد",
+  "@instituteStudent": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "instituteStudentDescription": "مواد قسمي وسنتي الدراسية، مع الكورسات الإضافية",
+  "@instituteStudentDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "coursesOnly": "الكورسات فقط",
+  "@coursesOnly": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "coursesOnlyDescription": "أريد التسجيل في الكورسات البرمجية دون ربط حسابي بالمعهد",
+  "@coursesOnlyDescription": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "basicInfo": "معلوماتك الأساسية",
+  "@basicInfo": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "officialNameHint": "الاسم الثلاثي كما في الهوية",
+  "@officialNameHint": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "officialNameHelper": "يظهر في كشف علاماتك وشهاداتك",
+  "@officialNameHelper": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "phoneNumber": "رقم الهاتف",
+  "@phoneNumber": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "phoneHelper": "للتواصل عند الحاجة فقط",
+  "@phoneHelper": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "emailAddress": "البريد الإلكتروني",
+  "@emailAddress": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "googleEmailHelper": "مأخوذ من حساب Google ولا يمكن تعديله",
+  "@googleEmailHelper": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "designPreviewNotice": "هذه معاينة تصميم؛ لا يتصل التطبيق بخادم أو يحفظ طلباً.",
+  "@designPreviewNotice": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "backAction": "رجوع",
+  "@backAction": {
+    "description": "Existing Arabic copy, preserved during foundation extraction."
+  }
+}

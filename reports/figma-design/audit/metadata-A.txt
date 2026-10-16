@@ -1,0 +1,102 @@
+<canvas id="1:4" name="A · Student — Auth &amp; Device" x="0" y="0" width="0" height="0">
+  <frame id="9:2" name="A-S01 · تسجيل الدخول" x="0" y="0" width="390" height="844">
+    <instance id="18:110" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="9:5" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="9:6" name="Spacer" x="24" y="16" width="342" height="166" />
+      <instance id="28:405" name="Logo" x="143" y="198" width="104" height="104" />
+      <text id="9:9" name="Title" x="24" y="318" width="342" height="80" />
+      <text id="9:10" name="Subtitle" x="24" y="414" width="342" height="78" />
+      <frame id="9:11" name="Spacer" x="24" y="508" width="342" height="166" />
+      <instance id="9:12" name="Button" x="24" y="690" width="342" height="52" />
+      <text id="9:14" name="Terms" x="24" y="758" width="342" height="18" />
+    </frame>
+  </frame>
+  <frame id="9:15" name="A-S03 · اختيار نوع الاستخدام" x="470" y="0" width="390" height="844">
+    <instance id="18:126" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="9:18" name="Content" x="0" y="44" width="390" height="800">
+      <text id="9:19" name="Title" x="24" y="16" width="342" height="32" />
+      <text id="9:20" name="Subtitle" x="24" y="64" width="342" height="22" />
+      <instance id="9:21" name="Option: Institute" x="24" y="102" width="342" height="100" />
+      <instance id="9:26" name="Option: Courses only" x="24" y="218" width="342" height="100" />
+      <frame id="9:31" name="Spacer" x="24" y="334" width="342" height="374" />
+      <instance id="9:32" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="9:34" name="A-S04 · المعلومات الأساسية" x="940" y="0" width="390" height="844">
+    <instance id="18:142" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:37" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:42" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="9:43" name="Stepper" x="24" y="16" width="342" height="6" />
+      <instance id="9:47" name="Input: Full name" x="24" y="38" width="342" height="98" />
+      <instance id="9:52" name="Input: Phone" x="24" y="152" width="342" height="98" />
+      <instance id="9:57" name="Input: Email" x="24" y="266" width="342" height="98" />
+      <frame id="9:62" name="Spacer" x="24" y="380" width="342" height="272" />
+      <instance id="9:63" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="9:65" name="A-S05 · الجهاز غير مصرّح" x="1410" y="0" width="390" height="844">
+    <instance id="18:158" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="9:68" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="9:69" name="Spacer" x="24" y="16" width="342" height="182" />
+      <frame id="9:70" name="Icon circle" x="139" y="214" width="112" height="112">
+        <frame id="9:71" name="Frame" x="28" y="28" width="56" height="56" />
+        <vector id="34:263" name="Chamfer TL" x="0" y="0" width="14" height="14" />
+        <vector id="34:264" name="Chamfer BR" x="98" y="98" width="14" height="14" />
+      </frame>
+      <text id="9:74" name="Title" x="24" y="342" width="342" height="32" />
+      <text id="9:75" name="Body" x="24" y="390" width="342" height="52" />
+      <frame id="9:76" name="Spacer" x="24" y="458" width="342" height="182" />
+      <instance id="9:77" name="Button" x="24" y="656" width="342" height="52" />
+      <instance id="9:79" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="9:81" name="A-S06 · طلب تغيير الجهاز" x="1880" y="0" width="390" height="844">
+    <instance id="18:174" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:84" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:89" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="9:90" name="Card" x="24" y="16" width="342" height="86">
+        <text id="9:91" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="9:92" name="Device" x="17" y="45" width="308" height="24" />
+        <vector id="29:461" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:462" name="Chamfer BR" x="330" y="74" width="12" height="12" />
+        <vector id="29:463" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:464" name="Chamfer line BR" x="330" y="74" width="12" height="12" />
+      </frame>
+      <instance id="9:93" name="Input: Reason" x="24" y="118" width="342" height="98" />
+      <frame id="9:98" name="Spacer" x="24" y="232" width="342" height="420" />
+      <instance id="9:99" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="9:101" name="A-S07 · حالة الطلب" x="2350" y="0" width="390" height="844">
+    <instance id="18:190" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:104" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:109" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="9:110" name="Card" x="24" y="16" width="342" height="216">
+        <frame id="9:111" name="Icon circle" x="135" y="17" width="72" height="72">
+          <frame id="9:112" name="Frame" x="18" y="18" width="36" height="36" />
+          <vector id="34:265" name="Chamfer TL" x="0" y="0" width="9" height="9" />
+          <vector id="34:266" name="Chamfer BR" x="63" y="63" width="9" height="9" />
+        </frame>
+        <instance id="9:115" name="Badge" x="127" y="101" width="88" height="24" />
+        <text id="9:117" name="Title" x="17" y="137" width="308" height="28" />
+        <text id="9:118" name="Body" x="17" y="177" width="308" height="22" />
+        <vector id="29:465" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:466" name="Chamfer BR" x="330" y="204" width="12" height="12" />
+        <vector id="29:467" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:468" name="Chamfer line BR" x="330" y="204" width="12" height="12" />
+      </frame>
+      <frame id="9:119" name="Card" x="24" y="248" width="342" height="88">
+        <text id="9:120" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="9:121" name="Device" x="17" y="45" width="308" height="26" />
+        <vector id="29:469" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:470" name="Chamfer BR" x="330" y="76" width="12" height="12" />
+        <vector id="29:471" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:472" name="Chamfer line BR" x="330" y="76" width="12" height="12" />
+      </frame>
+      <frame id="9:122" name="Spacer" x="24" y="352" width="342" height="232" />
+      <instance id="9:123" name="Button" x="24" y="600" width="342" height="52" />
+      <instance id="9:125" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>
+IMPORTANT: After you call this tool, you MUST call get_design_context if trying to implement the design, since this tool only returns metadata. If you do not call get_design_context, the agent will not be able to implement the design.

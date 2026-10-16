@@ -1,22 +1,34 @@
-import 'package:cit_zone/app/cit_zone_app.dart';
+import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
+import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
+import 'package:cit_zone/app/bootstrap/app_bootstrap.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/auth/domain/google_identity_gateway.dart';
 import 'package:cit_zone/features/auth/presentation/cubit/google_identity_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'package:cit_zone/features/onboarding/presentation/widgets/hasobjy_figma_components.dart';
 
 void main() {
   testWidgets('زر Google معطل دون إعداد OAuth', (tester) async {
-    await tester.pumpWidget(const CitZoneApp());
-    final button = tester.widget<FilledButton>(
-      find.widgetWithText(FilledButton, 'المتابعة باستخدام Google'),
-    );
-    expect(button.onPressed, isNull);
+    debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
+    try {
+      await tester.pumpWidget(const AppBootstrap());
+      await tester.pumpAndSettle();
+      final button = tester.widget<HasobjyButton>(
+        find.widgetWithText(HasobjyButton, 'المتابعة عبر Google'),
+      );
+      expect(button.onPressed, isNull);
+    } finally {
+      debugDefaultTargetPlatformOverride = null;
+    }
   });
 
   test('هوية Google لا تتحول إلى دور أو جلسة تطبيق', () async {
     final gateway = _FakeGoogleGateway();
-    final cubit = GoogleIdentityCubit(gateway);
+    final cubit = GoogleIdentityCubit(
+      GoogleIdentityRepositoryImpl(gateway),
+      messages: AppLocalizationsAr(),
+    );
     await cubit.signIn();
     final state = cubit.state;
     expect(state, isA<GoogleIdentityReady>());
@@ -31,7 +43,10 @@ void main() {
   });
 
   test('استعادة حساب Google تظهر الهوية دون جلسة تطبيق', () async {
-    final cubit = GoogleIdentityCubit(_FakeGoogleGateway(restoreAccount: true));
+    final cubit = GoogleIdentityCubit(
+      GoogleIdentityRepositoryImpl(_FakeGoogleGateway(restoreAccount: true)),
+      messages: AppLocalizationsAr(),
+    );
     await cubit.restore();
     expect(cubit.state, isA<GoogleIdentityReady>());
     expect(
@@ -42,14 +57,20 @@ void main() {
   });
 
   test('غياب حساب Google سابق يعيد شاشة البداية', () async {
-    final cubit = GoogleIdentityCubit(_FakeGoogleGateway());
+    final cubit = GoogleIdentityCubit(
+      GoogleIdentityRepositoryImpl(_FakeGoogleGateway()),
+      messages: AppLocalizationsAr(),
+    );
     await cubit.restore();
     expect(cubit.state, isA<GoogleIdentityIdle>());
     await cubit.close();
   });
 
   test('فشل الاستعادة لا يمنع محاولة الدخول اليدوي', () async {
-    final cubit = GoogleIdentityCubit(_FakeGoogleGateway(failRestore: true));
+    final cubit = GoogleIdentityCubit(
+      GoogleIdentityRepositoryImpl(_FakeGoogleGateway(failRestore: true)),
+      messages: AppLocalizationsAr(),
+    );
     await cubit.restore();
     expect(cubit.state, isA<GoogleIdentityIdle>());
     await cubit.signIn();
@@ -58,7 +79,10 @@ void main() {
   });
 
   test('إلغاء Google يعيد الشاشة للبداية دون خطأ', () async {
-    final cubit = GoogleIdentityCubit(_FakeGoogleGateway(cancel: true));
+    final cubit = GoogleIdentityCubit(
+      GoogleIdentityRepositoryImpl(_FakeGoogleGateway(cancel: true)),
+      messages: AppLocalizationsAr(),
+    );
     await cubit.signIn();
     expect(cubit.state, isA<GoogleIdentityIdle>());
     await cubit.close();

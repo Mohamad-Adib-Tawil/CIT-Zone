@@ -1,3 +1,4 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/google_identity.dart';
@@ -20,9 +21,9 @@ class GoogleIdentityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final name = identity.displayName?.trim().isNotEmpty == true
         ? identity.displayName!.trim()
-        : 'حساب Google';
+        : AppLocalizations.of(context).googleAccount;
     return Scaffold(
-      appBar: AppBar(title: const Text('هوية Google')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).googleIdentity)),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 620),
@@ -57,12 +58,12 @@ class GoogleIdentityPage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'بانتظار ربط حساب التطبيق',
+                        AppLocalizations.of(context).identityPendingTitle,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(height: 8),
-                      const Text(
-                        'تم اختيار حساب Google على هذا الجهاز. لم يتحقق خادم Hasobjy من الهوية بعد، لذلك لا توجد جلسة تطبيق أو صلاحية طالب أو إدارة أو اشتراكات.',
+                      Text(
+                        AppLocalizations.of(context).identityPendingDescription,
                       ),
                     ],
                   ),
@@ -80,14 +81,14 @@ class GoogleIdentityPage extends StatelessWidget {
                 OutlinedButton.icon(
                   onPressed: onStudentPreview,
                   icon: const Icon(Icons.phone_android_rounded),
-                  label: const Text('معاينة واجهة الطالب'),
+                  label: Text(AppLocalizations.of(context).studentPreview),
                 ),
               ],
               const SizedBox(height: 12),
               TextButton.icon(
                 onPressed: onSignOut,
                 icon: const Icon(Icons.logout_rounded),
-                label: const Text('الخروج من Google'),
+                label: Text(AppLocalizations.of(context).googleSignOut),
               ),
             ],
           ),

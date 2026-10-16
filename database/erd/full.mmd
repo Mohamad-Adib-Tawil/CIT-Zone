@@ -1,0 +1,978 @@
+erDiagram
+  academic_years {
+    uuid id PK
+    varchar label
+    date starts_on
+    date ends_on
+    boolean is_current
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  admin_accounts {
+    uuid id PK
+    varchar full_name
+    citext email
+    text password_hash
+    text mfa_secret
+    admin_role role
+    boolean is_active
+    timestamptz last_login_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  admin_audit_logs {
+    bigint id PK
+    uuid admin_id
+    varchar action
+    varchar entity_type
+    varchar entity_id
+    jsonb changes
+    inet ip
+    text user_agent
+    timestamptz created_at
+  }
+  ai_evaluation_findings {
+    uuid id PK
+    uuid evaluation_id
+    int line_start
+    int line_end
+    finding_severity severity
+    text message
+  }
+  ai_evaluations {
+    uuid id PK
+    uuid attempt_id
+    varchar model_name
+    varchar prompt_version
+    ai_verdict verdict
+    numeric score
+    text explanation
+    text suggested_fix
+    jsonb raw_response
+    int prompt_tokens
+    int completion_tokens
+    int latency_ms
+    timestamptz created_at
+  }
+  announcement_attachments {
+    uuid announcement_id
+    uuid file_id
+    smallint position
+    varchar caption
+  }
+  announcements {
+    uuid id PK
+    varchar title
+    text body
+    announcement_source source
+    text source_url
+    uuid cover_file_id
+    boolean is_pinned
+    publish_status status
+    timestamptz published_at
+    timestamptz expires_at
+    uuid created_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  app_settings {
+    varchar key PK
+    jsonb value
+    text description
+    uuid updated_by_admin_id
+    timestamptz updated_at
+  }
+  app_versions {
+    uuid id PK
+    platform platform
+    varchar version_name
+    int build_number
+    int min_supported_build
+    boolean is_force_update
+    text store_url
+    text release_notes
+    timestamptz released_at
+  }
+  attempt_mcq_choices {
+    uuid attempt_id PK
+    uuid option_id
+  }
+  auth_sessions {
+    uuid id PK
+    uuid device_id
+    varchar refresh_token_hash
+    timestamptz issued_at
+    timestamptz expires_at
+    timestamptz last_used_at
+    timestamptz revoked_at
+    varchar revoked_reason
+    inet ip
+    text user_agent
+  }
+  code_exercise_specs {
+    uuid exercise_id PK
+    varchar programming_language
+    text starter_code
+    text reference_solution
+    text grading_instructions
+    text expected_behavior
+    int max_code_length
+  }
+  code_submissions {
+    uuid attempt_id PK
+    text source_code
+    varchar programming_language
+  }
+  container_pdfs {
+    uuid pdf_id PK
+    uuid container_id
+  }
+  content_contributors {
+    uuid id PK
+    varchar full_name
+    varchar headline
+    uuid user_id
+    boolean is_active
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  course_categories {
+    uuid id PK
+    varchar code
+    varchar name_ar
+    varchar name_en
+    varchar icon
+    smallint sort_order
+    boolean is_active
+  }
+  course_outcomes {
+    uuid id PK
+    uuid course_id
+    smallint position
+    varchar text_ar
+  }
+  courses {
+    uuid container_id PK
+    container_kind kind
+    uuid category_id
+    course_level level
+    numeric estimated_hours
+    text prerequisites
+  }
+  department_subjects {
+    uuid department_id
+    uuid subject_id
+    smallint study_year
+    smallint semester_in_year
+    smallint position
+    boolean is_required
+    boolean counts_toward_progress
+  }
+  departments {
+    uuid id PK
+    varchar code
+    varchar name_ar
+    varchar name_en
+    text description
+    smallint sort_order
+    boolean is_active
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  device_change_requests {
+    uuid id PK
+    uuid new_device_id
+    uuid old_device_id
+    uuid conversation_id
+    text reason
+    request_status status
+    timestamptz requested_at
+    uuid decided_by_admin_id
+    timestamptz decided_at
+    text decision_note
+  }
+  device_time_syncs {
+    uuid id PK
+    uuid device_id
+    timestamptz server_time
+    timestamptz device_time
+    timestamptz recorded_at
+  }
+  devices {
+    uuid id PK
+    uuid user_id
+    varchar device_fingerprint
+    platform platform
+    varchar manufacturer
+    varchar model
+    varchar os_version
+    varchar app_version
+    text push_token
+    device_status status
+    timestamptz bound_at
+    uuid authorized_by_admin_id
+    timestamptz revoked_at
+    varchar revoke_reason
+    timestamptz last_seen_at
+    inet last_ip
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  entitlements {
+    uuid id PK
+    uuid payment_id
+    timestamptz starts_at
+    timestamptz ends_at
+    entitlement_status status
+    timestamptz revoked_at
+    uuid revoked_by_admin_id
+    text revoke_reason
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  exam_schedules {
+    uuid id PK
+    uuid term_id
+    uuid subject_id
+    exam_session session
+    exam_kind kind
+    timestamptz starts_at
+    varchar location
+    text notes
+    uuid created_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  exercise_attempts {
+    uuid id PK
+    uuid user_id
+    uuid exercise_id
+    int attempt_no
+    attempt_status status
+    boolean is_passed
+    numeric score
+    int time_spent_seconds
+    timestamptz submitted_at
+    timestamptz evaluated_at
+  }
+  exercises {
+    uuid id PK
+    uuid lesson_id
+    exercise_type exercise_type
+    varchar title
+    text statement
+    text explanation
+    text hint
+    difficulty difficulty
+    smallint max_points
+    int position
+    publish_status status
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  feature_flags {
+    varchar key PK
+    boolean is_enabled
+    text description
+    uuid updated_by_admin_id
+    timestamptz updated_at
+  }
+  files {
+    uuid id PK
+    varchar storage_provider
+    varchar bucket
+    varchar storage_key
+    varchar original_name
+    varchar mime_type
+    bigint size_bytes
+    char checksum_sha256
+    boolean is_private
+    uuid uploaded_by_user_id
+    uuid uploaded_by_admin_id
+    timestamptz created_at
+  }
+  grade_import_batches {
+    uuid id PK
+    uuid term_id
+    exam_session session
+    uuid file_id
+    import_status status
+    varchar ocr_engine
+    text error_message
+    uuid uploaded_by_admin_id
+    timestamptz applied_at
+    timestamptz created_at
+  }
+  grade_import_rows {
+    uuid id PK
+    uuid batch_id
+    int row_no
+    varchar raw_university_id
+    varchar raw_student_name
+    uuid subject_id
+    numeric practical_mark
+    numeric theoretical_mark
+    varchar raw_result
+    uuid matched_user_id
+    match_status match_status
+    numeric confidence
+    uuid reviewed_by_admin_id
+  }
+  grade_report_exports {
+    uuid id PK
+    uuid user_id
+    uuid term_id
+    uuid file_id
+    timestamptz generated_at
+  }
+  grade_revisions {
+    bigint id PK
+    uuid grade_id
+    uuid changed_by_admin_id
+    text reason
+    jsonb previous_record
+    jsonb new_record
+    timestamptz changed_at
+  }
+  grades {
+    uuid id PK
+    uuid user_id
+    uuid subject_id
+    uuid term_id
+    exam_session session
+    numeric practical_mark
+    numeric theoretical_mark
+    numeric total_mark
+    result_status result_status
+    timestamptz released_at
+    uuid import_row_id
+    uuid transcript_submission_id
+    uuid entered_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+    uuid grading_scheme_id
+    text change_reason
+  }
+  grading_schemes {
+    uuid id PK
+    uuid subject_id
+    uuid term_id
+    integer version_no
+    numeric theoretical_weight
+    numeric practical_weight
+    numeric theoretical_max
+    numeric practical_max
+    smallint pass_mark
+    text approval_source
+    uuid approved_by_admin_id
+    timestamptz approved_at
+  }
+  learning_containers {
+    uuid id PK
+    container_kind kind
+    varchar title_ar
+    varchar title_en
+    varchar slug
+    varchar summary
+    text description
+    uuid cover_file_id
+    publish_status status
+    pdf_download_policy pdf_download_policy
+    int sort_order
+    timestamptz published_at
+    uuid created_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+    integer free_preview_count
+  }
+  lesson_pdfs {
+    uuid pdf_id PK
+    uuid lesson_id
+  }
+  lesson_ratings {
+    uuid user_id
+    uuid lesson_id
+    smallint stars
+    text comment
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  lesson_watch_progress {
+    uuid user_id
+    uuid lesson_id
+    int last_position_seconds
+    int total_watched_seconds
+    timestamptz first_watched_at
+    timestamptz last_watched_at
+  }
+  lessons {
+    uuid id PK
+    uuid container_id
+    int position
+    varchar title_ar
+    varchar title_en
+    text description
+    publish_status status
+    timestamptz published_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  mcq_options {
+    uuid id PK
+    uuid exercise_id
+    smallint position
+    text option_text
+    boolean is_correct
+    text feedback
+  }
+  notification_recipients {
+    uuid notification_id
+    uuid user_id
+    delivery_status delivery_status
+    timestamptz delivered_at
+    timestamptz read_at
+    varchar error_message
+  }
+  notification_templates {
+    uuid id PK
+    varchar code
+    varchar title_pattern
+    text body_pattern
+    boolean is_active
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  notifications {
+    uuid id PK
+    notification_kind kind
+    uuid template_id
+    varchar title
+    text body
+    varchar deep_link
+    audience_kind audience_kind
+    uuid department_id
+    uuid container_id
+    uuid exam_schedule_id
+    uuid announcement_id
+    timestamptz scheduled_for
+    timestamptz sent_at
+    uuid created_by_admin_id
+    timestamptz created_at
+  }
+  oauth_identities {
+    uuid id PK
+    uuid user_id
+    oauth_provider provider
+    varchar provider_subject
+    timestamptz linked_at
+    timestamptz last_login_at
+  }
+  offline_pdf_downloads {
+    uuid id PK
+    uuid device_id
+    uuid pdf_version_id
+    uuid entitlement_id
+    offline_status status
+    timestamptz downloaded_at
+    timestamptz last_verified_at
+    timestamptz removed_at
+    uuid license_id
+  }
+  offline_video_downloads {
+    uuid id PK
+    uuid device_id
+    uuid video_asset_id
+    uuid rendition_id
+    uuid entitlement_id
+    offline_status status
+    timestamptz downloaded_at
+    timestamptz last_verified_at
+    timestamptz removed_at
+    uuid license_request_id
+  }
+  payment_admin_grants {
+    uuid payment_id PK
+    uuid granted_by_admin_id
+    text reason
+  }
+  payment_manual_receipts {
+    uuid payment_id PK
+    uuid receipt_file_id
+    varchar claimed_tx_ref
+    numeric claimed_amount
+    timestamptz claimed_paid_at
+    review_status review_status
+    uuid reviewed_by_admin_id
+    timestamptz reviewed_at
+    text rejection_reason
+    timestamptz submitted_at
+  }
+  payment_shamcash {
+    uuid payment_id PK
+    varchar shamcash_tx_id
+    varchar payer_account
+    varchar payer_name
+    varchar receiver_account
+    numeric reported_amount
+    char reported_currency
+    varchar gateway_status
+    jsonb raw_payload
+    timestamptz verified_at
+  }
+  payments {
+    uuid id PK
+    uuid user_id
+    uuid product_id
+    uuid price_id
+    payment_method method
+    payment_status status
+    varchar idempotency_key
+    timestamptz expires_at
+    timestamptz paid_at
+    varchar failure_reason
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  pdf_contributors {
+    uuid pdf_id
+    uuid contributor_id
+    contributor_role role
+  }
+  pdf_documents {
+    uuid id PK
+    varchar title_ar
+    text description
+    boolean is_free
+    publish_status status
+    int position
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  pdf_versions {
+    uuid id PK
+    uuid pdf_id
+    int version_no
+    uuid file_id
+    int page_count
+    boolean is_current
+    text change_note
+    uuid created_by_admin_id
+    timestamptz created_at
+  }
+  product_bundle_subjects {
+    uuid product_id
+    uuid subject_id
+  }
+  product_course {
+    uuid product_id PK
+    product_kind kind
+    uuid course_id
+    int access_duration_days
+    text duration_mode
+  }
+  product_prices {
+    uuid id PK
+    uuid product_id
+    numeric amount
+    char currency
+    timestamptz effective_from
+    timestamptz effective_to
+    uuid created_by_admin_id
+  }
+  product_semester_bundle {
+    uuid product_id PK
+    product_kind kind
+    uuid term_id
+    uuid department_id
+    smallint study_year
+  }
+  product_subject_term {
+    uuid product_id PK
+    product_kind kind
+    uuid subject_id
+    uuid term_id
+  }
+  products {
+    uuid id PK
+    product_kind kind
+    varchar name_ar
+    text description
+    boolean is_active
+    timestamptz available_from
+    timestamptz available_until
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  protected_pdf_licenses {
+    uuid id PK
+    uuid device_id
+    uuid pdf_version_id
+    uuid entitlement_id
+    timestamptz issued_at
+    timestamptz expires_at
+    timestamptz revoked_at
+    text provider_license_ref
+  }
+  security_events {
+    uuid id PK
+    uuid user_id
+    uuid device_id
+    security_event_kind kind
+    severity severity
+    jsonb details
+    inet ip
+    timestamptz occurred_at
+    uuid reviewed_by_admin_id
+    timestamptz reviewed_at
+  }
+  student_profiles {
+    uuid user_id PK
+    varchar official_full_name
+    varchar father_name
+    varchar university_student_id
+    varchar phone
+    gender gender
+    date birth_date
+    varchar city
+    uuid entry_academic_year_id
+    timestamptz onboarding_completed_at
+    timestamptz created_at
+    timestamptz updated_at
+    boolean legacy_transcript_eligible
+  }
+  student_term_enrollments {
+    uuid id PK
+    uuid user_id
+    uuid term_id
+    uuid department_id
+    smallint study_year
+    enrollment_status status
+    timestamptz confirmed_at
+  }
+  subjects {
+    uuid container_id PK
+    container_kind kind
+    varchar code
+    smallint credit_hours
+    boolean is_graduation_project
+  }
+  support_conversations {
+    uuid id PK
+    uuid user_id
+    conversation_topic topic
+    varchar subject
+    conversation_status status
+    uuid assigned_admin_id
+    timestamptz last_message_at
+    timestamptz resolved_at
+    smallint satisfaction_rating
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  support_message_attachments {
+    uuid message_id
+    uuid file_id
+  }
+  support_messages {
+    uuid id PK
+    uuid conversation_id
+    uuid sender_admin_id
+    text body
+    timestamptz created_at
+    timestamptz read_at
+  }
+  terms {
+    uuid id PK
+    uuid academic_year_id
+    smallint semester_in_year
+    date starts_on
+    date ends_on
+    date exams_start_on
+    date exams_end_on
+    term_status status
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  transcript_submissions {
+    uuid id PK
+    uuid user_id
+    uuid file_id
+    uuid covers_through_term_id
+    review_status status
+    timestamptz submitted_at
+    uuid reviewed_by_admin_id
+    timestamptz reviewed_at
+    text rejection_reason
+    text notes
+  }
+  usage_sessions {
+    uuid id PK
+    uuid device_id
+    timestamptz started_at
+    timestamptz last_heartbeat_at
+    timestamptz ended_at
+    int active_seconds
+    varchar app_version
+  }
+  user_preferences {
+    uuid user_id PK
+    numeric playback_speed
+    boolean auto_play_next
+    varchar preferred_quality
+    boolean wifi_only_downloads
+    boolean push_enabled
+    boolean exam_reminders_enabled
+    varchar theme
+    varchar language
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  users {
+    uuid id PK
+    citext email
+    varchar display_name
+    text avatar_url
+    user_status status
+    varchar locale
+    timestamptz last_login_at
+    timestamptz terms_accepted_at
+    varchar terms_version
+    timestamptz deleted_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  video_assets {
+    uuid id PK
+    uuid lesson_id
+    video_status status
+    uuid source_file_id
+    int duration_seconds
+    varchar packaging
+    varchar manifest_path
+    varchar drm_provider
+    varchar drm_key_id
+    uuid thumbnail_file_id
+    text processing_error
+    timestamptz processed_at
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  video_license_requests {
+    uuid id PK
+    uuid device_id
+    uuid video_asset_id
+    license_type license_type
+    uuid entitlement_id
+    boolean is_granted
+    varchar denial_reason
+    timestamptz issued_at
+    timestamptz expires_at
+    inet ip
+  }
+  video_renditions {
+    uuid id PK
+    uuid video_asset_id
+    varchar label
+    int width
+    int height
+    int bitrate_kbps
+    varchar codec
+    varchar storage_key
+    bigint size_bytes
+  }
+  video_subtitles {
+    uuid id PK
+    uuid video_asset_id
+    varchar language_code
+    varchar label
+    uuid file_id
+    boolean is_default
+  }
+  voucher_batches {
+    uuid id PK
+    uuid outlet_id
+    uuid product_id
+    int quantity
+    timestamptz printed_at
+    date expires_on
+    uuid created_by_admin_id
+    text notes
+  }
+  voucher_outlets {
+    uuid id PK
+    varchar name
+    varchar contact_name
+    varchar phone
+    text address
+    numeric commission_percent
+    boolean is_active
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  vouchers {
+    uuid id PK
+    uuid batch_id
+    varchar serial_no
+    varchar code_hash
+    voucher_status status
+    timestamptz activated_at
+    uuid redeemed_payment_id
+    timestamptz redeemed_at
+    timestamptz voided_at
+    varchar void_reason
+  }
+  video_license_requests ||--o{ offline_video_downloads : "license_request_id"
+  protected_pdf_licenses |o--o{ offline_pdf_downloads : "license_id"
+  subjects ||--o{ grading_schemes : "subject_id"
+  terms ||--o{ grading_schemes : "term_id"
+  admin_accounts ||--o{ grading_schemes : "approved_by_admin_id"
+  grades ||--o{ grade_revisions : "grade_id"
+  admin_accounts ||--o{ grade_revisions : "changed_by_admin_id"
+  product_semester_bundle ||--o{ product_bundle_subjects : "product_id"
+  subjects ||--o{ product_bundle_subjects : "subject_id"
+  devices ||--o{ protected_pdf_licenses : "device_id"
+  pdf_versions ||--o{ protected_pdf_licenses : "pdf_version_id"
+  entitlements ||--o{ protected_pdf_licenses : "entitlement_id"
+  users ||--o{ oauth_identities : "user_id"
+  users ||--o| student_profiles : "user_id"
+  academic_years |o--o{ student_profiles : "entry_academic_year_id"
+  users ||--o| user_preferences : "user_id"
+  users ||--o{ devices : "user_id"
+  admin_accounts |o--o{ devices : "authorized_by_admin_id"
+  devices ||--o{ device_change_requests : "new_device_id"
+  devices |o--o{ device_change_requests : "old_device_id"
+  support_conversations |o--o{ device_change_requests : "conversation_id"
+  admin_accounts |o--o{ device_change_requests : "decided_by_admin_id"
+  devices ||--o{ auth_sessions : "device_id"
+  users |o--o{ security_events : "user_id"
+  devices |o--o{ security_events : "device_id"
+  admin_accounts |o--o{ security_events : "reviewed_by_admin_id"
+  academic_years ||--o{ terms : "academic_year_id"
+  users ||--o{ student_term_enrollments : "user_id"
+  terms ||--o{ student_term_enrollments : "term_id"
+  departments ||--o{ student_term_enrollments : "department_id"
+  departments ||--o{ department_subjects : "department_id"
+  subjects ||--o{ department_subjects : "subject_id"
+  terms ||--o{ exam_schedules : "term_id"
+  subjects ||--o{ exam_schedules : "subject_id"
+  admin_accounts ||--o{ exam_schedules : "created_by_admin_id"
+  users |o--o{ files : "uploaded_by_user_id"
+  admin_accounts |o--o{ files : "uploaded_by_admin_id"
+  files |o--o{ learning_containers : "cover_file_id"
+  admin_accounts |o--o{ learning_containers : "created_by_admin_id"
+  learning_containers ||--o| subjects : "container_id,kind"
+  course_categories ||--o{ courses : "category_id"
+  learning_containers ||--o| courses : "container_id,kind"
+  courses ||--o{ course_outcomes : "course_id"
+  learning_containers ||--o{ lessons : "container_id"
+  lessons ||--o| video_assets : "lesson_id"
+  files |o--o{ video_assets : "source_file_id"
+  files |o--o{ video_assets : "thumbnail_file_id"
+  video_assets ||--o{ video_renditions : "video_asset_id"
+  video_assets ||--o{ video_subtitles : "video_asset_id"
+  files ||--o{ video_subtitles : "file_id"
+  pdf_documents ||--o{ pdf_versions : "pdf_id"
+  files ||--o{ pdf_versions : "file_id"
+  admin_accounts |o--o{ pdf_versions : "created_by_admin_id"
+  pdf_documents ||--o| container_pdfs : "pdf_id"
+  learning_containers ||--o{ container_pdfs : "container_id"
+  pdf_documents ||--o| lesson_pdfs : "pdf_id"
+  lessons ||--o{ lesson_pdfs : "lesson_id"
+  users |o--o{ content_contributors : "user_id"
+  pdf_documents ||--o{ pdf_contributors : "pdf_id"
+  content_contributors ||--o{ pdf_contributors : "contributor_id"
+  lessons ||--o{ exercises : "lesson_id"
+  exercises ||--o{ mcq_options : "exercise_id"
+  exercises ||--o| code_exercise_specs : "exercise_id"
+  users ||--o{ exercise_attempts : "user_id"
+  exercises ||--o{ exercise_attempts : "exercise_id"
+  exercise_attempts ||--o| attempt_mcq_choices : "attempt_id"
+  mcq_options ||--o{ attempt_mcq_choices : "option_id"
+  exercise_attempts ||--o| code_submissions : "attempt_id"
+  code_submissions ||--o{ ai_evaluations : "attempt_id"
+  ai_evaluations ||--o{ ai_evaluation_findings : "evaluation_id"
+  users ||--o{ lesson_watch_progress : "user_id"
+  lessons ||--o{ lesson_watch_progress : "lesson_id"
+  users ||--o{ lesson_ratings : "user_id"
+  lessons ||--o{ lesson_ratings : "lesson_id"
+  devices ||--o{ usage_sessions : "device_id"
+  devices ||--o{ video_license_requests : "device_id"
+  video_assets ||--o{ video_license_requests : "video_asset_id"
+  entitlements |o--o{ video_license_requests : "entitlement_id"
+  devices ||--o{ offline_video_downloads : "device_id"
+  video_assets ||--o{ offline_video_downloads : "video_asset_id"
+  video_renditions ||--o{ offline_video_downloads : "rendition_id"
+  entitlements |o--o{ offline_video_downloads : "entitlement_id"
+  devices ||--o{ offline_pdf_downloads : "device_id"
+  pdf_versions ||--o{ offline_pdf_downloads : "pdf_version_id"
+  entitlements |o--o{ offline_pdf_downloads : "entitlement_id"
+  devices ||--o{ device_time_syncs : "device_id"
+  products ||--o{ product_prices : "product_id"
+  admin_accounts |o--o{ product_prices : "created_by_admin_id"
+  subjects ||--o{ product_subject_term : "subject_id"
+  terms ||--o{ product_subject_term : "term_id"
+  products ||--o| product_subject_term : "product_id,kind"
+  terms ||--o{ product_semester_bundle : "term_id"
+  departments ||--o{ product_semester_bundle : "department_id"
+  products ||--o| product_semester_bundle : "product_id,kind"
+  courses ||--o{ product_course : "course_id"
+  products ||--o| product_course : "product_id,kind"
+  users ||--o{ payments : "user_id"
+  products ||--o{ payments : "product_id"
+  product_prices |o--o{ payments : "price_id"
+  payments ||--o| payment_shamcash : "payment_id"
+  payments ||--o| payment_manual_receipts : "payment_id"
+  files ||--o{ payment_manual_receipts : "receipt_file_id"
+  admin_accounts |o--o{ payment_manual_receipts : "reviewed_by_admin_id"
+  payments ||--o| payment_admin_grants : "payment_id"
+  admin_accounts ||--o{ payment_admin_grants : "granted_by_admin_id"
+  voucher_outlets |o--o{ voucher_batches : "outlet_id"
+  products ||--o{ voucher_batches : "product_id"
+  admin_accounts ||--o{ voucher_batches : "created_by_admin_id"
+  voucher_batches ||--o{ vouchers : "batch_id"
+  payments |o--o| vouchers : "redeemed_payment_id"
+  payments ||--o| entitlements : "payment_id"
+  admin_accounts |o--o{ entitlements : "revoked_by_admin_id"
+  terms ||--o{ grade_import_batches : "term_id"
+  files ||--o{ grade_import_batches : "file_id"
+  admin_accounts ||--o{ grade_import_batches : "uploaded_by_admin_id"
+  grade_import_batches ||--o{ grade_import_rows : "batch_id"
+  subjects |o--o{ grade_import_rows : "subject_id"
+  users |o--o{ grade_import_rows : "matched_user_id"
+  admin_accounts |o--o{ grade_import_rows : "reviewed_by_admin_id"
+  users ||--o{ transcript_submissions : "user_id"
+  files ||--o{ transcript_submissions : "file_id"
+  terms |o--o{ transcript_submissions : "covers_through_term_id"
+  admin_accounts |o--o{ transcript_submissions : "reviewed_by_admin_id"
+  users ||--o{ grades : "user_id"
+  subjects ||--o{ grades : "subject_id"
+  terms ||--o{ grades : "term_id"
+  grade_import_rows |o--o| grades : "import_row_id"
+  transcript_submissions |o--o{ grades : "transcript_submission_id"
+  admin_accounts |o--o{ grades : "entered_by_admin_id"
+  users ||--o{ grade_report_exports : "user_id"
+  terms |o--o{ grade_report_exports : "term_id"
+  files |o--o{ grade_report_exports : "file_id"
+  files |o--o{ announcements : "cover_file_id"
+  admin_accounts ||--o{ announcements : "created_by_admin_id"
+  announcements ||--o{ announcement_attachments : "announcement_id"
+  files ||--o{ announcement_attachments : "file_id"
+  notification_templates ||--o{ notifications : "template_id"
+  departments |o--o{ notifications : "department_id"
+  learning_containers |o--o{ notifications : "container_id"
+  exam_schedules |o--o{ notifications : "exam_schedule_id"
+  announcements |o--o{ notifications : "announcement_id"
+  admin_accounts |o--o{ notifications : "created_by_admin_id"
+  notifications ||--o{ notification_recipients : "notification_id"
+  users ||--o{ notification_recipients : "user_id"
+  users ||--o{ support_conversations : "user_id"
+  admin_accounts |o--o{ support_conversations : "assigned_admin_id"
+  support_conversations ||--o{ support_messages : "conversation_id"
+  admin_accounts |o--o{ support_messages : "sender_admin_id"
+  support_messages ||--o{ support_message_attachments : "message_id"
+  files ||--o{ support_message_attachments : "file_id"
+  admin_accounts ||--o{ admin_audit_logs : "admin_id"
+  admin_accounts |o--o{ feature_flags : "updated_by_admin_id"
+  admin_accounts |o--o{ app_settings : "updated_by_admin_id"
+  product_prices |o--o{ payments : "price_id, product_id"
+  grading_schemes ||--o{ grades : "grading_scheme_id, subject_id, term_id"

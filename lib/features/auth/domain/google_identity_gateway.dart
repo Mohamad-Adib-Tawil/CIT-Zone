@@ -1,6 +1,7 @@
 import 'google_identity.dart';
+import 'google_identity_failure.dart';
 
-enum GoogleIdentityFailure { unavailable, missingToken, canceled, unexpected }
+export 'google_identity_failure.dart';
 
 class GoogleIdentityException implements Exception {
   const GoogleIdentityException(this.failure);

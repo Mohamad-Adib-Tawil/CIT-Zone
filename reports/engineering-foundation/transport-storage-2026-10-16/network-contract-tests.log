@@ -1,0 +1,35 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart
+00:00 +0: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يقرأ JSON محدوداً ويرسل معرّف طلب دون رؤوس حساسة
+00:00 +2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/app_environment_test.dart: بيئة التطوير تقبل عنوان الاختبار المحلي فقط عبر HTTP
+00:00 +3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يرفض JSON غير صالح أو استجابة أكبر من الحد
+00:00 +7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io preserves JSON encoding, query, request ID and excludes credentials
+00:00 +10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io maps all status classes and never returns unsafe remote metadata
+00:00 +11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io strict UTF8, object JSON, empty success and exact byte limit
+00:00 +12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io bounds decoded gzip bytes rather than compressed content length
+00:00 +13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io does not follow redirects or retry sensitive POST failures
+00:00 +14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io pre-cancel never sends, one canceled request does not poison others
+00:00 +15: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io cancel aborts a response stalled after headers
+00:00 +16: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io close aborts a response stalled after headers
+00:00 +17: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io total deadline also expires a continuously arriving body
+00:00 +18: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Io connection refusal maps to network without raw exception
+00:00 +19: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio validates configuration and confines URL before any connection
+00:00 +20: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio preserves JSON encoding, query, request ID and excludes credentials
+00:00 +21: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio maps all status classes and never returns unsafe remote metadata
+00:00 +22: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio strict UTF8, object JSON, empty success and exact byte limit
+00:00 +23: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio bounds decoded gzip bytes rather than compressed content length
+00:00 +24: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio does not follow redirects or retry sensitive POST failures
+00:00 +25: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio pre-cancel never sends, one canceled request does not poison others
+00:00 +26: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio cancel aborts a response stalled after headers
+00:00 +27: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio close aborts a response stalled after headers
+00:00 +28: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio total deadline also expires a continuously arriving body
+00:00 +29: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio total deadline also expires a continuously arriving body
+00:00 +30: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio total deadline also expires a continuously arriving body
+00:00 +31: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: Dio connection refusal maps to network without raw exception
+00:00 +32: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/api_client_contract_test.dart: cancellation listeners detach and late listeners fire once
+00:00 +33: All tests passed!

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/demo_student_repository.dart';
 import '../../domain/student_models.dart';
 import '../../../auth/domain/google_identity.dart';
 import '../cubit/student_catalog_cubit.dart';
@@ -13,14 +12,19 @@ import 'student_my_courses_page.dart';
 import 'student_profile_page.dart';
 
 class StudentPreviewPage extends StatelessWidget {
-  const StudentPreviewPage({super.key, this.identity});
+  const StudentPreviewPage({
+    super.key,
+    required this.createCatalogCubit,
+    this.identity,
+  });
 
+  final StudentCatalogCubit Function() createCatalogCubit;
   final GoogleIdentity? identity;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => StudentCatalogCubit(DemoStudentRepository())..load(),
+      create: (_) => createCatalogCubit()..load(),
       child: _StudentShell(identity: identity),
     );
   }

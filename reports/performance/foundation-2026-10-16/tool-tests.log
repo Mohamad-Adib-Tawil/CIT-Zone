@@ -1,0 +1,13 @@
+test_dead_or_missing_process_pss_is_rejected (benchmark_android_test.BenchmarkTest) ... ok
+test_failed_warm_or_missing_launch_is_not_a_zero_sample (benchmark_android_test.BenchmarkTest) ... ok
+test_interrupted_collection_preserves_partial_samples_without_success_summary (benchmark_android_test.BenchmarkTest) ... Sample 1/2 captured.
+ok
+test_launch_android_24_and_current (benchmark_android_test.BenchmarkTest) ... ok
+test_pss_handles_both_android_formats_in_kib (benchmark_android_test.BenchmarkTest) ... ok
+test_reference_requirements_cannot_silently_accept_debug_or_emulator (benchmark_android_test.BenchmarkTest) ... ok
+test_statistics_use_nearest_rank_p95_and_keep_sample_count (benchmark_android_test.BenchmarkTest) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.003s
+
+OK

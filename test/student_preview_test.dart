@@ -1,4 +1,7 @@
-import 'package:cit_zone/app/cit_zone_app.dart';
+import 'package:cit_zone/features/student/data/demo_student_repository.dart';
+
+import 'support/hasobjy_test_app.dart';
+
 import 'package:cit_zone/features/student/domain/student_models.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
@@ -14,17 +17,13 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const CitZoneApp());
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('معاينة واجهة الطالب'),
-      220,
-      scrollable: find.byType(Scrollable).first,
+    await tester.pumpWidget(
+      arabicTestApp(
+        StudentPreviewPage(createCatalogCubit: _createPreviewCubit),
+      ),
     );
-
-    await tester.tap(find.text('معاينة واجهة الطالب'));
     await tester.pumpAndSettle();
-    expect(find.text('مرحباً بك في CIT Zone'), findsOneWidget);
+    expect(find.text('مرحباً بك في حاسوبجي'), findsOneWidget);
     expect(find.byType(NavigationBar), findsOneWidget);
 
     await tester.tap(
@@ -53,14 +52,11 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const CitZoneApp());
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('معاينة واجهة الطالب'),
-      220,
-      scrollable: find.byType(Scrollable).first,
+    await tester.pumpWidget(
+      arabicTestApp(
+        StudentPreviewPage(createCatalogCubit: _createPreviewCubit),
+      ),
     );
-    await tester.tap(find.text('معاينة واجهة الطالب'));
     await tester.pumpAndSettle();
     await tester.tap(
       find.descendant(
@@ -90,9 +86,10 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(
-      const MaterialApp(
+      MaterialApp(
         home: StudentPreviewPage(
-          identity: GoogleIdentity(
+          createCatalogCubit: _createPreviewCubit,
+          identity: const GoogleIdentity(
             displayName: 'طالبة تجريبية',
             email: 'student@example.com',
           ),
@@ -114,3 +111,6 @@ class _FailingStudentRepository implements StudentRepository {
     throw StateError('unavailable');
   }
 }
+
+StudentCatalogCubit _createPreviewCubit() =>
+    StudentCatalogCubit(DemoStudentRepository());

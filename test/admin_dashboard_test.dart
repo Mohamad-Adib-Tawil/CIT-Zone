@@ -1,4 +1,9 @@
-import 'package:cit_zone/app/cit_zone_app.dart';
+import 'package:cit_zone/features/admin/data/demo_admin_repository.dart';
+import 'package:cit_zone/features/admin/presentation/pages/admin_dashboard_page.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'support/hasobjy_test_app.dart';
+
 import 'package:cit_zone/features/admin/domain/admin_models.dart';
 import 'package:cit_zone/features/admin/domain/admin_repository.dart';
 import 'package:cit_zone/features/admin/presentation/cubit/admin_dashboard_cubit.dart';
@@ -12,11 +17,14 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const CitZoneApp());
-    await tester.pumpAndSettle();
-    await tester.drag(find.byType(ListView).first, const Offset(0, -300));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('معاينة لوحة الإدارة'));
+    await tester.pumpWidget(
+      arabicTestApp(
+        BlocProvider(
+          create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
+          child: const AdminDashboardPage(),
+        ),
+      ),
+    );
     await tester.pumpAndSettle();
 
     expect(find.textContaining('عرض تجريبي للتصميم'), findsOneWidget);
@@ -41,14 +49,14 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const CitZoneApp());
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('معاينة لوحة الإدارة'),
-      250,
-      scrollable: find.byType(Scrollable).first,
+    await tester.pumpWidget(
+      arabicTestApp(
+        BlocProvider(
+          create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
+          child: const AdminDashboardPage(),
+        ),
+      ),
     );
-    await tester.tap(find.text('معاينة لوحة الإدارة'));
     await tester.pumpAndSettle();
     await tester.tap(
       find.descendant(
@@ -80,14 +88,14 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const CitZoneApp());
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(
-      find.text('معاينة لوحة الإدارة'),
-      250,
-      scrollable: find.byType(Scrollable).first,
+    await tester.pumpWidget(
+      arabicTestApp(
+        BlocProvider(
+          create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
+          child: const AdminDashboardPage(),
+        ),
+      ),
     );
-    await tester.tap(find.text('معاينة لوحة الإدارة'));
     await tester.pumpAndSettle();
 
     expect(find.byType(NavigationRail), findsOneWidget);

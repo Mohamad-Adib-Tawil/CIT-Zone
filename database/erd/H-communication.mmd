@@ -1,0 +1,87 @@
+erDiagram
+  announcement_attachments {
+    uuid announcement_id
+    uuid file_id
+    smallint position
+    varchar caption
+  }
+  announcements {
+    uuid id PK
+    varchar title
+    text body
+    announcement_source source
+    text source_url
+    uuid cover_file_id
+    boolean is_pinned
+    publish_status status
+    timestamptz published_at
+    timestamptz expires_at
+    uuid created_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  notification_recipients {
+    uuid notification_id
+    uuid user_id
+    delivery_status delivery_status
+    timestamptz delivered_at
+    timestamptz read_at
+    varchar error_message
+  }
+  notification_templates {
+    uuid id PK
+    varchar code
+    varchar title_pattern
+    text body_pattern
+    boolean is_active
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  notifications {
+    uuid id PK
+    notification_kind kind
+    uuid template_id
+    varchar title
+    text body
+    varchar deep_link
+    audience_kind audience_kind
+    uuid department_id
+    uuid container_id
+    uuid exam_schedule_id
+    uuid announcement_id
+    timestamptz scheduled_for
+    timestamptz sent_at
+    uuid created_by_admin_id
+    timestamptz created_at
+  }
+  support_conversations {
+    uuid id PK
+    uuid user_id
+    conversation_topic topic
+    varchar subject
+    conversation_status status
+    uuid assigned_admin_id
+    timestamptz last_message_at
+    timestamptz resolved_at
+    smallint satisfaction_rating
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  support_message_attachments {
+    uuid message_id
+    uuid file_id
+  }
+  support_messages {
+    uuid id PK
+    uuid conversation_id
+    uuid sender_admin_id
+    text body
+    timestamptz created_at
+    timestamptz read_at
+  }
+  announcements ||--o{ announcement_attachments : "announcement_id"
+  notification_templates ||--o{ notifications : "template_id"
+  announcements |o--o{ notifications : "announcement_id"
+  notifications ||--o{ notification_recipients : "notification_id"
+  support_conversations ||--o{ support_messages : "conversation_id"
+  support_messages ||--o{ support_message_attachments : "message_id"

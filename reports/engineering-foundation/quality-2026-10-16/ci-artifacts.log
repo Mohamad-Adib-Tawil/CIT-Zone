@@ -1,0 +1,40 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: A-S01 Cairo RTL layout at 390.0
+00:00 +1: A-S03 Cairo RTL layout at 390.0
+00:00 +2: A-S04 Cairo RTL layout at 390.0
+00:00 +3: A-S05 Cairo RTL layout at 390.0
+00:00 +4: A-S06 Cairo RTL layout at 390.0
+00:00 +5: A-S07 Cairo RTL layout at 390.0
+00:00 +6: B-S01 Cairo RTL layout at 390.0
+00:00 +7: B-S03 Cairo RTL layout at 390.0
+00:00 +8: B-S04 Cairo RTL layout at 390.0
+00:00 +9: B-S05 Cairo RTL layout at 390.0
+00:00 +10: B-S06 Cairo RTL layout at 390.0
+00:00 +11: A-S01 Cairo RTL layout at 320.0
+00:00 +12: A-S03 Cairo RTL layout at 320.0
+00:00 +13: A-S04 Cairo RTL layout at 320.0
+00:00 +14: A-S05 Cairo RTL layout at 320.0
+00:01 +15: A-S06 Cairo RTL layout at 320.0
+00:01 +16: A-S07 Cairo RTL layout at 320.0
+00:01 +17: B-S01 Cairo RTL layout at 320.0
+00:01 +18: B-S03 Cairo RTL layout at 320.0
+00:01 +19: B-S04 Cairo RTL layout at 320.0
+00:01 +20: B-S05 Cairo RTL layout at 320.0
+00:01 +21: B-S06 Cairo RTL layout at 320.0
+00:01 +22: A-S01 Cairo RTL layout at 600.0
+00:01 +23: A-S03 Cairo RTL layout at 600.0
+00:01 +24: A-S04 Cairo RTL layout at 600.0
+00:01 +25: A-S05 Cairo RTL layout at 600.0
+00:01 +26: A-S06 Cairo RTL layout at 600.0
+00:01 +27: A-S07 Cairo RTL layout at 600.0
+00:01 +28: B-S01 Cairo RTL layout at 600.0
+00:01 +29: B-S03 Cairo RTL layout at 600.0
+00:01 +30: B-S04 Cairo RTL layout at 600.0
+00:01 +31: B-S05 Cairo RTL layout at 600.0
+00:01 +32: B-S06 Cairo RTL layout at 600.0
+00:01 +33: academic selection keeps one department and one year
+00:01 +34: unsupported supplementary filter cannot invent exam dates
+00:01 +35: basic fields keep RTL, disabled email, and keyboard access at 320
+00:01 +36: (tearDownAll)
+00:01 +36: All tests passed!

@@ -1,0 +1,19 @@
+Launching lib/main.dart on sdk gphone64 arm64 in debug mode...
+Running Gradle task 'assembleDebug'...                             14.4s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        1,234ms
+I/FlutterActivityAndFragmentDelegate(15942): If you are attempting to set --enable-dart-profiling via Intent extras to launch a Flutter component outside of using the Flutter CLI, note that support for setting engine flags on Android via Intent will soon be dropped; see https://github.com/flutter/flutter/issues/180686 for more information on this breaking change. To migrate, set --enable-dart-profiling or any other flags specified via Intent extras on the command line instead or see https://github.com/flutter/flutter/blob/main/docs/engine/Flutter-Android-Engine-Flags.md for alternative methods.
+D/FlutterJNI(15942): Beginning load of flutter...
+D/FlutterJNI(15942): flutter (null) was loaded normally!
+I/flutter (15942): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+D/nativeloader(15942): Load /data/app/~~z3cT0w6JfKUo_aNQlDfvNA==/com.devmind.cit.learn-Yx5ZaW6yVBQr-nXlF4dRrw==/base.apk!/lib/arm64-v8a/libdartjni.so using class loader ns clns-9 (caller=/data/app/~~z3cT0w6JfKUo_aNQlDfvNA==/com.devmind.cit.learn-Yx5ZaW6yVBQr-nXlF4dRrw==/base.apk!classes4.dex): ok
+I/vmind.cit.learn(15942): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityNodeInfo;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported,test-api) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app, TargetSdkVersion=36) using reflection: allowed
+I/vmind.cit.learn(15942): hiddenapi: Accessing hidden method Landroid/view/accessibility/AccessibilityRecord;->getSourceNodeId()J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app, TargetSdkVersion=36) using reflection: allowed
+I/vmind.cit.learn(15942): hiddenapi: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mChildNodeIds:Landroid/util/LongArray; (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app, TargetSdkVersion=36) using reflection: allowed
+I/vmind.cit.learn(15942): hiddenapi: Accessing hidden method Landroid/util/LongArray;->get(I)J (runtime_flags=0, domain=platform, api=unsupported) from Lio/flutter/view/AccessibilityViewEmbedder$ReflectionAccessors; (domain=app, TargetSdkVersion=36) using reflection: allowed
+D/AccessibilityBridge(15942): Setting not found: accessibility_display_inversion_enabled, using default: 0
+Syncing files to device sdk gphone64 arm64...                   
+D/FlutterRenderer(15942): Width is zero. 0,0
+D/CompatChangeReporter(15942): Compat change id reported: 377864165; UID 10222; state: ENABLED
+W/HWUI    (15942): Unknown dataspace 0
+Syncing files to device sdk gphone64 arm64...                      232ms

@@ -1,0 +1,1 @@
+enum StorageFailure { unavailable, corrupt }

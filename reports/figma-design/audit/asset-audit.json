@@ -1,0 +1,245 @@
+[
+  {
+    "asset": "ec76a.svg",
+    "bytes": 973,
+    "sameAsPrevious": false,
+    "width": "18",
+    "height": "12",
+    "viewBox": "0 0 18 12",
+    "sha256": "327521a41ae5cada07a85adbaf4b26243bb5b542c7dbe44a730ed265dc2bd41c"
+  },
+  {
+    "asset": "22855.svg",
+    "bytes": 1200,
+    "sameAsPrevious": true,
+    "width": "17",
+    "height": "12",
+    "viewBox": "0 0 17 12",
+    "sha256": "4701145a606705b9a8c5885f9e8846a886b8b91bb58683001e7506a8a4931bc3"
+  },
+  {
+    "asset": "00202.svg",
+    "bytes": 641,
+    "sameAsPrevious": true,
+    "width": "27",
+    "height": "13",
+    "viewBox": "0 0 27 13",
+    "sha256": "4d9c29225d7531ab92fcf1c24582fd03eaec6fe6643d909b7ac59afba1a3de67"
+  },
+  {
+    "asset": "902ed.svg",
+    "bytes": 629,
+    "sameAsPrevious": true,
+    "width": "96",
+    "height": "96",
+    "viewBox": "0 0 96 96",
+    "sha256": "9566187a0d46afae252a2d9c6bfde87ea2c6b537ff28e84834f8c07a6c61f392"
+  },
+  {
+    "asset": "96346.svg",
+    "bytes": 1141,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "b29693b3afef8aec22f19a1b1c003e680b8f8770fdd9060391a934cb673e7467"
+  },
+  {
+    "asset": "b043f.svg",
+    "bytes": 232,
+    "sameAsPrevious": true,
+    "width": "10",
+    "height": "10",
+    "viewBox": "0 0 10 10",
+    "sha256": "5c48b7c52c99c27211908121827dc1af6436567416420fb22280f9db264ac6e5"
+  },
+  {
+    "asset": "03567.svg",
+    "bytes": 233,
+    "sameAsPrevious": true,
+    "width": "10",
+    "height": "10",
+    "viewBox": "0 0 10 10",
+    "sha256": "e172cd20a78827bf0cf9195519dc5ddc26f85135fb51a35f9d8c8d3d30f22104"
+  },
+  {
+    "asset": "84987.svg",
+    "bytes": 302,
+    "sameAsPrevious": true,
+    "width": "11.4142",
+    "height": "11.4142",
+    "viewBox": "0 0 11.4142 11.4142",
+    "sha256": "84040688809cb6683d167fa5b99a8f2e535f670d793447885d5c4cf130ad31fa"
+  },
+  {
+    "asset": "0fd39.svg",
+    "bytes": 382,
+    "sameAsPrevious": true,
+    "width": "22",
+    "height": "22",
+    "viewBox": "0 0 22 22",
+    "sha256": "49cbc5b475a518fdf6352fdc88d4a5769f314a4cbd1fd0baae528b7540c57692"
+  },
+  {
+    "asset": "4d691.svg",
+    "bytes": 525,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "33bd9601d0846a4bd67cd02ce434d20d7d479fcea30285c418de73e607db33b5"
+  },
+  {
+    "asset": "21288.svg",
+    "bytes": 232,
+    "sameAsPrevious": true,
+    "width": "12",
+    "height": "12",
+    "viewBox": "0 0 12 12",
+    "sha256": "a83d9bff8a2b5070b5e983869c40b5cbd9d37753ffd260582b1d31e3b8b01a4e"
+  },
+  {
+    "asset": "c95e6.svg",
+    "bytes": 233,
+    "sameAsPrevious": true,
+    "width": "12",
+    "height": "12",
+    "viewBox": "0 0 12 12",
+    "sha256": "3b069f806b9ed5e200559b4258151e3b9c7d140427ad956e24304b4eefc0e5ef"
+  },
+  {
+    "asset": "416c4.svg",
+    "bytes": 317,
+    "sameAsPrevious": true,
+    "width": "14.8284",
+    "height": "14.8284",
+    "viewBox": "0 0 14.8284 14.8284",
+    "sha256": "b150ca4e5140807e72a0aed120cabff56076fd50d081490c2d098d27657efeac"
+  },
+  {
+    "asset": "cb103.svg",
+    "bytes": 251,
+    "sameAsPrevious": true,
+    "width": "22",
+    "height": "22",
+    "viewBox": "0 0 22 22",
+    "sha256": "99c4ea77c759b4f3ec9a88462976b629205cf0be7fada6cdb393f597e635a68e"
+  },
+  {
+    "asset": "dbeae.svg",
+    "bytes": 346,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "3eabc131bc4a60a324b6b14d61160e2176400f3b1918774f3ab9931c972efe9d"
+  },
+  {
+    "asset": "8c8a2.svg",
+    "bytes": 302,
+    "sameAsPrevious": true,
+    "width": "13.4142",
+    "height": "13.4142",
+    "viewBox": "0 0 13.4142 13.4142",
+    "sha256": "3de3f739259a368fc2116ade4298c176149b661c868c1049848b36097ce93e1a"
+  },
+  {
+    "asset": "e82f9.svg",
+    "bytes": 316,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "dc7f7c299d1139e903b9dc5efcb896c4bab22b71d54c8b5eab1101176c8a50da"
+  },
+  {
+    "asset": "0699d.svg",
+    "bytes": 569,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "a90b6eee8197b5aae6bef77bb9ded32d53999800a16a0a0528cd0827c55da61e"
+  },
+  {
+    "asset": "bf992.svg",
+    "bytes": 1429,
+    "sameAsPrevious": true,
+    "width": "21.4062",
+    "height": "21.4102",
+    "viewBox": "0 0 21.4062 21.4102",
+    "sha256": "936b3b99bf3d887ee4edbdca3c8100d49f4b75a3cf40d5ebfe6de64aa03ff1a9"
+  },
+  {
+    "asset": "90d15.svg",
+    "bytes": 559,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "78ffcb68add92cf81923439b1787509629070a75e9cd4f52818203b75e65f75d"
+  },
+  {
+    "asset": "68735.svg",
+    "bytes": 774,
+    "sameAsPrevious": true,
+    "width": "112",
+    "height": "112",
+    "viewBox": "0 0 112 112",
+    "sha256": "7b7d68ab91e3d43e75186038f9baf19d49d6842e09f31adbb0339f975b0fcd4e"
+  },
+  {
+    "asset": "bb08f.svg",
+    "bytes": 693,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "be4bd0e1bb7dd7df0adfc0b0a9ab7ef73fd5aa17d8120a67f6fbba653c9a950d"
+  },
+  {
+    "asset": "4ece2.svg",
+    "bytes": 411,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "3c0481966ddbfb36641a962844426d63cbddf2fb4ef86723f5fc2b9cd8d8e119"
+  },
+  {
+    "asset": "ef6d9.svg",
+    "bytes": 720,
+    "sameAsPrevious": true,
+    "width": "72",
+    "height": "72",
+    "viewBox": "0 0 72 72",
+    "sha256": "0d9732d5649ae6d86d7f6171fa6f3891a5afb367148c9b213db6cc408ad5b3d0"
+  },
+  {
+    "asset": "f52de.svg",
+    "bytes": 674,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "ac9984f28092bf04e35286d170d08fe9f480337d69082ead1d977fedc9512f44"
+  },
+  {
+    "asset": "1ee59.svg",
+    "bytes": 590,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "d508b25c2fa3abfc517a1c48bef02b82ca691974add2bec7cfadab027f3b7e5b"
+  },
+  {
+    "asset": "f17a9.svg",
+    "bytes": 527,
+    "sameAsPrevious": true,
+    "width": "24",
+    "height": "24",
+    "viewBox": "0 0 24 24",
+    "sha256": "ae98b562d64efdc9531457db6454b928f2675fa09db2c967483b843d0da80733"
+  }
+]

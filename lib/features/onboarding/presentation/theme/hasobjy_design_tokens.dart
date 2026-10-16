@@ -12,33 +12,39 @@ abstract final class HasobjyDesignTokens {
   static const border = Color(0xFF1B3F73);
   static const borderStrong = Color(0xFF3D5A78);
   static const warning = Color(0xFF8C5E10);
-  static const success = Color(0xFF087C52);
+  static const success = Color(0xFF12713F);
+  static const warningText = Color(0xFFFDF4E1);
+  static const successText = Color(0xFFE8F8EF);
 
   static const fontFamily = 'Cairo';
 
   static const bodySmall = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 10,
-    height: 16 / 10,
+    letterSpacing: 0,
+    fontSize: 12,
+    height: 18 / 12,
     fontWeight: FontWeight.w400,
     color: textMuted,
   );
   static const bodyMedium = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 12,
-    height: 18 / 12,
-    fontWeight: FontWeight.w400,
-    color: textSecondary,
-  );
-  static const bodyLarge = TextStyle(
-    fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 14,
     height: 22 / 14,
     fontWeight: FontWeight.w400,
     color: textSecondary,
   );
+  static const bodyLarge = TextStyle(
+    fontFamily: fontFamily,
+    letterSpacing: 0,
+    fontSize: 16,
+    height: 26 / 16,
+    fontWeight: FontWeight.w400,
+    color: textSecondary,
+  );
   static const label = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 14,
     height: 20 / 14,
     fontWeight: FontWeight.w500,
@@ -46,6 +52,7 @@ abstract final class HasobjyDesignTokens {
   );
   static const labelLarge = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 16,
     height: 24 / 16,
     fontWeight: FontWeight.w500,
@@ -53,13 +60,15 @@ abstract final class HasobjyDesignTokens {
   );
   static const title = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 22,
     height: 32 / 22,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w700,
     color: textPrimary,
   );
   static const titleBold = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 22,
     height: 32 / 22,
     fontWeight: FontWeight.w700,
@@ -67,6 +76,7 @@ abstract final class HasobjyDesignTokens {
   );
   static const labelSemiBold = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 16,
     height: 24 / 16,
     fontWeight: FontWeight.w600,
@@ -74,6 +84,7 @@ abstract final class HasobjyDesignTokens {
   );
   static const labelLargeOnBrand = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 16,
     height: 24 / 16,
     fontWeight: FontWeight.w500,
@@ -81,6 +92,7 @@ abstract final class HasobjyDesignTokens {
   );
   static const bodyMediumOnBrand = TextStyle(
     fontFamily: fontFamily,
+    letterSpacing: 0,
     fontSize: 14,
     height: 22 / 14,
     fontWeight: FontWeight.w400,
@@ -88,15 +100,33 @@ abstract final class HasobjyDesignTokens {
   );
   static const bodySmallOnBrand = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 10,
-    height: 16 / 10,
+    letterSpacing: 0,
+    fontSize: 12,
+    height: 18 / 12,
     fontWeight: FontWeight.w400,
     color: background,
   );
+  static const badge = TextStyle(
+    fontFamily: fontFamily,
+    letterSpacing: 0,
+    fontSize: 12,
+    height: 16 / 12,
+    fontWeight: FontWeight.w500,
+    color: textSecondary,
+  );
+  static const headingMedium = TextStyle(
+    fontFamily: fontFamily,
+    letterSpacing: 0,
+    fontSize: 18,
+    height: 28 / 18,
+    fontWeight: FontWeight.w600,
+    color: textPrimary,
+  );
   static const display = TextStyle(
     fontFamily: fontFamily,
-    fontSize: 24,
-    height: 34 / 24,
+    letterSpacing: 0,
+    fontSize: 28,
+    height: 40 / 28,
     fontWeight: FontWeight.w700,
     color: textPrimary,
   );

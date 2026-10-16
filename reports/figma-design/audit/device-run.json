@@ -1,0 +1,117 @@
+{
+  "platform": "iOS simulator, iPhone 18 Pro, iOS 27.0",
+  "frames": [
+    {
+      "frame": "A-S01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S07",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S06",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S07",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S06",
+      "width": 320,
+      "height": 844
+    }
+  ],
+  "textInputAndScroll": "passed",
+  "nativeKeyboardInset": 362.0
+}

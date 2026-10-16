@@ -43,9 +43,9 @@ android {
 
     defaultConfig {
         applicationId = "com.devmind.cit.learn"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        // Preserve Android 7 support; raising this requires a device-impact review.
+        // See plans/14-low-end-devices.md. compileSdk/targetSdk are independent.
+        minSdk = 24
         targetSdk = 36
         // Uses the version code from pubspec.yaml. When using split APKs, 1000 * ABI_VERSION
         // is added automatically by Flutter. (https://developer.android.com/studio/build/configure-apk-splits#configure-APK-versions)

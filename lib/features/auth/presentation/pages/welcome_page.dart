@@ -1,3 +1,4 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -47,30 +48,30 @@ class WelcomePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 28),
                 Text(
-                  'تعلم مواد المعهد\nفي مكان واحد',
+                  AppLocalizations.of(context).welcomeHeadline,
                   style: Theme.of(context).textTheme.displaySmall
                       ?.copyWith(fontWeight: FontWeight.w800, height: 1.22),
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  'مواد مرتبة حسب قسمك وسنتك وفصلك، ودروس يمكنك العودة إليها بسهولة.',
+                  AppLocalizations.of(context).welcomeDescription,
                   style: Theme.of(context).textTheme.bodyLarge
                       ?.copyWith(color: scheme.onSurfaceVariant),
                 ),
                 const SizedBox(height: 32),
-                const _FeatureRow(
+                _FeatureRow(
                   Icons.account_tree_outlined,
-                  'منهج واضح لكل قسم وسنة',
+                  AppLocalizations.of(context).featureCurriculum,
                 ),
                 const SizedBox(height: 14),
-                const _FeatureRow(
+                _FeatureRow(
                   Icons.play_circle_outline_rounded,
-                  'درس تعريفي لكل مادة',
+                  AppLocalizations.of(context).featureIntroLesson,
                 ),
                 const SizedBox(height: 14),
-                const _FeatureRow(
+                _FeatureRow(
                   Icons.download_for_offline_outlined,
-                  'تنزيل محمي بعد تفعيل الخدمة',
+                  AppLocalizations.of(context).featureProtectedDownload,
                 ),
                 const SizedBox(height: 34),
                 FilledButton.icon(
@@ -83,12 +84,12 @@ class WelcomePage extends StatelessWidget {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Icon(Icons.login_rounded),
-                  label: const Text('المتابعة باستخدام Google'),
+                  label: Text(AppLocalizations.of(context).continueUsingGoogle),
                 ),
                 const SizedBox(height: 12),
                 if (!googleConfigured)
                   Text(
-                    'يتطلب تسجيل Google إعداد معرّفات OAuth لهذا التطبيق.',
+                    AppLocalizations.of(context).googleSetupRequired,
                     style: TextStyle(color: scheme.onSurfaceVariant),
                     textAlign: TextAlign.center,
                   ),
@@ -107,7 +108,7 @@ class WelcomePage extends StatelessWidget {
                   OutlinedButton.icon(
                     onPressed: onStudentPreview,
                     icon: const Icon(Icons.phone_android_rounded),
-                    label: const Text('معاينة واجهة الطالب'),
+                    label: Text(AppLocalizations.of(context).studentPreview),
                   ),
                 ],
                 if (onAdminPreview != null) ...[
@@ -115,12 +116,12 @@ class WelcomePage extends StatelessWidget {
                   TextButton.icon(
                     onPressed: onAdminPreview,
                     icon: const Icon(Icons.admin_panel_settings_outlined),
-                    label: const Text('معاينة لوحة الإدارة'),
+                    label: Text(AppLocalizations.of(context).adminPreview),
                   ),
                 ],
                 const SizedBox(height: 28),
                 Text(
-                  'هوية Google وحدها لا تمنح حساباً أو اشتراكاً داخل Hasobjy حتى يتحقق خادم التطبيق منها.',
+                  AppLocalizations.of(context).identityBoundary,
                   style: Theme.of(context).textTheme.bodySmall,
                   textAlign: TextAlign.center,
                 ),

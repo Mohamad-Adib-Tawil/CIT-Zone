@@ -1,0 +1,123 @@
+[
+  {
+    "frame": "A-S01",
+    "nodeId": "9:2",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.658,
+    "pixelsWithEveryChannelWithin8Percent": 98.024,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "A-S03",
+    "nodeId": "9:15",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.5729,
+    "pixelsWithEveryChannelWithin8Percent": 98.256,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "A-S04",
+    "nodeId": "9:34",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.4909,
+    "pixelsWithEveryChannelWithin8Percent": 98.343,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "A-S05",
+    "nodeId": "9:65",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.5131,
+    "pixelsWithEveryChannelWithin8Percent": 98.567,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "A-S06",
+    "nodeId": "9:81",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.3977,
+    "pixelsWithEveryChannelWithin8Percent": 98.759,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "A-S07",
+    "nodeId": "9:101",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.5604,
+    "pixelsWithEveryChannelWithin8Percent": 98.416,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "B-S01",
+    "nodeId": "10:2",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.7436,
+    "pixelsWithEveryChannelWithin8Percent": 98.183,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "B-S03",
+    "nodeId": "10:40",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.7179,
+    "pixelsWithEveryChannelWithin8Percent": 97.927,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "B-S04",
+    "nodeId": "10:69",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.5496,
+    "pixelsWithEveryChannelWithin8Percent": 98.339,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "B-S05",
+    "nodeId": "10:92",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.7749,
+    "pixelsWithEveryChannelWithin8Percent": 97.543,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  },
+  {
+    "frame": "B-S06",
+    "nodeId": "10:115",
+    "size": [
+      390,
+      844
+    ],
+    "meanAbsoluteChannelErrorOutOf255": 0.6683,
+    "pixelsWithEveryChannelWithin8Percent": 98.107,
+    "note": "Whole content image, including background; not a visual acceptance score."
+  }
+]

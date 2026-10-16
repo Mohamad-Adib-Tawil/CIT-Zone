@@ -1,0 +1,98 @@
+# ERD — G-grades
+
+```mermaid
+erDiagram
+  grade_import_batches {
+    uuid id PK
+    uuid term_id
+    exam_session session
+    uuid file_id
+    import_status status
+    varchar ocr_engine
+    text error_message
+    uuid uploaded_by_admin_id
+    timestamptz applied_at
+    timestamptz created_at
+  }
+  grade_import_rows {
+    uuid id PK
+    uuid batch_id
+    int row_no
+    varchar raw_university_id
+    varchar raw_student_name
+    uuid subject_id
+    numeric practical_mark
+    numeric theoretical_mark
+    varchar raw_result
+    uuid matched_user_id
+    match_status match_status
+    numeric confidence
+    uuid reviewed_by_admin_id
+  }
+  grade_report_exports {
+    uuid id PK
+    uuid user_id
+    uuid term_id
+    uuid file_id
+    timestamptz generated_at
+  }
+  grade_revisions {
+    bigint id PK
+    uuid grade_id
+    uuid changed_by_admin_id
+    text reason
+    jsonb previous_record
+    jsonb new_record
+    timestamptz changed_at
+  }
+  grades {
+    uuid id PK
+    uuid user_id
+    uuid subject_id
+    uuid term_id
+    exam_session session
+    numeric practical_mark
+    numeric theoretical_mark
+    numeric total_mark
+    result_status result_status
+    timestamptz released_at
+    uuid import_row_id
+    uuid transcript_submission_id
+    uuid entered_by_admin_id
+    timestamptz created_at
+    timestamptz updated_at
+    uuid grading_scheme_id
+    text change_reason
+  }
+  grading_schemes {
+    uuid id PK
+    uuid subject_id
+    uuid term_id
+    integer version_no
+    numeric theoretical_weight
+    numeric practical_weight
+    numeric theoretical_max
+    numeric practical_max
+    smallint pass_mark
+    text approval_source
+    uuid approved_by_admin_id
+    timestamptz approved_at
+  }
+  transcript_submissions {
+    uuid id PK
+    uuid user_id
+    uuid file_id
+    uuid covers_through_term_id
+    review_status status
+    timestamptz submitted_at
+    uuid reviewed_by_admin_id
+    timestamptz reviewed_at
+    text rejection_reason
+    text notes
+  }
+  grades ||--o{ grade_revisions : "grade_id"
+  grade_import_batches ||--o{ grade_import_rows : "batch_id"
+  grade_import_rows |o--o| grades : "import_row_id"
+  transcript_submissions |o--o{ grades : "transcript_submission_id"
+  grading_schemes ||--o{ grades : "grading_scheme_id, subject_id, term_id"
+```

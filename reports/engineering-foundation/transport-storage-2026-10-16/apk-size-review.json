@@ -1,0 +1,66 @@
+[
+  {
+    "file": "app-armeabi-v7a-debug.apk",
+    "sizeMiB": 106.47,
+    "entryCompressedMiB": 82.15,
+    "entries": 605,
+    "largest": [
+      {
+        "path": "assets/flutter_assets/kernel_blob.bin",
+        "compressedMiB": 31.97
+      },
+      {
+        "path": "lib/armeabi-v7a/libflutter.so",
+        "compressedMiB": 31.61
+      },
+      {
+        "path": "assets/flutter_assets/isolate_snapshot_data",
+        "compressedMiB": 4.2
+      },
+      {
+        "path": "lib/armeabi-v7a/libpdfium.so",
+        "compressedMiB": 4.01
+      },
+      {
+        "path": "classes.dex",
+        "compressedMiB": 3.75
+      },
+      {
+        "path": "classes11.dex",
+        "compressedMiB": 3.0
+      }
+    ]
+  },
+  {
+    "file": "app-arm64-v8a-debug.apk",
+    "sizeMiB": 128.56,
+    "entryCompressedMiB": 104.24,
+    "entries": 606,
+    "largest": [
+      {
+        "path": "lib/arm64-v8a/libflutter.so",
+        "compressedMiB": 37.03
+      },
+      {
+        "path": "assets/flutter_assets/kernel_blob.bin",
+        "compressedMiB": 31.97
+      },
+      {
+        "path": "lib/arm64-v8a/libVkLayer_khronos_validation.so",
+        "compressedMiB": 14.53
+      },
+      {
+        "path": "lib/arm64-v8a/libpdfium.so",
+        "compressedMiB": 6.09
+      },
+      {
+        "path": "assets/flutter_assets/isolate_snapshot_data",
+        "compressedMiB": 4.2
+      },
+      {
+        "path": "classes.dex",
+        "compressedMiB": 3.75
+      }
+    ]
+  }
+]

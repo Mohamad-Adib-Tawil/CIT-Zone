@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app/cit_zone_app.dart';
+import 'app/bootstrap/app_bootstrap.dart';
 
 void main() {
-  runApp(const CitZoneApp());
+  runApp(const AppBootstrap());
 }

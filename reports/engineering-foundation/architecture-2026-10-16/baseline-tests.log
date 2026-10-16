@@ -1,0 +1,86 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart
+00:00 +0: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يقرأ JSON محدوداً ويرسل معرّف طلب دون رؤوس حساسة
+00:00 +2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يرفض JSON غير صالح أو استجابة أكبر من الحد
+00:00 +4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: development, debug=true
+00:00 +9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: development, debug=false
+00:00 +10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: staging, debug=true
+00:00 +11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: staging, debug=false
+00:00 +12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: production, debug=true
+00:00 +13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: preview policy: production, debug=false
+00:00 +14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_configuration_test.dart: build configuration uses the validated environment
+00:00 +15: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_bootstrap_test.dart: (setUpAll)
+00:00 +15: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_bootstrap_test.dart: composition is lazy and shares only gateway, never Cubit state
+00:00 +16: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +17: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +18: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +19: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +20: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +21: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +22: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +23: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +24: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +25: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +26: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +27: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +28: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +29: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +30: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +31: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +32: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:02 +33: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: محرر الدورة يعرض تحقق الحقول على هاتف صغير
+00:02 +34: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: المادة المشتركة تظهر بدورة واحدة في المعاينة
+00:02 +35: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: المادة المشتركة تظهر بدورة واحدة في المعاينة
+00:02 +36: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: فشل تحميل لوحة الإدارة ينتج حالة خطأ واضحة
+00:02 +37: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: فشل تحميل لوحة الإدارة ينتج حالة خطأ واضحة
+00:02 +38: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +39: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: (setUpAll)
+00:02 +39: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S01 Cairo RTL layout at 390.0
+00:03 +40: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:03 +41: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:03 +42: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +43: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +44: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +45: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +46: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +47: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:03 +48: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 390.0
+00:03 +49: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 390.0
+00:03 +50: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 390.0
+00:03 +51: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 390.0
+00:03 +52: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 390.0
+00:03 +53: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 390.0
+00:03 +54: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 390.0
+00:03 +55: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 390.0
+00:03 +56: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S01 Cairo RTL layout at 320.0
+00:03 +57: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S03 Cairo RTL layout at 320.0
+00:03 +58: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 320.0
+00:03 +59: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 320.0
+00:03 +60: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 320.0
+00:03 +61: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 320.0
+00:03 +62: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 320.0
+00:04 +63: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 320.0
+00:04 +64: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 320.0
+00:04 +65: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 320.0
+00:04 +66: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 320.0
+00:04 +67: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S01 Cairo RTL layout at 600.0
+00:04 +68: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S03 Cairo RTL layout at 600.0
+00:04 +69: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 600.0
+00:04 +70: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 600.0
+00:04 +71: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 600.0
+00:04 +72: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 600.0
+00:04 +73: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 600.0
+00:04 +74: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 600.0
+00:04 +75: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 600.0
+00:04 +76: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 600.0
+00:04 +77: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 600.0
+00:04 +78: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: academic selection keeps one department and one year
+00:04 +79: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: unsupported supplementary filter cannot invent exam dates
+00:04 +80: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: basic fields keep RTL, disabled email, and keyboard access at 320
+00:04 +81: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: (tearDownAll)
+00:04 +81: All tests passed!

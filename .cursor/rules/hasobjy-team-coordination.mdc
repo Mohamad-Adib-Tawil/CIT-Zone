@@ -1,0 +1,16 @@
+---
+description: Shared Hasobjy ownership and handoff protocol for Codex and Claude through Notion
+alwaysApply: true
+---
+
+# تنسيق Codex وClaude
+
+- اقرأ `AGENTS.md` و`docs/TEAM_COORDINATION.md` وأحدث تسليم المهمة في Notion قبل التعديل.
+- المساران: Mohamad Adib Tawil مع Codex؛ Mohammad Mokhmaljy مع Claude، وفق توجيه صاحب المشروع.
+- سجل صاحب التكليف والأداة الفعلية ونوع المساهمة والنطاق والملفات/المرفقات والتحقق والباقي والخطوة التالية.
+- لا تخلط إنشاء SQL/ERD الأصلي في Notion مع مراجعة/تعديلات Codex المحلية. اقرأ `database/README.md` قبل تغيير البيانات.
+- لا تكرر نطاقاً منجزاً أو تمسح نسبته أو تكتب فوق عمل متزامن. افحص الملفات وgit status ونسق حدود المهمة في Notion.
+- Done لنطاق مكتمل بدليل، In Progress للجزئي، In Review للمراجعة. معاينة/توثيق/SQL محلي لا تعني اكتمال API أو DRM أو إطلاق.
+- مثال: «راجع Mohamad Adib Tawil مع Codex سكيما المصدر؛ نفذ تعديلات محلية وفحصها؛ إنشاء الأصل من Mohammad Mokhmaljy مع Claude».
+- احتفظ بالتاريخ ولا تختلق اسم منفذ أو نتيجة اختبار. عند غياب الوصول اذكر ما لم يتزامن.
+- Claude يقرأ `CLAUDE.md` أيضاً؛ أسماء الأدوات في النص لا تغير الحساب المتصل أو صلاحياته.

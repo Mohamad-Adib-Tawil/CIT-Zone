@@ -1,0 +1,827 @@
+{
+  "tables": {
+    "users": [
+      "id",
+      "email",
+      "display_name",
+      "avatar_url",
+      "status",
+      "locale",
+      "last_login_at",
+      "terms_accepted_at",
+      "terms_version",
+      "deleted_at",
+      "created_at",
+      "updated_at"
+    ],
+    "oauth_identities": [
+      "id",
+      "user_id",
+      "provider",
+      "provider_subject",
+      "linked_at",
+      "last_login_at"
+    ],
+    "student_profiles": [
+      "user_id",
+      "official_full_name",
+      "father_name",
+      "university_student_id",
+      "phone",
+      "gender",
+      "birth_date",
+      "city",
+      "entry_academic_year_id",
+      "onboarding_completed_at",
+      "created_at",
+      "updated_at",
+      "legacy_transcript_eligible"
+    ],
+    "user_preferences": [
+      "user_id",
+      "playback_speed",
+      "auto_play_next",
+      "preferred_quality",
+      "wifi_only_downloads",
+      "push_enabled",
+      "exam_reminders_enabled",
+      "theme",
+      "language",
+      "created_at",
+      "updated_at"
+    ],
+    "admin_accounts": [
+      "id",
+      "full_name",
+      "email",
+      "password_hash",
+      "mfa_secret",
+      "role",
+      "is_active",
+      "last_login_at",
+      "created_at",
+      "updated_at"
+    ],
+    "devices": [
+      "id",
+      "user_id",
+      "device_fingerprint",
+      "platform",
+      "manufacturer",
+      "model",
+      "os_version",
+      "app_version",
+      "push_token",
+      "status",
+      "bound_at",
+      "authorized_by_admin_id",
+      "revoked_at",
+      "revoke_reason",
+      "last_seen_at",
+      "last_ip",
+      "created_at",
+      "updated_at"
+    ],
+    "device_change_requests": [
+      "id",
+      "new_device_id",
+      "old_device_id",
+      "conversation_id",
+      "reason",
+      "status",
+      "requested_at",
+      "decided_by_admin_id",
+      "decided_at",
+      "decision_note"
+    ],
+    "auth_sessions": [
+      "id",
+      "device_id",
+      "refresh_token_hash",
+      "issued_at",
+      "expires_at",
+      "last_used_at",
+      "revoked_at",
+      "revoked_reason",
+      "ip",
+      "user_agent"
+    ],
+    "security_events": [
+      "id",
+      "user_id",
+      "device_id",
+      "kind",
+      "severity",
+      "details",
+      "ip",
+      "occurred_at",
+      "reviewed_by_admin_id",
+      "reviewed_at"
+    ],
+    "departments": [
+      "id",
+      "code",
+      "name_ar",
+      "name_en",
+      "description",
+      "sort_order",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "academic_years": [
+      "id",
+      "label",
+      "starts_on",
+      "ends_on",
+      "is_current",
+      "created_at",
+      "updated_at"
+    ],
+    "terms": [
+      "id",
+      "academic_year_id",
+      "semester_in_year",
+      "starts_on",
+      "ends_on",
+      "exams_start_on",
+      "exams_end_on",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "student_term_enrollments": [
+      "id",
+      "user_id",
+      "term_id",
+      "department_id",
+      "study_year",
+      "status",
+      "confirmed_at"
+    ],
+    "department_subjects": [
+      "department_id",
+      "subject_id",
+      "study_year",
+      "semester_in_year",
+      "position",
+      "is_required",
+      "counts_toward_progress"
+    ],
+    "exam_schedules": [
+      "id",
+      "term_id",
+      "subject_id",
+      "session",
+      "kind",
+      "starts_at",
+      "location",
+      "notes",
+      "created_by_admin_id",
+      "created_at",
+      "updated_at"
+    ],
+    "files": [
+      "id",
+      "storage_provider",
+      "bucket",
+      "storage_key",
+      "original_name",
+      "mime_type",
+      "size_bytes",
+      "checksum_sha256",
+      "is_private",
+      "uploaded_by_user_id",
+      "uploaded_by_admin_id",
+      "created_at"
+    ],
+    "learning_containers": [
+      "id",
+      "kind",
+      "title_ar",
+      "title_en",
+      "slug",
+      "summary",
+      "description",
+      "cover_file_id",
+      "status",
+      "pdf_download_policy",
+      "sort_order",
+      "published_at",
+      "created_by_admin_id",
+      "created_at",
+      "updated_at",
+      "free_preview_count"
+    ],
+    "subjects": [
+      "container_id",
+      "kind",
+      "code",
+      "credit_hours",
+      "is_graduation_project"
+    ],
+    "course_categories": [
+      "id",
+      "code",
+      "name_ar",
+      "name_en",
+      "icon",
+      "sort_order",
+      "is_active"
+    ],
+    "courses": [
+      "container_id",
+      "kind",
+      "category_id",
+      "level",
+      "estimated_hours",
+      "prerequisites"
+    ],
+    "course_outcomes": [
+      "id",
+      "course_id",
+      "position",
+      "text_ar"
+    ],
+    "lessons": [
+      "id",
+      "container_id",
+      "position",
+      "title_ar",
+      "title_en",
+      "description",
+      "status",
+      "published_at",
+      "created_at",
+      "updated_at"
+    ],
+    "video_assets": [
+      "id",
+      "lesson_id",
+      "status",
+      "source_file_id",
+      "duration_seconds",
+      "packaging",
+      "manifest_path",
+      "drm_provider",
+      "drm_key_id",
+      "thumbnail_file_id",
+      "processing_error",
+      "processed_at",
+      "created_at",
+      "updated_at"
+    ],
+    "video_renditions": [
+      "id",
+      "video_asset_id",
+      "label",
+      "width",
+      "height",
+      "bitrate_kbps",
+      "codec",
+      "storage_key",
+      "size_bytes"
+    ],
+    "video_subtitles": [
+      "id",
+      "video_asset_id",
+      "language_code",
+      "label",
+      "file_id",
+      "is_default"
+    ],
+    "pdf_documents": [
+      "id",
+      "title_ar",
+      "description",
+      "is_free",
+      "status",
+      "position",
+      "created_at",
+      "updated_at"
+    ],
+    "pdf_versions": [
+      "id",
+      "pdf_id",
+      "version_no",
+      "file_id",
+      "page_count",
+      "is_current",
+      "change_note",
+      "created_by_admin_id",
+      "created_at"
+    ],
+    "container_pdfs": [
+      "pdf_id",
+      "container_id"
+    ],
+    "lesson_pdfs": [
+      "pdf_id",
+      "lesson_id"
+    ],
+    "content_contributors": [
+      "id",
+      "full_name",
+      "headline",
+      "user_id",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "pdf_contributors": [
+      "pdf_id",
+      "contributor_id",
+      "role"
+    ],
+    "exercises": [
+      "id",
+      "lesson_id",
+      "exercise_type",
+      "title",
+      "statement",
+      "explanation",
+      "hint",
+      "difficulty",
+      "max_points",
+      "position",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "mcq_options": [
+      "id",
+      "exercise_id",
+      "position",
+      "option_text",
+      "is_correct",
+      "feedback"
+    ],
+    "code_exercise_specs": [
+      "exercise_id",
+      "programming_language",
+      "starter_code",
+      "reference_solution",
+      "grading_instructions",
+      "expected_behavior",
+      "max_code_length"
+    ],
+    "exercise_attempts": [
+      "id",
+      "user_id",
+      "exercise_id",
+      "attempt_no",
+      "status",
+      "is_passed",
+      "score",
+      "time_spent_seconds",
+      "submitted_at",
+      "evaluated_at"
+    ],
+    "attempt_mcq_choices": [
+      "attempt_id",
+      "option_id"
+    ],
+    "code_submissions": [
+      "attempt_id",
+      "source_code",
+      "programming_language"
+    ],
+    "ai_evaluations": [
+      "id",
+      "attempt_id",
+      "model_name",
+      "prompt_version",
+      "verdict",
+      "score",
+      "explanation",
+      "suggested_fix",
+      "raw_response",
+      "prompt_tokens",
+      "completion_tokens",
+      "latency_ms",
+      "created_at"
+    ],
+    "ai_evaluation_findings": [
+      "id",
+      "evaluation_id",
+      "line_start",
+      "line_end",
+      "severity",
+      "message"
+    ],
+    "lesson_watch_progress": [
+      "user_id",
+      "lesson_id",
+      "last_position_seconds",
+      "total_watched_seconds",
+      "first_watched_at",
+      "last_watched_at"
+    ],
+    "lesson_ratings": [
+      "user_id",
+      "lesson_id",
+      "stars",
+      "comment",
+      "created_at",
+      "updated_at"
+    ],
+    "usage_sessions": [
+      "id",
+      "device_id",
+      "started_at",
+      "last_heartbeat_at",
+      "ended_at",
+      "active_seconds",
+      "app_version"
+    ],
+    "video_license_requests": [
+      "id",
+      "device_id",
+      "video_asset_id",
+      "license_type",
+      "entitlement_id",
+      "is_granted",
+      "denial_reason",
+      "issued_at",
+      "expires_at",
+      "ip"
+    ],
+    "offline_video_downloads": [
+      "id",
+      "device_id",
+      "video_asset_id",
+      "rendition_id",
+      "entitlement_id",
+      "status",
+      "downloaded_at",
+      "last_verified_at",
+      "removed_at",
+      "license_request_id"
+    ],
+    "offline_pdf_downloads": [
+      "id",
+      "device_id",
+      "pdf_version_id",
+      "entitlement_id",
+      "status",
+      "downloaded_at",
+      "last_verified_at",
+      "removed_at",
+      "license_id"
+    ],
+    "device_time_syncs": [
+      "id",
+      "device_id",
+      "server_time",
+      "device_time",
+      "recorded_at"
+    ],
+    "products": [
+      "id",
+      "kind",
+      "name_ar",
+      "description",
+      "is_active",
+      "available_from",
+      "available_until",
+      "created_at",
+      "updated_at"
+    ],
+    "product_prices": [
+      "id",
+      "product_id",
+      "amount",
+      "currency",
+      "effective_from",
+      "effective_to",
+      "created_by_admin_id"
+    ],
+    "product_subject_term": [
+      "product_id",
+      "kind",
+      "subject_id",
+      "term_id"
+    ],
+    "product_semester_bundle": [
+      "product_id",
+      "kind",
+      "term_id",
+      "department_id",
+      "study_year"
+    ],
+    "product_course": [
+      "product_id",
+      "kind",
+      "course_id",
+      "access_duration_days",
+      "duration_mode"
+    ],
+    "payments": [
+      "id",
+      "user_id",
+      "product_id",
+      "price_id",
+      "method",
+      "status",
+      "idempotency_key",
+      "expires_at",
+      "paid_at",
+      "failure_reason",
+      "created_at",
+      "updated_at"
+    ],
+    "payment_shamcash": [
+      "payment_id",
+      "shamcash_tx_id",
+      "payer_account",
+      "payer_name",
+      "receiver_account",
+      "reported_amount",
+      "reported_currency",
+      "gateway_status",
+      "raw_payload",
+      "verified_at"
+    ],
+    "payment_manual_receipts": [
+      "payment_id",
+      "receipt_file_id",
+      "claimed_tx_ref",
+      "claimed_amount",
+      "claimed_paid_at",
+      "review_status",
+      "reviewed_by_admin_id",
+      "reviewed_at",
+      "rejection_reason",
+      "submitted_at"
+    ],
+    "payment_admin_grants": [
+      "payment_id",
+      "granted_by_admin_id",
+      "reason"
+    ],
+    "voucher_outlets": [
+      "id",
+      "name",
+      "contact_name",
+      "phone",
+      "address",
+      "commission_percent",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "voucher_batches": [
+      "id",
+      "outlet_id",
+      "product_id",
+      "quantity",
+      "printed_at",
+      "expires_on",
+      "created_by_admin_id",
+      "notes"
+    ],
+    "vouchers": [
+      "id",
+      "batch_id",
+      "serial_no",
+      "code_hash",
+      "status",
+      "activated_at",
+      "redeemed_payment_id",
+      "redeemed_at",
+      "voided_at",
+      "void_reason"
+    ],
+    "entitlements": [
+      "id",
+      "payment_id",
+      "starts_at",
+      "ends_at",
+      "status",
+      "revoked_at",
+      "revoked_by_admin_id",
+      "revoke_reason",
+      "created_at",
+      "updated_at"
+    ],
+    "grade_import_batches": [
+      "id",
+      "term_id",
+      "session",
+      "file_id",
+      "status",
+      "ocr_engine",
+      "error_message",
+      "uploaded_by_admin_id",
+      "applied_at",
+      "created_at"
+    ],
+    "grade_import_rows": [
+      "id",
+      "batch_id",
+      "row_no",
+      "raw_university_id",
+      "raw_student_name",
+      "subject_id",
+      "practical_mark",
+      "theoretical_mark",
+      "raw_result",
+      "matched_user_id",
+      "match_status",
+      "confidence",
+      "reviewed_by_admin_id"
+    ],
+    "transcript_submissions": [
+      "id",
+      "user_id",
+      "file_id",
+      "covers_through_term_id",
+      "status",
+      "submitted_at",
+      "reviewed_by_admin_id",
+      "reviewed_at",
+      "rejection_reason",
+      "notes"
+    ],
+    "grades": [
+      "id",
+      "user_id",
+      "subject_id",
+      "term_id",
+      "session",
+      "practical_mark",
+      "theoretical_mark",
+      "total_mark",
+      "result_status",
+      "released_at",
+      "import_row_id",
+      "transcript_submission_id",
+      "entered_by_admin_id",
+      "created_at",
+      "updated_at",
+      "grading_scheme_id",
+      "change_reason"
+    ],
+    "grade_report_exports": [
+      "id",
+      "user_id",
+      "term_id",
+      "file_id",
+      "generated_at"
+    ],
+    "announcements": [
+      "id",
+      "title",
+      "body",
+      "source",
+      "source_url",
+      "cover_file_id",
+      "is_pinned",
+      "status",
+      "published_at",
+      "expires_at",
+      "created_by_admin_id",
+      "created_at",
+      "updated_at"
+    ],
+    "announcement_attachments": [
+      "announcement_id",
+      "file_id",
+      "position",
+      "caption"
+    ],
+    "notification_templates": [
+      "id",
+      "code",
+      "title_pattern",
+      "body_pattern",
+      "is_active",
+      "created_at",
+      "updated_at"
+    ],
+    "notifications": [
+      "id",
+      "kind",
+      "template_id",
+      "title",
+      "body",
+      "deep_link",
+      "audience_kind",
+      "department_id",
+      "container_id",
+      "exam_schedule_id",
+      "announcement_id",
+      "scheduled_for",
+      "sent_at",
+      "created_by_admin_id",
+      "created_at"
+    ],
+    "notification_recipients": [
+      "notification_id",
+      "user_id",
+      "delivery_status",
+      "delivered_at",
+      "read_at",
+      "error_message"
+    ],
+    "support_conversations": [
+      "id",
+      "user_id",
+      "topic",
+      "subject",
+      "status",
+      "assigned_admin_id",
+      "last_message_at",
+      "resolved_at",
+      "satisfaction_rating",
+      "created_at",
+      "updated_at"
+    ],
+    "support_messages": [
+      "id",
+      "conversation_id",
+      "sender_admin_id",
+      "body",
+      "created_at",
+      "read_at"
+    ],
+    "support_message_attachments": [
+      "message_id",
+      "file_id"
+    ],
+    "admin_audit_logs": [
+      "id",
+      "admin_id",
+      "action",
+      "entity_type",
+      "entity_id",
+      "changes",
+      "ip",
+      "user_agent",
+      "created_at"
+    ],
+    "feature_flags": [
+      "key",
+      "is_enabled",
+      "description",
+      "updated_by_admin_id",
+      "updated_at"
+    ],
+    "app_settings": [
+      "key",
+      "value",
+      "description",
+      "updated_by_admin_id",
+      "updated_at"
+    ],
+    "app_versions": [
+      "id",
+      "platform",
+      "version_name",
+      "build_number",
+      "min_supported_build",
+      "is_force_update",
+      "store_url",
+      "release_notes",
+      "released_at"
+    ],
+    "grading_schemes": [
+      "id",
+      "subject_id",
+      "term_id",
+      "version_no",
+      "theoretical_weight",
+      "practical_weight",
+      "theoretical_max",
+      "practical_max",
+      "pass_mark",
+      "approval_source",
+      "approved_by_admin_id",
+      "approved_at"
+    ],
+    "grade_revisions": [
+      "id",
+      "grade_id",
+      "changed_by_admin_id",
+      "reason",
+      "previous_record",
+      "new_record",
+      "changed_at"
+    ],
+    "product_bundle_subjects": [
+      "product_id",
+      "subject_id"
+    ],
+    "protected_pdf_licenses": [
+      "id",
+      "device_id",
+      "pdf_version_id",
+      "entitlement_id",
+      "issued_at",
+      "expires_at",
+      "revoked_at",
+      "provider_license_ref"
+    ]
+  },
+  "foreign_key_count": 155
+}

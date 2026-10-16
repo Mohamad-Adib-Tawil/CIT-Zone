@@ -1,6 +1,8 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../auth/domain/google_identity.dart';
+import '../widgets/hasobjy_figma_components.dart';
 import 'hasobjy_academic_screens.dart';
 import 'hasobjy_auth_screens.dart';
 import 'hasobjy_device_screens.dart';
@@ -40,6 +42,8 @@ class HasobjyDesignPage extends StatelessWidget {
     this.onSignOut,
     this.working = false,
     this.error,
+    this.referenceViewport = false,
+    this.onOpenFrame,
   });
 
   final HasobjyFrameId frameId;
@@ -48,8 +52,14 @@ class HasobjyDesignPage extends StatelessWidget {
   final VoidCallback? onSignOut;
   final bool working;
   final String? error;
+  final bool referenceViewport;
+  final ValueChanged<HasobjyFrameId>? onOpenFrame;
 
   void _open(BuildContext context, HasobjyFrameId next) {
+    if (onOpenFrame != null) {
+      onOpenFrame!(next);
+      return;
+    }
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => HasobjyDesignPage(
@@ -57,6 +67,7 @@ class HasobjyDesignPage extends StatelessWidget {
           identity: identity,
           onGoogleSignIn: onGoogleSignIn,
           onSignOut: onSignOut,
+          referenceViewport: referenceViewport,
         ),
       ),
     );
@@ -64,18 +75,16 @@ class HasobjyDesignPage extends StatelessWidget {
 
   void _showPreviewOnly(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('هذه معاينة تصميم؛ لا يتصل التطبيق بخادم أو يحفظ طلباً.'),
-      ),
+      SnackBar(content: Text(AppLocalizations.of(context).designPreviewNotice)),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     void back() => Navigator.of(context).maybePop();
-    return switch (frameId) {
+    final page = switch (frameId) {
       HasobjyFrameId.aS01 => HasobjyWelcomeScreen(
-        onGoogleSignIn: onGoogleSignIn ?? () {},
+        onGoogleSignIn: onGoogleSignIn,
         working: working,
         error: error,
       ),
@@ -117,7 +126,11 @@ class HasobjyDesignPage extends StatelessWidget {
         onChangeDetails: () => _showPreviewOnly(context),
       ),
       HasobjyFrameId.bS05 => const HasobjyTermStatesScreen(),
-      HasobjyFrameId.bS06 => HasobjyExamScheduleScreen(onBack: back),
+      HasobjyFrameId.bS06 => HasobjyExamScheduleScreen(
+        onBack: back,
+        onUnsupportedSupplementary: () => _showPreviewOnly(context),
+      ),
     };
+    return referenceViewport ? HasobjyReferenceViewport(child: page) : page;
   }
 }

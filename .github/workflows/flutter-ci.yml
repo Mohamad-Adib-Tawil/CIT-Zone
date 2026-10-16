@@ -36,14 +36,38 @@ jobs:
       - name: Resolve dependencies
         run: flutter pub get --enforce-lockfile
 
+      - name: Verify generated sources
+        run: python3 tool/verify_generated.py --no-fvm
+
+      - name: Test measurement tooling
+        run: python3 -m unittest discover -s test/tool -p '*_test.py' -v
+
+      - name: Check architecture boundaries
+        run: dart run tool/architecture_rules.dart
+
       - name: Check Dart formatting
-        run: dart format --output=none --set-exit-if-changed lib test
+        run: dart format --output=none --set-exit-if-changed lib test integration_test tool
 
       - name: Analyze Flutter code
         run: flutter analyze
 
       - name: Run Flutter tests
-        run: flutter test
+        env:
+          HASOBJY_WIDGET_OUTPUT: reports/ci
+        shell: bash
+        run: |
+          set -o pipefail
+          mkdir -p reports/ci
+          flutter test --reporter expanded 2>&1 | tee reports/ci/flutter-test.log
 
       - name: Build Android debug
         run: flutter build apk --debug
+
+      - name: Preserve test evidence on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-failure-evidence
+          path: reports/ci/
+          if-no-files-found: ignore
+          retention-days: 7

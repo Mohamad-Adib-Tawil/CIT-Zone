@@ -1,0 +1,51 @@
+erDiagram
+  admin_audit_logs {
+    bigint id PK
+    uuid admin_id
+    varchar action
+    varchar entity_type
+    varchar entity_id
+    jsonb changes
+    inet ip
+    text user_agent
+    timestamptz created_at
+  }
+  app_settings {
+    varchar key PK
+    jsonb value
+    text description
+    uuid updated_by_admin_id
+    timestamptz updated_at
+  }
+  app_versions {
+    uuid id PK
+    platform platform
+    varchar version_name
+    int build_number
+    int min_supported_build
+    boolean is_force_update
+    text store_url
+    text release_notes
+    timestamptz released_at
+  }
+  feature_flags {
+    varchar key PK
+    boolean is_enabled
+    text description
+    uuid updated_by_admin_id
+    timestamptz updated_at
+  }
+  files {
+    uuid id PK
+    varchar storage_provider
+    varchar bucket
+    varchar storage_key
+    varchar original_name
+    varchar mime_type
+    bigint size_bytes
+    char checksum_sha256
+    boolean is_private
+    uuid uploaded_by_user_id
+    uuid uploaded_by_admin_id
+    timestamptz created_at
+  }

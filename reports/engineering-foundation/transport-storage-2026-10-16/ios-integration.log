@@ -1,0 +1,8 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/integration_test/foundation_native_test.dart
+Running Xcode build...                                          
+Xcode build done.                                           17.5s
+00:00 +0: native router sign-in, preview, platform back and sign-out
+00:01 +1: native route parser blocks production preview deep link
+00:02 +2: native secure storage and Drift persist and isolate account data
+00:02 +3: (tearDownAll)
+00:02 +3: All tests passed!

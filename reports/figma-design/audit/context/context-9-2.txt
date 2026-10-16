@@ -1,0 +1,90 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgSignal = `${assetPathPrefix}/ec76a.svg`;
+const imgWiFi = `${assetPathPrefix}/22855.svg`;
+const imgBattery = `${assetPathPrefix}/00202.svg`;
+const imgH = `${assetPathPrefix}/902ed.svg`;
+const imgGlyph = `${assetPathPrefix}/96346.svg`;
+const imgChamferTl = `${assetPathPrefix}/b043f.svg`;
+const imgChamferBr = `${assetPathPrefix}/03567.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/84987.svg`;
+
+export default function AS01() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex flex-col items-start relative size-full" data-node-id="9:2" data-name="A-S01 · تسجيل الدخول">
+      <div className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" data-node-id="18:110" data-name="Status Bar">
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" data-node-id="I18:110;18:3">
+          9:41
+        </p>
+        <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="I18:110;18:4" data-name="Indicators">
+          <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="I18:110;18:5" data-name="Signal">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+          </div>
+          <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="I18:110;18:10" data-name="Wi-Fi">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+          </div>
+          <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="I18:110;18:14" data-name="Battery">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-center min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="9:5" data-name="Content">
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="9:6" data-name="Spacer" />
+        <div className="relative shrink-0 size-[104px]" data-node-id="28:405" data-name="Logo">
+          <div className="absolute left-0 size-[96px] top-0" data-node-id="I28:405;28:397" data-name="H">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgH} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[40px] min-w-full not-italic relative shrink-0 text-[28px] text-[color:var(--color-text-primary,white)] text-center w-[min-content]" dir="auto" data-node-id="9:9">
+          مرحباً بك في حاسوبجي سيستم
+        </p>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[26px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-secondary,#d9f1fd)] text-center w-[min-content]" dir="auto" data-node-id="9:10">
+          دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="9:11" data-name="Spacer" />
+        <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-strong,#3d5a78)] border-solid content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="9:12" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" dir="auto" data-node-id="I9:12;8:7">
+            المتابعة عبر Google
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="I9:12;19:446" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I9:12;19:446;19:4" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+            </div>
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I9:12;29:377" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I9:12;29:378" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I9:12;29:379" data-name="Chamfer line TL">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I9:12;29:380" data-name="Chamfer line BR">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#9fc4e6)] text-center w-[min-content]" dir="auto" data-node-id="9:14">
+          بالمتابعة فأنت توافق على الشروط والأحكام وسياسة الخصوصية
+        </p>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: label/md: Font(family: "Cairo", style: Medium, size: 14, weight: 500, lineHeight: 20, letterSpacing: 0), display/lg: Font(family: "Cairo", style: Bold, size: 28, weight: 700, lineHeight: 40, letterSpacing: 0), body/lg: Font(family: "Cairo", style: Regular, size: 16, weight: 400, lineHeight: 26, letterSpacing: 0), label/lg: Font(family: "Cairo", style: Medium, size: 16, weight: 500, lineHeight: 24, letterSpacing: 0), body/sm: Font(family: "Cairo", style: Regular, size: 12, weight: 400, lineHeight: 18, letterSpacing: 0).
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

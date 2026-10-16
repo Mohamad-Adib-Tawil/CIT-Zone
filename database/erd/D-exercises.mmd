@@ -1,0 +1,85 @@
+erDiagram
+  ai_evaluation_findings {
+    uuid id PK
+    uuid evaluation_id
+    int line_start
+    int line_end
+    finding_severity severity
+    text message
+  }
+  ai_evaluations {
+    uuid id PK
+    uuid attempt_id
+    varchar model_name
+    varchar prompt_version
+    ai_verdict verdict
+    numeric score
+    text explanation
+    text suggested_fix
+    jsonb raw_response
+    int prompt_tokens
+    int completion_tokens
+    int latency_ms
+    timestamptz created_at
+  }
+  attempt_mcq_choices {
+    uuid attempt_id PK
+    uuid option_id
+  }
+  code_exercise_specs {
+    uuid exercise_id PK
+    varchar programming_language
+    text starter_code
+    text reference_solution
+    text grading_instructions
+    text expected_behavior
+    int max_code_length
+  }
+  code_submissions {
+    uuid attempt_id PK
+    text source_code
+    varchar programming_language
+  }
+  exercise_attempts {
+    uuid id PK
+    uuid user_id
+    uuid exercise_id
+    int attempt_no
+    attempt_status status
+    boolean is_passed
+    numeric score
+    int time_spent_seconds
+    timestamptz submitted_at
+    timestamptz evaluated_at
+  }
+  exercises {
+    uuid id PK
+    uuid lesson_id
+    exercise_type exercise_type
+    varchar title
+    text statement
+    text explanation
+    text hint
+    difficulty difficulty
+    smallint max_points
+    int position
+    publish_status status
+    timestamptz created_at
+    timestamptz updated_at
+  }
+  mcq_options {
+    uuid id PK
+    uuid exercise_id
+    smallint position
+    text option_text
+    boolean is_correct
+    text feedback
+  }
+  exercises ||--o{ mcq_options : "exercise_id"
+  exercises ||--o| code_exercise_specs : "exercise_id"
+  exercises ||--o{ exercise_attempts : "exercise_id"
+  exercise_attempts ||--o| attempt_mcq_choices : "attempt_id"
+  mcq_options ||--o{ attempt_mcq_choices : "option_id"
+  exercise_attempts ||--o| code_submissions : "attempt_id"
+  code_submissions ||--o{ ai_evaluations : "attempt_id"
+  ai_evaluations ||--o{ ai_evaluation_findings : "evaluation_id"

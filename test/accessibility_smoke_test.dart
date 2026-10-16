@@ -1,3 +1,5 @@
+import 'package:cit_zone/features/student/presentation/cubit/student_catalog_cubit.dart';
+import 'package:cit_zone/features/student/data/demo_student_repository.dart';
 import 'package:cit_zone/features/admin/data/demo_admin_repository.dart';
 import 'package:cit_zone/features/admin/presentation/cubit/admin_dashboard_cubit.dart';
 import 'package:cit_zone/features/admin/presentation/pages/admin_dashboard_page.dart';
@@ -7,11 +9,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'support/hasobjy_test_app.dart';
+
 void main() {
   testWidgets('شاشة الترحيب تحقق تسميات وأحجام لمس Android', (tester) async {
     await tester.pumpWidget(
-      MaterialApp(
-        home: WelcomePage(
+      arabicTestApp(
+        WelcomePage(
           googleConfigured: true,
           working: false,
           onGoogleSignIn: () {},
@@ -36,7 +40,11 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
 
-    await tester.pumpWidget(const MaterialApp(home: StudentPreviewPage()));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: StudentPreviewPage(createCatalogCubit: _createPreviewCubit),
+      ),
+    );
     await tester.pumpAndSettle();
     expect(find.byType(NavigationBar), findsOneWidget);
     expect(tester.takeException(), isNull);
@@ -56,3 +64,6 @@ void main() {
     await expectLater(tester, meetsGuideline(textContrastGuideline));
   });
 }
+
+StudentCatalogCubit _createPreviewCubit() =>
+    StudentCatalogCubit(DemoStudentRepository());

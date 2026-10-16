@@ -1,0 +1,213 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart
+00:00 +0: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/app_environment_test.dart: بيئة التطوير تقبل عنوان الاختبار المحلي فقط عبر HTTP
+00:00 +1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/app_environment_test.dart: الإنتاج لا يقبل HTTP أو وضع التطوير أو عنواناً ذا بيانات اعتماد
+00:00 +2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/app_environment_test.dart: عنوان API غير المحدد يبقى غير مفعل دون قيمة Demo
+00:00 +3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يقرأ JSON محدوداً ويرسل معرّف طلب دون رؤوس حساسة
+00:00 +5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: يرفض JSON غير صالح أو استجابة أكبر من الحد
+00:00 +7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/core/network/io_api_client_test.dart: المهلة والإلغاء ينهيان الطلب المعلق
+00:00 +8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:01 +9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      _AncestorFinderMixin.allCandidates (package:flutter_test/src/finders.dart:1857:49)
+#4      FinderBase.evaluate (package:flutter_test/src/finders.dart:1030:76)
+#5      WidgetController.widgetList (package:flutter_test/src/controller.dart:848:19)
+#6      WidgetController._maybeViewOf (package:flutter_test/src/controller.dart:795:34)
+#7      WidgetController.drag (package:flutter_test/src/controller.dart:1602:31)
+#8      main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/admin_dashboard_test.dart:17:18)
+<asynchronous suspension>
+#9      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#10     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 2 frames from dart:async-patch and package:stack_trace)
+
+The test description was:
+  لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +9 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +9 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف [E]
+  Test failed. See exception logs above.
+  The test description was: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+  
+00:01 +10 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +11 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +11 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.single (dart:core/iterable.dart:694:13)
+#4      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#5      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2429:15)
+#8      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#9      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2427:27)
+#10     main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/student_preview_test.dart:19:18)
+<asynchronous suspension>
+#11     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#12     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 4 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +11 -2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير [E]
+  Test failed. See exception logs above.
+  The test description was: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+  
+00:01 +11 -2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: محرر الدورة يعرض تحقق الحقول على هاتف صغير
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.single (dart:core/iterable.dart:694:13)
+#4      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#5      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2429:15)
+#8      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#9      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2427:27)
+#10     main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/admin_dashboard_test.dart:46:18)
+<asynchronous suspension>
+#11     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#12     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 4 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  محرر الدورة يعرض تحقق الحقول على هاتف صغير
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +11 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +11 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: محرر الدورة يعرض تحقق الحقول على هاتف صغير [E]
+  Test failed. See exception logs above.
+  The test description was: محرر الدورة يعرض تحقق الحقول على هاتف صغير
+  
+00:01 +12 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +12 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تستخدم التنقل الجانبي على شاشة عريضة
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.single (dart:core/iterable.dart:694:13)
+#4      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#5      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2429:15)
+#8      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#9      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2427:27)
+#10     main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/admin_dashboard_test.dart:85:18)
+<asynchronous suspension>
+#11     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#12     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 4 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  لوحة الإدارة تستخدم التنقل الجانبي على شاشة عريضة
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +12 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +12 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تستخدم التنقل الجانبي على شاشة عريضة [E]
+  Test failed. See exception logs above.
+  The test description was: لوحة الإدارة تستخدم التنقل الجانبي على شاشة عريضة
+  
+00:01 +13 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +13 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: المادة المشتركة تظهر بدورة واحدة في المعاينة
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.first (dart:core/iterable.dart:663:7)
+#1      _FirstFinderMixin.filter (package:flutter_test/src/finders.dart:1383:28)
+#3      Iterable.single (dart:core/iterable.dart:694:13)
+#4      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#5      WidgetController.scrollUntilVisible.<anonymous closure> (package:flutter_test/src/controller.dart:2429:15)
+#8      TestAsyncUtils.guard (package:flutter_test/src/test_async_utils.dart:74:41)
+#9      WidgetController.scrollUntilVisible (package:flutter_test/src/controller.dart:2427:27)
+#10     main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/student_preview_test.dart:58:18)
+<asynchronous suspension>
+#11     testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#12     TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided 4 frames from dart:async, dart:async-patch, and package:stack_trace)
+
+The test description was:
+  المادة المشتركة تظهر بدورة واحدة في المعاينة
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +13 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:01 +13 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: المادة المشتركة تظهر بدورة واحدة في المعاينة [E]
+  Test failed. See exception logs above.
+  The test description was: المادة المشتركة تظهر بدورة واحدة في المعاينة
+  
+00:01 +14 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:02 +15 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/hasobjy_design_frames_test.dart: A-S04 displays its Figma screen
+00:02 +16 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/accessibility_smoke_test.dart: لوحة الإدارة تحقق إرشادات تسميات وأحجام اللمس
+00:02 +17 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/accessibility_smoke_test.dart: لوحة الإدارة تحقق إرشادات تسميات وأحجام اللمس
+00:02 +18 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +19 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +20 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +21 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +22 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +23 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +24 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +25 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:02 +26 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following StateError was thrown running a test:
+Bad state: No element
+
+When the exception was thrown, this was the stack:
+#0      Iterable.single (dart:core/iterable.dart:694:25)
+#1      WidgetController.widget (package:flutter_test/src/controller.dart:828:30)
+#2      main.<anonymous closure> (file:///Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/CIT%20Zone/test/google_identity_cubit_test.dart:11:27)
+<asynchronous suspension>
+#3      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#4      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1953:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+The test description was:
+  زر Google معطل دون إعداد OAuth
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +26 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth [E]
+  Test failed. See exception logs above.
+  The test description was: زر Google معطل دون إعداد OAuth
+  
+00:02 +26 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: هوية Google لا تتحول إلى دور أو جلسة تطبيق
+00:02 +27 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: استعادة حساب Google تظهر الهوية دون جلسة تطبيق
+00:02 +28 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: غياب حساب Google سابق يعيد شاشة البداية
+00:02 +29 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: فشل الاستعادة لا يمنع محاولة الدخول اليدوي
+00:02 +30 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: إلغاء Google يعيد الشاشة للبداية دون خطأ
+00:02 +31 -6: Some tests failed.
+
+Failing tests:
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تستخدم التنقل الجانبي على شاشة عريضة
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/admin_dashboard_test.dart: محرر الدورة يعرض تحقق الحقول على هاتف صغير
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/CIT Zone/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+  ... and 2 more

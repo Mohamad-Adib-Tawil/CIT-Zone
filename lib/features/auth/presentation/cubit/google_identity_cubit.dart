@@ -1,7 +1,11 @@
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/errors/result.dart';
 import '../../domain/google_identity.dart';
-import '../../domain/google_identity_gateway.dart';
+import '../../domain/google_identity_failure.dart';
+import '../../domain/google_identity_repository.dart';
+import '../google_identity_messages.dart';
 
 sealed class GoogleIdentityState {
   const GoogleIdentityState();
@@ -12,7 +16,9 @@ class GoogleIdentityIdle extends GoogleIdentityState {
 }
 
 class GoogleIdentityWorking extends GoogleIdentityState {
-  const GoogleIdentityWorking();
+  const GoogleIdentityWorking({this.identity});
+
+  final GoogleIdentity? identity;
 }
 
 class GoogleIdentityReady extends GoogleIdentityState {
@@ -29,75 +35,53 @@ class GoogleIdentityError extends GoogleIdentityState {
 }
 
 class GoogleIdentityCubit extends Cubit<GoogleIdentityState> {
-  GoogleIdentityCubit(this._gateway) : super(const GoogleIdentityIdle());
+  GoogleIdentityCubit(this._repository, {required this.messages})
+    : super(const GoogleIdentityIdle());
 
-  final GoogleIdentityGateway _gateway;
+  final AppLocalizations messages;
 
-  bool get isConfigured => _gateway.isConfigured;
+  final GoogleIdentityRepository _repository;
+
+  bool get isConfigured => _repository.isConfigured;
 
   Future<void> restore() async {
     if (!isConfigured || state is! GoogleIdentityIdle) return;
     emit(const GoogleIdentityWorking());
-    try {
-      final identity = await _gateway.restoreIdentity();
-      if (isClosed) return;
-      emit(
-        identity == null
-            ? const GoogleIdentityIdle()
-            : GoogleIdentityReady(identity),
-      );
-    } catch (_) {
-      if (!isClosed) emit(const GoogleIdentityIdle());
-    }
+    final result = await _repository.restoreIdentity();
+    if (isClosed) return;
+    emit(switch (result) {
+      Success(:final value) when value != null => GoogleIdentityReady(value),
+      _ => const GoogleIdentityIdle(),
+    });
   }
 
   Future<void> signIn() async {
     if (state is GoogleIdentityWorking || state is GoogleIdentityReady) return;
     emit(const GoogleIdentityWorking());
-    try {
-      final identity = await _gateway.authenticate();
-      if (!isClosed) emit(GoogleIdentityReady(identity));
-    } on GoogleIdentityException catch (error) {
-      if (isClosed) return;
-      if (error.failure == GoogleIdentityFailure.canceled) {
-        emit(const GoogleIdentityIdle());
-      } else {
-        emit(GoogleIdentityError(_messageFor(error.failure)));
-      }
-    } catch (_) {
-      if (!isClosed) {
-        emit(
-          const GoogleIdentityError('تعذر إكمال تسجيل Google. حاول مجدداً.'),
-        );
-      }
-    }
+    final result = await _repository.signIn();
+    if (isClosed) return;
+    emit(switch (result) {
+      Success(:final value) => GoogleIdentityReady(value),
+      Failure(failure: GoogleIdentityFailure.canceled) =>
+        const GoogleIdentityIdle(),
+      Failure(:final failure) => GoogleIdentityError(
+        googleIdentityFailureMessage(failure, messages),
+      ),
+    });
   }
 
   Future<void> signOut() async {
     final previous = state;
     if (previous is! GoogleIdentityReady) return;
-    emit(const GoogleIdentityWorking());
-    try {
-      await _gateway.signOut();
-      if (!isClosed) emit(const GoogleIdentityIdle());
-    } catch (_) {
-      if (!isClosed) {
-        emit(
-          GoogleIdentityReady(
-            previous.identity,
-            error: 'تعذر تسجيل الخروج من Google. حاول مجدداً.',
-          ),
-        );
-      }
-    }
+    emit(GoogleIdentityWorking(identity: previous.identity));
+    final result = await _repository.signOut();
+    if (isClosed) return;
+    emit(switch (result) {
+      Success() => const GoogleIdentityIdle(),
+      Failure() => GoogleIdentityReady(
+        previous.identity,
+        error: messages.googleSignOutFailed,
+      ),
+    });
   }
-
-  String _messageFor(GoogleIdentityFailure failure) => switch (failure) {
-    GoogleIdentityFailure.unavailable =>
-      'تسجيل Google غير مُهيأ لهذا الجهاز. راجع إعدادات OAuth.',
-    GoogleIdentityFailure.missingToken =>
-      'لم يصل إثبات الهوية المطلوب من Google. حاول مجدداً.',
-    GoogleIdentityFailure.canceled => '',
-    GoogleIdentityFailure.unexpected => 'تعذر إكمال تسجيل Google. حاول مجدداً.',
-  };
 }

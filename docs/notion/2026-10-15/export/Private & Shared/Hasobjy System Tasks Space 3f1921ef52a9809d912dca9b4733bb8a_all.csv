@@ -1,0 +1,16 @@
+﻿الاسم,Assigned To,Date,الحالة
+,,,
+Preliminary project analysis,Mohammad Mokhmaljy,"October 6, 2026",In Review
+تعديلات مقترحه على الخطة,Mohammad Mokhmaljy,,Done
+تصميم مقترح او تغذية بصرية,,,In Review
+التأكد من محتوى قاعدة البيانات ومطابقته مع تحليل النظام,"Mohamad Adib Tawil, Mohammad Mokhmaljy",,Done
+بناء UI/UX لهذا المشروع كصلاحية طالب.,Mohammad Mokhmaljy,,TODO
+بناء API للمشروع وتوثيقه,Mohammad Mokhmaljy,,TODO
+بناء التطبيق بنسختين Android & IOS، باستخدام Flutter,Mohamad Adib Tawil,,In Progress
+بناء لوحة تحكم للمشروع WEB APP.,Mohammad Mokhmaljy,,TODO
+تجهيز الخطة التدريسية وتصوير فيديوهات.,Mohammad Mokhmaljy,,TODO
+قصص المستخدم (User Stories),,,In Review
+سكيما قاعدة البيانات (PostgreSQL SQL),,,In Review
+مخطط ERD وقرارات التطبيع,,,In Review
+تحديث سياسة النجاح والعلامات وتطبيق توصيات قاعدة البيانات,,,TODO
+,,,TODO
