@@ -1,4 +1,4 @@
-# خطط حاسوبجي / Hasobjy — CIT Zone سابقاً
+# خطط حاسوبجي / Hasobjy
 
 ## التنسيق بين Codex وClaude
 

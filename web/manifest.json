@@ -1,11 +1,11 @@
 {
-    "name": "cit_zone",
-    "short_name": "cit_zone",
+    "name": "Hasobjy | حاسوبجي",
+    "short_name": "Hasobjy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "حاسوبجي Hasobjy، المنصة التعليمية لطلاب المعهد التقني للحاسوب في حلب.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

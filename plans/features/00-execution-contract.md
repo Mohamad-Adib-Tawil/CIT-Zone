@@ -1,5 +1,15 @@
 # 00 — عقد تنفيذ إلزامي لكل مهمة
 
+## بطاقة توحيد العلامة الظاهرة Hasobjy — 2026-10-16
+
+- المسؤول البشري Mohamad Adib Tawil؛ المنفذ Codex؛ قرئت صفحة التنسيق المشتركة ومهمة Flutter الحالية في Notion عبر Brave، مع تسليم FND-07. مسار API/الويب/التصميم لـMohammad Mokhmaljy مع Claude لم يتغير.
+- النطاق: توحيد العلامة الظاهرة في metadata منصات Flutter وإعدادات Firebase وGoogle OAuth؛ لا rename لملفات المشروع أو Dart package أو IDs المرتبطة بنشر التطبيق.
+- الهوية والصلاحيات: Google identity كما هي؛ لا تغيير client ID أو OAuth scope أو provider enablement أو أدوار. لا Firebase Auth أو API production configured في التطبيق.
+- البيانات وAPI: غير منطبق؛ لا schema/migration/endpoint أو بيانات مستخدم.
+- القبول: build وتشغيل iOS Simulator ونجاح Google identity flow إن أمكن؛ verify معرّفات الحزمة/OAuth والبصمات بدون كشف token. لا يُدعى نجاح جلسة خادم.
+- الملفات الخارجية: Firebase project display/public name وAndroid/iOS app nicknames؛ Google Auth Platform branding. الـproject ID ومعرّفات التطبيقات والعملاء تبقى كما هي.
+- التسليم الكامل وحدود التحقق: [تقرير توحيد العلامة](../implementation/2026-10-16-hasobjy-brand-rename.md).
+
 ## بطاقة تنسيق Codex وClaude — 2026-10-16
 
 - الطلب: نسبة إنجازات Mohamad Adib Tawil مع Codex، وبقية المسارات إلى Mohammad Mokhmaljy مع Claude، ونشر دور ملزم وتسليم مشترك في Notion.
