@@ -1,0 +1,123 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgBackIcon = `${assetPathPrefix}/c318e.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const imgChamferTl = `${assetPathPrefix}/5aa0d.svg`;
+const imgChamferBr = `${assetPathPrefix}/66d1e.svg`;
+
+type BadgeProps = {
+  className?: string;
+  label?: string;
+  tone?: "Warning";
+};
+
+function Badge({ className, label = "حالة", tone = "Warning" }: BadgeProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-warning-subtle,#fdf4e1)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)]"} data-node-id="8:46">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-warning,#8c5e10)] whitespace-nowrap" dir="auto" data-node-id="8:47">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+type AppBarProps = {
+  className?: string;
+  title?: string;
+};
+
+function AppBar({ className, title = "عنوان الشاشة" }: AppBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative w-[390px]"} data-node-id="8:51" data-name="App Bar">
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:52" data-name="Spacer" />
+      <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="8:53">
+        {title}
+      </p>
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:54" data-name="Back icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function H04Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start relative size-full" data-node-id="103:4377" data-name="H-04 · تفاصيل التذكرة · Light">
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <AppBar className="bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" title="لا أستطيع تشغيل الدرس 4" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start min-h-px overflow-clip pb-[24px] pt-[16px] px-[24px] relative w-full" data-node-id="103:4380" data-name="Content">
+        <div className="content-stretch flex items-start justify-end overflow-clip relative shrink-0 w-full" data-node-id="103:4381" data-name="Status">
+          <Badge className="bg-[var(--color-bg-warning-subtle,#fdf4e1)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="قيد المعالجة" />
+        </div>
+        <div className="[word-break:break-word] bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col font-['Cairo:Regular'] font-normal gap-[6px] items-start not-italic overflow-clip p-[16px] relative shrink-0 text-right w-full" data-node-id="103:4383" data-name="Message (you)">
+          <p className="leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] w-full" dir="auto" data-node-id="103:4384">
+            أنت · اليوم 10:20
+          </p>
+          <p className="leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="103:4385">
+            عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو.
+          </p>
+        </div>
+        <div className="[word-break:break-word] bg-[var(--color-bg-brand-subtle,#d9f1fd)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col font-['Cairo:Regular'] font-normal gap-[6px] items-start not-italic overflow-clip p-[16px] relative shrink-0 text-right w-full" data-node-id="103:4386" data-name="Message (support)">
+          <p className="leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] w-full" dir="auto" data-node-id="103:4387">
+            الدعم · اليوم 11:05
+          </p>
+          <p className="leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="103:4388">
+            شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك.
+          </p>
+        </div>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="103:4389" data-name="Spacer" />
+        <div className="content-stretch flex flex-col gap-[var(--space-2xs,4px)] items-start relative shrink-0 w-full" data-node-id="103:4390" data-name="Input">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="I103:4390;8:20">
+            ردّك
+          </p>
+          <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[8px] h-[52px] items-center overflow-clip px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="I103:4390;8:21" data-name="Field">
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[26px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-muted,#587a9c)] text-right" dir="auto" data-node-id="I103:4390;8:22">
+              اكتب ردّك هنا
+            </p>
+          </div>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="I103:4390;8:23">
+            تُغلق التذكرة تلقائياً بعد 7 أيام من آخر رد
+          </p>
+        </div>
+        <div className="bg-[var(--color-bg-brand,#0578b7)] content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:4391" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-on-brand,white)] whitespace-nowrap" dir="auto" data-node-id="I103:4391;8:3">
+            إرسال الرد
+          </p>
+          <div className="absolute left-0 size-[10px] top-0" data-node-id="I103:4391;29:373" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[10px]" data-node-id="I103:4391;29:374" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,887 @@
+{
+  "platform": "iOS simulator, iPhone 18 Pro, iOS 27.0",
+  "frames": [
+    {
+      "frame": "A-S01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S06-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S07",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S07-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S08",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S08-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S09",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S09-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S10",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S10-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "B-S06-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-06-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-07",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-07-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-08",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-08-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "E-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "E-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-06",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-06-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "H-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "A-S01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S06",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S06-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S07",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S07-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S08",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S08-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S09",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S09-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S10",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "A-S10-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S06",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "B-S06-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-06",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-06-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-07",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-07-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-08",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-08-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "E-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "E-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-06",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-06-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "H-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-04-LIGHT",
+      "width": 320,
+      "height": 844
+    }
+  ],
+  "textInputAndScroll": "passed",
+  "nativeKeyboardInset": 362.0
+}

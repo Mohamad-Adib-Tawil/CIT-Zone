@@ -1,0 +1,25 @@
+Launching lib/main.dart on iPhone 18 Pro in debug mode...
+Running Xcode build...                                          
+Xcode build done.                                           21.6s
+[IMPORTANT:flutter/shell/platform/darwin/graphics/FlutterDarwinContextMetalImpeller.mm(45)] Using the Impeller rendering backend (Metal).
+-[WFIsolatedShortcutRunner init] Taking sandbox extensions for execution
+-[WFIsolatedShortcutRunner init]_block_invoke Sandbox extensions acquired
+Indexing for request: <WFToolKitIndexingRequest: 0x1018500c0>, changeset: .partial(updatedCount: 1 removedCount: 1 updated: ["com.devmind.cit.learn"], removed: ["com.apple.siri.SiriCrisisAppIntentsExtension"], provenance: [VoiceShortcutClient.ToolKitIndexingReason.Changeset.Provenance.launchServicesSnapshot(<LaunchServicesSnapshot uuid=887174F3-4493-4C24-8222-77E41FF9875B, v=1920)> ["com.apple.webapp", "com.apple.siri.SiriNotebookAppIntentsExtension", "com.apple.PassbookSecureUIService", "com.apple.LocalAuthenticationUIService", "com.apple.Batteries", "com.apple.AuthKitUIService", "com.apple.PeopleMessageService", "com.apple.compass.CompassSettingsAppIntents", "com.apple.livetranscriptionui", "com.apple.SafetyMonitorApp", "com.apple.DocumentsApp", "com.apple.SubcredentialUIService", "com.apple.ControlCenter.ControlCenterControlsExtension", "com.apple.EscrowSecurityAlert", "com.apple.MusicSettingsAppIntents", "com.apple.TDGSharingViewService", "com.apple.MediaRemoteUI", "com.apple.MTLReplayer", "com.apple.Posters.UnityPosterApp"<…>, priority: <decode: missing data>
+Type indexing (params + content items) took 0.000884s
+Action indexing took 0.000600s
+Indexed: 0
+Errored: 0
+Skipped: [:]
+Bundle cache: 0 hits, 0 misses
+Finished in 2.383904s
+-[WFIsolatedShortcutRunner unaliveProcess] Releasing sandbox extensions
+Syncing files to device iPhone 18 Pro...                           251ms
+
+Flutter run key commands.
+r Hot reload. 🔥🔥🔥
+R Hot restart.
+h List all available interactive commands.
+d Detach (terminate "flutter run" but leave application running).
+c Clear the screen
+q Quit (terminate the application on the device).
+

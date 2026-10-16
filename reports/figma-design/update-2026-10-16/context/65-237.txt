@@ -1,0 +1,106 @@
+const assetPathPrefix = "assets/hasobjy";
+const img3DBackground = `${assetPathPrefix}/526bd.svg`;
+const imgSignal = `${assetPathPrefix}/ec76a.svg`;
+const imgWiFi = `${assetPathPrefix}/22855.svg`;
+const imgBattery = `${assetPathPrefix}/00202.svg`;
+const imgBackIcon = `${assetPathPrefix}/e82f9.svg`;
+const imgShell = `${assetPathPrefix}/75ce9.svg`;
+const imgVector = `${assetPathPrefix}/80870.svg`;
+const imgVector1 = `${assetPathPrefix}/07489.svg`;
+
+export default function AS08() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex flex-col items-start overflow-clip relative rounded-[44px] size-full" data-node-id="65:237" data-name="A-S08 · الشروط وسياسة الخصوصية">
+      <div className="absolute h-[844px] left-0 top-0 w-[390px]" data-node-id="120:5475" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <div className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" data-node-id="65:238" data-name="Status Bar">
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" data-node-id="I65:238;18:3">
+          9:41
+        </p>
+        <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="I65:238;18:4" data-name="Indicators">
+          <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="I65:238;18:5" data-name="Signal">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+          </div>
+          <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="I65:238;18:10" data-name="Wi-Fi">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+          </div>
+          <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="I65:238;18:14" data-name="Battery">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--color-bg-surface,#06224d)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" data-node-id="65:239" data-name="App Bar">
+        <div className="relative shrink-0 size-[24px]" data-node-id="I65:239;8:52" data-name="Spacer" />
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" dir="auto" data-node-id="I65:239;8:53">
+          الشروط والخصوصية
+        </p>
+        <div className="relative shrink-0 size-[24px]" data-node-id="I65:239;8:54" data-name="Back icon">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-start min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="65:240" data-name="Content">
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="65:281" data-name="Tabs">
+          <div className="border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[12px] py-[10px] relative" data-node-id="65:282" data-name="Tab: سياسة الخصوصية">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] whitespace-nowrap" dir="auto" data-node-id="65:283">
+              سياسة الخصوصية
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-brand,#67a8dc)] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[12px] py-[10px] relative" data-node-id="65:284" data-name="Tab: الشروط والأحكام">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-on-brand,#02112c)] whitespace-nowrap" dir="auto" data-node-id="65:285">
+              الشروط والأحكام
+            </p>
+          </div>
+        </div>
+        <div className="[word-break:break-word] bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-col gap-[14px] items-start not-italic p-[16px] relative shrink-0 text-right w-full" data-node-id="65:286" data-name="Card">
+          <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="65:287">
+            1. استخدام التطبيق
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="65:288">
+            التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل.
+          </p>
+          <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="65:289">
+            2. الحساب والجهاز
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="65:290">
+            حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق.
+          </p>
+          <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="65:291">
+            3. المحتوى والحماية
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="65:292">
+            الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب.
+          </p>
+          <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="65:293">
+            4. المدفوعات
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="65:294">
+            الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك.
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="65:295">
+            آخر تحديث: 15 أكتوبر 2026 ·
+          </p>
+        </div>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="65:296" data-name="Spacer" />
+        <div className="drop-shadow-[0px_0px_11px_rgba(46,156,229,0.65)] h-[52px] relative shrink-0 w-full" data-node-id="120:5487" data-name="Button 3D">
+          <div className="absolute h-[52px] left-0 overflow-clip right-0 top-0" data-node-id="125:588" data-name="Shell">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgShell} />
+            <div className="absolute inset-[0_0_61.54%_0]" data-node-id="125:590" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="absolute inset-[1.44%_0.22%]" data-node-id="125:591" data-name="Vector">
+              <div className="absolute inset-[-1.49%_-0.22%]">
+                <img alt="" className="block max-w-none size-full" src={imgVector1} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute content-stretch flex h-[52px] items-center justify-center left-0 overflow-clip right-0 top-0" data-node-id="120:5493" data-name="Content">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-shadow-[0px_1px_0px_rgba(0,13,51,0.5)] text-white whitespace-nowrap" dir="auto" data-node-id="120:5494">
+              فهمت
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

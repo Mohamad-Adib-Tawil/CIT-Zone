@@ -2,7 +2,7 @@ import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import '../../../auth/domain/google_identity.dart';
-import '../theme/hasobjy_design_tokens.dart';
+import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 
 class HasobjyWelcomeScreen extends StatelessWidget {
@@ -21,62 +21,89 @@ class HasobjyWelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           children: [
-            const Spacer(),
-            const SizedBox(height: 16),
-            const SizedBox(
-              width: 104,
-              height: 104,
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: HasobjySvg('902ed', width: 96, height: 96),
+            Spacer(),
+            SizedBox(height: 16),
+            SizedBox(
+              width: 150,
+              height: 150,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    left: -19.38,
+                    top: -.255,
+                    width: 195.188,
+                    height: 186.688,
+                    child: Image.asset('assets/hasobjy/e2776.png'),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 80),
+              constraints: BoxConstraints(minHeight: 80),
               child: Center(
                 child: Text(
                   AppLocalizations.of(context).designWelcomeTitle,
                   textAlign: TextAlign.center,
-                  style: HasobjyDesignTokens.display,
+                  style: context.design.display,
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             ConstrainedBox(
-              constraints: const BoxConstraints(minHeight: 78),
+              constraints: BoxConstraints(minHeight: 78),
               child: Text(
                 AppLocalizations.of(context).designWelcomeDescription,
                 textAlign: TextAlign.center,
-                style: HasobjyDesignTokens.bodyLarge,
+                style: context.design.bodyLarge,
               ),
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).continueViaGoogle,
               primary: false,
               onPressed: working ? null : onGoogleSignIn,
-              icon: const HasobjySvg('96346', width: 24, height: 24),
+              icon: HasobjySvg('96346', width: 24, height: 24),
               cornerLine: '84987',
             ),
-            const SizedBox(height: 16),
-            Text(
-              AppLocalizations.of(context).termsConsent,
+            SizedBox(height: 16),
+            Text.rich(
+              TextSpan(
+                children: [
+                  const TextSpan(text: 'بالمتابعة فأنت توافق على '),
+                  TextSpan(
+                    text: 'الشروط والأحكام',
+                    style: TextStyle(
+                      color: context.design.brand,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  const TextSpan(text: ' و'),
+                  TextSpan(
+                    text: 'سياسة الخصوصية',
+                    style: TextStyle(
+                      color: context.design.brand,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
               textAlign: TextAlign.center,
-              style: HasobjyDesignTokens.bodySmall,
+              style: context.design.bodySmall,
             ),
             if (error != null) ...[
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               Text(
                 error!,
                 textAlign: TextAlign.center,
-                style: HasobjyDesignTokens.bodySmall.copyWith(
-                  color: const Color(0xFFFFA6A6),
+                style: context.design.bodySmall.copyWith(
+                  color: Color(0xFFFFA6A6),
                 ),
               ),
             ],
@@ -108,22 +135,22 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               AppLocalizations.of(context).usageQuestion,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.title,
+              style: context.design.title,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).usageExplanation,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.bodyMedium,
+              style: context.design.bodyMedium,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).instituteStudent,
               subtitle: AppLocalizations.of(context)
@@ -132,7 +159,7 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
               selected: _institute,
               onTap: () => setState(() => _institute = true),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).coursesOnly,
               subtitle: AppLocalizations.of(context).coursesOnlyDescription,
@@ -140,9 +167,9 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
               selected: !_institute,
               onTap: () => setState(() => _institute = false),
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).continueAction,
               onPressed: _institute
@@ -162,11 +189,15 @@ class HasobjyBasicInfoScreen extends StatefulWidget {
     required this.onContinue,
     required this.identity,
     this.onBack,
+    this.showStepper = true,
+    this.continueLabel,
   });
 
   final VoidCallback onContinue;
   final GoogleIdentity? identity;
   final VoidCallback? onBack;
+  final bool showStepper;
+  final String? continueLabel;
 
   @override
   State<HasobjyBasicInfoScreen> createState() => _HasobjyBasicInfoScreenState();
@@ -189,12 +220,14 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
       appBarTitle: AppLocalizations.of(context).basicInfo,
       onBack: widget.onBack,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const HasobjyStepper(activeBars: 2),
-            const SizedBox(height: 16),
+            if (widget.showStepper) ...[
+              HasobjyStepper(activeBars: 2),
+              SizedBox(height: 16),
+            ],
             HasobjyFormField(
               label: AppLocalizations.of(context).officialName,
               hint: AppLocalizations.of(context).officialNameHint,
@@ -202,7 +235,7 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
               helper: AppLocalizations.of(context).officialNameHelper,
               controller: _nameController,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyFormField(
               label: AppLocalizations.of(context).phoneNumber,
               hint: '09xx xxx xxx',
@@ -213,7 +246,7 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
               keyboardType: TextInputType.phone,
               textDirection: TextDirection.ltr,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyFormField(
               label: AppLocalizations.of(context).emailAddress,
               hint: widget.identity?.email ?? 'name@gmail.com',
@@ -222,11 +255,13 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
               enabled: false,
               textDirection: TextDirection.ltr,
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
-              label: AppLocalizations.of(context).continueAction,
+              label:
+                  widget.continueLabel ??
+                  AppLocalizations.of(context).continueAction,
               onPressed: widget.onContinue,
             ),
           ],

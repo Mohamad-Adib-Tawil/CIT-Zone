@@ -1,0 +1,3078 @@
+{
+  "A-S08": [
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        174.0,
+        342.0,
+        458.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        648.0,
+        342.0,
+        104.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "A-S08-LIGHT": [
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        174.0,
+        342.0,
+        458.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        648.0,
+        342.0,
+        96.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        760.0,
+        342.0,
+        60.0
+      ]
+    }
+  ],
+  "A-S10": [
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        182.0
+      ]
+    },
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        258.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        386.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        434.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        502.0,
+        342.0,
+        182.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        700.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "A-S10-LIGHT": [
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        178.0
+      ]
+    },
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        254.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        382.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        430.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        498.0,
+        342.0,
+        178.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        692.0,
+        342.0,
+        60.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-01": [
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        126.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        160.0,
+        342.0,
+        238.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        412.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        446.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        560.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-01-LIGHT": [
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        126.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        160.0,
+        342.0,
+        238.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        412.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        446.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        560.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-02": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        104.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        158.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        270.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        382.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        494.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        606.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-02-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        104.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        158.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        270.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        382.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        494.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        606.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-03": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        226.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        392.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        504.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        616.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        728.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-03-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        226.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        392.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        504.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        616.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        728.0,
+        342.0,
+        100.0
+      ]
+    }
+  ],
+  "C-04": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        28.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        320.0,
+        342.0,
+        18.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        350.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        406.0,
+        342.0,
+        294.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        712.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        776.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-04-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        28.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        320.0,
+        342.0,
+        18.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        350.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        406.0,
+        342.0,
+        294.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        712.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        776.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-05": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "SizedBox",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        528.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-05-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "SizedBox",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        528.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-06": [
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        216.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        316.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        416.0,
+        342.0,
+        88.0
+      ]
+    }
+  ],
+  "C-06-LIGHT": [
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        216.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        316.0,
+        342.0,
+        88.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        416.0,
+        342.0,
+        88.0
+      ]
+    }
+  ],
+  "C-07": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        104.0
+      ]
+    },
+    {
+      "widget": "Container",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        524.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-07-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        104.0
+      ]
+    },
+    {
+      "widget": "Container",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        524.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-08": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        128.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        258.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        292.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        384.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        418.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        510.0,
+        342.0,
+        178.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "C-08-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        128.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        258.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        292.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        384.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        418.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        510.0,
+        342.0,
+        178.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "E-01": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        94.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        222.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        342.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        462.0,
+        342.0,
+        108.0
+      ]
+    }
+  ],
+  "E-01-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        94.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        222.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        342.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "PreviewListCard",
+      "rect": [
+        24.0,
+        462.0,
+        342.0,
+        108.0
+      ]
+    }
+  ],
+  "F-01": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        104.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        158.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        278.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        398.0,
+        342.0,
+        108.0
+      ]
+    }
+  ],
+  "F-01-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewTabs",
+      "rect": [
+        24.0,
+        104.0,
+        342.0,
+        42.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        158.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        278.0,
+        342.0,
+        108.0
+      ]
+    },
+    {
+      "widget": "GestureDetector",
+      "rect": [
+        24.0,
+        398.0,
+        342.0,
+        108.0
+      ]
+    }
+  ],
+  "F-02": [
+    {
+      "widget": "Container",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        28.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        322.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        380.0,
+        342.0,
+        146.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        540.0,
+        342.0,
+        214.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-02-LIGHT": [
+    {
+      "widget": "Container",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        28.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        322.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        380.0,
+        342.0,
+        146.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        540.0,
+        342.0,
+        214.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-03": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        146.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        276.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "HasobjySelectionOption",
+      "rect": [
+        24.0,
+        310.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "HasobjySelectionOption",
+      "rect": [
+        24.0,
+        424.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        538.0,
+        342.0,
+        216.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-03-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        146.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        276.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "HasobjySelectionOption",
+      "rect": [
+        24.0,
+        310.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "HasobjySelectionOption",
+      "rect": [
+        24.0,
+        424.0,
+        342.0,
+        100.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        538.0,
+        342.0,
+        216.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-04": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        86.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        380.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        492.0,
+        342.0,
+        262.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-04-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        280.0,
+        342.0,
+        86.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        380.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        492.0,
+        342.0,
+        262.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-05": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        152.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        264.0,
+        342.0,
+        490.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-05-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        152.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        264.0,
+        342.0,
+        490.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-06": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        96.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        170.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        216.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        252.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        382.0,
+        342.0,
+        306.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "F-06-LIGHT": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        96.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        170.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        216.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        252.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        382.0,
+        342.0,
+        306.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "G-01": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        118.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        246.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        320.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        394.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        468.0,
+        342.0,
+        62.0
+      ]
+    }
+  ],
+  "G-01-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        118.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        246.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        320.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        394.0,
+        342.0,
+        62.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        468.0,
+        342.0,
+        62.0
+      ]
+    }
+  ],
+  "G-02": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        104.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        234.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        398.0,
+        342.0,
+        78.0
+      ]
+    }
+  ],
+  "G-02-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        104.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        234.0,
+        342.0,
+        150.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        398.0,
+        342.0,
+        78.0
+      ]
+    }
+  ],
+  "H-01": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        102.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        210.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        318.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        426.0,
+        342.0,
+        98.0
+      ]
+    }
+  ],
+  "H-01-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        102.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        210.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        318.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        426.0,
+        342.0,
+        98.0
+      ]
+    }
+  ],
+  "H-02": [
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        180.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        212.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        302.0,
+        342.0,
+        102.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        416.0,
+        342.0,
+        78.0
+      ]
+    }
+  ],
+  "H-02-LIGHT": [
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        180.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        212.0,
+        342.0,
+        78.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        302.0,
+        342.0,
+        102.0
+      ]
+    },
+    {
+      "widget": "InkWell",
+      "rect": [
+        24.0,
+        416.0,
+        342.0,
+        78.0
+      ]
+    }
+  ],
+  "H-03": [
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        340.0,
+        342.0,
+        414.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "H-03-LIGHT": [
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        340.0,
+        342.0,
+        414.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "H-04": [
+    {
+      "widget": "Align",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        24.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        152.0,
+        342.0,
+        80.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        244.0,
+        342.0,
+        102.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        358.0,
+        342.0,
+        288.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        658.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "H-04-LIGHT": [
+    {
+      "widget": "Align",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        24.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        152.0,
+        342.0,
+        80.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        244.0,
+        342.0,
+        102.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        358.0,
+        342.0,
+        288.0
+      ]
+    },
+    {
+      "widget": "PreviewField",
+      "rect": [
+        24.0,
+        658.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-02": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        290.0,
+        342.0,
+        398.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-02-LIGHT": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        290.0,
+        342.0,
+        398.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-03": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        268.0,
+        342.0,
+        552.0
+      ]
+    }
+  ],
+  "I-03-LIGHT": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        268.0,
+        342.0,
+        552.0
+      ]
+    }
+  ],
+  "I-04": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        268.0,
+        342.0,
+        486.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-04-LIGHT": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        22.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        268.0,
+        342.0,
+        486.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-05": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        290.0,
+        342.0,
+        398.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "I-05-LIGHT": [
+    {
+      "widget": "Center",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        112.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        186.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        232.0,
+        342.0,
+        44.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        290.0,
+        342.0,
+        398.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        702.0,
+        342.0,
+        52.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-01": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        102.0,
+        342.0,
+        86.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        198.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        83.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        321.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        351.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        477.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        507.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        633.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-01-LIGHT": [
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        60.0,
+        342.0,
+        32.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        102.0,
+        342.0,
+        86.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        198.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Row",
+      "rect": [
+        24.0,
+        228.0,
+        342.0,
+        83.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        321.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        351.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        477.0,
+        342.0,
+        20.0
+      ]
+    },
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        507.0,
+        342.0,
+        116.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        633.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-02": [
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        124.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        256.0,
+        342.0,
+        411.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        683.0,
+        342.0,
+        69.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-02-LIGHT": [
+    {
+      "widget": "Column",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        124.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        256.0,
+        342.0,
+        411.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        683.0,
+        342.0,
+        69.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-03": [
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        230.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        344.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        458.0,
+        342.0,
+        70.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        544.0,
+        342.0,
+        208.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-03-LIGHT": [
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        230.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "HasobjyFormField",
+      "rect": [
+        24.0,
+        344.0,
+        342.0,
+        98.0
+      ]
+    },
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        458.0,
+        342.0,
+        70.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        544.0,
+        342.0,
+        208.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-04": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        180.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        312.0,
+        342.0,
+        36.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        364.0,
+        342.0,
+        388.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ],
+  "S-04-LIGHT": [
+    {
+      "widget": "PreviewPanel",
+      "rect": [
+        24.0,
+        116.0,
+        342.0,
+        180.0
+      ]
+    },
+    {
+      "widget": "PreviewText",
+      "rect": [
+        24.0,
+        312.0,
+        342.0,
+        36.0
+      ]
+    },
+    {
+      "widget": "Spacer",
+      "rect": [
+        24.0,
+        364.0,
+        342.0,
+        388.0
+      ]
+    },
+    {
+      "widget": "PreviewButton",
+      "rect": [
+        24.0,
+        768.0,
+        342.0,
+        52.0
+      ]
+    }
+  ]
+}

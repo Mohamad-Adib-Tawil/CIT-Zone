@@ -2,8 +2,8 @@
 <g id="Icon circle">
 <rect width="112" height="112" fill="#1B3F73"/>
 <g id="Frame">
-<path id="Vector" d="M63 32.6667H49C46.4227 32.6667 44.3333 34.756 44.3333 37.3333V74.6667C44.3333 77.244 46.4227 79.3333 49 79.3333H63C65.5773 79.3333 67.6667 77.244 67.6667 74.6667V37.3333C67.6667 34.756 65.5773 32.6667 63 32.6667Z" stroke="#67A8DC" stroke-width="3.6"/>
-<path id="Vector_2" d="M53.6667 70H58.3333" stroke="#67A8DC" stroke-width="3.6" stroke-linecap="round"/>
+<path id="Vector" d="M49 32.6667H63C65.5773 32.6667 67.6667 34.756 67.6667 37.3333V74.6667C67.6667 77.244 65.5773 79.3333 63 79.3333H49C46.4227 79.3333 44.3333 77.244 44.3333 74.6667V37.3333C44.3333 34.756 46.4227 32.6667 49 32.6667Z" stroke-width="3.6" stroke="#67A8DC"/>
+<path id="Vector_2" d="M53.6667 70H58.3333" stroke-width="3.6" stroke-linecap="round" stroke="#67A8DC"/>
 </g>
 <path id="Chamfer TL" d="M0 0H14L0 14V0Z" fill="#02112C"/>
 <path id="Chamfer BR" d="M112 98V112H98L112 98Z" fill="#02112C"/>

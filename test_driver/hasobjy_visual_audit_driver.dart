@@ -5,7 +5,7 @@ import 'package:integration_test/integration_test_driver.dart';
 
 Future<void> main() => integrationDriver(
   responseDataCallback: (data) async {
-    final root = Directory('reports/figma-design/audit');
+    final root = Directory('reports/figma-design/update-2026-10-16');
     for (final capture in data?['captures'] as List<dynamic>? ?? []) {
       final folder = Directory('${root.path}/device-${capture['width']}');
       await folder.create(recursive: true);

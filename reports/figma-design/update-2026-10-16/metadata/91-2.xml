@@ -1,0 +1,216 @@
+<canvas id="91:2" name="I · System States" x="0" y="0" width="0" height="0">
+  <frame id="91:3" name="I-01 · شاشة البداية" x="0" y="0" width="390" height="844">
+    <instance id="91:4" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="91:20" name="Content" x="0" y="44" width="390" height="800">
+      <instance id="91:21" name="Logo/H" x="135" y="295" width="120" height="120" />
+      <text id="91:24" name="حاسوبجي سيستم" x="24" y="431" width="342" height="32" />
+      <text id="91:25" name="المعهد التقني للحاسوب" x="24" y="479" width="342" height="18" />
+    </frame>
+  </frame>
+  <frame id="91:26" name="E-01 · التنزيلات" x="470" y="0" width="390" height="844">
+    <instance id="91:27" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="91:43" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="91:48" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="91:49" name="Storage" x="24" y="16" width="342" height="94">
+        <text id="91:50" name="المساحة المستخدمة" x="17" y="17" width="308" height="18" />
+        <text id="91:51" name="420 MB من 2 GB" x="17" y="41" width="308" height="24" />
+        <frame id="91:52" name="Progress" x="17" y="71" width="300" height="6">
+          <frame id="91:53" name="Frame" x="0" y="0" width="237" height="6" />
+          <frame id="91:54" name="Frame" x="237" y="0" width="63" height="6" />
+        </frame>
+      </frame>
+      <frame id="91:55" name="Download" x="24" y="122" width="342" height="108">
+        <frame id="91:56" name="Text" x="17" y="17" width="252" height="74">
+          <text id="91:57" name="الدرس 4: لغة SQL الأساسية" x="0" y="0" width="252" height="24" />
+          <text id="91:58" name="قواعد البيانات · 86 MB" x="0" y="28" width="252" height="18" />
+          <frame id="91:59" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="91:60" name="Badge" x="151" y="0" width="101" height="24" />
+          </frame>
+        </frame>
+        <frame id="91:62" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="91:63" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="91:66" name="Download" x="24" y="242" width="342" height="108">
+        <frame id="91:67" name="Text" x="17" y="17" width="252" height="74">
+          <text id="91:68" name="الدرس 5: العلاقات بين الجداول" x="0" y="0" width="252" height="24" />
+          <text id="91:69" name="قواعد البيانات · 74 MB" x="0" y="28" width="252" height="18" />
+          <frame id="91:70" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="91:71" name="Badge" x="158" y="0" width="94" height="24" />
+          </frame>
+        </frame>
+        <frame id="91:73" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="91:74" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="91:77" name="Download" x="24" y="362" width="342" height="108">
+        <frame id="91:78" name="Text" x="17" y="17" width="252" height="74">
+          <text id="91:79" name="الدرس 2: الأصناف والكائنات" x="0" y="0" width="252" height="24" />
+          <text id="91:80" name="برمجة كائنية · 92 MB" x="0" y="28" width="252" height="18" />
+          <frame id="91:81" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="91:82" name="Badge" x="143" y="0" width="109" height="24" />
+          </frame>
+        </frame>
+        <frame id="91:84" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="91:85" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="91:88" name="I-02 · لا يوجد اتصال" x="940" y="0" width="390" height="844">
+    <instance id="91:89" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="91:105" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="91:106" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="91:107" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="91:110" name="لا يوجد اتصال بالإنترنت" x="24" y="142" width="342" height="32" />
+      <text id="91:111" name="يمكنك متابعة الدروس التي نزّلتها مسبقاً. ستُحفظ تقدّمك وتتزامن عند عودة الاتصال." x="24" y="188" width="342" height="44" />
+      <frame id="91:112" name="Spacer" x="24" y="246" width="342" height="398" />
+      <instance id="91:113" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="91:129" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="91:142" name="I-03 · الصيانة" x="1410" y="0" width="390" height="844">
+    <instance id="91:143" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="91:159" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="91:160" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="91:161" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="91:165" name="التطبيق قيد الصيانة" x="24" y="142" width="342" height="32" />
+      <text id="91:166" name="نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك." x="24" y="188" width="342" height="22" />
+      <frame id="91:167" name="Spacer" x="24" y="224" width="342" height="552" />
+    </frame>
+  </frame>
+  <frame id="91:168" name="I-04 · تحديث إجباري" x="1880" y="0" width="390" height="844">
+    <instance id="91:169" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="91:185" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="91:186" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="91:187" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="91:190" name="يتوفر تحديث جديد" x="24" y="142" width="342" height="32" />
+      <text id="91:191" name="لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار." x="24" y="188" width="342" height="22" />
+      <frame id="91:192" name="Spacer" x="24" y="224" width="342" height="486" />
+      <instance id="91:193" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="91:203" name="I-05 · خطأ عام" x="2350" y="0" width="390" height="844">
+    <instance id="91:204" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="91:220" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="91:221" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="91:222" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="91:225" name="حدث خطأ غير متوقع" x="24" y="142" width="342" height="32" />
+      <text id="91:226" name="لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم." x="24" y="188" width="342" height="44" />
+      <frame id="91:227" name="Spacer" x="24" y="246" width="342" height="398" />
+      <instance id="91:228" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="91:238" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4392" name="I-01 · شاشة البداية · Light" x="0" y="964" width="390" height="844">
+    <instance id="103:4393" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4394" name="Content" x="0" y="44" width="390" height="800">
+      <instance id="103:4395" name="Logo/H" x="135" y="295" width="120" height="120" />
+      <text id="103:4396" name="حاسوبجي سيستم" x="24" y="431" width="342" height="32" />
+      <text id="103:4397" name="المعهد التقني للحاسوب" x="24" y="479" width="342" height="18" />
+    </frame>
+  </frame>
+  <frame id="103:4398" name="E-01 · التنزيلات · Light" x="470" y="964" width="390" height="844">
+    <instance id="103:4399" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4400" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4401" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4402" name="Storage" x="24" y="16" width="342" height="94">
+        <text id="103:4403" name="المساحة المستخدمة" x="17" y="17" width="308" height="18" />
+        <text id="103:4404" name="420 MB من 2 GB" x="17" y="41" width="308" height="24" />
+        <frame id="103:4405" name="Progress" x="17" y="71" width="300" height="6">
+          <frame id="103:4406" name="Frame" x="0" y="0" width="237" height="6" />
+          <frame id="103:4407" name="Frame" x="237" y="0" width="63" height="6" />
+        </frame>
+      </frame>
+      <frame id="103:4408" name="Download" x="24" y="122" width="342" height="108">
+        <frame id="103:4409" name="Text" x="17" y="17" width="252" height="74">
+          <text id="103:4410" name="الدرس 4: لغة SQL الأساسية" x="0" y="0" width="252" height="24" />
+          <text id="103:4411" name="قواعد البيانات · 86 MB" x="0" y="28" width="252" height="18" />
+          <frame id="103:4412" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="103:4413" name="Badge" x="151" y="0" width="101" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:4414" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="103:4415" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4416" name="Download" x="24" y="242" width="342" height="108">
+        <frame id="103:4417" name="Text" x="17" y="17" width="252" height="74">
+          <text id="103:4418" name="الدرس 5: العلاقات بين الجداول" x="0" y="0" width="252" height="24" />
+          <text id="103:4419" name="قواعد البيانات · 74 MB" x="0" y="28" width="252" height="18" />
+          <frame id="103:4420" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="103:4421" name="Badge" x="158" y="0" width="94" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:4422" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="103:4423" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4424" name="Download" x="24" y="362" width="342" height="108">
+        <frame id="103:4425" name="Text" x="17" y="17" width="252" height="74">
+          <text id="103:4426" name="الدرس 2: الأصناف والكائنات" x="0" y="0" width="252" height="24" />
+          <text id="103:4427" name="برمجة كائنية · 92 MB" x="0" y="28" width="252" height="18" />
+          <frame id="103:4428" name="Row" x="0" y="50" width="252" height="24">
+            <instance id="103:4429" name="Badge" x="143" y="0" width="109" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:4430" name="Icon tile" x="281" y="32" width="44" height="44">
+          <instance id="103:4431" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:4432" name="I-02 · لا يوجد اتصال · Light" x="940" y="964" width="390" height="844">
+    <instance id="103:4433" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4434" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:4435" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="103:4436" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="103:4437" name="لا يوجد اتصال بالإنترنت" x="24" y="142" width="342" height="32" />
+      <text id="103:4438" name="يمكنك متابعة الدروس التي نزّلتها مسبقاً. ستُحفظ تقدّمك وتتزامن عند عودة الاتصال." x="24" y="188" width="342" height="44" />
+      <frame id="103:4439" name="Spacer" x="24" y="246" width="342" height="398" />
+      <instance id="103:4440" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="103:4441" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4442" name="I-03 · الصيانة · Light" x="1410" y="964" width="390" height="844">
+    <instance id="103:4443" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4444" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:4445" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="103:4446" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="103:4447" name="التطبيق قيد الصيانة" x="24" y="142" width="342" height="32" />
+      <text id="103:4448" name="نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك." x="24" y="188" width="342" height="22" />
+      <frame id="103:4449" name="Spacer" x="24" y="224" width="342" height="552" />
+    </frame>
+  </frame>
+  <frame id="103:4450" name="I-04 · تحديث إجباري · Light" x="1880" y="964" width="390" height="844">
+    <instance id="103:4451" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4452" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:4453" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="103:4454" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="103:4455" name="يتوفر تحديث جديد" x="24" y="142" width="342" height="32" />
+      <text id="103:4456" name="لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار." x="24" y="188" width="342" height="22" />
+      <frame id="103:4457" name="Spacer" x="24" y="224" width="342" height="486" />
+      <instance id="103:4458" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4459" name="I-05 · خطأ عام · Light" x="2350" y="964" width="390" height="844">
+    <instance id="103:4460" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4461" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:4462" name="Icon tile" x="139" y="16" width="112" height="112">
+        <instance id="103:4463" name="Icon" x="44" y="44" width="24" height="24" />
+      </frame>
+      <text id="103:4464" name="حدث خطأ غير متوقع" x="24" y="142" width="342" height="32" />
+      <text id="103:4465" name="لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم." x="24" y="188" width="342" height="44" />
+      <frame id="103:4466" name="Spacer" x="24" y="246" width="342" height="398" />
+      <instance id="103:4467" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="103:4468" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>

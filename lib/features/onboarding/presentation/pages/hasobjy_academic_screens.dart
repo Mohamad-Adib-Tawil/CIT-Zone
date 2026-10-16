@@ -1,7 +1,7 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/hasobjy_design_tokens.dart';
+import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 
 class HasobjyAcademicInfoScreen extends StatefulWidget {
@@ -29,14 +29,14 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
       appBarTitle: AppLocalizations.of(context).academicInfo,
       onBack: widget.onBack,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const HasobjyStepper(activeBars: 3),
-            const SizedBox(height: 16),
+            HasobjyStepper(activeBars: 3),
+            SizedBox(height: 16),
             _SectionLabel(AppLocalizations.of(context).department),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).departmentSoftware,
               subtitle: AppLocalizations.of(context).softwareDescription,
@@ -44,7 +44,7 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
               selected: _software,
               onTap: () => setState(() => _software = true),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).departmentNetworks,
               subtitle: AppLocalizations.of(context).networksDescription,
@@ -52,9 +52,9 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
               selected: !_software,
               onTap: () => setState(() => _software = false),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _SectionLabel(AppLocalizations.of(context).academicYear),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).firstYear,
               subtitle: AppLocalizations.of(context).firstYearTerms,
@@ -62,7 +62,7 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
               selected: _year == 1,
               onTap: () => setState(() => _year = 1),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySelectionOption(
               title: AppLocalizations.of(context).secondYear,
               subtitle: AppLocalizations.of(context).secondYearTerms,
@@ -70,9 +70,9 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
               selected: _year == 2,
               onTap: () => setState(() => _year = 2),
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).continueAction,
               onPressed: widget.onContinue,
@@ -93,7 +93,7 @@ class _SectionLabel extends StatelessWidget {
   Widget build(BuildContext context) => Text(
     title,
     textAlign: TextAlign.right,
-    style: HasobjyDesignTokens.labelLarge,
+    style: context.design.labelLarge.copyWith(fontWeight: FontWeight.w600),
   );
 }
 
@@ -115,16 +115,16 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
       appBarTitle: AppLocalizations.of(context).confirmEnrollment,
       onBack: onBack,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               AppLocalizations.of(context).reviewBeforeSaving,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.titleBold,
+              style: context.design.titleBold,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySurface(
               height: 158,
               padding: EdgeInsets.all(16),
@@ -152,23 +152,23 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).enrollmentExplanation,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.bodyMedium.copyWith(
-                color: HasobjyDesignTokens.textMuted,
+              style: context.design.bodyMedium.copyWith(
+                color: context.design.textMuted,
               ),
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmAndStart,
-              icon: const HasobjySvg('f17a9', width: 24, height: 24),
+              icon: HasobjySvg('f17a9', width: 24, height: 24),
               onPressed: onConfirm,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).editDetails,
               primary: false,
@@ -195,7 +195,7 @@ class HasobjyNewTermScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -203,23 +203,23 @@ class HasobjyNewTermScreen extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: HasobjyBadge(
                 label: AppLocalizations.of(context).newTerm,
-                background: HasobjyDesignTokens.selectedSurface,
-                foreground: HasobjyDesignTokens.brand,
+                background: context.design.selectedSurface,
+                foreground: context.design.brand,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).previewNewTermTitle,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.titleBold,
+              style: context.design.titleBold,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).confirmAcademicDetails,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.bodyLarge,
+              style: context.design.bodyLarge,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjySurface(
               height: 124,
               padding: EdgeInsets.all(16),
@@ -243,15 +243,15 @@ class HasobjyNewTermScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmEnrollmentYes,
-              icon: const HasobjySvg('f17a9', width: 24, height: 24),
+              icon: HasobjySvg('f17a9', width: 24, height: 24),
               onPressed: onConfirm,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).detailsChanged,
               primary: false,
@@ -271,14 +271,14 @@ class HasobjyTermStatesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               AppLocalizations.of(context).academicHeaderStates,
               textAlign: TextAlign.right,
-              style: HasobjyDesignTokens.headingMedium,
+              style: context.design.headingMedium,
             ),
             SizedBox(height: 16),
             _ActiveTermCard(),
@@ -300,7 +300,7 @@ class _ActiveTermCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => HasobjySurface(
     height: 108,
-    fill: HasobjyDesignTokens.brand,
+    fill: context.design.brand,
     border: null,
     cornerTopLeft: '21288',
     cornerBottomRight: 'c95e6',
@@ -311,17 +311,17 @@ class _ActiveTermCard extends StatelessWidget {
         Text(
           AppLocalizations.of(context).previewCurrentTerm,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.labelSemiBold.copyWith(
-            color: HasobjyDesignTokens.background,
+          style: context.design.labelSemiBold.copyWith(
+            color: context.design.textOnBrand,
           ),
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Text(
           AppLocalizations.of(context).previewTermCountdown,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.bodyMediumOnBrand,
+          style: context.design.bodyMediumOnBrand,
         ),
-        const SizedBox(height: 12),
+        SizedBox(height: 12),
         Container(
           height: 6,
           decoration: BoxDecoration(
@@ -349,7 +349,7 @@ class _BetweenTermsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => HasobjySurface(
     height: 108,
-    fill: HasobjyDesignTokens.warning,
+    fill: context.design.warning,
     border: null,
     cornerTopLeft: '21288',
     cornerBottomRight: 'c95e6',
@@ -360,16 +360,16 @@ class _BetweenTermsCard extends StatelessWidget {
         Text(
           AppLocalizations.of(context).noCurrentTerm,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.labelSemiBold.copyWith(
-            color: HasobjyDesignTokens.warningText,
+          style: context.design.labelSemiBold.copyWith(
+            color: context.design.warningText,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           AppLocalizations.of(context).previewNextTermExplanation,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.bodyMedium.copyWith(
-            color: HasobjyDesignTokens.warningText,
+          style: context.design.bodyMedium.copyWith(
+            color: context.design.warningText,
           ),
         ),
       ],
@@ -382,7 +382,7 @@ class _ClosedTermCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) => HasobjySurface(
     height: 108,
-    fill: HasobjyDesignTokens.surfaceSubtle,
+    fill: context.design.surfaceSubtle,
     border: null,
     cornerTopLeft: '21288',
     cornerBottomRight: 'c95e6',
@@ -393,13 +393,13 @@ class _ClosedTermCard extends StatelessWidget {
         Text(
           AppLocalizations.of(context).previewClosedTermTitle,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.labelSemiBold,
+          style: context.design.labelSemiBold,
         ),
         SizedBox(height: 8),
         Text(
           AppLocalizations.of(context).closedTermExplanation,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.bodyMedium,
+          style: context.design.bodyMedium,
         ),
       ],
     ),
@@ -426,13 +426,13 @@ class _EnrollmentPostponedCard extends StatelessWidget {
         Text(
           AppLocalizations.of(context).enrollmentPostponed,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.labelSemiBold,
+          style: context.design.labelSemiBold,
         ),
         SizedBox(height: 8),
         Text(
           AppLocalizations.of(context).reactivateEnrollment,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.bodyMedium,
+          style: context.design.bodyMedium,
         ),
       ],
     ),
@@ -456,7 +456,7 @@ class HasobjyExamScheduleScreen extends StatelessWidget {
       appBarTitle: AppLocalizations.of(context).examSchedule,
       onBack: onBack,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           children: [
             Row(
@@ -468,7 +468,7 @@ class HasobjyExamScheduleScreen extends StatelessWidget {
                   selected: false,
                   onTap: onUnsupportedSupplementary,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 _ExamFilter(
                   title: AppLocalizations.of(context).regularExams,
                   selected: true,
@@ -476,10 +476,10 @@ class HasobjyExamScheduleScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             for (var i = 0; i < exams.length; i++) ...[
               _ExamCard(exam: exams[i]),
-              if (i != exams.length - 1) const SizedBox(height: 16),
+              if (i != exams.length - 1) SizedBox(height: 16),
             ],
           ],
         ),
@@ -504,11 +504,11 @@ class _ExamFilter extends StatelessWidget {
     return HasobjyBadge(
       label: title,
       background: selected
-          ? HasobjyDesignTokens.selectedSurface
-          : HasobjyDesignTokens.surfaceSubtle,
+          ? context.design.selectedSurface
+          : context.design.surfaceSubtle,
       foreground: selected
-          ? HasobjyDesignTokens.brand
-          : HasobjyDesignTokens.textSecondary,
+          ? context.design.brand
+          : context.design.textSecondary,
       onTap: onTap,
     );
   }
@@ -573,29 +573,29 @@ class _ExamCard extends StatelessWidget {
                       ? AppLocalizations.of(context).practicalExam
                       : AppLocalizations.of(context).theoreticalExam,
                   background: practical
-                      ? HasobjyDesignTokens.success
-                      : HasobjyDesignTokens.selectedSurface,
+                      ? context.design.success
+                      : context.design.selectedSurface,
                   foreground: practical
-                      ? HasobjyDesignTokens.successText
-                      : HasobjyDesignTokens.brand,
+                      ? context.design.successText
+                      : context.design.brand,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     exam.subject,
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.right,
-                    style: HasobjyDesignTokens.labelSemiBold,
+                    style: context.design.labelSemiBold,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             exam.date,
             textAlign: TextAlign.right,
-            style: HasobjyDesignTokens.bodyMedium,
+            style: context.design.bodyMedium,
           ),
         ],
       ),

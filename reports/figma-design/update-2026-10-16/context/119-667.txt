@@ -1,0 +1,113 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgGlyph = `${assetPathPrefix}/96346.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const img3DBackground = `${assetPathPrefix}/6fb9e.svg`;
+const imgLogo3D = `${assetPathPrefix}/e2776.svg`;
+const imgVector = `${assetPathPrefix}/d5276.svg`;
+const imgVector1 = `${assetPathPrefix}/0ac5c.svg`;
+const imgVector2 = `${assetPathPrefix}/b926f.svg`;
+const imgVector3 = `${assetPathPrefix}/7d772.svg`;
+const imgVector4 = `${assetPathPrefix}/2592c.svg`;
+const imgVector5 = `${assetPathPrefix}/605ac.svg`;
+
+function IconGoogle({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[24px]"} data-node-id="19:3" data-name="Icon/google">
+      <div className="absolute left-0 size-[24px] top-0" data-node-id="19:4" data-name="Glyph">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function AS01Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start overflow-clip relative rounded-[44px] size-full" data-node-id="119:667" data-name="A-S01 · تسجيل الدخول · Light">
+      <div className="absolute h-[844px] left-0 top-0 w-[390px]" data-node-id="119:750" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-center min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="119:705" data-name="Content">
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="119:706" data-name="Spacer" />
+        <div className="relative shrink-0 size-[150px]" data-node-id="119:707" data-name="Logo 3D">
+          <div className="absolute inset-[-0.17%_-17.21%_-24.29%_-12.92%]">
+            <img alt="" className="block max-w-none size-full" src={imgLogo3D} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[40px] min-w-full not-italic relative shrink-0 text-[28px] text-[color:var(--color-text-primary,#02112c)] text-center w-[min-content]" dir="auto" data-node-id="119:735">
+          مرحباً بك في تطبيق حاسوبجي
+        </p>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[26px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-secondary,#3d5a78)] text-center w-[min-content]" dir="auto" data-node-id="119:736">
+          تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="119:737" data-name="Spacer" />
+        <div className="drop-shadow-[0px_10px_14px_rgba(5,120,184,0.3)] h-[66px] relative shrink-0 w-full" data-node-id="119:738" data-name="Button 3D">
+          <div className="absolute h-[66px] left-0 overflow-clip right-0 top-0" data-node-id="119:739" data-name="Shell">
+            <div className="absolute inset-[84.85%_1.75%_-3.03%_1.75%]" data-node-id="119:740" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="absolute inset-[12.12%_0_9.09%_0]" data-node-id="119:741" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="absolute inset-[0_0_21.21%_0]" data-node-id="119:742" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <div className="absolute inset-[3.03%_0.58%_66.67%_0.58%]" data-node-id="119:743" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector3} />
+            </div>
+            <div className="absolute inset-[0.76%_0.15%_99.24%_2.92%]" data-node-id="119:744" data-name="Vector">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector4} />
+              </div>
+            </div>
+            <div className="absolute inset-[15.15%_2.92%_21.97%_0.15%]" data-node-id="119:745" data-name="Vector">
+              <div className="absolute inset-[0_0_-1.2%_-0.15%]">
+                <img alt="" className="block max-w-none size-full" src={imgVector5} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute content-stretch flex gap-[10px] h-[52px] items-center justify-center left-0 overflow-clip right-0 top-0" data-node-id="119:746" data-name="Content">
+            <IconGoogle className="relative shrink-0 size-[24px]" />
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-shadow-[0px_1px_0px_rgba(0,13,51,0.5)] text-white whitespace-nowrap" dir="auto" data-node-id="119:748">
+              المتابعة عبر Google
+            </p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[0px] text-[color:var(--color-text-muted,#587a9c)] text-center w-[min-content]" dir="auto" data-node-id="119:749">
+          <span className="leading-[18px] text-[12px]">{`بالمتابعة فأنت توافق على `}</span>
+          <span className="[text-underline-position:from-font] decoration-from-font decoration-solid leading-[18px] text-[#0578b7] text-[12px] underline">الشروط والأحكام</span>
+          <span className="leading-[18px] text-[12px]">{` و`}</span>
+          <span className="[text-underline-position:from-font] decoration-from-font decoration-solid leading-[18px] text-[#0578b7] text-[12px] underline">سياسة الخصوصية</span>
+        </p>
+      </div>
+    </div>
+  );
+}

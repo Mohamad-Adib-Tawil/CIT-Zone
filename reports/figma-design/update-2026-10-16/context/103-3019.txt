@@ -1,0 +1,135 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const imgChamferTl = `${assetPathPrefix}/8c721.svg`;
+const imgChamferBr = `${assetPathPrefix}/089c8.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/4c1f4.svg`;
+
+type BadgeProps = {
+  className?: string;
+  label?: string;
+  tone?: "Neutral";
+};
+
+function Badge({ className, label = "حالة", tone = "Neutral" }: BadgeProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)]"} data-node-id="8:40">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] whitespace-nowrap" dir="auto" data-node-id="8:41">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function BS05Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start relative size-full" data-node-id="103:3019" data-name="B-S05 · حالات الفصل في الرئيسية · Light">
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-start min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="103:3021" data-name="Content">
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[18px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="103:3022">
+          حالات رأس الصفحة الأكاديمي
+        </p>
+        <div className="bg-[var(--color-bg-brand,#0578b7)] content-stretch flex flex-col gap-[var(--space-sm,12px)] items-start p-[var(--space-md,16px)] relative shrink-0 w-full" data-node-id="103:3023" data-name="State: Active term">
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-on-brand,white)] text-right w-[min-content]" dir="auto" data-node-id="103:3024">
+            الفصل الثالث · 2026/2027
+          </p>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-on-brand,white)] text-right w-[min-content]" dir="auto" data-node-id="103:3025">
+            ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو
+          </p>
+          <div className="bg-[rgba(255,255,255,0.3)] h-[6px] overflow-clip relative rounded-[var(--radius-full,999px)] shrink-0 w-full" data-node-id="103:3026" data-name="Progress track">
+            <div className="absolute bg-white h-[6px] left-[120px] rounded-[var(--radius-full,999px)] top-0 w-[190px]" data-node-id="103:3027" data-name="Progress" />
+          </div>
+          <div className="absolute left-0 size-[12px] top-0" data-node-id="103:3028" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[12px]" data-node-id="103:3029" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-warning-subtle,#fdf4e1)] content-stretch flex flex-col gap-[var(--space-xs,8px)] items-start p-[var(--space-md,16px)] relative shrink-0 w-full" data-node-id="103:3030" data-name="State: Between terms">
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-warning,#8c5e10)] text-right w-[min-content]" dir="auto" data-node-id="103:3031">
+            لا يوجد فصل جارٍ حالياً
+          </p>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-warning,#8c5e10)] text-right w-[min-content]" dir="auto" data-node-id="103:3032">
+            سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.
+          </p>
+          <div className="absolute left-0 size-[12px] top-0" data-node-id="103:3033" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[12px]" data-node-id="103:3034" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex flex-col gap-[var(--space-xs,8px)] items-start p-[var(--space-md,16px)] relative shrink-0 w-full" data-node-id="103:3035" data-name="State: Term closed">
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3036">
+            انتهى الفصل الثالث
+          </p>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3037">
+            أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.
+          </p>
+          <div className="absolute left-0 size-[12px] top-0" data-node-id="103:3038" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[12px]" data-node-id="103:3039" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col gap-[var(--space-xs,8px)] items-start p-[var(--space-md,16px)] relative shrink-0 w-full" data-node-id="103:3040" data-name="State: Enrollment postponed">
+          <div className="content-stretch flex gap-[var(--space-xs,8px)] items-center justify-end overflow-clip relative shrink-0 w-full" data-node-id="103:3041" data-name="Head">
+            <Badge className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="مؤجَّل" />
+          </div>
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3043">
+            تسجيلك مؤجَّل
+          </p>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3044">
+            تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.
+          </p>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="103:3045" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="103:3046" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="103:3047" data-name="Chamfer line TL">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="103:3048" data-name="Chamfer line BR">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="103:3049" data-name="Spacer" />
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,595 @@
+
+A-S03 · اختيار نوع الاستخدام 9:15
+{'img3DBackground': '9d8e7.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgRadio': '0fd39.svg', 'imgGlyph': '4d691.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '416c4.svg', 'imgRadio1': 'cb103.svg', 'imgGlyph1': 'dbeae.svg', 'imgChamferLineTl1': '8c8a2.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+كيف ستستخدم التطبيق؟
+اختر ما يناسبك، ويمكنك تغيير ذلك لاحقاً من الإعدادات
+طالب في المعهد
+مواد قسمي وسنتي الدراسية، مع الكورسات الإضافية
+الكورسات فقط
+أريد التسجيل في الكورسات البرمجية دون ربط حسابي بالمعهد
+متابعة
+
+A-S04 · المعلومات الأساسية 9:34
+{'img3DBackground': '526bd.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '0699d.svg', 'imgGroup': 'bf992.svg', 'imgGlyph1': '90d15.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+معلوماتك الأساسية
+الاسم الرسمي
+الاسم الثلاثي كما في الهوية
+يظهر في كشف علاماتك وشهاداتك
+رقم الهاتف
+09xx xxx xxx
+للتواصل عند الحاجة فقط
+البريد الإلكتروني
+name@gmail.com
+مأخوذ من حساب Google ولا يمكن تعديله
+متابعة
+
+A-S05 · الجهاز غير مصرّح 9:65
+{'img3DBackground': '8586f.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgIconCircle': '68735.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg', 'imgGlyph': '92416.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+هذا الحساب مرتبط بجهاز آخر
+يمكن استخدام الحساب على جهاز واحد فقط. لتغيير الجهاز أرسل طلباً للإدارة وسنراجعه في أقرب وقت.
+طلب تغيير الجهاز
+تسجيل الخروج
+
+A-S06 · طلب تغيير الجهاز 9:81
+{'img3DBackground': '5041f.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg', 'imgGlyph': '4ece2.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+طلب تغيير الجهاز
+الجهاز الجديد
+Samsung Galaxy A54 · Android 14
+سبب التغيير
+مثال: تغيّر هاتفي أو فُقد الجهاز القديم
+سيصل طلبك إلى الإدارة للمراجعة
+إرسال الطلب
+
+A-S07 · حالة الطلب 9:101
+{'img3DBackground': '9d8e7.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgIconCircle': 'ef6d9.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg', 'imgGroup': 'bf992.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg', 'imgChamferLineTl1': '84987.svg'}
+حالة الطلب
+قيد المراجعة
+طلبك قيد المراجعة
+أُرسل الطلب اليوم 12:50. سيصلك إشعار فور اتخاذ القرار.
+الجهاز المطلوب
+Samsung Galaxy A54 · Android 14
+التواصل مع الدعم
+تسجيل الخروج
+
+A-S08 · الشروط وسياسة الخصوصية 65:237
+{'img3DBackground': '526bd.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+الشروط والخصوصية
+سياسة الخصوصية
+الشروط والأحكام
+1. استخدام التطبيق
+التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل.
+2. الحساب والجهاز
+حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق.
+3. المحتوى والحماية
+الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب.
+4. المدفوعات
+الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك.
+آخر تحديث: 15 أكتوبر 2026 ·
+فهمت
+
+A-S09 · معلومات الكورسات فقط 66:629
+{'img3DBackground': '8586f.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '0699d.svg', 'imgGroup': 'bf992.svg', 'imgGlyph1': '90d15.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+معلوماتك الأساسية
+الاسم الرسمي
+الاسم الثلاثي كما في الهوية
+يظهر في كشف علاماتك وشهاداتك
+رقم الهاتف
+09xx xxx xxx
+للتواصل عند الحاجة فقط
+البريد الإلكتروني
+name@gmail.com
+مأخوذ من حساب Google ولا يمكن تعديله
+ابدأ التعلّم
+
+A-S10 · الحساب موقوف 66:692
+{'img3DBackground': '5041f.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '4eb40.svg', 'imgChamferTl': '10a46.svg', 'imgChamferBr': '8551a.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg', 'imgGlyph1': 'cf7cc.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+تم إيقاف حسابك
+أوقفت الإدارة هذا الحساب مؤقتاً. تواصل مع الدعم لمعرفة السبب وكيفية إعادة التفعيل.
+التواصل مع الدعم
+تسجيل الخروج
+
+A-S01 · تسجيل الدخول 108:23
+{'imgGlyph': '96346.svg', 'img3DBackground': '1c591.svg', 'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgLogo3D': 'e2776.svg', 'imgShell': '75ce9.svg', 'imgVector': '80870.svg', 'imgVector1': '07489.svg'}
+مرحباً بك في تطبيق حاسوبجي
+تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.
+المتابعة عبر Google
+{`بالمتابعة فأنت توافق على `} الشروط والأحكام {` و`} سياسة الخصوصية
+
+B-S01 · المعلومات الأكاديمية 10:2
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgRadio': '0fd39.svg', 'imgGlyph': 'dbeae.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '416c4.svg', 'imgRadio1': 'cb103.svg', 'imgGlyph1': 'f52de.svg', 'imgChamferLineTl1': '8c8a2.svg', 'imgGlyph2': '1ee59.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg'}
+معلوماتك الأكاديمية
+القسم
+برمجيات
+مواد البرمجة وتطوير التطبيقات
+شبكات
+مواد الشبكات والأنظمة
+السنة الدراسية
+السنة الأولى
+الفصل الأول والثاني
+السنة الثانية
+الفصل الثالث والرابع
+متابعة
+
+B-S03 · ملخص التأكيد 10:40
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg', 'imgGlyph': 'f17a9.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg', 'imgChamferLineTl1': '84987.svg'}
+تأكيد التسجيل
+راجع بياناتك قبل الحفظ
+أحمد محمد الحلبي
+الاسم الرسمي
+برمجيات
+القسم
+السنة الثانية
+السنة الدراسية
+الفصل الثالث · 2026/2027
+الفصل الحالي
+سيُسجَّل حسابك على الفصل الجاري، ويمكنك طلب تعديل القسم أو السنة من الدعم لاحقاً.
+تأكيد وبدء الاستخدام
+تعديل البيانات
+
+B-S04 · تأكيد تسجيل الفصل الجديد 10:69
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg', 'imgGlyph': 'f17a9.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg', 'imgChamferLineTl1': '84987.svg'}
+فصل جديد
+بدأ الفصل الرابع
+هل ما زلت في القسم والسنة نفسهما؟ نحتاج تأكيدك لتفعيل مواد هذا الفصل.
+برمجيات
+القسم
+السنة الثانية
+السنة الدراسية
+1 فبراير – 15 يونيو 2027
+مدة الفصل
+نعم، تأكيد التسجيل
+تغيّرت بياناتي
+
+B-S05 · حالات الفصل في الرئيسية 10:92
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg'}
+حالات رأس الصفحة الأكاديمي
+الفصل الثالث · 2026/2027
+ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو
+لا يوجد فصل جارٍ حالياً
+سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.
+انتهى الفصل الثالث
+أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.
+مؤجَّل
+تسجيلك مؤجَّل
+تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.
+
+B-S06 · جدول الامتحانات 10:115
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '8c8a2.svg'}
+جدول الامتحانات
+الدورة التكميلية
+الدورة العادية
+نظري
+البرمجة الكائنية
+الأحد 7 يونيو · 09:00 · القاعة 3
+عملي
+قواعد البيانات
+الثلاثاء 9 يونيو · 11:00 · المخبر 1
+نظري
+هندسة البرمجيات
+الخميس 11 يونيو · 09:00 · القاعة 2
+عملي
+تطوير الويب
+الأحد 14 يونيو · 10:00 · المخبر 2
+
+S-01 · الإعدادات 68:3
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgGlyph': 'ee395.svg', 'imgGlyph1': 'c0283.svg', 'imgGlyph2': '5beea.svg', 'imgGlyph3': '287fc.svg', 'imgGlyph4': '0699d.svg', 'imgGlyph5': 'dcfca.svg', 'imgGlyph6': '0ebba.svg', 'imgGlyph7': '8c281.svg', 'imgGlyph8': '223ff.svg', 'imgChamferLineTl': '84987.svg', 'imgGlyph9': 'd5522.svg', 'imgGlyph10': 'c0735.svg', 'imgGlyph11': '5238a.svg', 'imgGlyph12': 'cba16.svg'}
+الإعدادات
+أحمد محمد الحلبي
+برمجيات · السنة الثانية · الفصل الثالث
+أ
+المظهر
+داكن
+فاتح
+تلقائي
+الحساب
+ملفي الشخصي
+الجهاز المسجّل
+المساعدة
+الدعم والتواصل
+الشروط وسياسة الخصوصية
+تسجيل الخروج
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+S-02 · الملف الشخصي 68:207
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': 'cbba1.svg', 'imgChamferBr': '19040.svg', 'imgGlyph': '9474c.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg'}
+ملفي الشخصي
+أ
+أحمد محمد الحلبي
+الاسم الرسمي
+أحمد محمد الحلبي
+رقم الهاتف
+0991 234 567
+البريد الإلكتروني
+ahmad@gmail.com
+القسم
+برمجيات
+السنة الدراسية
+الثانية
+الفصل الحالي
+الثالث · 2026/2027
+تعديل البيانات
+
+S-03 · تعديل البيانات 68:266
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '0699d.svg', 'imgGroup': 'bf992.svg', 'imgGlyph1': '90d15.svg', 'imgGlyph2': '4ece2.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+تعديل البيانات
+الاسم الرسمي
+أحمد محمد الحلبي
+يظهر في كشف علاماتك وشهاداتك
+رقم الهاتف
+0991 234 567
+للتواصل عند الحاجة فقط
+البريد الإلكتروني
+ahmad@gmail.com
+مأخوذ من حساب Google ولا يمكن تعديله
+لتغيير القسم أو السنة الدراسية، تواصل مع الإدارة عبر الدعم.
+حفظ التعديلات
+
+S-04 · الجهاز المسجّل 68:342
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': 'dcfca.svg', 'imgGlyph1': '49c93.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+الجهاز المسجّل
+نشط
+Samsung Galaxy A54
+Android 14
+نظام التشغيل
+12 أكتوبر 2026
+تاريخ التسجيل
+اليوم · 22:10
+آخر استخدام
+يُسمح بجهاز واحد فقط لحساب طالب المعهد. لتغيير الجهاز أرسل طلباً تراجعه الإدارة.
+طلب تغيير الجهاز
+
+C-01 · الرئيسية 69:3
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': 'e3eac.svg', 'imgGlyph1': '38165.svg', 'imgGlyph2': 'ba0b6.svg', 'imgGlyph3': 'c0735.svg', 'imgGlyph4': '5238a.svg', 'imgGlyph5': 'ba247.svg'}
+مرحباً أحمد
+متابع تعلّمك من حيث توقفت
+متابعة المشاهدة
+الدرس 5: العلاقات بين الجداول
+قواعد البيانات · متبقٍ 12 دقيقة
+موادي
+برمجة كائنية
+8 دروس · 3 تمارين
+هندسة البرمجيات
+10 دروس · 2 تمارين
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+C-02 · المواد 69:93
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '38165.svg', 'imgGlyph1': 'ba0b6.svg', 'imgGlyph2': 'c0735.svg', 'imgGlyph3': 'd7c97.svg', 'imgGlyph4': 'cba16.svg'}
+المواد
+الفصول السابقة
+الفصل الحالي
+قواعد البيانات
+12 درساً · 4 تمارين
+برمجة كائنية
+8 درساً · 3 تمارين
+هندسة البرمجيات
+10 دروس · 2 تمارين
+تطوير الويب
+14 درساً · 5 تمارين
+شبكات الحاسوب
+9 دروس · 2 تمارين
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+C-03 · تفاصيل المادة 69:203
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '46019.svg', 'imgGlyph1': 'd589e.svg', 'imgGlyph2': 'f969e.svg', 'imgGlyph3': 'ba0b6.svg', 'imgGlyph4': 'c0735.svg', 'imgGlyph5': 'd7c97.svg', 'imgGlyph6': 'cba16.svg'}
+قواعد البيانات
+تقدّمك في المادة: 62%
+8 من 12 درساً مكتملة
+التمارين
+الملفات
+الدروس
+1. مقدمة في قواعد البيانات
+18 دقيقة
+2. النمذجة الكيانية
+24 دقيقة
+3. الجداول والمفاتيح
+21 دقيقة
+4. لغة SQL الأساسية
+32 دقيقة
+5. العلاقات بين الجداول
+27 دقيقة
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+C-04 · مشغّل الدرس 69:304
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': 'e3eac.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgGlyph1': '18141.svg', 'imgChamferLineTl': '84987.svg'}
+أحمد محمد · 0991 234 567
+1.0x
+12:40 / 27:00
+الدرس 4: لغة SQL الأساسية
+قواعد البيانات · الفصل الثالث
+تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد.
+الدرس التالي
+تنزيل للمشاهدة دون إنترنت
+
+C-05 · عارض PDF (عرض فقط) 73:206
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+ملخص الفصل الأول
+عرض فقط
+صفحة 3 من 24
+مبادئ قواعد البيانات
+أحمد محمد · 0991 234 567
+السابقة
+التالية
+
+C-06 · التمارين 73:269
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '5c3d1.svg'}
+تمارين قواعد البيانات
+تمرين 1: إنشاء جدول الطلاب
+تم الحل · 90/100
+تمرين 2: استعلامات SELECT
+تم الحل · 75/100
+تمرين 3: ربط الجداول JOIN
+قيد التصحيح
+تمرين 4: التجميع GROUP BY
+لم يُحلّ
+
+C-07 · حلّ التمرين 73:332
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': 'ff159.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+تمرين 3: ربط الجداول
+المطلوب
+اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب.
+1
+SELECT s.name, c.title
+2
+FROM students s
+3
+JOIN enrollments e
+4
+{` ON e.student_id = s.id`}
+5
+JOIN courses c
+6
+{` ON c.id = e.course_id`}
+7
+ORDER BY s.name;
+إرسال للتصحيح
+
+C-08 · نتيجة التصحيح 73:391
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '49c93.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+نتيجة التمرين
+85/100
+ناجح · حدّ النجاح 60
+صُحّح بواسطة Gemini
+ما أصبت فيه
+استخدمتَ JOIN بشكل صحيح بين الجداول الثلاثة، والترتيب مطابق للمطلوب.
+ملاحظات للتحسين
+يُفضّل استخدام أسماء مستعارة أوضح للجداول، وإضافة LEFT JOIN لعرض الطلاب غير المسجّلين.
+إعادة المحاولة
+العودة إلى التمارين
+
+F-01 · الكورسات 80:3
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': 'c0735.svg', 'imgGlyph1': 'ba0b6.svg', 'imgGlyph2': '3ff11.svg', 'imgGlyph3': '5238a.svg', 'imgGlyph4': 'cba16.svg'}
+الكورسات
+كورساتي
+كل الكورسات
+تطوير تطبيقات Flutter
+12 ساعة · 48 درساً
+$29
+أساسيات Python
+8 ساعات · 32 درساً
+$19
+Git و GitHub للمبتدئين
+4 ساعات · 16 درساً
+$9
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+F-02 · تفاصيل الكورس 80:113
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': 'c0735.svg', 'imgGlyph1': '0583d.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+تفاصيل الكورس
+تطوير تطبيقات Flutter
+تعلّم بناء تطبيقات Android وiOS من الصفر مع مشاريع عملية.
+12 ساعة
+المدة
+48 درساً
+عدد الدروس
+سنة من تاريخ الشراء
+صلاحية الوصول
+عرض فقط، بدون تحميل
+الملفات
+$29
+اشترِ الآن
+
+F-03 · الدفع 80:175
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgRadio': '0fd39.svg', 'imgGlyph': 'ed48e.svg', 'imgChamferTl': '21288.svg', 'imgChamferBr': 'c95e6.svg', 'imgChamferLineTl': '416c4.svg', 'imgRadio1': 'cb103.svg', 'imgGlyph1': '8c281.svg', 'imgChamferLineTl1': '8c8a2.svg', 'imgChamferTl1': 'b043f.svg', 'imgChamferBr1': '03567.svg'}
+إتمام الشراء
+ملخص الطلب
+تطوير تطبيقات Flutter
+الكورس
+سنة واحدة
+الصلاحية
+$29
+الإجمالي
+طريقة الدفع
+ShamCash
+حوّل المبلغ ثم أرفق رقم العملية
+قسيمة شحن
+أدخل رمز القسيمة التي حصلت عليها
+متابعة الدفع
+
+F-04 · تأكيد الحوالة 80:260
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+الدفع عبر ShamCash
+خطوات الدفع
+1. حوّل $29 إلى الحساب الموضّح أدناه عبر ShamCash.
+2. انسخ رقم العملية من إشعار التحويل.
+3. الصقه في الحقل وأرسل الطلب.
+رقم الحساب
+a7f3 92c1 5d8e
+رقم العملية
+مثال: 482910365
+يراجع فريقنا الحوالة ويفعّل الكورس خلال دقائق
+إرسال للمراجعة
+
+F-05 · قسيمة الشحن 80:312
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '8c281.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+قسيمة شحن
+أدخل رمز القسيمة لتفعيل الكورس مباشرة.
+رمز القسيمة
+XXXX-XXXX-XXXX
+الرمز صالح للاستخدام مرة واحدة
+تفعيل القسيمة
+
+F-06 · نجاح العملية 80:357
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '46019.svg', 'imgGlyph1': 'eb1d8.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+تم تفعيل الكورس
+تطوير تطبيقات Flutter متاح الآن حتى 15 أكتوبر 2027.
+#HS-20481
+رقم الطلب
+$29
+المبلغ
+ShamCash
+الطريقة
+ابدأ التعلّم
+العودة إلى الكورسات
+
+G-01 · كشف العلامات 85:3
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg'}
+كشف العلامات
+المعدّل العام
+78.5
+من 100 · 4 مواد مُنجزة
+85
+ناجح
+قواعد البيانات
+72
+ناجح
+برمجة كائنية
+58
+راسب · الحدّ 60
+هندسة البرمجيات
+—
+قيد الإعلان
+تطوير الويب
+
+G-02 · تفاصيل علامة المادة 85:58
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg'}
+قواعد البيانات
+85/100
+ناجح · حدّ النجاح 60
+التفصيل
+52/60
+الامتحان النظري
+25/30
+الامتحان العملي
+8/10
+التمارين
+الدورة العادية · الفصل الثالث
+أُعلنت العلامة بتاريخ 2 فبراير 2027
+
+H-01 · الإشعارات 85:100
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': 'b15c8.svg', 'imgGlyph1': 'f2880.svg', 'imgGlyph2': 'ba0b6.svg', 'imgGlyph3': 'c0735.svg', 'imgGlyph4': '5238a.svg', 'imgGlyph5': 'ba247.svg'}
+الإشعارات
+أُعلنت علامة قواعد البيانات
+اطّلع على نتيجتك في كشف العلامات.
+منذ ساعة
+تفعّل كورس Flutter
+يمكنك البدء بالمشاهدة الآن.
+أمس
+تمت الموافقة على تغيير جهازك
+سجّل الدخول من جهازك الجديد.
+قبل يومين
+إعلان: جدول امتحانات الدورة العادية
+تم نشر الجدول، تحقّق من مواعيدك.
+قبل 3 أيام
+الإعدادات
+الكورسات
+المواد
+الرئيسية
+
+H-02 · الدعم 85:193
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '0ebba.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+الدعم والتواصل
+تذكرة جديدة
+تذاكري
+قيد المعالجة
+لا أستطيع تشغيل الدرس 4
+اليوم
+تم الرد
+سؤال عن موعد الامتحان العملي
+أمس
+مغلقة
+طلب تصحيح الاسم الرسمي
+قبل أسبوع
+
+H-03 · تذكرة جديدة 85:252
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+تذكرة جديدة
+الموضوع
+عنوان مختصر لمشكلتك
+مثال: مشكلة في تشغيل الفيديو
+التفاصيل
+اشرح المشكلة بالتفصيل
+نرد خلال 24 ساعة في أيام العمل
+إرسال التذكرة
+
+H-04 · تفاصيل التذكرة 85:305
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+لا أستطيع تشغيل الدرس 4
+قيد المعالجة
+أنت · اليوم 10:20
+عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو.
+الدعم · اليوم 11:05
+شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك.
+ردّك
+اكتب ردّك هنا
+تُغلق التذكرة تلقائياً بعد 7 أيام من آخر رد
+إرسال الرد
+
+I-01 · شاشة البداية 91:3
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgH': '902ed.svg'}
+حاسوبجي سيستم
+المعهد التقني للحاسوب
+
+E-01 · التنزيلات 91:26
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgBackIcon': 'e82f9.svg', 'imgGlyph': '18141.svg'}
+التنزيلات
+المساحة المستخدمة
+420 MB من 2 GB
+الدرس 4: لغة SQL الأساسية
+قواعد البيانات · 86 MB
+جاهز دون إنترنت
+الدرس 5: العلاقات بين الجداول
+قواعد البيانات · 74 MB
+جارٍ التنزيل 40%
+الدرس 2: الأصناف والكائنات
+برمجة كائنية · 92 MB
+ينتهي خلال 3 أيام
+
+I-02 · لا يوجد اتصال 91:88
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '1d2af.svg', 'imgGlyph1': '49c93.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+لا يوجد اتصال بالإنترنت
+يمكنك متابعة الدروس التي نزّلتها مسبقاً. ستُحفظ تقدّمك وتتزامن عند عودة الاتصال.
+إعادة المحاولة
+الانتقال إلى التنزيلات
+
+I-03 · الصيانة 91:142
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '36e47.svg'}
+التطبيق قيد الصيانة
+نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.
+
+I-04 · تحديث إجباري 91:168
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': '17175.svg', 'imgGlyph1': '18141.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg'}
+يتوفر تحديث جديد
+لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.
+تحديث الآن
+
+I-05 · خطأ عام 91:203
+{'imgSignal': 'ec76a.svg', 'imgWiFi': '22855.svg', 'imgBattery': '00202.svg', 'imgGlyph': 'd1465.svg', 'imgGlyph1': '49c93.svg', 'imgChamferTl': 'b043f.svg', 'imgChamferBr': '03567.svg', 'imgChamferLineTl': '84987.svg'}
+حدث خطأ غير متوقع
+لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.
+إعادة المحاولة
+التواصل مع الدعم

@@ -607,13 +607,13 @@ abstract class AppLocalizations {
   /// Existing Arabic copy, preserved during foundation extraction.
   ///
   /// In ar, this message translates to:
-  /// **'مرحباً بك في حاسوبجي سيستم'**
+  /// **'مرحباً بك في تطبيق حاسوبجي'**
   String get designWelcomeTitle;
 
   /// Existing Arabic copy, preserved during foundation extraction.
   ///
   /// In ar, this message translates to:
-  /// **'دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم'**
+  /// **'تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.'**
   String get designWelcomeDescription;
 
   /// Existing Arabic copy, preserved during foundation extraction.

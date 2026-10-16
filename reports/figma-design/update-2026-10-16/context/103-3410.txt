@@ -1,0 +1,219 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgGlyph = `${assetPathPrefix}/5286a.svg`;
+const imgGlyph1 = `${assetPathPrefix}/b7b86.svg`;
+const imgGlyph2 = `${assetPathPrefix}/aa30e.svg`;
+const imgGlyph3 = `${assetPathPrefix}/03c2c.svg`;
+const imgGlyph4 = `${assetPathPrefix}/3e782.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+
+function HomeIndicatorIOs({ className }: { className?: string }) {
+  return (
+    <div className={className || "content-stretch flex h-[34px] items-center justify-center relative w-[390px]"} data-node-id="22:49" data-name="Home Indicator (iOS)">
+      <div className="bg-[var(--color-text-primary,#02112c)] h-[5px] relative rounded-[3px] shrink-0 w-[134px]" data-node-id="22:50" data-name="Pill" />
+    </div>
+  );
+}
+
+type TabBarProps = {
+  className?: string;
+  active?: "Subjects";
+};
+
+function TabBar({ className, active = "Subjects" }: TabBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] border-[var(--color-border-default,#c5dff0)] border-solid border-t content-stretch flex h-[68px] items-center px-[8px] relative w-[390px]"} data-node-id="66:538">
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-center justify-center min-w-px overflow-clip relative" data-node-id="66:539" data-name="Tab: Settings">
+        <div className="relative shrink-0 size-[24px]" data-node-id="66:540" data-name="Icon">
+          <div className="absolute left-0 size-[24px] top-0" data-node-id="I66:540;66:52" data-name="Glyph">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] whitespace-nowrap" dir="auto" data-node-id="66:544">
+          الإعدادات
+        </p>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-center justify-center min-w-px overflow-clip relative" data-node-id="66:545" data-name="Tab: Courses">
+        <div className="relative shrink-0 size-[24px]" data-node-id="66:546" data-name="Icon">
+          <div className="absolute left-0 size-[24px] top-0" data-node-id="I66:546;66:48" data-name="Glyph">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] whitespace-nowrap" dir="auto" data-node-id="66:550">
+          الكورسات
+        </p>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-center justify-center min-w-px overflow-clip relative" data-node-id="66:551" data-name="Tab: Subjects">
+        <div className="relative shrink-0 size-[24px]" data-node-id="66:552" data-name="Icon">
+          <div className="absolute left-0 size-[24px] top-0" data-node-id="I66:552;19:29" data-name="Glyph">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph2} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-brand,#0578b7)] whitespace-nowrap" dir="auto" data-node-id="66:555">
+          المواد
+        </p>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[4px] items-center justify-center min-w-px overflow-clip relative" data-node-id="66:556" data-name="Tab: Home">
+        <div className="relative shrink-0 size-[24px]" data-node-id="66:557" data-name="Icon">
+          <div className="absolute left-0 size-[24px] top-0" data-node-id="I66:557;66:45" data-name="Glyph">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph3} />
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] whitespace-nowrap" dir="auto" data-node-id="66:560">
+          الرئيسية
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function IconBook({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[24px]"} data-node-id="19:28" data-name="Icon/book">
+      <div className="absolute left-0 size-[24px] top-0" data-node-id="19:29" data-name="Glyph">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph4} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function C02Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start relative size-full" data-node-id="103:3410" data-name="C-02 · المواد · Light">
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start min-h-px overflow-clip px-[24px] py-[16px] relative w-full" data-node-id="103:3412" data-name="Content">
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[32px] not-italic relative shrink-0 text-[22px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="103:3413">
+          المواد
+        </p>
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="103:3414" data-name="Tabs">
+          <div className="border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[12px] py-[10px] relative" data-node-id="103:3415" data-name="Tab: الفصول السابقة">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] whitespace-nowrap" dir="auto" data-node-id="103:3416">
+              الفصول السابقة
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-brand,#0578b7)] content-stretch flex flex-[1_0_0] items-center justify-center min-w-px overflow-clip px-[12px] py-[10px] relative" data-node-id="103:3417" data-name="Tab: الفصل الحالي">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-on-brand,white)] whitespace-nowrap" dir="auto" data-node-id="103:3418">
+              الفصل الحالي
+            </p>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[12px] h-[100px] items-center overflow-clip p-[16px] relative shrink-0 w-full" data-node-id="103:3419" data-name="Subject">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px overflow-clip relative" data-node-id="103:3420" data-name="Text">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3421">
+              قواعد البيانات
+            </p>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3422">
+              12 درساً · 4 تمارين
+            </p>
+            <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex h-[4px] items-start justify-end overflow-clip relative shrink-0 w-[100px]" data-node-id="103:3423" data-name="Progress">
+              <div className="flex-[38_0_0] h-full min-w-px relative" data-node-id="103:3424" data-name="Rest" />
+              <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[62_0_0] h-full min-w-px relative" data-node-id="103:3425" data-name="Fill" />
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="103:3426" data-name="Icon tile">
+            <IconBook className="relative shrink-0 size-[24px]" />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[12px] h-[100px] items-center overflow-clip p-[16px] relative shrink-0 w-full" data-node-id="103:3428" data-name="Subject">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px overflow-clip relative" data-node-id="103:3429" data-name="Text">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3430">
+              برمجة كائنية
+            </p>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3431">
+              8 درساً · 3 تمارين
+            </p>
+            <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex h-[4px] items-start justify-end overflow-clip relative shrink-0 w-[100px]" data-node-id="103:3432" data-name="Progress">
+              <div className="flex-[60_0_0] h-full min-w-px relative" data-node-id="103:3433" data-name="Rest" />
+              <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[40_0_0] h-full min-w-px relative" data-node-id="103:3434" data-name="Fill" />
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="103:3435" data-name="Icon tile">
+            <IconBook className="relative shrink-0 size-[24px]" />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[12px] h-[100px] items-center overflow-clip p-[16px] relative shrink-0 w-full" data-node-id="103:3437" data-name="Subject">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px overflow-clip relative" data-node-id="103:3438" data-name="Text">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3439">
+              هندسة البرمجيات
+            </p>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3440">
+              10 دروس · 2 تمارين
+            </p>
+            <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex h-[4px] items-start justify-end overflow-clip relative shrink-0 w-[100px]" data-node-id="103:3441" data-name="Progress">
+              <div className="flex-[85_0_0] h-full min-w-px relative" data-node-id="103:3442" data-name="Rest" />
+              <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[15_0_0] h-full min-w-px relative" data-node-id="103:3443" data-name="Fill" />
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="103:3444" data-name="Icon tile">
+            <IconBook className="relative shrink-0 size-[24px]" />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[12px] h-[100px] items-center overflow-clip p-[16px] relative shrink-0 w-full" data-node-id="103:3446" data-name="Subject">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px overflow-clip relative" data-node-id="103:3447" data-name="Text">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3448">
+              تطوير الويب
+            </p>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3449">
+              14 درساً · 5 تمارين
+            </p>
+            <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex h-[4px] items-start justify-end overflow-clip relative shrink-0 w-[100px]" data-node-id="103:3450" data-name="Progress">
+              <div className="flex-[99_0_0] h-full min-w-px relative" data-node-id="103:3451" data-name="Rest" />
+              <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[1_0_0] h-full min-w-px relative" data-node-id="103:3452" data-name="Fill" />
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="103:3453" data-name="Icon tile">
+            <IconBook className="relative shrink-0 size-[24px]" />
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[12px] h-[100px] items-center overflow-clip p-[16px] relative shrink-0 w-full" data-node-id="103:3455" data-name="Subject">
+          <div className="content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px overflow-clip relative" data-node-id="103:3456" data-name="Text">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" dir="auto" data-node-id="103:3457">
+              شبكات الحاسوب
+            </p>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] min-w-full not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right w-[min-content]" dir="auto" data-node-id="103:3458">
+              9 دروس · 2 تمارين
+            </p>
+            <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex h-[4px] items-start justify-end overflow-clip relative shrink-0 w-[100px]" data-node-id="103:3459" data-name="Progress">
+              <div className="flex-[99_0_0] h-full min-w-px relative" data-node-id="103:3460" data-name="Rest" />
+              <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[1_0_0] h-full min-w-px relative" data-node-id="103:3461" data-name="Fill" />
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="103:3462" data-name="Icon tile">
+            <IconBook className="relative shrink-0 size-[24px]" />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--color-bg-surface,white)] content-stretch flex flex-col items-start overflow-clip relative shrink-0 w-full" data-node-id="103:3464" data-name="Bottom">
+        <TabBar className="bg-[var(--color-bg-surface,white)] border-[var(--color-border-default,#c5dff0)] border-solid border-t content-stretch flex h-[68px] items-center px-[8px] relative shrink-0 w-full" />
+        <HomeIndicatorIOs className="content-stretch flex h-[34px] items-center justify-center relative shrink-0 w-full" />
+      </div>
+    </div>
+  );
+}

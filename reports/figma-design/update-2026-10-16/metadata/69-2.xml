@@ -1,0 +1,750 @@
+<canvas id="69:2" name="C · Student — Learning" x="0" y="0" width="0" height="0">
+  <frame id="69:3" name="C-01 · الرئيسية" x="0" y="0" width="390" height="844">
+    <instance id="69:4" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="69:20" name="Content" x="0" y="44" width="390" height="698">
+      <frame id="69:21" name="Greeting" x="24" y="16" width="342" height="52">
+        <text id="69:22" name="مرحباً أحمد" x="0" y="0" width="342" height="32" />
+        <text id="69:23" name="متابع تعلّمك من حيث توقفت" x="0" y="34" width="342" height="18" />
+      </frame>
+      <text id="69:24" name="متابعة المشاهدة" x="24" y="82" width="342" height="20" />
+      <frame id="69:25" name="Continue card" x="24" y="116" width="342" height="238">
+        <frame id="69:26" name="Thumbnail" x="1" y="1" width="342" height="150">
+          <frame id="69:27" name="Icon tile" x="143" y="47" width="56" height="56">
+            <instance id="69:28" name="Icon" x="16" y="16" width="24" height="24" />
+          </frame>
+        </frame>
+        <frame id="69:31" name="Body" x="1" y="161" width="340" height="60">
+          <text id="69:32" name="الدرس 5: العلاقات بين الجداول" x="16" y="0" width="308" height="24" />
+          <text id="69:33" name="قواعد البيانات · متبقٍ 12 دقيقة" x="16" y="30" width="308" height="18" />
+          <frame id="69:34" name="Progress" x="16" y="54" width="100" height="6">
+            <frame id="69:1125" name="Rest" x="0" y="0" width="38" height="6" />
+            <frame id="69:1126" name="Fill" x="38" y="0" width="62" height="6" />
+          </frame>
+        </frame>
+      </frame>
+      <text id="69:36" name="موادي" x="24" y="368" width="342" height="20" />
+      <frame id="69:37" name="Subject" x="24" y="402" width="342" height="100">
+        <frame id="69:38" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:39" name="برمجة كائنية" x="0" y="0" width="252" height="24" />
+          <text id="69:40" name="8 دروس · 3 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:41" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1127" name="Rest" x="0" y="0" width="60" height="4" />
+            <frame id="69:1128" name="Fill" x="60" y="0" width="40" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:43" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:44" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="69:47" name="Subject" x="24" y="516" width="342" height="100">
+        <frame id="69:48" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:49" name="هندسة البرمجيات" x="0" y="0" width="252" height="24" />
+          <text id="69:50" name="10 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:51" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1129" name="Rest" x="0" y="0" width="85" height="4" />
+            <frame id="69:1130" name="Fill" x="85" y="0" width="15" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:53" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:54" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="69:57" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="69:58" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="69:91" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="69:93" name="C-02 · المواد" x="470" y="0" width="390" height="844">
+    <instance id="69:94" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="69:110" name="Content" x="0" y="44" width="390" height="698">
+      <text id="69:111" name="المواد" x="24" y="16" width="342" height="32" />
+      <frame id="69:112" name="Tabs" x="24" y="60" width="342" height="42">
+        <frame id="69:113" name="Tab: الفصول السابقة" x="0" y="0" width="168" height="42">
+          <text id="69:114" name="الفصول السابقة" x="36.5" y="11" width="95" height="20" />
+        </frame>
+        <frame id="69:115" name="Tab: الفصل الحالي" x="176" y="0" width="166" height="40">
+          <text id="69:116" name="الفصل الحالي" x="44.5" y="10" width="77" height="20" />
+        </frame>
+      </frame>
+      <frame id="69:117" name="Subject" x="24" y="114" width="342" height="100">
+        <frame id="69:118" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:119" name="قواعد البيانات" x="0" y="0" width="252" height="24" />
+          <text id="69:120" name="12 درساً · 4 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:121" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1131" name="Rest" x="0" y="0" width="38" height="4" />
+            <frame id="69:1132" name="Fill" x="38" y="0" width="62" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:123" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:124" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="69:127" name="Subject" x="24" y="226" width="342" height="100">
+        <frame id="69:128" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:129" name="برمجة كائنية" x="0" y="0" width="252" height="24" />
+          <text id="69:130" name="8 درساً · 3 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:131" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1133" name="Rest" x="0" y="0" width="60" height="4" />
+            <frame id="69:1134" name="Fill" x="60" y="0" width="40" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:133" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:134" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="69:137" name="Subject" x="24" y="338" width="342" height="100">
+        <frame id="69:138" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:139" name="هندسة البرمجيات" x="0" y="0" width="252" height="24" />
+          <text id="69:140" name="10 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:141" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1135" name="Rest" x="0" y="0" width="85" height="4" />
+            <frame id="69:1136" name="Fill" x="85" y="0" width="15" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:143" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:144" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="69:147" name="Subject" x="24" y="450" width="342" height="100">
+        <frame id="69:148" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:149" name="تطوير الويب" x="0" y="0" width="252" height="24" />
+          <text id="69:150" name="14 درساً · 5 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:151" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1137" name="Rest" x="0" y="0" width="99" height="4" />
+            <frame id="69:1138" name="Fill" x="99" y="0" width="1" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:153" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:154" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="69:157" name="Subject" x="24" y="562" width="342" height="100">
+        <frame id="69:158" name="Text" x="17" y="21" width="252" height="58">
+          <text id="69:159" name="شبكات الحاسوب" x="0" y="0" width="252" height="24" />
+          <text id="69:160" name="9 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="69:161" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="69:1139" name="Rest" x="0" y="0" width="99" height="4" />
+            <frame id="69:1140" name="Fill" x="99" y="0" width="1" height="4" />
+          </frame>
+        </frame>
+        <frame id="69:163" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="69:164" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="69:167" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="69:168" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="69:201" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="69:203" name="C-03 · تفاصيل المادة" x="940" y="0" width="390" height="844">
+    <instance id="69:204" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="69:220" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="69:225" name="Content" x="0" y="100" width="390" height="642">
+      <frame id="69:226" name="Summary" x="24" y="16" width="342" height="98">
+        <text id="69:227" name="تقدّمك في المادة: 62%" x="17" y="17" width="308" height="24" />
+        <frame id="69:228" name="Progress" x="17" y="49" width="100" height="6">
+          <frame id="69:1141" name="Rest" x="0" y="0" width="38" height="6" />
+          <frame id="69:1142" name="Fill" x="38" y="0" width="62" height="6" />
+        </frame>
+        <text id="69:230" name="8 من 12 درساً مكتملة" x="17" y="63" width="308" height="18" />
+      </frame>
+      <frame id="69:231" name="Tabs" x="24" y="126" width="342" height="42">
+        <frame id="69:232" name="Tab: التمارين" x="0" y="0" width="109.33333587646484" height="42">
+          <text id="69:233" name="التمارين" x="32.16666793823242" y="11" width="45" height="20" />
+        </frame>
+        <frame id="69:234" name="Tab: الملفات" x="117.33333587646484" y="0" width="109.33332824707031" height="42">
+          <text id="69:235" name="الملفات" x="31.166664123535156" y="11" width="47" height="20" />
+        </frame>
+        <frame id="69:236" name="Tab: الدروس" x="234.66665649414062" y="0" width="107.33332824707031" height="40">
+          <text id="69:237" name="الدروس" x="31.666664123535156" y="10" width="44" height="20" />
+        </frame>
+      </frame>
+      <frame id="69:238" name="Lesson" x="24" y="180" width="342" height="100">
+        <instance id="69:239" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="69:243" name="Text" x="53" y="29" width="272" height="42">
+          <text id="69:244" name="1. مقدمة في قواعد البيانات" x="0" y="0" width="272" height="22" />
+          <text id="69:245" name="18 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="69:246" name="Lesson" x="24" y="292" width="342" height="100">
+        <instance id="69:247" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="69:251" name="Text" x="53" y="29" width="272" height="42">
+          <text id="69:252" name="2. النمذجة الكيانية" x="0" y="0" width="272" height="22" />
+          <text id="69:253" name="24 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="69:254" name="Lesson" x="24" y="404" width="342" height="100">
+        <instance id="69:255" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="69:259" name="Text" x="53" y="29" width="272" height="42">
+          <text id="69:260" name="3. الجداول والمفاتيح" x="0" y="0" width="272" height="22" />
+          <text id="69:261" name="21 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="69:262" name="Lesson" x="24" y="516" width="342" height="100">
+        <instance id="69:263" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="69:266" name="Text" x="53" y="29" width="272" height="42">
+          <text id="69:267" name="4. لغة SQL الأساسية" x="0" y="0" width="272" height="22" />
+          <text id="69:268" name="32 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="69:269" name="Lesson" x="24" y="628" width="342" height="100">
+        <instance id="69:270" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="69:275" name="Text" x="53" y="29" width="272" height="42">
+          <text id="69:276" name="5. العلاقات بين الجداول" x="0" y="0" width="272" height="22" />
+          <text id="69:277" name="27 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="69:278" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="69:279" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="69:302" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="69:304" name="C-04 · مشغّل الدرس" x="1410" y="0" width="390" height="844">
+    <instance id="69:305" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="69:321" name="Player" x="0" y="44" width="390" height="220">
+      <frame id="69:322" name="Icon tile" x="163" y="78" width="64" height="64">
+        <instance id="69:323" name="Icon" x="20" y="20" width="24" height="24" />
+      </frame>
+      <text id="69:326" name="Watermark" x="60" y="24" width="270" height="20" />
+      <frame id="69:327" name="Controls" x="16" y="176" width="358" height="32">
+        <frame id="69:328" name="Speed" x="0" y="4" width="38" height="24">
+          <text id="69:329" name="1.0x" x="8" y="4" width="22" height="16" />
+        </frame>
+        <text id="69:330" name="12:40 / 27:00" x="48" y="7" width="70" height="18" />
+        <frame id="69:331" name="Progress" x="128" y="14" width="230" height="4">
+          <frame id="69:1143" name="Rest" x="0" y="0" width="121.89999389648438" height="4" />
+          <frame id="69:1144" name="Fill" x="121.89999389648438" y="0" width="108.10000610351562" height="4" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="69:333" name="Content" x="0" y="264" width="390" height="580">
+      <text id="69:334" name="الدرس 4: لغة SQL الأساسية" x="24" y="16" width="342" height="28" />
+      <text id="69:335" name="قواعد البيانات · الفصل الثالث" x="24" y="56" width="342" height="18" />
+      <text id="69:336" name="تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد." x="24" y="86" width="342" height="44" />
+      <frame id="69:337" name="Spacer" x="24" y="142" width="342" height="294" />
+      <instance id="69:338" name="Button" x="24" y="448" width="342" height="52" />
+      <instance id="69:352" name="Button" x="24" y="512" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="73:206" name="C-05 · عارض PDF (عرض فقط)" x="1880" y="0" width="390" height="844">
+    <instance id="73:207" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="73:223" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="73:228" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="73:229" name="Meta" x="24" y="16" width="342" height="100">
+        <instance id="73:230" name="Badge" x="0" y="38" width="77" height="24" />
+        <frame id="73:232" name="Spacer" x="85" y="0" width="173" height="100" />
+        <text id="73:233" name="صفحة 3 من 24" x="266" y="41" width="76" height="18" />
+      </frame>
+      <frame id="73:234" name="Page" x="24" y="128" width="342" height="528">
+        <text id="73:235" name="مبادئ قواعد البيانات" x="21" y="21" width="300" height="28" />
+        <frame id="73:236" name="Text line" x="21" y="59" width="300" height="8" />
+        <frame id="73:237" name="Text line" x="21" y="77" width="300" height="8" />
+        <frame id="73:238" name="Text line" x="21" y="95" width="300" height="8" />
+        <frame id="73:239" name="Text line" x="21" y="113" width="300" height="8" />
+        <frame id="73:240" name="Text line" x="21" y="131" width="300" height="8" />
+        <frame id="73:241" name="Text line" x="21" y="149" width="300" height="8" />
+        <frame id="73:242" name="Text line" x="21" y="167" width="300" height="8" />
+        <frame id="73:243" name="Text line" x="21" y="185" width="300" height="8" />
+        <frame id="73:244" name="Text line" x="21" y="203" width="300" height="8" />
+        <frame id="73:245" name="Text line" x="21" y="221" width="300" height="8" />
+        <text id="73:246" name="Watermark" x="20" y="260" width="300" height="20" />
+      </frame>
+      <frame id="73:247" name="Pager" x="24" y="668" width="342" height="52">
+        <instance id="73:251" name="Button" x="0" y="0" width="168" height="52" />
+        <instance id="73:261" name="Button" x="176" y="0" width="166" height="52" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="73:269" name="C-06 · التمارين" x="2350" y="0" width="390" height="844">
+    <instance id="73:270" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="73:286" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="73:291" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="73:292" name="Exercise" x="24" y="16" width="342" height="88">
+        <frame id="73:293" name="Text" x="17" y="17" width="252" height="54">
+          <text id="73:294" name="تمرين 1: إنشاء جدول الطلاب" x="0" y="0" width="252" height="24" />
+          <frame id="73:295" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="73:296" name="Badge" x="145" y="0" width="107" height="24" />
+          </frame>
+        </frame>
+        <frame id="73:298" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="73:299" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="73:302" name="Exercise" x="24" y="116" width="342" height="88">
+        <frame id="73:303" name="Text" x="17" y="17" width="252" height="54">
+          <text id="73:304" name="تمرين 2: استعلامات SELECT" x="0" y="0" width="252" height="24" />
+          <frame id="73:305" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="73:306" name="Badge" x="145" y="0" width="107" height="24" />
+          </frame>
+        </frame>
+        <frame id="73:308" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="73:309" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="73:312" name="Exercise" x="24" y="216" width="342" height="88">
+        <frame id="73:313" name="Text" x="17" y="17" width="252" height="54">
+          <text id="73:314" name="تمرين 3: ربط الجداول JOIN" x="0" y="0" width="252" height="24" />
+          <frame id="73:315" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="73:316" name="Badge" x="168" y="0" width="84" height="24" />
+          </frame>
+        </frame>
+        <frame id="73:318" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="73:319" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="73:322" name="Exercise" x="24" y="316" width="342" height="88">
+        <frame id="73:323" name="Text" x="17" y="17" width="252" height="54">
+          <text id="73:324" name="تمرين 4: التجميع GROUP BY" x="0" y="0" width="252" height="24" />
+          <frame id="73:325" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="73:326" name="Badge" x="194" y="0" width="58" height="24" />
+          </frame>
+        </frame>
+        <frame id="73:328" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="73:329" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="73:332" name="C-07 · حلّ التمرين" x="2820" y="0" width="390" height="844">
+    <instance id="73:333" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="73:349" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="73:354" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="73:355" name="Problem" x="24" y="16" width="342" height="104">
+        <text id="73:356" name="المطلوب" x="17" y="17" width="308" height="20" />
+        <text id="73:357" name="اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب." x="17" y="43" width="308" height="44" />
+      </frame>
+      <frame id="73:358" name="Code editor" x="24" y="132" width="342" height="524">
+        <frame id="73:359" name="Line" x="15" y="15" width="312" height="18">
+          <text id="73:360" name="1" x="0" y="0" width="16" height="18" />
+          <text id="73:361" name="SELECT s.name, c.title" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:362" name="Line" x="15" y="37" width="312" height="18">
+          <text id="73:363" name="2" x="0" y="0" width="16" height="18" />
+          <text id="73:364" name="FROM students s" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:365" name="Line" x="15" y="59" width="312" height="18">
+          <text id="73:366" name="3" x="0" y="0" width="16" height="18" />
+          <text id="73:367" name="JOIN enrollments e" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:368" name="Line" x="15" y="81" width="312" height="18">
+          <text id="73:369" name="4" x="0" y="0" width="16" height="18" />
+          <text id="73:370" name="ON e.student_id = s.id" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:371" name="Line" x="15" y="103" width="312" height="18">
+          <text id="73:372" name="5" x="0" y="0" width="16" height="18" />
+          <text id="73:373" name="JOIN courses c" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:374" name="Line" x="15" y="125" width="312" height="18">
+          <text id="73:375" name="6" x="0" y="0" width="16" height="18" />
+          <text id="73:376" name="ON c.id = e.course_id" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="73:377" name="Line" x="15" y="147" width="312" height="18">
+          <text id="73:378" name="7" x="0" y="0" width="16" height="18" />
+          <text id="73:379" name="ORDER BY s.name;" x="28" y="0" width="284" height="17" />
+        </frame>
+      </frame>
+      <instance id="73:380" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="73:391" name="C-08 · نتيجة التصحيح" x="3290" y="0" width="390" height="844">
+    <instance id="73:392" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="73:408" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="73:413" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="73:414" name="Score" x="24" y="16" width="342" height="128">
+        <text id="73:415" name="85/100" x="17" y="17" width="308" height="40" />
+        <frame id="73:416" name="Badge row" x="17" y="63" width="308" height="24">
+          <instance id="73:417" name="Badge" x="97" y="0" width="114" height="24" />
+        </frame>
+        <text id="73:419" name="صُحّح بواسطة Gemini" x="17" y="93" width="308" height="18" />
+      </frame>
+      <text id="73:420" name="ما أصبت فيه" x="24" y="158" width="342" height="20" />
+      <frame id="73:421" name="Correct" x="24" y="192" width="342" height="78">
+        <text id="73:422" name="استخدمتَ JOIN بشكل صحيح بين الجداول الثلاثة، والترتيب مطابق للمطلوب." x="17" y="17" width="308" height="44" />
+      </frame>
+      <text id="73:423" name="ملاحظات للتحسين" x="24" y="284" width="342" height="20" />
+      <frame id="73:424" name="Notes" x="24" y="318" width="342" height="78">
+        <text id="73:425" name="يُفضّل استخدام أسماء مستعارة أوضح للجداول، وإضافة LEFT JOIN لعرض الطلاب غير المسجّلين." x="17" y="17" width="308" height="44" />
+      </frame>
+      <frame id="73:426" name="Spacer" x="24" y="410" width="342" height="178" />
+      <instance id="73:427" name="Button" x="24" y="602" width="342" height="52" />
+      <instance id="73:437" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3371" name="C-01 · الرئيسية · Light" x="0" y="964" width="390" height="844">
+    <instance id="103:3372" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:3373" name="Content" x="0" y="44" width="390" height="698">
+      <frame id="103:3374" name="Greeting" x="24" y="16" width="342" height="52">
+        <text id="103:3375" name="مرحباً أحمد" x="0" y="0" width="342" height="32" />
+        <text id="103:3376" name="متابع تعلّمك من حيث توقفت" x="0" y="34" width="342" height="18" />
+      </frame>
+      <text id="103:3377" name="متابعة المشاهدة" x="24" y="82" width="342" height="20" />
+      <frame id="103:3378" name="Continue card" x="24" y="116" width="342" height="238">
+        <frame id="103:3379" name="Thumbnail" x="1" y="1" width="342" height="150">
+          <frame id="103:3380" name="Icon tile" x="143" y="47" width="56" height="56">
+            <instance id="103:3381" name="Icon" x="16" y="16" width="24" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3382" name="Body" x="1" y="161" width="340" height="60">
+          <text id="103:3383" name="الدرس 5: العلاقات بين الجداول" x="16" y="0" width="308" height="24" />
+          <text id="103:3384" name="قواعد البيانات · متبقٍ 12 دقيقة" x="16" y="30" width="308" height="18" />
+          <frame id="103:3385" name="Progress" x="16" y="54" width="100" height="6">
+            <frame id="103:3386" name="Rest" x="0" y="0" width="38" height="6" />
+            <frame id="103:3387" name="Fill" x="38" y="0" width="62" height="6" />
+          </frame>
+        </frame>
+      </frame>
+      <text id="103:3388" name="موادي" x="24" y="368" width="342" height="20" />
+      <frame id="103:3389" name="Subject" x="24" y="402" width="342" height="100">
+        <frame id="103:3390" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3391" name="برمجة كائنية" x="0" y="0" width="252" height="24" />
+          <text id="103:3392" name="8 دروس · 3 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3393" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3394" name="Rest" x="0" y="0" width="60" height="4" />
+            <frame id="103:3395" name="Fill" x="60" y="0" width="40" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3396" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3397" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3398" name="Subject" x="24" y="516" width="342" height="100">
+        <frame id="103:3399" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3400" name="هندسة البرمجيات" x="0" y="0" width="252" height="24" />
+          <text id="103:3401" name="10 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3402" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3403" name="Rest" x="0" y="0" width="85" height="4" />
+            <frame id="103:3404" name="Fill" x="85" y="0" width="15" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3405" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3406" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:3407" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:3408" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:3409" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:3410" name="C-02 · المواد · Light" x="470" y="964" width="390" height="844">
+    <instance id="103:3411" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:3412" name="Content" x="0" y="44" width="390" height="698">
+      <text id="103:3413" name="المواد" x="24" y="16" width="342" height="32" />
+      <frame id="103:3414" name="Tabs" x="24" y="60" width="342" height="42">
+        <frame id="103:3415" name="Tab: الفصول السابقة" x="0" y="0" width="168" height="42">
+          <text id="103:3416" name="الفصول السابقة" x="36.5" y="11" width="95" height="20" />
+        </frame>
+        <frame id="103:3417" name="Tab: الفصل الحالي" x="176" y="0" width="166" height="40">
+          <text id="103:3418" name="الفصل الحالي" x="44.5" y="10" width="77" height="20" />
+        </frame>
+      </frame>
+      <frame id="103:3419" name="Subject" x="24" y="114" width="342" height="100">
+        <frame id="103:3420" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3421" name="قواعد البيانات" x="0" y="0" width="252" height="24" />
+          <text id="103:3422" name="12 درساً · 4 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3423" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3424" name="Rest" x="0" y="0" width="38" height="4" />
+            <frame id="103:3425" name="Fill" x="38" y="0" width="62" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3426" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3427" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3428" name="Subject" x="24" y="226" width="342" height="100">
+        <frame id="103:3429" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3430" name="برمجة كائنية" x="0" y="0" width="252" height="24" />
+          <text id="103:3431" name="8 درساً · 3 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3432" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3433" name="Rest" x="0" y="0" width="60" height="4" />
+            <frame id="103:3434" name="Fill" x="60" y="0" width="40" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3435" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3436" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3437" name="Subject" x="24" y="338" width="342" height="100">
+        <frame id="103:3438" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3439" name="هندسة البرمجيات" x="0" y="0" width="252" height="24" />
+          <text id="103:3440" name="10 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3441" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3442" name="Rest" x="0" y="0" width="85" height="4" />
+            <frame id="103:3443" name="Fill" x="85" y="0" width="15" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3444" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3445" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3446" name="Subject" x="24" y="450" width="342" height="100">
+        <frame id="103:3447" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3448" name="تطوير الويب" x="0" y="0" width="252" height="24" />
+          <text id="103:3449" name="14 درساً · 5 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3450" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3451" name="Rest" x="0" y="0" width="99" height="4" />
+            <frame id="103:3452" name="Fill" x="99" y="0" width="1" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3453" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3454" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3455" name="Subject" x="24" y="562" width="342" height="100">
+        <frame id="103:3456" name="Text" x="17" y="21" width="252" height="58">
+          <text id="103:3457" name="شبكات الحاسوب" x="0" y="0" width="252" height="24" />
+          <text id="103:3458" name="9 دروس · 2 تمارين" x="0" y="30" width="252" height="18" />
+          <frame id="103:3459" name="Progress" x="0" y="54" width="100" height="4">
+            <frame id="103:3460" name="Rest" x="0" y="0" width="99" height="4" />
+            <frame id="103:3461" name="Fill" x="99" y="0" width="1" height="4" />
+          </frame>
+        </frame>
+        <frame id="103:3462" name="Icon tile" x="281" y="28" width="44" height="44">
+          <instance id="103:3463" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:3464" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:3465" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:3466" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:3467" name="C-03 · تفاصيل المادة · Light" x="940" y="964" width="390" height="844">
+    <instance id="103:3468" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3469" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3470" name="Content" x="0" y="100" width="390" height="642">
+      <frame id="103:3471" name="Summary" x="24" y="16" width="342" height="98">
+        <text id="103:3472" name="تقدّمك في المادة: 62%" x="17" y="17" width="308" height="24" />
+        <frame id="103:3473" name="Progress" x="17" y="49" width="100" height="6">
+          <frame id="103:3474" name="Rest" x="0" y="0" width="38" height="6" />
+          <frame id="103:3475" name="Fill" x="38" y="0" width="62" height="6" />
+        </frame>
+        <text id="103:3476" name="8 من 12 درساً مكتملة" x="17" y="63" width="308" height="18" />
+      </frame>
+      <frame id="103:3477" name="Tabs" x="24" y="126" width="342" height="42">
+        <frame id="103:3478" name="Tab: التمارين" x="0" y="0" width="109.33333587646484" height="42">
+          <text id="103:3479" name="التمارين" x="32.16666793823242" y="11" width="45" height="20" />
+        </frame>
+        <frame id="103:3480" name="Tab: الملفات" x="117.33333587646484" y="0" width="109.33332824707031" height="42">
+          <text id="103:3481" name="الملفات" x="31.166664123535156" y="11" width="47" height="20" />
+        </frame>
+        <frame id="103:3482" name="Tab: الدروس" x="234.66665649414062" y="0" width="107.33332824707031" height="40">
+          <text id="103:3483" name="الدروس" x="31.666664123535156" y="10" width="44" height="20" />
+        </frame>
+      </frame>
+      <frame id="103:3484" name="Lesson" x="24" y="180" width="342" height="100">
+        <instance id="103:3485" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="103:3486" name="Text" x="53" y="29" width="272" height="42">
+          <text id="103:3487" name="1. مقدمة في قواعد البيانات" x="0" y="0" width="272" height="22" />
+          <text id="103:3488" name="18 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:3489" name="Lesson" x="24" y="292" width="342" height="100">
+        <instance id="103:3490" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="103:3491" name="Text" x="53" y="29" width="272" height="42">
+          <text id="103:3492" name="2. النمذجة الكيانية" x="0" y="0" width="272" height="22" />
+          <text id="103:3493" name="24 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:3494" name="Lesson" x="24" y="404" width="342" height="100">
+        <instance id="103:3495" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="103:3496" name="Text" x="53" y="29" width="272" height="42">
+          <text id="103:3497" name="3. الجداول والمفاتيح" x="0" y="0" width="272" height="22" />
+          <text id="103:3498" name="21 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:3499" name="Lesson" x="24" y="516" width="342" height="100">
+        <instance id="103:3500" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="103:3501" name="Text" x="53" y="29" width="272" height="42">
+          <text id="103:3502" name="4. لغة SQL الأساسية" x="0" y="0" width="272" height="22" />
+          <text id="103:3503" name="32 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:3504" name="Lesson" x="24" y="628" width="342" height="100">
+        <instance id="103:3505" name="Icon" x="17" y="38" width="24" height="24" />
+        <frame id="103:3506" name="Text" x="53" y="29" width="272" height="42">
+          <text id="103:3507" name="5. العلاقات بين الجداول" x="0" y="0" width="272" height="22" />
+          <text id="103:3508" name="27 دقيقة" x="0" y="24" width="272" height="18" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:3509" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:3510" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:3511" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:3512" name="C-04 · مشغّل الدرس · Light" x="1410" y="964" width="390" height="844">
+    <instance id="103:3513" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:3514" name="Player" x="0" y="44" width="390" height="220">
+      <frame id="103:3515" name="Icon tile" x="163" y="78" width="64" height="64">
+        <instance id="103:3516" name="Icon" x="20" y="20" width="24" height="24" />
+      </frame>
+      <text id="103:3517" name="Watermark" x="60" y="24" width="270" height="20" />
+      <frame id="103:3518" name="Controls" x="16" y="176" width="358" height="32">
+        <frame id="103:3519" name="Speed" x="0" y="4" width="38" height="24">
+          <text id="103:3520" name="1.0x" x="8" y="4" width="22" height="16" />
+        </frame>
+        <text id="103:3521" name="12:40 / 27:00" x="48" y="7" width="70" height="18" />
+        <frame id="103:3522" name="Progress" x="128" y="14" width="230" height="4">
+          <frame id="103:3523" name="Rest" x="0" y="0" width="121.89999389648438" height="4" />
+          <frame id="103:3524" name="Fill" x="121.89999389648438" y="0" width="108.10000610351562" height="4" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:3525" name="Content" x="0" y="264" width="390" height="580">
+      <text id="103:3526" name="الدرس 4: لغة SQL الأساسية" x="24" y="16" width="342" height="28" />
+      <text id="103:3527" name="قواعد البيانات · الفصل الثالث" x="24" y="56" width="342" height="18" />
+      <text id="103:3528" name="تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد." x="24" y="86" width="342" height="44" />
+      <frame id="103:3529" name="Spacer" x="24" y="142" width="342" height="294" />
+      <instance id="103:3530" name="Button" x="24" y="448" width="342" height="52" />
+      <instance id="103:3531" name="Button" x="24" y="512" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3532" name="C-05 · عارض PDF (عرض فقط) · Light" x="1880" y="964" width="390" height="844">
+    <instance id="103:3533" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3534" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3535" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3536" name="Meta" x="24" y="16" width="342" height="100">
+        <instance id="103:3537" name="Badge" x="0" y="38" width="77" height="24" />
+        <frame id="103:3538" name="Spacer" x="85" y="0" width="173" height="100" />
+        <text id="103:3539" name="صفحة 3 من 24" x="266" y="41" width="76" height="18" />
+      </frame>
+      <frame id="103:3540" name="Page" x="24" y="128" width="342" height="528">
+        <text id="103:3541" name="مبادئ قواعد البيانات" x="21" y="21" width="300" height="28" />
+        <frame id="103:3542" name="Text line" x="21" y="59" width="300" height="8" />
+        <frame id="103:3543" name="Text line" x="21" y="77" width="300" height="8" />
+        <frame id="103:3544" name="Text line" x="21" y="95" width="300" height="8" />
+        <frame id="103:3545" name="Text line" x="21" y="113" width="300" height="8" />
+        <frame id="103:3546" name="Text line" x="21" y="131" width="300" height="8" />
+        <frame id="103:3547" name="Text line" x="21" y="149" width="300" height="8" />
+        <frame id="103:3548" name="Text line" x="21" y="167" width="300" height="8" />
+        <frame id="103:3549" name="Text line" x="21" y="185" width="300" height="8" />
+        <frame id="103:3550" name="Text line" x="21" y="203" width="300" height="8" />
+        <frame id="103:3551" name="Text line" x="21" y="221" width="300" height="8" />
+        <text id="103:3552" name="Watermark" x="20" y="260" width="300" height="20" />
+      </frame>
+      <frame id="103:3553" name="Pager" x="24" y="668" width="342" height="52">
+        <instance id="103:3554" name="Button" x="0" y="0" width="168" height="52" />
+        <instance id="103:3555" name="Button" x="176" y="0" width="166" height="52" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:3556" name="C-06 · التمارين · Light" x="2350" y="964" width="390" height="844">
+    <instance id="103:3557" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3558" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3559" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3560" name="Exercise" x="24" y="16" width="342" height="88">
+        <frame id="103:3561" name="Text" x="17" y="17" width="252" height="54">
+          <text id="103:3562" name="تمرين 1: إنشاء جدول الطلاب" x="0" y="0" width="252" height="24" />
+          <frame id="103:3563" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="103:3564" name="Badge" x="145" y="0" width="107" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3565" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="103:3566" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3567" name="Exercise" x="24" y="116" width="342" height="88">
+        <frame id="103:3568" name="Text" x="17" y="17" width="252" height="54">
+          <text id="103:3569" name="تمرين 2: استعلامات SELECT" x="0" y="0" width="252" height="24" />
+          <frame id="103:3570" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="103:3571" name="Badge" x="145" y="0" width="107" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3572" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="103:3573" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3574" name="Exercise" x="24" y="216" width="342" height="88">
+        <frame id="103:3575" name="Text" x="17" y="17" width="252" height="54">
+          <text id="103:3576" name="تمرين 3: ربط الجداول JOIN" x="0" y="0" width="252" height="24" />
+          <frame id="103:3577" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="103:3578" name="Badge" x="168" y="0" width="84" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3579" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="103:3580" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:3581" name="Exercise" x="24" y="316" width="342" height="88">
+        <frame id="103:3582" name="Text" x="17" y="17" width="252" height="54">
+          <text id="103:3583" name="تمرين 4: التجميع GROUP BY" x="0" y="0" width="252" height="24" />
+          <frame id="103:3584" name="Row" x="0" y="30" width="252" height="24">
+            <instance id="103:3585" name="Badge" x="194" y="0" width="58" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3586" name="Icon tile" x="281" y="22" width="44" height="44">
+          <instance id="103:3587" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:3588" name="C-07 · حلّ التمرين · Light" x="2820" y="964" width="390" height="844">
+    <instance id="103:3589" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3590" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3591" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3592" name="Problem" x="24" y="16" width="342" height="104">
+        <text id="103:3593" name="المطلوب" x="17" y="17" width="308" height="20" />
+        <text id="103:3594" name="اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب." x="17" y="43" width="308" height="44" />
+      </frame>
+      <frame id="103:3595" name="Code editor" x="24" y="132" width="342" height="524">
+        <frame id="103:3596" name="Line" x="15" y="15" width="312" height="18">
+          <text id="103:3597" name="1" x="0" y="0" width="16" height="18" />
+          <text id="103:3598" name="SELECT s.name, c.title" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3599" name="Line" x="15" y="37" width="312" height="18">
+          <text id="103:3600" name="2" x="0" y="0" width="16" height="18" />
+          <text id="103:3601" name="FROM students s" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3602" name="Line" x="15" y="59" width="312" height="18">
+          <text id="103:3603" name="3" x="0" y="0" width="16" height="18" />
+          <text id="103:3604" name="JOIN enrollments e" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3605" name="Line" x="15" y="81" width="312" height="18">
+          <text id="103:3606" name="4" x="0" y="0" width="16" height="18" />
+          <text id="103:3607" name="ON e.student_id = s.id" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3608" name="Line" x="15" y="103" width="312" height="18">
+          <text id="103:3609" name="5" x="0" y="0" width="16" height="18" />
+          <text id="103:3610" name="JOIN courses c" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3611" name="Line" x="15" y="125" width="312" height="18">
+          <text id="103:3612" name="6" x="0" y="0" width="16" height="18" />
+          <text id="103:3613" name="ON c.id = e.course_id" x="28" y="0" width="284" height="17" />
+        </frame>
+        <frame id="103:3614" name="Line" x="15" y="147" width="312" height="18">
+          <text id="103:3615" name="7" x="0" y="0" width="16" height="18" />
+          <text id="103:3616" name="ORDER BY s.name;" x="28" y="0" width="284" height="17" />
+        </frame>
+      </frame>
+      <instance id="103:3617" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3618" name="C-08 · نتيجة التصحيح · Light" x="3290" y="964" width="390" height="844">
+    <instance id="103:3619" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3620" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3621" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3622" name="Score" x="24" y="16" width="342" height="128">
+        <text id="103:3623" name="85/100" x="17" y="17" width="308" height="40" />
+        <frame id="103:3624" name="Badge row" x="17" y="63" width="308" height="24">
+          <instance id="103:3625" name="Badge" x="97" y="0" width="114" height="24" />
+        </frame>
+        <text id="103:3626" name="صُحّح بواسطة Gemini" x="17" y="93" width="308" height="18" />
+      </frame>
+      <text id="103:3627" name="ما أصبت فيه" x="24" y="158" width="342" height="20" />
+      <frame id="103:3628" name="Correct" x="24" y="192" width="342" height="78">
+        <text id="103:3629" name="استخدمتَ JOIN بشكل صحيح بين الجداول الثلاثة، والترتيب مطابق للمطلوب." x="17" y="17" width="308" height="44" />
+      </frame>
+      <text id="103:3630" name="ملاحظات للتحسين" x="24" y="284" width="342" height="20" />
+      <frame id="103:3631" name="Notes" x="24" y="318" width="342" height="78">
+        <text id="103:3632" name="يُفضّل استخدام أسماء مستعارة أوضح للجداول، وإضافة LEFT JOIN لعرض الطلاب غير المسجّلين." x="17" y="17" width="308" height="44" />
+      </frame>
+      <frame id="103:3633" name="Spacer" x="24" y="410" width="342" height="178" />
+      <instance id="103:3634" name="Button" x="24" y="602" width="342" height="52" />
+      <instance id="103:3635" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>

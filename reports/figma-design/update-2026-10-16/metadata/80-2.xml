@@ -1,0 +1,334 @@
+<canvas id="80:2" name="F · Student — Courses &amp; Payments" x="0" y="0" width="0" height="0">
+  <frame id="80:3" name="F-01 · الكورسات" x="0" y="0" width="390" height="844">
+    <instance id="80:4" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="80:20" name="Content" x="0" y="44" width="390" height="698">
+      <text id="80:21" name="الكورسات" x="24" y="16" width="342" height="32" />
+      <frame id="80:22" name="Tabs" x="24" y="60" width="342" height="42">
+        <frame id="80:23" name="Tab: كورساتي" x="0" y="0" width="168" height="42">
+          <text id="80:24" name="كورساتي" x="57" y="11" width="54" height="20" />
+        </frame>
+        <frame id="80:25" name="Tab: كل الكورسات" x="176" y="0" width="166" height="40">
+          <text id="80:26" name="كل الكورسات" x="44" y="10" width="78" height="20" />
+        </frame>
+      </frame>
+      <frame id="80:27" name="Course" x="24" y="114" width="342" height="108">
+        <frame id="80:28" name="Text" x="17" y="17" width="240" height="74">
+          <text id="80:29" name="تطوير تطبيقات Flutter" x="0" y="0" width="240" height="24" />
+          <text id="80:30" name="12 ساعة · 48 درساً" x="0" y="28" width="240" height="18" />
+          <text id="80:31" name="$29" x="0" y="50" width="27" height="24" />
+        </frame>
+        <frame id="80:32" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="80:33" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="80:37" name="Course" x="24" y="234" width="342" height="108">
+        <frame id="80:38" name="Text" x="17" y="17" width="240" height="74">
+          <text id="80:39" name="أساسيات Python" x="0" y="0" width="240" height="24" />
+          <text id="80:40" name="8 ساعات · 32 درساً" x="0" y="28" width="240" height="18" />
+          <text id="80:41" name="$19" x="0" y="50" width="27" height="24" />
+        </frame>
+        <frame id="80:42" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="80:43" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="80:47" name="Course" x="24" y="354" width="342" height="108">
+        <frame id="80:48" name="Text" x="17" y="17" width="240" height="74">
+          <text id="80:49" name="Git و GitHub للمبتدئين" x="0" y="0" width="240" height="24" />
+          <text id="80:50" name="4 ساعات · 16 درساً" x="0" y="28" width="240" height="18" />
+          <text id="80:51" name="$9" x="0" y="50" width="18" height="24" />
+        </frame>
+        <frame id="80:52" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="80:53" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="80:57" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="80:78" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="80:111" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="80:113" name="F-02 · تفاصيل الكورس" x="470" y="0" width="390" height="844">
+    <instance id="80:114" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="80:130" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="80:135" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="80:136" name="Cover" x="24" y="16" width="342" height="150">
+        <frame id="80:137" name="Icon tile" x="139" y="43" width="64" height="64">
+          <instance id="80:138" name="Icon" x="20" y="20" width="24" height="24" />
+        </frame>
+      </frame>
+      <text id="80:142" name="تطوير تطبيقات Flutter" x="24" y="180" width="342" height="28" />
+      <text id="80:143" name="تعلّم بناء تطبيقات Android وiOS من الصفر مع مشاريع عملية." x="24" y="222" width="342" height="44" />
+      <frame id="80:144" name="Info" x="24" y="280" width="342" height="146">
+        <frame id="80:145" name="Row" x="17" y="17" width="308" height="22">
+          <text id="80:146" name="12 ساعة" x="0" y="0" width="150" height="22" />
+          <text id="80:147" name="المدة" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:148" name="Row" x="17" y="47" width="308" height="22">
+          <text id="80:149" name="48 درساً" x="0" y="0" width="150" height="22" />
+          <text id="80:150" name="عدد الدروس" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:151" name="Row" x="17" y="77" width="308" height="22">
+          <text id="80:152" name="سنة من تاريخ الشراء" x="0" y="0" width="150" height="22" />
+          <text id="80:153" name="صلاحية الوصول" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:154" name="Row" x="17" y="107" width="308" height="22">
+          <text id="80:155" name="عرض فقط، بدون تحميل" x="0" y="0" width="150" height="22" />
+          <text id="80:156" name="الملفات" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="80:157" name="Spacer" x="24" y="440" width="342" height="214" />
+      <frame id="80:158" name="Buy bar" x="24" y="668" width="342" height="52">
+        <text id="80:159" name="$29" x="0" y="10" width="37" height="32" />
+        <instance id="80:160" name="Button" x="49" y="0" width="293" height="52" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="80:175" name="F-03 · الدفع" x="940" y="0" width="390" height="844">
+    <instance id="80:176" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="80:192" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="80:197" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="80:198" name="Summary" x="24" y="16" width="342" height="146">
+        <text id="80:199" name="ملخص الطلب" x="17" y="17" width="308" height="20" />
+        <frame id="80:200" name="Row" x="17" y="45" width="308" height="22">
+          <text id="80:201" name="تطوير تطبيقات Flutter" x="0" y="0" width="150" height="22" />
+          <text id="80:202" name="الكورس" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:203" name="Row" x="17" y="75" width="308" height="22">
+          <text id="80:204" name="سنة واحدة" x="0" y="0" width="150" height="22" />
+          <text id="80:205" name="الصلاحية" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:206" name="Row" x="17" y="105" width="308" height="24">
+          <text id="80:207" name="$29" x="0" y="0" width="150" height="24" />
+          <text id="80:208" name="الإجمالي" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <text id="80:209" name="طريقة الدفع" x="24" y="176" width="342" height="20" />
+      <instance id="80:213" name="Option Card" x="24" y="210" width="342" height="100" />
+      <instance id="80:234" name="Option Card" x="24" y="324" width="342" height="100" />
+      <frame id="80:251" name="Spacer" x="24" y="438" width="342" height="216" />
+      <instance id="80:252" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="80:260" name="F-04 · تأكيد الحوالة" x="1410" y="0" width="390" height="844">
+    <instance id="80:261" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="80:277" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="80:282" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="80:283" name="Steps" x="24" y="16" width="342" height="150">
+        <text id="80:284" name="خطوات الدفع" x="17" y="17" width="308" height="20" />
+        <text id="80:285" name="1. حوّل $29 إلى الحساب الموضّح أدناه عبر ShamCash." x="17" y="47" width="308" height="22" />
+        <text id="80:286" name="2. انسخ رقم العملية من إشعار التحويل." x="17" y="79" width="308" height="22" />
+        <text id="80:287" name="3. الصقه في الحقل وأرسل الطلب." x="17" y="111" width="308" height="22" />
+      </frame>
+      <frame id="80:288" name="Account" x="24" y="180" width="342" height="86">
+        <text id="80:289" name="رقم الحساب" x="17" y="17" width="308" height="18" />
+        <text id="80:290" name="a7f3 92c1 5d8e" x="17" y="41" width="308" height="28" />
+      </frame>
+      <instance id="80:291" name="Input" x="24" y="280" width="342" height="98" />
+      <frame id="80:303" name="Spacer" x="24" y="392" width="342" height="262" />
+      <instance id="80:304" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="80:312" name="F-05 · قسيمة الشحن" x="1880" y="0" width="390" height="844">
+    <instance id="80:313" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="80:329" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="80:334" name="Content" x="0" y="100" width="390" height="744">
+      <text id="80:335" name="أدخل رمز القسيمة لتفعيل الكورس مباشرة." x="24" y="16" width="342" height="22" />
+      <instance id="80:336" name="Input" x="24" y="52" width="342" height="98" />
+      <frame id="80:348" name="Spacer" x="24" y="164" width="342" height="490" />
+      <instance id="80:349" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="80:357" name="F-06 · نجاح العملية" x="2350" y="0" width="390" height="844">
+    <instance id="80:358" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="80:374" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="80:375" name="Icon tile" x="147" y="16" width="96" height="96">
+        <instance id="80:376" name="Icon" x="36" y="36" width="24" height="24" />
+      </frame>
+      <text id="80:380" name="تم تفعيل الكورس" x="24" y="126" width="342" height="32" />
+      <text id="80:381" name="تطوير تطبيقات Flutter متاح الآن حتى 15 أكتوبر 2027." x="24" y="172" width="342" height="22" />
+      <frame id="80:382" name="Receipt" x="24" y="208" width="342" height="116">
+        <frame id="80:383" name="Row" x="17" y="17" width="308" height="22">
+          <text id="80:384" name="#HS-20481" x="0" y="0" width="150" height="22" />
+          <text id="80:385" name="رقم الطلب" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:386" name="Row" x="17" y="47" width="308" height="22">
+          <text id="80:387" name="$29" x="0" y="0" width="150" height="22" />
+          <text id="80:388" name="المبلغ" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="80:389" name="Row" x="17" y="77" width="308" height="22">
+          <text id="80:390" name="ShamCash" x="0" y="0" width="150" height="22" />
+          <text id="80:391" name="الطريقة" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="80:392" name="Spacer" x="24" y="338" width="342" height="306" />
+      <instance id="80:393" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="80:406" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4134" name="F-01 · الكورسات · Light" x="0" y="964" width="390" height="844">
+    <instance id="103:4135" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4136" name="Content" x="0" y="44" width="390" height="698">
+      <text id="103:4137" name="الكورسات" x="24" y="16" width="342" height="32" />
+      <frame id="103:4138" name="Tabs" x="24" y="60" width="342" height="42">
+        <frame id="103:4139" name="Tab: كورساتي" x="0" y="0" width="168" height="42">
+          <text id="103:4140" name="كورساتي" x="57" y="11" width="54" height="20" />
+        </frame>
+        <frame id="103:4141" name="Tab: كل الكورسات" x="176" y="0" width="166" height="40">
+          <text id="103:4142" name="كل الكورسات" x="44" y="10" width="78" height="20" />
+        </frame>
+      </frame>
+      <frame id="103:4143" name="Course" x="24" y="114" width="342" height="108">
+        <frame id="103:4144" name="Text" x="17" y="17" width="240" height="74">
+          <text id="103:4145" name="تطوير تطبيقات Flutter" x="0" y="0" width="240" height="24" />
+          <text id="103:4146" name="12 ساعة · 48 درساً" x="0" y="28" width="240" height="18" />
+          <text id="103:4147" name="$29" x="0" y="50" width="27" height="24" />
+        </frame>
+        <frame id="103:4148" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="103:4149" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4150" name="Course" x="24" y="234" width="342" height="108">
+        <frame id="103:4151" name="Text" x="17" y="17" width="240" height="74">
+          <text id="103:4152" name="أساسيات Python" x="0" y="0" width="240" height="24" />
+          <text id="103:4153" name="8 ساعات · 32 درساً" x="0" y="28" width="240" height="18" />
+          <text id="103:4154" name="$19" x="0" y="50" width="27" height="24" />
+        </frame>
+        <frame id="103:4155" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="103:4156" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4157" name="Course" x="24" y="354" width="342" height="108">
+        <frame id="103:4158" name="Text" x="17" y="17" width="240" height="74">
+          <text id="103:4159" name="Git و GitHub للمبتدئين" x="0" y="0" width="240" height="24" />
+          <text id="103:4160" name="4 ساعات · 16 درساً" x="0" y="28" width="240" height="18" />
+          <text id="103:4161" name="$9" x="0" y="50" width="18" height="24" />
+        </frame>
+        <frame id="103:4162" name="Icon tile" x="269" y="26" width="56" height="56">
+          <instance id="103:4163" name="Icon" x="16" y="16" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:4164" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:4165" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:4166" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:4167" name="F-02 · تفاصيل الكورس · Light" x="470" y="964" width="390" height="844">
+    <instance id="103:4168" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4169" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4170" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4171" name="Cover" x="24" y="16" width="342" height="150">
+        <frame id="103:4172" name="Icon tile" x="139" y="43" width="64" height="64">
+          <instance id="103:4173" name="Icon" x="20" y="20" width="24" height="24" />
+        </frame>
+      </frame>
+      <text id="103:4174" name="تطوير تطبيقات Flutter" x="24" y="180" width="342" height="28" />
+      <text id="103:4175" name="تعلّم بناء تطبيقات Android وiOS من الصفر مع مشاريع عملية." x="24" y="222" width="342" height="44" />
+      <frame id="103:4176" name="Info" x="24" y="280" width="342" height="146">
+        <frame id="103:4177" name="Row" x="17" y="17" width="308" height="22">
+          <text id="103:4178" name="12 ساعة" x="0" y="0" width="150" height="22" />
+          <text id="103:4179" name="المدة" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4180" name="Row" x="17" y="47" width="308" height="22">
+          <text id="103:4181" name="48 درساً" x="0" y="0" width="150" height="22" />
+          <text id="103:4182" name="عدد الدروس" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4183" name="Row" x="17" y="77" width="308" height="22">
+          <text id="103:4184" name="سنة من تاريخ الشراء" x="0" y="0" width="150" height="22" />
+          <text id="103:4185" name="صلاحية الوصول" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4186" name="Row" x="17" y="107" width="308" height="22">
+          <text id="103:4187" name="عرض فقط، بدون تحميل" x="0" y="0" width="150" height="22" />
+          <text id="103:4188" name="الملفات" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="103:4189" name="Spacer" x="24" y="440" width="342" height="214" />
+      <frame id="103:4190" name="Buy bar" x="24" y="668" width="342" height="52">
+        <text id="103:4191" name="$29" x="0" y="10" width="37" height="32" />
+        <instance id="103:4192" name="Button" x="49" y="0" width="293" height="52" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:4193" name="F-03 · الدفع · Light" x="940" y="964" width="390" height="844">
+    <instance id="103:4194" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4195" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4196" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4197" name="Summary" x="24" y="16" width="342" height="146">
+        <text id="103:4198" name="ملخص الطلب" x="17" y="17" width="308" height="20" />
+        <frame id="103:4199" name="Row" x="17" y="45" width="308" height="22">
+          <text id="103:4200" name="تطوير تطبيقات Flutter" x="0" y="0" width="150" height="22" />
+          <text id="103:4201" name="الكورس" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4202" name="Row" x="17" y="75" width="308" height="22">
+          <text id="103:4203" name="سنة واحدة" x="0" y="0" width="150" height="22" />
+          <text id="103:4204" name="الصلاحية" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4205" name="Row" x="17" y="105" width="308" height="24">
+          <text id="103:4206" name="$29" x="0" y="0" width="150" height="24" />
+          <text id="103:4207" name="الإجمالي" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <text id="103:4208" name="طريقة الدفع" x="24" y="176" width="342" height="20" />
+      <instance id="103:4209" name="Option Card" x="24" y="210" width="342" height="100" />
+      <instance id="103:4210" name="Option Card" x="24" y="324" width="342" height="100" />
+      <frame id="103:4211" name="Spacer" x="24" y="438" width="342" height="216" />
+      <instance id="103:4212" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4213" name="F-04 · تأكيد الحوالة · Light" x="1410" y="964" width="390" height="844">
+    <instance id="103:4214" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4215" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4216" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4217" name="Steps" x="24" y="16" width="342" height="150">
+        <text id="103:4218" name="خطوات الدفع" x="17" y="17" width="308" height="20" />
+        <text id="103:4219" name="1. حوّل $29 إلى الحساب الموضّح أدناه عبر ShamCash." x="17" y="47" width="308" height="22" />
+        <text id="103:4220" name="2. انسخ رقم العملية من إشعار التحويل." x="17" y="79" width="308" height="22" />
+        <text id="103:4221" name="3. الصقه في الحقل وأرسل الطلب." x="17" y="111" width="308" height="22" />
+      </frame>
+      <frame id="103:4222" name="Account" x="24" y="180" width="342" height="86">
+        <text id="103:4223" name="رقم الحساب" x="17" y="17" width="308" height="18" />
+        <text id="103:4224" name="a7f3 92c1 5d8e" x="17" y="41" width="308" height="28" />
+      </frame>
+      <instance id="103:4225" name="Input" x="24" y="280" width="342" height="98" />
+      <frame id="103:4226" name="Spacer" x="24" y="392" width="342" height="262" />
+      <instance id="103:4227" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4228" name="F-05 · قسيمة الشحن · Light" x="1880" y="964" width="390" height="844">
+    <instance id="103:4229" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4230" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4231" name="Content" x="0" y="100" width="390" height="744">
+      <text id="103:4232" name="أدخل رمز القسيمة لتفعيل الكورس مباشرة." x="24" y="16" width="342" height="22" />
+      <instance id="103:4233" name="Input" x="24" y="52" width="342" height="98" />
+      <frame id="103:4234" name="Spacer" x="24" y="164" width="342" height="490" />
+      <instance id="103:4235" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4236" name="F-06 · نجاح العملية · Light" x="2350" y="964" width="390" height="844">
+    <instance id="103:4237" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4238" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:4239" name="Icon tile" x="147" y="16" width="96" height="96">
+        <instance id="103:4240" name="Icon" x="36" y="36" width="24" height="24" />
+      </frame>
+      <text id="103:4241" name="تم تفعيل الكورس" x="24" y="126" width="342" height="32" />
+      <text id="103:4242" name="تطوير تطبيقات Flutter متاح الآن حتى 15 أكتوبر 2027." x="24" y="172" width="342" height="22" />
+      <frame id="103:4243" name="Receipt" x="24" y="208" width="342" height="116">
+        <frame id="103:4244" name="Row" x="17" y="17" width="308" height="22">
+          <text id="103:4245" name="#HS-20481" x="0" y="0" width="150" height="22" />
+          <text id="103:4246" name="رقم الطلب" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4247" name="Row" x="17" y="47" width="308" height="22">
+          <text id="103:4248" name="$29" x="0" y="0" width="150" height="22" />
+          <text id="103:4249" name="المبلغ" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4250" name="Row" x="17" y="77" width="308" height="22">
+          <text id="103:4251" name="ShamCash" x="0" y="0" width="150" height="22" />
+          <text id="103:4252" name="الطريقة" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="103:4253" name="Spacer" x="24" y="338" width="342" height="306" />
+      <instance id="103:4254" name="Button" x="24" y="658" width="342" height="52" />
+      <instance id="103:4255" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>

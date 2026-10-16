@@ -1,0 +1,5604 @@
+{
+  "A-S01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مرحباً بك في تطبيق حاسوبجي",
+      "color": 4294967295,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.",
+      "color": 4292473341,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "المتابعة عبر Google",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S01-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مرحباً بك في تطبيق حاسوبجي",
+      "color": 4278325548,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.",
+      "color": 4282210936,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "المتابعة عبر Google",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كيف ستستخدم التطبيق؟",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "اختر ما يناسبك، ويمكنك تغيير ذلك لاحقاً من الإعدادات",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "طالب في المعهد",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد قسمي وسنتي الدراسية، مع الكورسات الإضافية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الكورسات فقط",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أريد التسجيل في الكورسات البرمجية دون ربط حسابي بالمعهد",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كيف ستستخدم التطبيق؟",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "اختر ما يناسبك، ويمكنك تغيير ذلك لاحقاً من الإعدادات",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "طالب في المعهد",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد قسمي وسنتي الدراسية، مع الكورسات الإضافية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الكورسات فقط",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أريد التسجيل في الكورسات البرمجية دون ربط حسابي بالمعهد",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "معلوماتك الأساسية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الثلاثي كما في الهوية",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "09xx xxx xxx",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "name@gmail.com",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الثلاثي كما في الهوية",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "09xx xxx xxx",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "name@gmail.com",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S05": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "هذا الحساب مرتبط بجهاز آخر",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "يمكن استخدام الحساب على جهاز واحد فقط. لتغيير الجهاز أرسل طلباً للإدارة وسنراجعه في أقرب وقت.",
+      "color": 4292473341,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "طلب تغيير الجهاز",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "A-S05-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "هذا الحساب مرتبط بجهاز آخر",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "يمكن استخدام الحساب على جهاز واحد فقط. لتغيير الجهاز أرسل طلباً للإدارة وسنراجعه في أقرب وقت.",
+      "color": 4282210936,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "طلب تغيير الجهاز",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "A-S06": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "طلب تغيير الجهاز",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الجهاز الجديد",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54 · Android 14",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سبب التغيير",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مثال: تغيّر هاتفي أو فُقد الجهاز القديم",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "سيصل طلبك إلى الإدارة للمراجعة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال الطلب",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S06-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الجهاز الجديد",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54 · Android 14",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سبب التغيير",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مثال: تغيّر هاتفي أو فُقد الجهاز القديم",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "سيصل طلبك إلى الإدارة للمراجعة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال الطلب",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S07": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حالة الطلب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قيد المراجعة",
+      "color": 4294833377,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "طلبك قيد المراجعة",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "أُرسل الطلب اليوم 12:50. سيصلك إشعار فور اتخاذ القرار.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الجهاز المطلوب",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54 · Android 14",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "color": 4284983516,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "A-S07-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "طلبك قيد المراجعة",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "أُرسل الطلب اليوم 12:50. سيصلك إشعار فور اتخاذ القرار.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الجهاز المطلوب",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54 · Android 14",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "color": 4278548663,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "A-S08": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الشروط والخصوصية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سياسة الخصوصية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الشروط والأحكام",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. استخدام التطبيق",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. الحساب والجهاز",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. المحتوى والحماية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "4. المدفوعات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "آخر تحديث: 15 أكتوبر 2026 ·",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "فهمت",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S08-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "سياسة الخصوصية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الشروط والأحكام",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. استخدام التطبيق",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. الحساب والجهاز",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. المحتوى والحماية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "4. المدفوعات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "آخر تحديث: 15 أكتوبر 2026 ·",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "فهمت",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S09": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "معلوماتك الأساسية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الثلاثي كما في الهوية",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "09xx xxx xxx",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "name@gmail.com",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ابدأ التعلّم",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S09-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الثلاثي كما في الهوية",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "09xx xxx xxx",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "name@gmail.com",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ابدأ التعلّم",
+      "fontSize": 14,
+      "fontWeight": 500
+    }
+  ],
+  "A-S10": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تم إيقاف حسابك",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أوقفت الإدارة هذا الحساب مؤقتاً. تواصل مع الدعم لمعرفة السبب وكيفية إعادة التفعيل.",
+      "color": 4292473341,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "A-S10-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تم إيقاف حسابك",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أوقفت الإدارة هذا الحساب مؤقتاً. تواصل مع الدعم لمعرفة السبب وكيفية إعادة التفعيل.",
+      "color": 4282210936,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "معلوماتك الأكاديمية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "القسم",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجيات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد البرمجة وتطوير التطبيقات",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "شبكات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد الشبكات والأنظمة",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "السنة الأولى",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الأول والثاني",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الثالث والرابع",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S01-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "القسم",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجيات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد البرمجة وتطوير التطبيقات",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "شبكات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "مواد الشبكات والأنظمة",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "السنة الأولى",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الأول والثاني",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الثالث والرابع",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تأكيد التسجيل",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "راجع بياناتك قبل الحفظ",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "القسم",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الفصل الثالث · 2026/2027",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سيُسجَّل حسابك على الفصل الجاري، ويمكنك طلب تعديل القسم أو السنة من الدعم لاحقاً.",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تأكيد وبدء الاستخدام",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تعديل البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "راجع بياناتك قبل الحفظ",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "القسم",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الفصل الثالث · 2026/2027",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سيُسجَّل حسابك على الفصل الجاري، ويمكنك طلب تعديل القسم أو السنة من الدعم لاحقاً.",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تأكيد وبدء الاستخدام",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تعديل البيانات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "فصل جديد",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "بدأ الفصل الرابع",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "هل ما زلت في القسم والسنة نفسهما؟ نحتاج تأكيدك لتفعيل مواد هذا الفصل.",
+      "color": 4292473341,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "القسم",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "1 فبراير – 15 يونيو 2027",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مدة الفصل",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "نعم، تأكيد التسجيل",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تغيّرت بياناتي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "بدأ الفصل الرابع",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "هل ما زلت في القسم والسنة نفسهما؟ نحتاج تأكيدك لتفعيل مواد هذا الفصل.",
+      "color": 4282210936,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "القسم",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الثانية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "1 فبراير – 15 يونيو 2027",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مدة الفصل",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "نعم، تأكيد التسجيل",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تغيّرت بياناتي",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "B-S05": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حالات رأس الصفحة الأكاديمي",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الثالث · 2026/2027",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "لا يوجد فصل جارٍ حالياً",
+      "color": 4294833377,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.",
+      "color": 4294833377,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "انتهى الفصل الثالث",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "مؤجَّل",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "تسجيلك مؤجَّل",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "B-S05-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حالات رأس الصفحة الأكاديمي",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "الفصل الثالث · 2026/2027",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "ينتهي بعد 62 يوماً · الامتحانات تبدأ 1 يونيو",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "لا يوجد فصل جارٍ حالياً",
+      "color": 4287389200,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سُجّلت تلقائياً على الفصل القادم الذي يبدأ في 1 فبراير 2027، وسنذكّرك عند بدايته.",
+      "color": 4287389200,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "انتهى الفصل الثالث",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أُغلقت مواد الفصل، وتبقى مفتوحة للمراجعة المواد التي لم تنجح بها فقط.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تسجيلك مؤجَّل",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تواصل مع الدعم لإعادة تفعيل تسجيلك الأكاديمي.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "B-S06": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "جدول الامتحانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الدورة التكميلية",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدورة العادية",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "البرمجة الكائنية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأحد 7 يونيو · 09:00 · القاعة 3",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الثلاثاء 9 يونيو · 11:00 · المخبر 1",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الخميس 11 يونيو · 09:00 · القاعة 2",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأحد 14 يونيو · 10:00 · المخبر 2",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "B-S06-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "البرمجة الكائنية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأحد 7 يونيو · 09:00 · القاعة 3",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الثلاثاء 9 يونيو · 11:00 · المخبر 1",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الخميس 11 يونيو · 09:00 · القاعة 2",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الأحد 14 يونيو · 10:00 · المخبر 2",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "C-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مرحباً أحمد",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "متابع تعلّمك من حيث توقفت",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة المشاهدة",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدرس 5: العلاقات بين الجداول",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · متبقٍ 12 دقيقة",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "موادي",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 دروس · 3 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "10 دروس · 2 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الإعدادات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "C-01-LIGHT": [
+    {
+      "text": "الإعدادات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4278548663,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مرحباً أحمد",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "متابع تعلّمك من حيث توقفت",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة المشاهدة",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدرس 5: العلاقات بين الجداول",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · متبقٍ 12 دقيقة",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "موادي",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 دروس · 3 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "10 دروس · 2 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "C-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصول السابقة",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "12 درساً · 4 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 درساً · 3 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "10 دروس · 2 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "14 درساً · 5 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "شبكات الحاسوب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "9 دروس · 2 تمارين",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الإعدادات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "C-02-LIGHT": [
+    {
+      "text": "الإعدادات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصول السابقة",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "12 درساً · 4 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 درساً · 3 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "10 دروس · 2 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "14 درساً · 5 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "شبكات الحاسوب",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "9 دروس · 2 تمارين",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "C-03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تقدّمك في المادة: 62%",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 من 12 درساً مكتملة",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "التمارين",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الملفات",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدروس",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. مقدمة في قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "18 دقيقة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. النمذجة الكيانية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "24 دقيقة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. الجداول والمفاتيح",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "21 دقيقة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "4. لغة SQL الأساسية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "32 دقيقة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "5. العلاقات بين الجداول",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "27 دقيقة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الإعدادات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "C-03-LIGHT": [
+    {
+      "text": "الإعدادات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4278548663,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تقدّمك في المادة: 62%",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 من 12 درساً مكتملة",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "التمارين",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الملفات",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدروس",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. مقدمة في قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "18 دقيقة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. النمذجة الكيانية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "24 دقيقة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. الجداول والمفاتيح",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "21 دقيقة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "4. لغة SQL الأساسية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "32 دقيقة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "5. العلاقات بين الجداول",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "27 دقيقة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "C-04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد · 0991 234 567",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "1.0x",
+      "color": 4294967295,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "12:40 / 27:00",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس 4: لغة SQL الأساسية",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · الفصل الثالث",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس التالي",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تنزيل للمشاهدة دون إنترنت",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد · 0991 234 567",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "1.0x",
+      "color": 4278325548,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "12:40 / 27:00",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس 4: لغة SQL الأساسية",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · الفصل الثالث",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس التالي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تنزيل للمشاهدة دون إنترنت",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-05": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ملخص الفصل الأول",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "عرض فقط",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "صفحة 3 من 24",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "مبادئ قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "أحمد محمد · 0991 234 567",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "السابقة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "التالية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-05-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "صفحة 3 من 24",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "مبادئ قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "أحمد محمد · 0991 234 567",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "السابقة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "التالية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-06": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمارين قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تمرين 1: إنشاء جدول الطلاب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تم الحل · 90/100",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمرين 2: استعلامات SELECT",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تم الحل · 75/100",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمرين 3: ربط الجداول JOIN",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قيد التصحيح",
+      "color": 4294833377,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمرين 4: التجميع GROUP BY",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "لم يُحلّ",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "C-06-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمرين 1: إنشاء جدول الطلاب",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تمرين 2: استعلامات SELECT",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تمرين 3: ربط الجداول JOIN",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تمرين 4: التجميع GROUP BY",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  ],
+  "C-07": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تمرين 3: ربط الجداول",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "المطلوب",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال للتصحيح",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-07-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "المطلوب",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال للتصحيح",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-08": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "نتيجة التمرين",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "85/100",
+      "color": 4284983516,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "ناجح · حدّ النجاح 60",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "صُحّح بواسطة Gemini",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ما أصبت فيه",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "استخدمتَ JOIN بشكل صحيح بين الجداول الثلاثة، والترتيب مطابق للمطلوب.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ملاحظات للتحسين",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "يُفضّل استخدام أسماء مستعارة أوضح للجداول، وإضافة LEFT JOIN لعرض الطلاب غير المسجّلين.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "العودة إلى التمارين",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "C-08-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "85/100",
+      "color": 4278548663,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "صُحّح بواسطة Gemini",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ما أصبت فيه",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "استخدمتَ JOIN بشكل صحيح بين الجداول الثلاثة، والترتيب مطابق للمطلوب.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ملاحظات للتحسين",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "يُفضّل استخدام أسماء مستعارة أوضح للجداول، وإضافة LEFT JOIN لعرض الطلاب غير المسجّلين.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "العودة إلى التمارين",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "E-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "التنزيلات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "المساحة المستخدمة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "420 MB من 2 GB",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الدرس 4: لغة SQL الأساسية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · 86 MB",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "جاهز دون إنترنت",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدرس 5: العلاقات بين الجداول",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · 74 MB",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "جارٍ التنزيل 40%",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدرس 2: الأصناف والكائنات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجة كائنية · 92 MB",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ينتهي خلال 3 أيام",
+      "color": 4294833377,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "E-01-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "المساحة المستخدمة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "420 MB من 2 GB",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الدرس 4: لغة SQL الأساسية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · 86 MB",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس 5: العلاقات بين الجداول",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات · 74 MB",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدرس 2: الأصناف والكائنات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجة كائنية · 92 MB",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "F-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كورساتي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كل الكورسات",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "12 ساعة · 48 درساً",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4284983516,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أساسيات Python",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 ساعات · 32 درساً",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$19",
+      "color": 4284983516,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "Git و GitHub للمبتدئين",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "4 ساعات · 16 درساً",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$9",
+      "color": 4284983516,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الإعدادات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "F-01-LIGHT": [
+    {
+      "text": "الإعدادات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كورساتي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كل الكورسات",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "12 ساعة · 48 درساً",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4278548663,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أساسيات Python",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "8 ساعات · 32 درساً",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$19",
+      "color": 4278548663,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "Git و GitHub للمبتدئين",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "4 ساعات · 16 درساً",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "$9",
+      "color": 4278548663,
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  ],
+  "F-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تفاصيل الكورس",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "تعلّم بناء تطبيقات Android وiOS من الصفر مع مشاريع عملية.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "12 ساعة",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المدة",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "48 درساً",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "عدد الدروس",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سنة من تاريخ الشراء",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "صلاحية الوصول",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "عرض فقط، بدون تحميل",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الملفات",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "اشترِ الآن",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-02-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "تعلّم بناء تطبيقات Android وiOS من الصفر مع مشاريع عملية.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "12 ساعة",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المدة",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "48 درساً",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "عدد الدروس",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سنة من تاريخ الشراء",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "صلاحية الوصول",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "عرض فقط، بدون تحميل",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الملفات",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "اشترِ الآن",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "إتمام الشراء",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "ملخص الطلب",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الكورس",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سنة واحدة",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الصلاحية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الإجمالي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "طريقة الدفع",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ShamCash",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "حوّل المبلغ ثم أرفق رقم العملية",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "قسيمة شحن",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أدخل رمز القسيمة التي حصلت عليها",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة الدفع",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ملخص الطلب",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير تطبيقات Flutter",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الكورس",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "سنة واحدة",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الصلاحية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الإجمالي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "طريقة الدفع",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ShamCash",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "حوّل المبلغ ثم أرفق رقم العملية",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "قسيمة شحن",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أدخل رمز القسيمة التي حصلت عليها",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "متابعة الدفع",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدفع عبر ShamCash",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "خطوات الدفع",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. حوّل $29 إلى الحساب الموضّح أدناه عبر ShamCash.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. انسخ رقم العملية من إشعار التحويل.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. الصقه في الحقل وأرسل الطلب.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الحساب",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "a7f3 92c1 5d8e",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "رقم العملية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مثال: 482910365",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يراجع فريقنا الحوالة ويفعّل الكورس خلال دقائق",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال للمراجعة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "خطوات الدفع",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "1. حوّل $29 إلى الحساب الموضّح أدناه عبر ShamCash.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "2. انسخ رقم العملية من إشعار التحويل.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "3. الصقه في الحقل وأرسل الطلب.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الحساب",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "a7f3 92c1 5d8e",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "رقم العملية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "مثال: 482910365",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يراجع فريقنا الحوالة ويفعّل الكورس خلال دقائق",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال للمراجعة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-05": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قسيمة شحن",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أدخل رمز القسيمة لتفعيل الكورس مباشرة.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رمز القسيمة",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "XXXX-XXXX-XXXX",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "الرمز صالح للاستخدام مرة واحدة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تفعيل القسيمة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-05-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أدخل رمز القسيمة لتفعيل الكورس مباشرة.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رمز القسيمة",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "XXXX-XXXX-XXXX",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "الرمز صالح للاستخدام مرة واحدة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تفعيل القسيمة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-06": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تم تفعيل الكورس",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "تطوير تطبيقات Flutter متاح الآن حتى 15 أكتوبر 2027.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "#HS-20481",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الطلب",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المبلغ",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ShamCash",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الطريقة",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ابدأ التعلّم",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "العودة إلى الكورسات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "F-06-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تم تفعيل الكورس",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "تطوير تطبيقات Flutter متاح الآن حتى 15 أكتوبر 2027.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "#HS-20481",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الطلب",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "$29",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المبلغ",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ShamCash",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الطريقة",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ابدأ التعلّم",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "العودة إلى الكورسات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "G-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "كشف العلامات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "المعدّل العام",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "78.5",
+      "color": 4284983516,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "من 100 · 4 مواد مُنجزة",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "85",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "72",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "58",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "راسب · الحدّ 60",
+      "color": 4294831340,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "—",
+      "color": 4294967295,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "قيد الإعلان",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  ],
+  "G-01-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "المعدّل العام",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "78.5",
+      "color": 4278548663,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "من 100 · 4 مواد مُنجزة",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "85",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "72",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجة كائنية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "58",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "هندسة البرمجيات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "—",
+      "color": 4278325548,
+      "fontSize": 18,
+      "fontWeight": 600
+    },
+    {
+      "text": "تطوير الويب",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    }
+  ],
+  "G-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "85/100",
+      "color": 4284983516,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "التفصيل",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "52/60",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الامتحان النظري",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "25/30",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الامتحان العملي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "8/10",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "التمارين",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدورة العادية · الفصل الثالث",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أُعلنت العلامة بتاريخ 2 فبراير 2027",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "G-02-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "85/100",
+      "color": 4278548663,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "التفصيل",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "52/60",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الامتحان النظري",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "25/30",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الامتحان العملي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "8/10",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "التمارين",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدورة العادية · الفصل الثالث",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أُعلنت العلامة بتاريخ 2 فبراير 2027",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "H-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الإشعارات",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أُعلنت علامة قواعد البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "اطّلع على نتيجتك في كشف العلامات.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "منذ ساعة",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تفعّل كورس Flutter",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "يمكنك البدء بالمشاهدة الآن.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أمس",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تمت الموافقة على تغيير جهازك",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سجّل الدخول من جهازك الجديد.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "قبل يومين",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعلان: جدول امتحانات الدورة العادية",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تم نشر الجدول، تحقّق من مواعيدك.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "قبل 3 أيام",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الإعدادات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4284983516,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "H-01-LIGHT": [
+    {
+      "text": "الإعدادات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4278548663,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الإشعارات",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "أُعلنت علامة قواعد البيانات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "اطّلع على نتيجتك في كشف العلامات.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "منذ ساعة",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تفعّل كورس Flutter",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "يمكنك البدء بالمشاهدة الآن.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أمس",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تمت الموافقة على تغيير جهازك",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "سجّل الدخول من جهازك الجديد.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "قبل يومين",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعلان: جدول امتحانات الدورة العادية",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تم نشر الجدول، تحقّق من مواعيدك.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "قبل 3 أيام",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "H-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدعم والتواصل",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "تذكرة جديدة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تذاكري",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "قيد المعالجة",
+      "color": 4294833377,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "لا أستطيع تشغيل الدرس 4",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "اليوم",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "تم الرد",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "سؤال عن موعد الامتحان العملي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أمس",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "مغلقة",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "طلب تصحيح الاسم الرسمي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قبل أسبوع",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "H-02-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تذكرة جديدة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "تذاكري",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "لا أستطيع تشغيل الدرس 4",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "اليوم",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "سؤال عن موعد الامتحان العملي",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أمس",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "طلب تصحيح الاسم الرسمي",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قبل أسبوع",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "H-03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تذكرة جديدة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الموضوع",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "عنوان مختصر لمشكلتك",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مثال: مشكلة في تشغيل الفيديو",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "التفاصيل",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اشرح المشكلة بالتفصيل",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "نرد خلال 24 ساعة في أيام العمل",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال التذكرة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "H-03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الموضوع",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "عنوان مختصر لمشكلتك",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مثال: مشكلة في تشغيل الفيديو",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "التفاصيل",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اشرح المشكلة بالتفصيل",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "نرد خلال 24 ساعة في أيام العمل",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال التذكرة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "H-04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "لا أستطيع تشغيل الدرس 4",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "قيد المعالجة",
+      "color": 4294833377,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "أنت · اليوم 10:20",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدعم · اليوم 11:05",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك.",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ردّك",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اكتب ردّك هنا",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "تُغلق التذكرة تلقائياً بعد 7 أيام من آخر رد",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال الرد",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "H-04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أنت · اليوم 10:20",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الدعم · اليوم 11:05",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك.",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "ردّك",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "اكتب ردّك هنا",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "تُغلق التذكرة تلقائياً بعد 7 أيام من آخر رد",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "إرسال الرد",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حاسوبجي سيستم",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "المعهد التقني للحاسوب",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "I-01-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حاسوبجي سيستم",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "المعهد التقني للحاسوب",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    }
+  ],
+  "I-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "لا يوجد اتصال بالإنترنت",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "يمكنك متابعة الدروس التي نزّلتها مسبقاً. ستُحفظ تقدّمك وتتزامن عند عودة الاتصال.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "الانتقال إلى التنزيلات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-02-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "لا يوجد اتصال بالإنترنت",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "يمكنك متابعة الدروس التي نزّلتها مسبقاً. ستُحفظ تقدّمك وتتزامن عند عودة الاتصال.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "الانتقال إلى التنزيلات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "التطبيق قيد الصيانة",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "I-03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "التطبيق قيد الصيانة",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    }
+  ],
+  "I-04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "يتوفر تحديث جديد",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تحديث الآن",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "يتوفر تحديث جديد",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تحديث الآن",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-05": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حدث خطأ غير متوقع",
+      "color": 4294967295,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "I-05-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "حدث خطأ غير متوقع",
+      "color": 4278325548,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "إعادة المحاولة",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "التواصل مع الدعم",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-01": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجيات · السنة الثانية · الفصل الثالث",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أ",
+      "color": 4284983516,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "المظهر",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "داكن",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "فاتح",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تلقائي",
+      "color": 4292473341,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الحساب",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ملفي الشخصي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الجهاز المسجّل",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المساعدة",
+      "color": 4288660710,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدعم والتواصل",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الشروط وسياسة الخصوصية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    },
+    {
+      "text": "الكورسات",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 500
+    }
+  ],
+  "S-01-LIGHT": [
+    {
+      "text": "الكورسات",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "المواد",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "الرئيسية",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "برمجيات · السنة الثانية · الفصل الثالث",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "أ",
+      "color": 4278548663,
+      "fontSize": 22,
+      "fontWeight": 700
+    },
+    {
+      "text": "المظهر",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "داكن",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "فاتح",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تلقائي",
+      "color": 4282210936,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الحساب",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ملفي الشخصي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الجهاز المسجّل",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "المساعدة",
+      "color": 4283988636,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الدعم والتواصل",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الشروط وسياسة الخصوصية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تسجيل الخروج",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-02": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ملفي الشخصي",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "أ",
+      "color": 4284983516,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "0991 234 567",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ahmad@gmail.com",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "القسم",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الثانية",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الثالث · 2026/2027",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تعديل البيانات",
+      "color": 4284983516,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-02-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أ",
+      "color": 4278548663,
+      "fontSize": 28,
+      "fontWeight": 700
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "0991 234 567",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "ahmad@gmail.com",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "القسم",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "برمجيات",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "السنة الدراسية",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الثانية",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "الفصل الحالي",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "الثالث · 2026/2027",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تعديل البيانات",
+      "color": 4278548663,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-03": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "تعديل البيانات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "0991 234 567",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ahmad@gmail.com",
+      "color": 4288660710,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "لتغيير القسم أو السنة الدراسية، تواصل مع الإدارة عبر الدعم.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "حفظ التعديلات",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-03-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الاسم الرسمي",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "أحمد محمد الحلبي",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "يظهر في كشف علاماتك وشهاداتك",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "رقم الهاتف",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "0991 234 567",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "للتواصل عند الحاجة فقط",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "البريد الإلكتروني",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "ahmad@gmail.com",
+      "color": 4283988636,
+      "fontSize": 16,
+      "fontWeight": 400
+    },
+    {
+      "text": "مأخوذ من حساب Google ولا يمكن تعديله",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "لتغيير القسم أو السنة الدراسية، تواصل مع الإدارة عبر الدعم.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "حفظ التعديلات",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-04": [
+    {
+      "text": "9:41",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "الجهاز المسجّل",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "نشط",
+      "color": 4293458159,
+      "fontSize": 12,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "Android 14",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "نظام التشغيل",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "12 أكتوبر 2026",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تاريخ التسجيل",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "اليوم · 22:10",
+      "color": 4294967295,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "آخر استخدام",
+      "color": 4288660710,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "يُسمح بجهاز واحد فقط لحساب طالب المعهد. لتغيير الجهاز أرسل طلباً تراجعه الإدارة.",
+      "color": 4292473341,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "طلب تغيير الجهاز",
+      "color": 4294967295,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ],
+  "S-04-LIGHT": [
+    {
+      "text": "9:41",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 500
+    },
+    {
+      "text": "Samsung Galaxy A54",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 600
+    },
+    {
+      "text": "Android 14",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "نظام التشغيل",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "12 أكتوبر 2026",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "تاريخ التسجيل",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "اليوم · 22:10",
+      "color": 4278325548,
+      "fontSize": 14,
+      "fontWeight": 400
+    },
+    {
+      "text": "آخر استخدام",
+      "color": 4283988636,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "يُسمح بجهاز واحد فقط لحساب طالب المعهد. لتغيير الجهاز أرسل طلباً تراجعه الإدارة.",
+      "color": 4282210936,
+      "fontSize": 12,
+      "fontWeight": 400
+    },
+    {
+      "text": "طلب تغيير الجهاز",
+      "color": 4278325548,
+      "fontSize": 16,
+      "fontWeight": 500
+    }
+  ]
+}

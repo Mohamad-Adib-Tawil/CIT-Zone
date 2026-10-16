@@ -1,0 +1,388 @@
+<canvas id="85:2" name="G · Student — Grades &amp; Support" x="0" y="0" width="0" height="0">
+  <frame id="85:3" name="G-01 · كشف العلامات" x="0" y="0" width="390" height="844">
+    <instance id="85:4" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="85:20" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="85:25" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="85:26" name="Average" x="24" y="16" width="342" height="118">
+        <text id="85:27" name="المعدّل العام" x="17" y="17" width="308" height="18" />
+        <text id="85:28" name="78.5" x="17" y="39" width="308" height="40" />
+        <text id="85:29" name="من 100 · 4 مواد مُنجزة" x="17" y="83" width="308" height="18" />
+      </frame>
+      <frame id="85:30" name="Grade" x="24" y="146" width="342" height="62">
+        <text id="85:36" name="85" x="17" y="17" width="21" height="28" />
+        <frame id="85:31" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="85:32" name="Badge" x="0" y="0" width="46" height="24" />
+        </frame>
+        <frame id="85:34" name="Text" x="162" y="19" width="163" height="24">
+          <text id="85:35" name="قواعد البيانات" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:37" name="Grade" x="24" y="220" width="342" height="62">
+        <text id="85:43" name="72" x="17" y="17" width="21" height="28" />
+        <frame id="85:38" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="85:39" name="Badge" x="0" y="0" width="46" height="24" />
+        </frame>
+        <frame id="85:41" name="Text" x="162" y="19" width="163" height="24">
+          <text id="85:42" name="برمجة كائنية" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:44" name="Grade" x="24" y="294" width="342" height="62">
+        <text id="85:50" name="58" x="17" y="17" width="21" height="28" />
+        <frame id="85:45" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="85:46" name="Badge" x="0" y="0" width="95" height="24" />
+        </frame>
+        <frame id="85:48" name="Text" x="162" y="19" width="163" height="24">
+          <text id="85:49" name="هندسة البرمجيات" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:51" name="Grade" x="24" y="368" width="342" height="62">
+        <text id="85:57" name="—" x="17" y="17" width="21" height="28" />
+        <frame id="85:52" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="85:53" name="Badge" x="0" y="0" width="79" height="24" />
+        </frame>
+        <frame id="85:55" name="Text" x="162" y="19" width="163" height="24">
+          <text id="85:56" name="تطوير الويب" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="85:58" name="G-02 · تفاصيل علامة المادة" x="470" y="0" width="390" height="844">
+    <instance id="85:59" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="85:75" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="85:80" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="85:81" name="Result" x="24" y="16" width="342" height="104">
+        <text id="85:82" name="85/100" x="17" y="17" width="308" height="40" />
+        <frame id="85:83" name="Badge row" x="17" y="63" width="308" height="24">
+          <instance id="85:84" name="Badge" x="97" y="0" width="114" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:86" name="Breakdown" x="24" y="134" width="342" height="150">
+        <text id="85:87" name="التفصيل" x="17" y="17" width="308" height="20" />
+        <frame id="85:88" name="Row" x="17" y="47" width="308" height="22">
+          <text id="85:89" name="52/60" x="0" y="0" width="150" height="22" />
+          <text id="85:90" name="الامتحان النظري" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="85:91" name="Row" x="17" y="79" width="308" height="22">
+          <text id="85:92" name="25/30" x="0" y="0" width="150" height="22" />
+          <text id="85:93" name="الامتحان العملي" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="85:94" name="Row" x="17" y="111" width="308" height="22">
+          <text id="85:95" name="8/10" x="0" y="0" width="150" height="22" />
+          <text id="85:96" name="التمارين" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="85:97" name="Exam" x="24" y="298" width="342" height="78">
+        <text id="85:98" name="الدورة العادية · الفصل الثالث" x="17" y="17" width="308" height="18" />
+        <text id="85:99" name="أُعلنت العلامة بتاريخ 2 فبراير 2027" x="17" y="43" width="308" height="18" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="85:100" name="H-01 · الإشعارات" x="940" y="0" width="390" height="844">
+    <instance id="85:101" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="85:117" name="Content" x="0" y="44" width="390" height="698">
+      <text id="85:118" name="الإشعارات" x="24" y="16" width="342" height="32" />
+      <frame id="85:119" name="Notification" x="24" y="58" width="342" height="98">
+        <frame id="85:120" name="Text" x="17" y="17" width="252" height="64">
+          <text id="85:121" name="أُعلنت علامة قواعد البيانات" x="0" y="0" width="252" height="24" />
+          <text id="85:122" name="اطّلع على نتيجتك في كشف العلامات." x="0" y="26" width="252" height="18" />
+          <text id="85:123" name="منذ ساعة" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="85:124" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="85:125" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:128" name="Notification" x="24" y="166" width="342" height="98">
+        <frame id="85:129" name="Text" x="17" y="17" width="252" height="64">
+          <text id="85:130" name="تفعّل كورس Flutter" x="0" y="0" width="252" height="24" />
+          <text id="85:131" name="يمكنك البدء بالمشاهدة الآن." x="0" y="26" width="252" height="18" />
+          <text id="85:132" name="أمس" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="85:133" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="85:134" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:137" name="Notification" x="24" y="274" width="342" height="98">
+        <frame id="85:138" name="Text" x="17" y="17" width="252" height="64">
+          <text id="85:139" name="تمت الموافقة على تغيير جهازك" x="0" y="0" width="252" height="24" />
+          <text id="85:140" name="سجّل الدخول من جهازك الجديد." x="0" y="26" width="252" height="18" />
+          <text id="85:141" name="قبل يومين" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="85:142" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="85:143" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="85:147" name="Notification" x="24" y="382" width="342" height="98">
+        <frame id="85:148" name="Text" x="17" y="17" width="252" height="64">
+          <text id="85:149" name="إعلان: جدول امتحانات الدورة العادية" x="0" y="0" width="252" height="24" />
+          <text id="85:150" name="تم نشر الجدول، تحقّق من مواعيدك." x="0" y="26" width="252" height="18" />
+          <text id="85:151" name="قبل 3 أيام" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="85:152" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="85:153" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="85:157" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="85:158" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="85:191" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="85:193" name="H-02 · الدعم" x="1410" y="0" width="390" height="844">
+    <instance id="85:194" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="85:210" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="85:215" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="85:216" name="Button" x="24" y="16" width="342" height="52" />
+      <text id="85:230" name="تذاكري" x="24" y="80" width="342" height="20" />
+      <frame id="85:231" name="Ticket" x="24" y="112" width="342" height="78">
+        <frame id="85:232" name="Badge" x="17" y="27" width="100" height="24">
+          <instance id="85:233" name="Badge" x="0" y="0" width="88" height="24" />
+        </frame>
+        <frame id="85:235" name="Text" x="129" y="17" width="196" height="44">
+          <text id="85:236" name="لا أستطيع تشغيل الدرس 4" x="0" y="0" width="196" height="24" />
+          <text id="85:237" name="اليوم" x="0" y="26" width="196" height="18" />
+        </frame>
+      </frame>
+      <frame id="85:238" name="Ticket" x="24" y="202" width="342" height="102">
+        <frame id="85:239" name="Badge" x="17" y="39" width="100" height="24">
+          <instance id="85:240" name="Badge" x="0" y="0" width="55" height="24" />
+        </frame>
+        <frame id="85:242" name="Text" x="129" y="17" width="196" height="68">
+          <text id="85:243" name="سؤال عن موعد الامتحان العملي" x="0" y="0" width="196" height="48" />
+          <text id="85:244" name="أمس" x="0" y="50" width="196" height="18" />
+        </frame>
+      </frame>
+      <frame id="85:245" name="Ticket" x="24" y="316" width="342" height="78">
+        <frame id="85:246" name="Badge" x="17" y="27" width="100" height="24">
+          <instance id="85:247" name="Badge" x="0" y="0" width="58" height="24" />
+        </frame>
+        <frame id="85:249" name="Text" x="129" y="17" width="196" height="44">
+          <text id="85:250" name="طلب تصحيح الاسم الرسمي" x="0" y="0" width="196" height="24" />
+          <text id="85:251" name="قبل أسبوع" x="0" y="26" width="196" height="18" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="85:252" name="H-03 · تذكرة جديدة" x="1880" y="0" width="390" height="844">
+    <instance id="85:253" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="85:269" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="85:274" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="85:275" name="Input" x="24" y="16" width="342" height="98" />
+      <instance id="85:287" name="Input" x="24" y="128" width="342" height="98" />
+      <frame id="85:296" name="Spacer" x="24" y="240" width="342" height="414" />
+      <instance id="85:297" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="85:305" name="H-04 · تفاصيل التذكرة" x="2350" y="0" width="390" height="844">
+    <instance id="85:306" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="85:322" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="85:327" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="85:328" name="Status" x="24" y="16" width="342" height="24">
+        <instance id="85:329" name="Badge" x="254" y="0" width="88" height="24" />
+      </frame>
+      <frame id="85:331" name="Message (you)" x="24" y="52" width="342" height="80">
+        <text id="85:332" name="أنت · اليوم 10:20" x="17" y="17" width="308" height="18" />
+        <text id="85:333" name="عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو." x="17" y="41" width="308" height="22" />
+      </frame>
+      <frame id="85:334" name="Message (support)" x="24" y="144" width="342" height="102">
+        <text id="85:335" name="الدعم · اليوم 11:05" x="17" y="17" width="308" height="18" />
+        <text id="85:336" name="شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك." x="17" y="41" width="308" height="44" />
+      </frame>
+      <frame id="85:337" name="Spacer" x="24" y="258" width="342" height="288" />
+      <instance id="85:338" name="Input" x="24" y="558" width="342" height="98" />
+      <instance id="85:347" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4256" name="G-01 · كشف العلامات · Light" x="0" y="964" width="390" height="844">
+    <instance id="103:4257" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4258" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4259" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4260" name="Average" x="24" y="16" width="342" height="118">
+        <text id="103:4261" name="المعدّل العام" x="17" y="17" width="308" height="18" />
+        <text id="103:4262" name="78.5" x="17" y="39" width="308" height="40" />
+        <text id="103:4263" name="من 100 · 4 مواد مُنجزة" x="17" y="83" width="308" height="18" />
+      </frame>
+      <frame id="103:4264" name="Grade" x="24" y="146" width="342" height="62">
+        <text id="103:4265" name="85" x="17" y="17" width="21" height="28" />
+        <frame id="103:4266" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="103:4267" name="Badge" x="0" y="0" width="46" height="24" />
+        </frame>
+        <frame id="103:4268" name="Text" x="162" y="19" width="163" height="24">
+          <text id="103:4269" name="قواعد البيانات" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4270" name="Grade" x="24" y="220" width="342" height="62">
+        <text id="103:4271" name="72" x="17" y="17" width="21" height="28" />
+        <frame id="103:4272" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="103:4273" name="Badge" x="0" y="0" width="46" height="24" />
+        </frame>
+        <frame id="103:4274" name="Text" x="162" y="19" width="163" height="24">
+          <text id="103:4275" name="برمجة كائنية" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4276" name="Grade" x="24" y="294" width="342" height="62">
+        <text id="103:4277" name="58" x="17" y="17" width="21" height="28" />
+        <frame id="103:4278" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="103:4279" name="Badge" x="0" y="0" width="95" height="24" />
+        </frame>
+        <frame id="103:4280" name="Text" x="162" y="19" width="163" height="24">
+          <text id="103:4281" name="هندسة البرمجيات" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4282" name="Grade" x="24" y="368" width="342" height="62">
+        <text id="103:4283" name="—" x="17" y="17" width="21" height="28" />
+        <frame id="103:4284" name="Badge" x="50" y="19" width="100" height="24">
+          <instance id="103:4285" name="Badge" x="0" y="0" width="79" height="24" />
+        </frame>
+        <frame id="103:4286" name="Text" x="162" y="19" width="163" height="24">
+          <text id="103:4287" name="تطوير الويب" x="0" y="0" width="163" height="24" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:4288" name="G-02 · تفاصيل علامة المادة · Light" x="470" y="964" width="390" height="844">
+    <instance id="103:4289" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4290" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4291" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4292" name="Result" x="24" y="16" width="342" height="104">
+        <text id="103:4293" name="85/100" x="17" y="17" width="308" height="40" />
+        <frame id="103:4294" name="Badge row" x="17" y="63" width="308" height="24">
+          <instance id="103:4295" name="Badge" x="97" y="0" width="114" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4296" name="Breakdown" x="24" y="134" width="342" height="150">
+        <text id="103:4297" name="التفصيل" x="17" y="17" width="308" height="20" />
+        <frame id="103:4298" name="Row" x="17" y="47" width="308" height="22">
+          <text id="103:4299" name="52/60" x="0" y="0" width="150" height="22" />
+          <text id="103:4300" name="الامتحان النظري" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4301" name="Row" x="17" y="79" width="308" height="22">
+          <text id="103:4302" name="25/30" x="0" y="0" width="150" height="22" />
+          <text id="103:4303" name="الامتحان العملي" x="158" y="0" width="150" height="22" />
+        </frame>
+        <frame id="103:4304" name="Row" x="17" y="111" width="308" height="22">
+          <text id="103:4305" name="8/10" x="0" y="0" width="150" height="22" />
+          <text id="103:4306" name="التمارين" x="158" y="0" width="150" height="22" />
+        </frame>
+      </frame>
+      <frame id="103:4307" name="Exam" x="24" y="298" width="342" height="78">
+        <text id="103:4308" name="الدورة العادية · الفصل الثالث" x="17" y="17" width="308" height="18" />
+        <text id="103:4309" name="أُعلنت العلامة بتاريخ 2 فبراير 2027" x="17" y="43" width="308" height="18" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:4310" name="H-01 · الإشعارات · Light" x="940" y="964" width="390" height="844">
+    <instance id="103:4311" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:4312" name="Content" x="0" y="44" width="390" height="698">
+      <text id="103:4313" name="الإشعارات" x="24" y="16" width="342" height="32" />
+      <frame id="103:4314" name="Notification" x="24" y="58" width="342" height="98">
+        <frame id="103:4315" name="Text" x="17" y="17" width="252" height="64">
+          <text id="103:4316" name="أُعلنت علامة قواعد البيانات" x="0" y="0" width="252" height="24" />
+          <text id="103:4317" name="اطّلع على نتيجتك في كشف العلامات." x="0" y="26" width="252" height="18" />
+          <text id="103:4318" name="منذ ساعة" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="103:4319" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="103:4320" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4321" name="Notification" x="24" y="166" width="342" height="98">
+        <frame id="103:4322" name="Text" x="17" y="17" width="252" height="64">
+          <text id="103:4323" name="تفعّل كورس Flutter" x="0" y="0" width="252" height="24" />
+          <text id="103:4324" name="يمكنك البدء بالمشاهدة الآن." x="0" y="26" width="252" height="18" />
+          <text id="103:4325" name="أمس" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="103:4326" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="103:4327" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4328" name="Notification" x="24" y="274" width="342" height="98">
+        <frame id="103:4329" name="Text" x="17" y="17" width="252" height="64">
+          <text id="103:4330" name="تمت الموافقة على تغيير جهازك" x="0" y="0" width="252" height="24" />
+          <text id="103:4331" name="سجّل الدخول من جهازك الجديد." x="0" y="26" width="252" height="18" />
+          <text id="103:4332" name="قبل يومين" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="103:4333" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="103:4334" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+      <frame id="103:4335" name="Notification" x="24" y="382" width="342" height="98">
+        <frame id="103:4336" name="Text" x="17" y="17" width="252" height="64">
+          <text id="103:4337" name="إعلان: جدول امتحانات الدورة العادية" x="0" y="0" width="252" height="24" />
+          <text id="103:4338" name="تم نشر الجدول، تحقّق من مواعيدك." x="0" y="26" width="252" height="18" />
+          <text id="103:4339" name="قبل 3 أيام" x="0" y="46" width="252" height="18" />
+        </frame>
+        <frame id="103:4340" name="Icon tile" x="281" y="27" width="44" height="44">
+          <instance id="103:4341" name="Icon" x="10" y="10" width="24" height="24" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="103:4342" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:4343" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:4344" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:4345" name="H-02 · الدعم · Light" x="1410" y="964" width="390" height="844">
+    <instance id="103:4346" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4347" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4348" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="103:4349" name="Button" x="24" y="16" width="342" height="52" />
+      <text id="103:4350" name="تذاكري" x="24" y="80" width="342" height="20" />
+      <frame id="103:4351" name="Ticket" x="24" y="112" width="342" height="78">
+        <frame id="103:4352" name="Badge" x="17" y="27" width="100" height="24">
+          <instance id="103:4353" name="Badge" x="0" y="0" width="88" height="24" />
+        </frame>
+        <frame id="103:4354" name="Text" x="129" y="17" width="196" height="44">
+          <text id="103:4355" name="لا أستطيع تشغيل الدرس 4" x="0" y="0" width="196" height="24" />
+          <text id="103:4356" name="اليوم" x="0" y="26" width="196" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:4357" name="Ticket" x="24" y="202" width="342" height="102">
+        <frame id="103:4358" name="Badge" x="17" y="39" width="100" height="24">
+          <instance id="103:4359" name="Badge" x="0" y="0" width="55" height="24" />
+        </frame>
+        <frame id="103:4360" name="Text" x="129" y="17" width="196" height="68">
+          <text id="103:4361" name="سؤال عن موعد الامتحان العملي" x="0" y="0" width="196" height="48" />
+          <text id="103:4362" name="أمس" x="0" y="50" width="196" height="18" />
+        </frame>
+      </frame>
+      <frame id="103:4363" name="Ticket" x="24" y="316" width="342" height="78">
+        <frame id="103:4364" name="Badge" x="17" y="27" width="100" height="24">
+          <instance id="103:4365" name="Badge" x="0" y="0" width="58" height="24" />
+        </frame>
+        <frame id="103:4366" name="Text" x="129" y="17" width="196" height="44">
+          <text id="103:4367" name="طلب تصحيح الاسم الرسمي" x="0" y="0" width="196" height="24" />
+          <text id="103:4368" name="قبل أسبوع" x="0" y="26" width="196" height="18" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:4369" name="H-03 · تذكرة جديدة · Light" x="1880" y="964" width="390" height="844">
+    <instance id="103:4370" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4371" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4372" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="103:4373" name="Input" x="24" y="16" width="342" height="98" />
+      <instance id="103:4374" name="Input" x="24" y="128" width="342" height="98" />
+      <frame id="103:4375" name="Spacer" x="24" y="240" width="342" height="414" />
+      <instance id="103:4376" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:4377" name="H-04 · تفاصيل التذكرة · Light" x="2350" y="964" width="390" height="844">
+    <instance id="103:4378" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:4379" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:4380" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:4381" name="Status" x="24" y="16" width="342" height="24">
+        <instance id="103:4382" name="Badge" x="254" y="0" width="88" height="24" />
+      </frame>
+      <frame id="103:4383" name="Message (you)" x="24" y="52" width="342" height="80">
+        <text id="103:4384" name="أنت · اليوم 10:20" x="17" y="17" width="308" height="18" />
+        <text id="103:4385" name="عند الضغط على الدرس 4 يظهر خطأ ولا يبدأ الفيديو." x="17" y="41" width="308" height="22" />
+      </frame>
+      <frame id="103:4386" name="Message (support)" x="24" y="144" width="342" height="102">
+        <text id="103:4387" name="الدعم · اليوم 11:05" x="17" y="17" width="308" height="18" />
+        <text id="103:4388" name="شكراً لك. جرّب تحديث التطبيق، وإن استمرت المشكلة أرسل لنا موديل جهازك." x="17" y="41" width="308" height="44" />
+      </frame>
+      <frame id="103:4389" name="Spacer" x="24" y="258" width="342" height="288" />
+      <instance id="103:4390" name="Input" x="24" y="558" width="342" height="98" />
+      <instance id="103:4391" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>

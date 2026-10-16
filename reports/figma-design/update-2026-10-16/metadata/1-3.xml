@@ -1,0 +1,93 @@
+<canvas id="1:3" name="Components" x="0" y="0" width="0" height="0">
+  <frame id="8:18" name="Button" x="0" y="0" width="1488" height="176">
+    <symbol id="8:2" name="Style=Primary, State=Default" x="24" y="24" width="342" height="52" />
+    <symbol id="8:4" name="Style=Secondary, State=Default" x="390" y="24" width="342" height="52" />
+    <symbol id="8:6" name="Style=Outline, State=Default" x="756" y="24" width="342" height="52" />
+    <symbol id="8:8" name="Style=Danger, State=Default" x="1122" y="24" width="342" height="52" />
+    <symbol id="8:10" name="Style=Primary, State=Disabled" x="24" y="100" width="342" height="52" />
+    <symbol id="8:12" name="Style=Secondary, State=Disabled" x="390" y="100" width="342" height="52" />
+    <symbol id="8:14" name="Style=Outline, State=Disabled" x="756" y="100" width="342" height="52" />
+    <symbol id="8:16" name="Style=Danger, State=Disabled" x="1122" y="100" width="342" height="52" />
+  </frame>
+  <frame id="8:39" name="Input" x="0" y="256" width="1488" height="146">
+    <symbol id="8:19" name="State=Default" x="24" y="24" width="342" height="98" />
+    <symbol id="8:24" name="State=Focused" x="390" y="24" width="342" height="98" />
+    <symbol id="8:29" name="State=Error" x="756" y="24" width="342" height="98" />
+    <symbol id="8:34" name="State=Disabled" x="1122" y="24" width="342" height="98" />
+  </frame>
+  <frame id="8:50" name="Badge" x="0" y="482" width="549" height="72">
+    <symbol id="8:40" name="Tone=Neutral" x="24" y="24" width="45" height="24" />
+    <symbol id="8:42" name="Tone=Info" x="138" y="24" width="45" height="24" />
+    <symbol id="8:44" name="Tone=Success" x="252" y="24" width="45" height="24" />
+    <symbol id="8:46" name="Tone=Warning" x="366" y="24" width="45" height="24" />
+    <symbol id="8:48" name="Tone=Danger" x="480" y="24" width="45" height="24" />
+  </frame>
+  <symbol id="8:51" name="App Bar" x="639" y="498" width="390" height="56" />
+  <frame id="8:66" name="Option Card" x="0" y="640" width="756" height="124">
+    <symbol id="8:56" name="Selected=False" x="24" y="24" width="342" height="100" />
+    <symbol id="8:61" name="Selected=True" x="390" y="24" width="342" height="100" />
+  </frame>
+  <frame id="8:79" name="Stepper" x="0" y="844" width="390" height="114">
+    <symbol id="8:67" name="Step=1" x="24" y="24" width="342" height="6" />
+    <symbol id="8:71" name="Step=2" x="24" y="54" width="342" height="6" />
+    <symbol id="8:75" name="Step=3" x="24" y="84" width="342" height="6" />
+  </frame>
+  <frame id="19:2" name="Icons" x="1200" y="0" width="560" height="104">
+    <symbol id="19:3" name="Icon/google" x="0" y="0" width="24" height="24" />
+    <symbol id="19:9" name="Icon/user" x="40" y="0" width="24" height="24" />
+    <symbol id="19:13" name="Icon/sms" x="80" y="0" width="24" height="24" />
+    <symbol id="19:17" name="Icon/call" x="120" y="0" width="24" height="24" />
+    <symbol id="19:20" name="Icon/mobile" x="160" y="0" width="24" height="24" />
+    <symbol id="19:24" name="Icon/calendar" x="200" y="0" width="24" height="24" />
+    <symbol id="19:28" name="Icon/book" x="240" y="0" width="24" height="24" />
+    <symbol id="19:31" name="Icon/lock" x="280" y="0" width="24" height="24" />
+    <symbol id="19:36" name="Icon/shield" x="320" y="0" width="24" height="24" />
+    <symbol id="19:40" name="Icon/document" x="360" y="0" width="24" height="24" />
+    <symbol id="19:44" name="Icon/clock" x="400" y="0" width="24" height="24" />
+    <symbol id="19:48" name="Icon/info" x="440" y="0" width="24" height="24" />
+    <symbol id="19:51" name="Icon/tick-circle" x="480" y="0" width="24" height="24" />
+    <symbol id="19:55" name="Icon/building" x="520" y="0" width="24" height="24" />
+    <symbol id="19:59" name="Icon/code" x="0" y="40" width="24" height="24" />
+    <symbol id="19:62" name="Icon/global" x="40" y="40" width="24" height="24" />
+    <symbol id="19:66" name="Icon/monitor" x="80" y="40" width="24" height="24" />
+    <symbol id="19:70" name="Icon/wifi" x="120" y="40" width="24" height="24" />
+    <symbol id="19:73" name="Icon/arrow-left" x="160" y="40" width="24" height="24" />
+    <symbol id="19:76" name="Icon/search" x="200" y="40" width="24" height="24" />
+    <symbol id="19:80" name="Icon/refresh" x="240" y="40" width="24" height="24" />
+    <symbol id="66:44" name="Icon/home" x="280" y="40" width="24" height="24" />
+    <symbol id="66:47" name="Icon/video" x="320" y="40" width="24" height="24" />
+    <symbol id="66:51" name="Icon/setting" x="360" y="40" width="24" height="24" />
+    <symbol id="66:55" name="Icon/bell" x="400" y="40" width="24" height="24" />
+    <symbol id="66:58" name="Icon/logout" x="440" y="40" width="24" height="24" />
+    <symbol id="66:61" name="Icon/edit" x="480" y="40" width="24" height="24" />
+    <symbol id="66:64" name="Icon/moon" x="520" y="40" width="24" height="24" />
+    <symbol id="66:67" name="Icon/sun" x="0" y="80" width="24" height="24" />
+    <symbol id="66:71" name="Icon/support" x="40" y="80" width="24" height="24" />
+    <symbol id="66:75" name="Icon/play" x="80" y="80" width="24" height="24" />
+    <symbol id="66:78" name="Icon/download" x="120" y="80" width="24" height="24" />
+    <symbol id="66:81" name="Icon/chevron-left" x="160" y="80" width="24" height="24" />
+    <symbol id="66:84" name="Icon/code-file" x="200" y="80" width="24" height="24" />
+    <symbol id="66:87" name="Icon/grades" x="240" y="80" width="24" height="24" />
+    <symbol id="66:90" name="Icon/cart" x="280" y="80" width="24" height="24" />
+  </frame>
+  <frame id="22:48" name="Status Bar" x="40" y="1400" width="390" height="44">
+    <symbol id="18:2" name="Platform=iOS" x="0" y="0" width="390" height="44" />
+    <symbol id="22:32" name="Platform=Android" x="0" y="0" width="390" height="32" />
+  </frame>
+  <symbol id="22:49" name="Home Indicator (iOS)" x="40" y="1500" width="390" height="34" />
+  <symbol id="22:51" name="Navigation Bar (Android)" x="40" y="1560" width="390" height="24" />
+  <symbol id="28:396" name="Logo/H" x="40" y="1640" width="96" height="96" />
+  <symbol id="28:399" name="Logo/H small" x="160" y="1640" width="24" height="24" />
+  <symbol id="28:402" name="Logo/App icon" x="240" y="1640" width="120" height="120" />
+  <frame id="66:607" name="Tab Bar" x="40" y="1800" width="390" height="68">
+    <symbol id="66:515" name="Active=Home" x="0" y="0" width="390" height="68" />
+    <symbol id="66:538" name="Active=Subjects" x="0" y="0" width="390" height="68" />
+    <symbol id="66:561" name="Active=Courses" x="0" y="0" width="390" height="68" />
+    <symbol id="66:584" name="Active=Settings" x="0" y="0" width="390" height="68" />
+  </frame>
+  <symbol id="66:608" name="List Row" x="40" y="1900" width="342" height="58" />
+  <frame id="66:628" name="Choice Tile" x="40" y="2000" width="104" height="83">
+    <symbol id="66:618" name="Selected=False" x="0" y="0" width="104" height="82" />
+    <symbol id="66:623" name="Selected=True" x="0" y="0" width="104" height="83" />
+  </frame>
+</canvas>

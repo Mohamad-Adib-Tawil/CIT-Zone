@@ -1,0 +1,250 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgBackIcon = `${assetPathPrefix}/c318e.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const imgRadio = `${assetPathPrefix}/c24b8.svg`;
+const imgGlyph = `${assetPathPrefix}/cd925.svg`;
+const imgChamferTl = `${assetPathPrefix}/8c721.svg`;
+const imgChamferBr = `${assetPathPrefix}/089c8.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/ac7ea.svg`;
+const imgRadio1 = `${assetPathPrefix}/cefcd.svg`;
+const imgGlyph1 = `${assetPathPrefix}/e080c.svg`;
+const imgChamferLineTl1 = `${assetPathPrefix}/4c1f4.svg`;
+const imgGlyph2 = `${assetPathPrefix}/23235.svg`;
+const imgChamferTl1 = `${assetPathPrefix}/5aa0d.svg`;
+const imgChamferBr1 = `${assetPathPrefix}/66d1e.svg`;
+
+type StepperProps = {
+  className?: string;
+  step?: "3";
+};
+
+function Stepper({ className, step = "3" }: StepperProps) {
+  return (
+    <div className={className || "content-stretch flex gap-[var(--space-2xs,4px)] h-[6px] items-start relative w-[342px]"} data-node-id="8:75">
+      <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[1_0_0] h-[6px] min-w-px relative rounded-[var(--radius-full,999px)]" data-node-id="8:76" data-name="Bar 3" />
+      <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[1_0_0] h-[6px] min-w-px relative rounded-[var(--radius-full,999px)]" data-node-id="8:77" data-name="Bar 2" />
+      <div className="bg-[var(--color-bg-brand,#0578b7)] flex-[1_0_0] h-[6px] min-w-px relative rounded-[var(--radius-full,999px)]" data-node-id="8:78" data-name="Bar 1" />
+    </div>
+  );
+}
+
+type AppBarProps = {
+  className?: string;
+  title?: string;
+};
+
+function AppBar({ className, title = "عنوان الشاشة" }: AppBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative w-[390px]"} data-node-id="8:51" data-name="App Bar">
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:52" data-name="Spacer" />
+      <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="8:53">
+        {title}
+      </p>
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:54" data-name="Back icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function BS01Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start relative size-full" data-node-id="103:2957" data-name="B-S01 · المعلومات الأكاديمية · Light">
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <AppBar className="bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" title="معلوماتك الأكاديمية" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-start min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="103:2960" data-name="Content">
+        <Stepper className="content-stretch flex gap-[var(--space-2xs,4px)] h-[6px] items-start relative shrink-0 w-full" />
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="103:2962">
+          القسم
+        </p>
+        <div className="bg-[var(--color-bg-brand-subtle,#d9f1fd)] border-2 border-[var(--color-border-focus,#0578b7)] border-solid content-stretch flex gap-[var(--space-sm,12px)] h-[100px] items-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:2963" data-name="Option: Software">
+          <div className="relative shrink-0 size-[22px]" data-node-id="I103:2963;34:47" data-name="Radio">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRadio} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-2xs,4px)] items-start min-w-px not-italic overflow-clip relative text-right" data-node-id="I103:2963;8:63" data-name="Text">
+            <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="I103:2963;8:64">
+              برمجيات
+            </p>
+            <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] w-full" dir="auto" data-node-id="I103:2963;8:65">
+              مواد البرمجة وتطوير التطبيقات
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="I103:2963;19:510" data-name="Icon tile">
+            <div className="relative shrink-0 size-[24px]" data-node-id="I103:2963;19:511" data-name="Icon">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:2963;19:511;19:60" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-[-2px] size-[12px] top-[-2px]" data-node-id="I103:2963;29:397" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-2px] right-[-2px] size-[12px]" data-node-id="I103:2963;29:398" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-2px] size-[12px] top-[-2px]" data-node-id="I103:2963;29:399" data-name="Chamfer line TL">
+            <div className="absolute inset-[-11.79%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-2px] right-[-2px] size-[12px]" data-node-id="I103:2963;29:400" data-name="Chamfer line BR">
+            <div className="absolute inset-[-11.79%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[var(--space-sm,12px)] h-[100px] items-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:2964" data-name="Option: Networks">
+          <div className="relative shrink-0 size-[22px]" data-node-id="I103:2964;8:57" data-name="Radio">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRadio1} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-2xs,4px)] items-start min-w-px not-italic overflow-clip relative text-right" data-node-id="I103:2964;8:58" data-name="Text">
+            <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="I103:2964;8:59">
+              شبكات
+            </p>
+            <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] w-full" dir="auto" data-node-id="I103:2964;8:60">
+              مواد الشبكات والأنظمة
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="I103:2964;19:505" data-name="Icon tile">
+            <div className="relative shrink-0 size-[24px]" data-node-id="I103:2964;19:506" data-name="Icon">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:2964;19:506;19:63" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="I103:2964;29:393" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="I103:2964;29:394" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="I103:2964;29:395" data-name="Chamfer line TL">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl1} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="I103:2964;29:396" data-name="Chamfer line BR">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl1} />
+            </div>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="103:2965">
+          السنة الدراسية
+        </p>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[var(--space-sm,12px)] h-[100px] items-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:2966" data-name="Option: Year 1">
+          <div className="relative shrink-0 size-[22px]" data-node-id="I103:2966;8:57" data-name="Radio">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRadio1} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-2xs,4px)] items-start min-w-px not-italic overflow-clip relative text-right" data-node-id="I103:2966;8:58" data-name="Text">
+            <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="I103:2966;8:59">
+              السنة الأولى
+            </p>
+            <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] w-full" dir="auto" data-node-id="I103:2966;8:60">
+              الفصل الأول والثاني
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="I103:2966;19:505" data-name="Icon tile">
+            <div className="relative shrink-0 size-[24px]" data-node-id="I103:2966;19:506" data-name="Icon">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:2966;19:506;19:25" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph2} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="I103:2966;29:393" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="I103:2966;29:394" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="I103:2966;29:395" data-name="Chamfer line TL">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl1} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="I103:2966;29:396" data-name="Chamfer line BR">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl1} />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-brand-subtle,#d9f1fd)] border-2 border-[var(--color-border-focus,#0578b7)] border-solid content-stretch flex gap-[var(--space-sm,12px)] h-[100px] items-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:2967" data-name="Option: Year 2">
+          <div className="relative shrink-0 size-[22px]" data-node-id="I103:2967;34:47" data-name="Radio">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgRadio} />
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-2xs,4px)] items-start min-w-px not-italic overflow-clip relative text-right" data-node-id="I103:2967;8:63" data-name="Text">
+            <p className="font-['Cairo:SemiBold'] font-semibold leading-[24px] relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] w-full" dir="auto" data-node-id="I103:2967;8:64">
+              السنة الثانية
+            </p>
+            <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] w-full" dir="auto" data-node-id="I103:2967;8:65">
+              الفصل الثالث والرابع
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[44px]" data-node-id="I103:2967;19:510" data-name="Icon tile">
+            <div className="relative shrink-0 size-[24px]" data-node-id="I103:2967;19:511" data-name="Icon">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:2967;19:511;19:25" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph2} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute left-[-2px] size-[12px] top-[-2px]" data-node-id="I103:2967;29:397" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-2px] right-[-2px] size-[12px]" data-node-id="I103:2967;29:398" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-2px] size-[12px] top-[-2px]" data-node-id="I103:2967;29:399" data-name="Chamfer line TL">
+            <div className="absolute inset-[-11.79%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-2px] right-[-2px] size-[12px]" data-node-id="I103:2967;29:400" data-name="Chamfer line BR">
+            <div className="absolute inset-[-11.79%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="103:2968" data-name="Spacer" />
+        <div className="bg-[var(--color-bg-brand,#0578b7)] content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:2969" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-on-brand,white)] whitespace-nowrap" dir="auto" data-node-id="I103:2969;8:3">
+            متابعة
+          </p>
+          <div className="absolute left-0 size-[10px] top-0" data-node-id="I103:2969;29:373" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl1} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[10px]" data-node-id="I103:2969;29:374" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr1} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

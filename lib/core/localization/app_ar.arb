@@ -340,11 +340,11 @@
   "@contactSupport": {
     "description": "Existing Arabic copy, preserved during foundation extraction."
   },
-  "designWelcomeTitle": "مرحباً بك في حاسوبجي سيستم",
+  "designWelcomeTitle": "مرحباً بك في تطبيق حاسوبجي",
   "@designWelcomeTitle": {
     "description": "Existing Arabic copy, preserved during foundation extraction."
   },
-  "designWelcomeDescription": "دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم",
+  "designWelcomeDescription": "تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.",
   "@designWelcomeDescription": {
     "description": "Existing Arabic copy, preserved during foundation extraction."
   },

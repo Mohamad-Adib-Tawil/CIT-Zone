@@ -1,0 +1,728 @@
+<canvas id="1:4" name="A · Student — Auth &amp; Device" x="0" y="0" width="0" height="0">
+  <frame id="9:15" name="A-S03 · اختيار نوع الاستخدام" x="470" y="0" width="390" height="844">
+    <frame id="120:5380" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5381" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5382" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5383" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5384" name="Vector" x="-32.599998474121094" y="189.9600067138672" width="53.19999694824219" height="15.67999267578125" />
+      <vector id="120:5385" name="Vector" x="-30.24799919128418" y="132" width="48.49599838256836" height="28" />
+      <vector id="120:5386" name="Vector" x="-30.24799919128418" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5387" name="Vector" x="-6" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5388" name="Vector" x="-30.24799919128418" y="146" width="48.49599838256836" height="14" />
+      <vector id="120:5389" name="Vector" x="390.29998779296875" y="136.63999938964844" width="23.4000244140625" height="5.720001220703125" />
+      <vector id="120:5390" name="Vector" x="389" y="107" width="26" height="26" />
+      <vector id="120:5391" name="Vector" x="393.8426513671875" y="114.70608520507812" width="8.514666668403152" height="7.467836627182351" />
+    </frame>
+    <instance id="18:126" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="9:18" name="Content" x="0" y="44" width="390" height="800">
+      <text id="9:19" name="Title" x="24" y="16" width="342" height="32" />
+      <text id="9:20" name="Subtitle" x="24" y="64" width="342" height="22" />
+      <instance id="9:21" name="Option: Institute" x="24" y="102" width="342" height="100" />
+      <instance id="9:26" name="Option: Courses only" x="24" y="218" width="342" height="100" />
+      <frame id="9:31" name="Spacer" x="24" y="334" width="342" height="374" />
+      <frame id="120:5392" name="Button 3D" x="24" y="724" width="342" height="52">
+        <frame id="125:572" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:573" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:574" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:575" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5398" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5399" name="متابعة" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="9:34" name="A-S04 · المعلومات الأساسية" x="940" y="0" width="390" height="844">
+    <frame id="120:5400" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5401" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5402" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5403" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5404" name="Vector" x="-16.600000381469727" y="267.9200134277344" width="25.200000762939453" height="6.15997314453125" />
+      <vector id="120:5405" name="Vector" x="-18" y="236" width="28" height="28" />
+      <vector id="120:5406" name="Vector" x="-12.784817695617676" y="244.29885864257812" width="9.169636016417826" height="8.042275928682102" />
+      <vector id="120:5407" name="Vector" x="377.1000061035156" y="233.5399932861328" width="41.79998779296875" height="12.32000732421875" />
+      <vector id="120:5408" name="Vector" x="378.947998046875" y="188" width="38.10400390625" height="22" />
+      <vector id="120:5409" name="Vector" x="378.947998046875" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5410" name="Vector" x="398" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5411" name="Vector" x="378.947998046875" y="199" width="38.10400390625" height="11" />
+    </frame>
+    <instance id="18:142" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:37" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:42" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="9:43" name="Stepper" x="24" y="16" width="342" height="6" />
+      <instance id="9:47" name="Input: Full name" x="24" y="38" width="342" height="98" />
+      <instance id="9:52" name="Input: Phone" x="24" y="152" width="342" height="98" />
+      <instance id="9:57" name="Input: Email" x="24" y="266" width="342" height="98" />
+      <frame id="9:62" name="Spacer" x="24" y="380" width="342" height="272" />
+      <frame id="120:5412" name="Button 3D" x="24" y="668" width="342" height="52">
+        <frame id="125:576" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:577" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:578" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:579" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5418" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5419" name="متابعة" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="9:65" name="A-S05 · الجهاز غير مصرّح" x="1410" y="0" width="390" height="844">
+    <frame id="120:5420" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5421" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5422" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5423" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5424" name="Vector" x="373.20001220703125" y="175.67999267578125" width="45.5999755859375" height="13.44000244140625" />
+      <vector id="120:5425" name="Vector" x="375.21600341796875" y="126" width="41.5679931640625" height="24" />
+      <vector id="120:5426" name="Vector" x="375.21600341796875" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5427" name="Vector" x="396" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5428" name="Vector" x="375.21600341796875" y="138" width="41.5679931640625" height="12" />
+      <vector id="120:5429" name="Vector" x="-12.800000190734863" y="315.3599853515625" width="21.600000381469727" height="5.280029296875" />
+      <vector id="120:5430" name="Vector" x="-14" y="288" width="24" height="24" />
+      <vector id="120:5431" name="Vector" x="-9.5298433303833" y="295.1133117675781" width="7.859684126364755" height="6.893372088778051" />
+    </frame>
+    <instance id="18:158" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="9:68" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="9:69" name="Spacer" x="24" y="16" width="342" height="182" />
+      <frame id="9:70" name="Icon circle" x="139" y="214" width="112" height="112">
+        <frame id="9:71" name="Frame" x="28" y="28" width="56" height="56" />
+        <vector id="34:263" name="Chamfer TL" x="0" y="0" width="14" height="14" />
+        <vector id="34:264" name="Chamfer BR" x="98" y="98" width="14" height="14" />
+      </frame>
+      <text id="9:74" name="Title" x="24" y="342" width="342" height="32" />
+      <text id="9:75" name="Body" x="24" y="390" width="342" height="52" />
+      <frame id="9:76" name="Spacer" x="24" y="458" width="342" height="182" />
+      <frame id="120:5432" name="Button 3D" x="24" y="656" width="342" height="52">
+        <frame id="125:580" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:581" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:582" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:583" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5438" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5439" name="طلب تغيير الجهاز" x="108" y="16" width="92" height="20" />
+          <instance id="120:5440" name="Icon/refresh" x="210" y="14" width="24" height="24" />
+        </frame>
+      </frame>
+      <instance id="9:79" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="9:81" name="A-S06 · طلب تغيير الجهاز" x="1880" y="0" width="390" height="844">
+    <frame id="120:5443" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5444" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5445" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5446" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5447" name="Vector" x="389.20001220703125" y="275.3599853515625" width="21.5999755859375" height="5.280029296875" />
+      <vector id="120:5448" name="Vector" x="388" y="248" width="24" height="24" />
+      <vector id="120:5449" name="Vector" x="392.47015380859375" y="255.11331176757812" width="7.859684952270982" height="6.893372565615209" />
+      <vector id="120:5450" name="Vector" x="-32.70000076293945" y="217.82000732421875" width="49.400001525878906" height="14.55999755859375" />
+      <vector id="120:5451" name="Vector" x="-30.516000747680664" y="164" width="45.03200149536133" height="26" />
+      <vector id="120:5452" name="Vector" x="-30.516000747680664" y="177" width="22.516000747680664" height="39" />
+      <vector id="120:5453" name="Vector" x="-8" y="177" width="22.51599884033203" height="39" />
+      <vector id="120:5454" name="Vector" x="-30.516000747680664" y="177" width="45.03200149536133" height="13" />
+    </frame>
+    <instance id="18:174" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:84" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:89" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="9:90" name="Card" x="24" y="16" width="342" height="86">
+        <text id="9:91" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="9:92" name="Device" x="17" y="45" width="308" height="24" />
+        <vector id="29:461" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:462" name="Chamfer BR" x="330" y="74" width="12" height="12" />
+        <vector id="29:463" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:464" name="Chamfer line BR" x="330" y="74" width="12" height="12" />
+      </frame>
+      <instance id="9:93" name="Input: Reason" x="24" y="118" width="342" height="98" />
+      <frame id="9:98" name="Spacer" x="24" y="232" width="342" height="420" />
+      <frame id="120:5455" name="Button 3D" x="24" y="668" width="342" height="52">
+        <frame id="125:584" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:585" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:586" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:587" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5461" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5462" name="إرسال الطلب" x="135.5" y="16" width="71" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="9:101" name="A-S07 · حالة الطلب" x="2350" y="0" width="390" height="844">
+    <frame id="120:5463" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5464" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5465" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5466" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5467" name="Vector" x="-32.599998474121094" y="189.9600067138672" width="53.19999694824219" height="15.67999267578125" />
+      <vector id="120:5468" name="Vector" x="-30.24799919128418" y="132" width="48.49599838256836" height="28" />
+      <vector id="120:5469" name="Vector" x="-30.24799919128418" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5470" name="Vector" x="-6" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5471" name="Vector" x="-30.24799919128418" y="146" width="48.49599838256836" height="14" />
+      <vector id="120:5472" name="Vector" x="390.29998779296875" y="136.63999938964844" width="23.4000244140625" height="5.720001220703125" />
+      <vector id="120:5473" name="Vector" x="389" y="107" width="26" height="26" />
+      <vector id="120:5474" name="Vector" x="393.8426513671875" y="114.70608520507812" width="8.514666668403152" height="7.467836627182351" />
+    </frame>
+    <instance id="18:190" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="9:104" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="9:109" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="9:110" name="Card" x="24" y="16" width="342" height="216">
+        <frame id="9:111" name="Icon circle" x="135" y="17" width="72" height="72">
+          <frame id="9:112" name="Frame" x="18" y="18" width="36" height="36" />
+          <vector id="34:265" name="Chamfer TL" x="0" y="0" width="9" height="9" />
+          <vector id="34:266" name="Chamfer BR" x="63" y="63" width="9" height="9" />
+        </frame>
+        <instance id="9:115" name="Badge" x="127" y="101" width="88" height="24" />
+        <text id="9:117" name="Title" x="17" y="137" width="308" height="28" />
+        <text id="9:118" name="Body" x="17" y="177" width="308" height="22" />
+        <vector id="29:465" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:466" name="Chamfer BR" x="330" y="204" width="12" height="12" />
+        <vector id="29:467" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:468" name="Chamfer line BR" x="330" y="204" width="12" height="12" />
+      </frame>
+      <frame id="9:119" name="Card" x="24" y="248" width="342" height="88">
+        <text id="9:120" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="9:121" name="Device" x="17" y="45" width="308" height="26" />
+        <vector id="29:469" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:470" name="Chamfer BR" x="330" y="76" width="12" height="12" />
+        <vector id="29:471" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="29:472" name="Chamfer line BR" x="330" y="76" width="12" height="12" />
+      </frame>
+      <frame id="9:122" name="Spacer" x="24" y="352" width="342" height="232" />
+      <instance id="9:123" name="Button" x="24" y="600" width="342" height="52" />
+      <instance id="9:125" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="65:237" name="A-S08 · الشروط وسياسة الخصوصية" x="2820" y="0" width="390" height="844">
+    <frame id="120:5475" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5476" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5477" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5478" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5479" name="Vector" x="-16.600000381469727" y="267.9200134277344" width="25.200000762939453" height="6.15997314453125" />
+      <vector id="120:5480" name="Vector" x="-18" y="236" width="28" height="28" />
+      <vector id="120:5481" name="Vector" x="-12.784817695617676" y="244.29885864257812" width="9.169636016417826" height="8.042275928682102" />
+      <vector id="120:5482" name="Vector" x="377.1000061035156" y="233.5399932861328" width="41.79998779296875" height="12.32000732421875" />
+      <vector id="120:5483" name="Vector" x="378.947998046875" y="188" width="38.10400390625" height="22" />
+      <vector id="120:5484" name="Vector" x="378.947998046875" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5485" name="Vector" x="398" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5486" name="Vector" x="378.947998046875" y="199" width="38.10400390625" height="11" />
+    </frame>
+    <instance id="65:238" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="65:239" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="65:240" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="65:281" name="Tabs" x="24" y="16" width="342" height="42">
+        <frame id="65:282" name="Tab: سياسة الخصوصية" x="0" y="0" width="168" height="42">
+          <text id="65:283" name="سياسة الخصوصية" x="32" y="11" width="104" height="20" />
+        </frame>
+        <frame id="65:284" name="Tab: الشروط والأحكام" x="176" y="0" width="166" height="40">
+          <text id="65:285" name="الشروط والأحكام" x="34.5" y="10" width="97" height="20" />
+        </frame>
+      </frame>
+      <frame id="65:286" name="Card" x="24" y="74" width="342" height="458">
+        <text id="65:287" name="1. استخدام التطبيق" x="17" y="17" width="308" height="24" />
+        <text id="65:288" name="التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل." x="17" y="55" width="308" height="66" />
+        <text id="65:289" name="2. الحساب والجهاز" x="17" y="135" width="308" height="24" />
+        <text id="65:290" name="حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق." x="17" y="173" width="308" height="44" />
+        <text id="65:291" name="3. المحتوى والحماية" x="17" y="231" width="308" height="24" />
+        <text id="65:292" name="الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب." x="17" y="269" width="308" height="44" />
+        <text id="65:293" name="4. المدفوعات" x="17" y="327" width="308" height="24" />
+        <text id="65:294" name="الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك." x="17" y="365" width="308" height="44" />
+        <text id="65:295" name="آخر تحديث: 15 أكتوبر 2026 ·" x="17" y="423" width="308" height="18" />
+      </frame>
+      <frame id="65:296" name="Spacer" x="24" y="548" width="342" height="104" />
+      <frame id="120:5487" name="Button 3D" x="24" y="668" width="342" height="52">
+        <frame id="125:588" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:589" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:590" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:591" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5493" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5494" name="فهمت" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="66:629" name="A-S09 · معلومات الكورسات فقط" x="3290" y="0" width="390" height="844">
+    <frame id="120:5495" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5496" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5497" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5498" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5499" name="Vector" x="373.20001220703125" y="175.67999267578125" width="45.5999755859375" height="13.44000244140625" />
+      <vector id="120:5500" name="Vector" x="375.21600341796875" y="126" width="41.5679931640625" height="24" />
+      <vector id="120:5501" name="Vector" x="375.21600341796875" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5502" name="Vector" x="396" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5503" name="Vector" x="375.21600341796875" y="138" width="41.5679931640625" height="12" />
+      <vector id="120:5504" name="Vector" x="-12.800000190734863" y="315.3599853515625" width="21.600000381469727" height="5.280029296875" />
+      <vector id="120:5505" name="Vector" x="-14" y="288" width="24" height="24" />
+      <vector id="120:5506" name="Vector" x="-9.5298433303833" y="295.1133117675781" width="7.859684126364755" height="6.893372088778051" />
+    </frame>
+    <instance id="66:630" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="66:631" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="66:632" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="66:634" name="Input: Full name" x="24" y="16" width="342" height="98" />
+      <instance id="66:635" name="Input: Phone" x="24" y="130" width="342" height="98" />
+      <instance id="66:636" name="Input: Email" x="24" y="244" width="342" height="98" />
+      <frame id="66:637" name="Spacer" x="24" y="358" width="342" height="294" />
+      <frame id="120:5507" name="Button 3D" x="24" y="668" width="342" height="52">
+        <frame id="125:592" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:593" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:594" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:595" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5513" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5514" name="ابدأ التعلّم" x="142.5" y="16" width="57" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="66:692" name="A-S10 · الحساب موقوف" x="3760" y="0" width="390" height="844">
+    <frame id="120:5515" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5516" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5517" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5518" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5519" name="Vector" x="389.20001220703125" y="275.3599853515625" width="21.5999755859375" height="5.280029296875" />
+      <vector id="120:5520" name="Vector" x="388" y="248" width="24" height="24" />
+      <vector id="120:5521" name="Vector" x="392.47015380859375" y="255.11331176757812" width="7.859684952270982" height="6.893372565615209" />
+      <vector id="120:5522" name="Vector" x="-32.70000076293945" y="217.82000732421875" width="49.400001525878906" height="14.55999755859375" />
+      <vector id="120:5523" name="Vector" x="-30.516000747680664" y="164" width="45.03200149536133" height="26" />
+      <vector id="120:5524" name="Vector" x="-30.516000747680664" y="177" width="22.516000747680664" height="39" />
+      <vector id="120:5525" name="Vector" x="-8" y="177" width="22.51599884033203" height="39" />
+      <vector id="120:5526" name="Vector" x="-30.516000747680664" y="177" width="45.03200149536133" height="13" />
+    </frame>
+    <instance id="66:693" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="66:694" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="66:695" name="Spacer" x="24" y="16" width="342" height="182" />
+      <frame id="66:696" name="Icon circle" x="139" y="214" width="112" height="112">
+        <frame id="66:742" name="Lock icon" x="28" y="28" width="56" height="56">
+          <frame id="66:743" name="Glyph" x="0" y="0" width="24" height="24" />
+        </frame>
+        <vector id="66:700" name="Chamfer TL" x="0" y="0" width="14" height="14" />
+        <vector id="66:701" name="Chamfer BR" x="98" y="98" width="14" height="14" />
+      </frame>
+      <text id="66:702" name="Title" x="24" y="342" width="342" height="32" />
+      <text id="66:703" name="Body" x="24" y="390" width="342" height="52" />
+      <frame id="66:704" name="Spacer" x="24" y="458" width="342" height="182" />
+      <frame id="120:5527" name="Button 3D" x="24" y="656" width="342" height="52">
+        <frame id="125:596" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:597" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:598" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:599" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="120:5533" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5534" name="التواصل مع الدعم" x="102.5" y="16" width="103" height="20" />
+          <instance id="120:5535" name="Icon/support" x="215.5" y="14" width="24" height="24" />
+        </frame>
+      </frame>
+      <instance id="66:706" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:1232" name="A-S03 · اختيار نوع الاستخدام · Light" x="470" y="964" width="390" height="844">
+    <frame id="120:5539" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5540" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5541" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5542" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5543" name="Vector" x="-32.599998474121094" y="189.9600067138672" width="53.19999694824219" height="15.67999267578125" />
+      <vector id="120:5544" name="Vector" x="-30.24799919128418" y="132" width="48.49599838256836" height="28" />
+      <vector id="120:5545" name="Vector" x="-30.24799919128418" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5546" name="Vector" x="-6" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5547" name="Vector" x="-30.24799919128418" y="146" width="48.49599838256836" height="14" />
+      <vector id="120:5548" name="Vector" x="390.29998779296875" y="136.63999938964844" width="23.4000244140625" height="5.720001220703125" />
+      <vector id="120:5549" name="Vector" x="389" y="107" width="26" height="26" />
+      <vector id="120:5550" name="Vector" x="393.8426513671875" y="114.70608520507812" width="8.514666668403152" height="7.467836627182351" />
+    </frame>
+    <instance id="103:1233" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:1234" name="Content" x="0" y="44" width="390" height="800">
+      <text id="103:1235" name="Title" x="24" y="16" width="342" height="32" />
+      <text id="103:1236" name="Subtitle" x="24" y="64" width="342" height="22" />
+      <instance id="103:1237" name="Option: Institute" x="24" y="102" width="342" height="100" />
+      <instance id="103:1238" name="Option: Courses only" x="24" y="218" width="342" height="100" />
+      <frame id="103:1239" name="Spacer" x="24" y="334" width="342" height="366" />
+      <frame id="120:5551" name="Button 3D" x="24" y="716" width="342" height="60">
+        <frame id="120:5552" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5553" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5554" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5555" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5556" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5557" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5558" name="متابعة" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:1241" name="A-S04 · المعلومات الأساسية · Light" x="940" y="964" width="390" height="844">
+    <frame id="120:5559" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5560" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5561" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5562" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5563" name="Vector" x="-16.600000381469727" y="267.9200134277344" width="25.200000762939453" height="6.15997314453125" />
+      <vector id="120:5564" name="Vector" x="-18" y="236" width="28" height="28" />
+      <vector id="120:5565" name="Vector" x="-12.784817695617676" y="244.29885864257812" width="9.169636016417826" height="8.042275928682102" />
+      <vector id="120:5566" name="Vector" x="377.1000061035156" y="233.5399932861328" width="41.79998779296875" height="12.32000732421875" />
+      <vector id="120:5567" name="Vector" x="378.947998046875" y="188" width="38.10400390625" height="22" />
+      <vector id="120:5568" name="Vector" x="378.947998046875" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5569" name="Vector" x="398" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5570" name="Vector" x="378.947998046875" y="199" width="38.10400390625" height="11" />
+    </frame>
+    <instance id="103:1242" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:1243" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:1244" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="103:1245" name="Stepper" x="24" y="16" width="342" height="6" />
+      <instance id="103:1246" name="Input: Full name" x="24" y="38" width="342" height="98" />
+      <instance id="103:1247" name="Input: Phone" x="24" y="152" width="342" height="98" />
+      <instance id="103:1248" name="Input: Email" x="24" y="266" width="342" height="98" />
+      <frame id="103:1249" name="Spacer" x="24" y="380" width="342" height="264" />
+      <frame id="120:5571" name="Button 3D" x="24" y="660" width="342" height="60">
+        <frame id="120:5572" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5573" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5574" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5575" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5576" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5577" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5578" name="متابعة" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:1251" name="A-S05 · الجهاز غير مصرّح · Light" x="1410" y="964" width="390" height="844">
+    <frame id="120:5579" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5580" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5581" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5582" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5583" name="Vector" x="373.20001220703125" y="175.67999267578125" width="45.5999755859375" height="13.44000244140625" />
+      <vector id="120:5584" name="Vector" x="375.21600341796875" y="126" width="41.5679931640625" height="24" />
+      <vector id="120:5585" name="Vector" x="375.21600341796875" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5586" name="Vector" x="396" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5587" name="Vector" x="375.21600341796875" y="138" width="41.5679931640625" height="12" />
+      <vector id="120:5588" name="Vector" x="-12.800000190734863" y="315.3599853515625" width="21.600000381469727" height="5.280029296875" />
+      <vector id="120:5589" name="Vector" x="-14" y="288" width="24" height="24" />
+      <vector id="120:5590" name="Vector" x="-9.5298433303833" y="295.1133117675781" width="7.859684126364755" height="6.893372088778051" />
+    </frame>
+    <instance id="103:1252" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:1253" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:1254" name="Spacer" x="24" y="16" width="342" height="178" />
+      <frame id="103:1255" name="Icon circle" x="139" y="210" width="112" height="112">
+        <frame id="103:1256" name="Frame" x="28" y="28" width="56" height="56" />
+        <vector id="103:1259" name="Chamfer TL" x="0" y="0" width="14" height="14" />
+        <vector id="103:1260" name="Chamfer BR" x="98" y="98" width="14" height="14" />
+      </frame>
+      <text id="103:1261" name="Title" x="24" y="338" width="342" height="32" />
+      <text id="103:1262" name="Body" x="24" y="386" width="342" height="52" />
+      <frame id="103:1263" name="Spacer" x="24" y="454" width="342" height="178" />
+      <frame id="120:5591" name="Button 3D" x="24" y="648" width="342" height="60">
+        <frame id="120:5592" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5593" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5594" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5595" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5596" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5597" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5598" name="طلب تغيير الجهاز" x="108" y="16" width="92" height="20" />
+          <instance id="120:5599" name="Icon/refresh" x="210" y="14" width="24" height="24" />
+        </frame>
+      </frame>
+      <instance id="103:1265" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:1266" name="A-S06 · طلب تغيير الجهاز · Light" x="1880" y="964" width="390" height="844">
+    <frame id="120:5602" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5603" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5604" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5605" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5606" name="Vector" x="389.20001220703125" y="275.3599853515625" width="21.5999755859375" height="5.280029296875" />
+      <vector id="120:5607" name="Vector" x="388" y="248" width="24" height="24" />
+      <vector id="120:5608" name="Vector" x="392.47015380859375" y="255.11331176757812" width="7.859684952270982" height="6.893372565615209" />
+      <vector id="120:5609" name="Vector" x="-32.70000076293945" y="217.82000732421875" width="49.400001525878906" height="14.55999755859375" />
+      <vector id="120:5610" name="Vector" x="-30.516000747680664" y="164" width="45.03200149536133" height="26" />
+      <vector id="120:5611" name="Vector" x="-30.516000747680664" y="177" width="22.516000747680664" height="39" />
+      <vector id="120:5612" name="Vector" x="-8" y="177" width="22.51599884033203" height="39" />
+      <vector id="120:5613" name="Vector" x="-30.516000747680664" y="177" width="45.03200149536133" height="13" />
+    </frame>
+    <instance id="103:1267" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:1268" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:1269" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:1270" name="Card" x="24" y="16" width="342" height="86">
+        <text id="103:1271" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="103:1272" name="Device" x="17" y="45" width="308" height="24" />
+        <vector id="103:1273" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1274" name="Chamfer BR" x="330" y="74" width="12" height="12" />
+        <vector id="103:1275" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1276" name="Chamfer line BR" x="330" y="74" width="12" height="12" />
+      </frame>
+      <instance id="103:1277" name="Input: Reason" x="24" y="118" width="342" height="98" />
+      <frame id="103:1278" name="Spacer" x="24" y="232" width="342" height="412" />
+      <frame id="120:5614" name="Button 3D" x="24" y="660" width="342" height="60">
+        <frame id="120:5615" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5616" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5617" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5618" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5619" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5620" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5621" name="إرسال الطلب" x="135.5" y="16" width="71" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:1280" name="A-S07 · حالة الطلب · Light" x="2350" y="964" width="390" height="844">
+    <frame id="120:5622" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5623" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5624" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5625" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5626" name="Vector" x="-32.599998474121094" y="189.9600067138672" width="53.19999694824219" height="15.67999267578125" />
+      <vector id="120:5627" name="Vector" x="-30.24799919128418" y="132" width="48.49599838256836" height="28" />
+      <vector id="120:5628" name="Vector" x="-30.24799919128418" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5629" name="Vector" x="-6" y="146" width="24.24799919128418" height="42" />
+      <vector id="120:5630" name="Vector" x="-30.24799919128418" y="146" width="48.49599838256836" height="14" />
+      <vector id="120:5631" name="Vector" x="390.29998779296875" y="136.63999938964844" width="23.4000244140625" height="5.720001220703125" />
+      <vector id="120:5632" name="Vector" x="389" y="107" width="26" height="26" />
+      <vector id="120:5633" name="Vector" x="393.8426513671875" y="114.70608520507812" width="8.514666668403152" height="7.467836627182351" />
+    </frame>
+    <instance id="103:1281" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:1282" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:1283" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:1284" name="Card" x="24" y="16" width="342" height="216">
+        <frame id="103:1285" name="Icon circle" x="135" y="17" width="72" height="72">
+          <frame id="103:1286" name="Frame" x="18" y="18" width="36" height="36" />
+          <vector id="103:1289" name="Chamfer TL" x="0" y="0" width="9" height="9" />
+          <vector id="103:1290" name="Chamfer BR" x="63" y="63" width="9" height="9" />
+        </frame>
+        <instance id="103:1291" name="Badge" x="127" y="101" width="88" height="24" />
+        <text id="103:1292" name="Title" x="17" y="137" width="308" height="28" />
+        <text id="103:1293" name="Body" x="17" y="177" width="308" height="22" />
+        <vector id="103:1294" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1295" name="Chamfer BR" x="330" y="204" width="12" height="12" />
+        <vector id="103:1296" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1297" name="Chamfer line BR" x="330" y="204" width="12" height="12" />
+      </frame>
+      <frame id="103:1298" name="Card" x="24" y="248" width="342" height="88">
+        <text id="103:1299" name="Caption" x="17" y="17" width="308" height="20" />
+        <text id="103:1300" name="Device" x="17" y="45" width="308" height="26" />
+        <vector id="103:1301" name="Chamfer TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1302" name="Chamfer BR" x="330" y="76" width="12" height="12" />
+        <vector id="103:1303" name="Chamfer line TL" x="0" y="0" width="12" height="12" />
+        <vector id="103:1304" name="Chamfer line BR" x="330" y="76" width="12" height="12" />
+      </frame>
+      <frame id="103:1305" name="Spacer" x="24" y="352" width="342" height="232" />
+      <instance id="103:1306" name="Button" x="24" y="600" width="342" height="52" />
+      <instance id="103:1307" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:1308" name="A-S08 · الشروط وسياسة الخصوصية · Light" x="2820" y="964" width="390" height="844">
+    <frame id="120:5634" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5635" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5636" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5637" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5638" name="Vector" x="-16.600000381469727" y="267.9200134277344" width="25.200000762939453" height="6.15997314453125" />
+      <vector id="120:5639" name="Vector" x="-18" y="236" width="28" height="28" />
+      <vector id="120:5640" name="Vector" x="-12.784817695617676" y="244.29885864257812" width="9.169636016417826" height="8.042275928682102" />
+      <vector id="120:5641" name="Vector" x="377.1000061035156" y="233.5399932861328" width="41.79998779296875" height="12.32000732421875" />
+      <vector id="120:5642" name="Vector" x="378.947998046875" y="188" width="38.10400390625" height="22" />
+      <vector id="120:5643" name="Vector" x="378.947998046875" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5644" name="Vector" x="398" y="199" width="19.052001953125" height="33" />
+      <vector id="120:5645" name="Vector" x="378.947998046875" y="199" width="38.10400390625" height="11" />
+    </frame>
+    <instance id="103:1309" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:1310" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:1311" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:1312" name="Tabs" x="24" y="16" width="342" height="42">
+        <frame id="103:1313" name="Tab: سياسة الخصوصية" x="0" y="0" width="168" height="42">
+          <text id="103:1314" name="سياسة الخصوصية" x="32" y="11" width="104" height="20" />
+        </frame>
+        <frame id="103:1315" name="Tab: الشروط والأحكام" x="176" y="0" width="166" height="40">
+          <text id="103:1316" name="الشروط والأحكام" x="34.5" y="10" width="97" height="20" />
+        </frame>
+      </frame>
+      <frame id="103:1317" name="Card" x="24" y="74" width="342" height="458">
+        <text id="103:1318" name="1. استخدام التطبيق" x="17" y="17" width="308" height="24" />
+        <text id="103:1319" name="التطبيق مخصّص لطلاب المعاهد التقنية المعلوماتية ولمستخدمي الكورسات. أنت مسؤول عن صحة المعلومات التي تدخلها عند التسجيل." x="17" y="55" width="308" height="66" />
+        <text id="103:1320" name="2. الحساب والجهاز" x="17" y="135" width="308" height="24" />
+        <text id="103:1321" name="حساب طالب المعهد مرتبط بجهاز واحد فقط. تغيير الجهاز يتم عبر طلب تراجعه إدارة التطبيق." x="17" y="173" width="308" height="44" />
+        <text id="103:1322" name="3. المحتوى والحماية" x="17" y="231" width="308" height="24" />
+        <text id="103:1323" name="الدروس والملفات محمية ولا يجوز تصويرها أو نسخها أو مشاركتها. مخالفة ذلك قد تؤدي إلى إيقاف الحساب." x="17" y="269" width="308" height="44" />
+        <text id="103:1324" name="4. المدفوعات" x="17" y="327" width="308" height="24" />
+        <text id="103:1325" name="الأسعار بالدولار الأمريكي، ومدة صلاحية الكورس سنة من تاريخ الشراء ما لم يُذكر غير ذلك." x="17" y="365" width="308" height="44" />
+        <text id="103:1326" name="آخر تحديث: 15 أكتوبر 2026 ·" x="17" y="423" width="308" height="18" />
+      </frame>
+      <frame id="103:1327" name="Spacer" x="24" y="548" width="342" height="96" />
+      <frame id="120:5646" name="Button 3D" x="24" y="660" width="342" height="60">
+        <frame id="120:5647" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5648" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5649" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5650" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5651" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5652" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5653" name="فهمت" x="151.5" y="16" width="39" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:1329" name="A-S09 · معلومات الكورسات فقط · Light" x="3290" y="964" width="390" height="844">
+    <frame id="120:5654" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5655" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5656" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5657" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5658" name="Vector" x="373.20001220703125" y="175.67999267578125" width="45.5999755859375" height="13.44000244140625" />
+      <vector id="120:5659" name="Vector" x="375.21600341796875" y="126" width="41.5679931640625" height="24" />
+      <vector id="120:5660" name="Vector" x="375.21600341796875" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5661" name="Vector" x="396" y="138" width="20.78399658203125" height="36" />
+      <vector id="120:5662" name="Vector" x="375.21600341796875" y="138" width="41.5679931640625" height="12" />
+      <vector id="120:5663" name="Vector" x="-12.800000190734863" y="315.3599853515625" width="21.600000381469727" height="5.280029296875" />
+      <vector id="120:5664" name="Vector" x="-14" y="288" width="24" height="24" />
+      <vector id="120:5665" name="Vector" x="-9.5298433303833" y="295.1133117675781" width="7.859684126364755" height="6.893372088778051" />
+    </frame>
+    <instance id="103:1330" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:1331" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:1332" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="103:1333" name="Input: Full name" x="24" y="16" width="342" height="98" />
+      <instance id="103:1334" name="Input: Phone" x="24" y="130" width="342" height="98" />
+      <instance id="103:1335" name="Input: Email" x="24" y="244" width="342" height="98" />
+      <frame id="103:1336" name="Spacer" x="24" y="358" width="342" height="286" />
+      <frame id="120:5666" name="Button 3D" x="24" y="660" width="342" height="60">
+        <frame id="120:5667" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5668" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5669" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5670" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5671" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5672" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5673" name="ابدأ التعلّم" x="142.5" y="16" width="57" height="20" />
+        </frame>
+      </frame>
+    </frame>
+  </frame>
+  <frame id="103:1338" name="A-S10 · الحساب موقوف · Light" x="3760" y="964" width="390" height="844">
+    <frame id="120:5674" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="120:5675" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="120:5676" name="Vector" x="-105" y="680" width="600" height="280" />
+      <vector id="120:5677" name="Vector" x="-5" y="20" width="400" height="200" />
+      <vector id="120:5678" name="Vector" x="389.20001220703125" y="275.3599853515625" width="21.5999755859375" height="5.280029296875" />
+      <vector id="120:5679" name="Vector" x="388" y="248" width="24" height="24" />
+      <vector id="120:5680" name="Vector" x="392.47015380859375" y="255.11331176757812" width="7.859684952270982" height="6.893372565615209" />
+      <vector id="120:5681" name="Vector" x="-32.70000076293945" y="217.82000732421875" width="49.400001525878906" height="14.55999755859375" />
+      <vector id="120:5682" name="Vector" x="-30.516000747680664" y="164" width="45.03200149536133" height="26" />
+      <vector id="120:5683" name="Vector" x="-30.516000747680664" y="177" width="22.516000747680664" height="39" />
+      <vector id="120:5684" name="Vector" x="-8" y="177" width="22.51599884033203" height="39" />
+      <vector id="120:5685" name="Vector" x="-30.516000747680664" y="177" width="45.03200149536133" height="13" />
+    </frame>
+    <instance id="103:1339" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:1340" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="103:1341" name="Spacer" x="24" y="16" width="342" height="178" />
+      <frame id="103:1342" name="Icon circle" x="139" y="210" width="112" height="112">
+        <frame id="103:1343" name="Lock icon" x="28" y="28" width="56" height="56">
+          <frame id="103:1344" name="Glyph" x="0" y="0" width="24" height="24" />
+        </frame>
+        <vector id="103:1348" name="Chamfer TL" x="0" y="0" width="14" height="14" />
+        <vector id="103:1349" name="Chamfer BR" x="98" y="98" width="14" height="14" />
+      </frame>
+      <text id="103:1350" name="Title" x="24" y="338" width="342" height="32" />
+      <text id="103:1351" name="Body" x="24" y="386" width="342" height="52" />
+      <frame id="103:1352" name="Spacer" x="24" y="454" width="342" height="178" />
+      <frame id="120:5686" name="Button 3D" x="24" y="648" width="342" height="60">
+        <frame id="120:5687" name="Shell" x="0" y="0" width="342" height="60">
+          <vector id="120:5688" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="120:5689" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="120:5690" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="120:5691" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+        </frame>
+        <frame id="120:5692" name="Content" x="0" y="0" width="342" height="52">
+          <text id="120:5693" name="التواصل مع الدعم" x="102.5" y="16" width="103" height="20" />
+          <instance id="120:5694" name="Icon/support" x="215.5" y="14" width="24" height="24" />
+        </frame>
+      </frame>
+      <instance id="103:1354" name="Button" x="24" y="724" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="108:23" name="A-S01 · تسجيل الدخول" x="0" y="0" width="390" height="844">
+    <frame id="108:201" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="108:202" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="108:203" name="Vector" x="-105" y="650" width="600" height="300" />
+      <vector id="108:204" name="Vector" x="25" y="110" width="340" height="240" />
+      <frame id="108:205" name="Group" x="29.700000762939453" y="70" width="64.60000610351562" height="89.41999816894531" />
+      <frame id="108:212" name="Group" x="316.8999938964844" y="282" width="34.20001220703125" height="47.339996337890625" />
+      <frame id="108:219" name="Group" x="19.100000381469727" y="568" width="41.80000305175781" height="57.8599853515625" />
+      <frame id="108:226" name="Group" x="255.0605926513672" y="117.32976531982422" width="89.87882471084595" height="58.799856662750244" />
+      <vector id="108:228" name="Vector" x="311.6000061035156" y="150.47999572753906" width="28.79998779296875" height="7.040008544921875" />
+      <vector id="108:229" name="Vector" x="310" y="114" width="32" height="32" />
+      <vector id="108:230" name="Vector" x="315.960205078125" y="123.48440551757812" width="10.479581299221536" height="9.191175953888887" />
+      <vector id="108:231" name="Vector" x="339.3999938964844" y="617.9199829101562" width="25.20001220703125" height="6.1600341796875" />
+      <vector id="108:232" name="Vector" x="338" y="586" width="28" height="28" />
+      <vector id="108:233" name="Vector" x="343.2151794433594" y="594.2988891601562" width="9.16964075514079" height="8.04228747425077" />
+      <vector id="108:234" name="Vector" x="113.69999694824219" y="48.959999084472656" width="12.600006103515625" height="3.0800018310546875" />
+      <vector id="108:235" name="Vector" x="113" y="33" width="14" height="14" />
+      <vector id="108:236" name="Vector" x="115.60758972167969" y="37.1494255065918" width="4.584818470221762" height="4.021140433500705" />
+    </frame>
+    <instance id="108:24" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="108:25" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="108:26" name="Spacer" x="24" y="16" width="342" height="143" />
+      <frame id="108:252" name="Logo 3D" x="120" y="175" width="150" height="150" />
+      <text id="108:28" name="Title" x="24" y="341" width="342" height="80" />
+      <text id="108:29" name="Subtitle" x="24" y="437" width="342" height="78" />
+      <frame id="108:30" name="Spacer" x="24" y="531" width="342" height="143" />
+      <frame id="113:87" name="Button 3D" x="24" y="690" width="342" height="52">
+        <frame id="125:600" name="Shell" x="0" y="0" width="342" height="52">
+          <vector id="125:601" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="125:602" name="Vector" x="0" y="0" width="342" height="20" />
+          <vector id="125:603" name="Vector" x="0.75" y="0.75" width="340.5" height="50.5" />
+        </frame>
+        <frame id="113:94" name="Content" x="0" y="0" width="342" height="52">
+          <instance id="113:95" name="Icon/google" x="98.5" y="14" width="24" height="24" />
+          <text id="113:101" name="المتابعة عبر Google" x="132.5" y="16" width="111" height="20" />
+        </frame>
+      </frame>
+      <text id="108:32" name="Terms" x="24" y="758" width="342" height="18" />
+    </frame>
+  </frame>
+  <frame id="119:667" name="A-S01 · تسجيل الدخول · Light" x="0" y="964" width="390" height="844">
+    <frame id="119:750" name="3D background" x="0" y="0" width="390" height="844">
+      <vector id="119:751" name="Vector" x="0" y="0" width="390" height="844" />
+      <vector id="119:752" name="Vector" x="-105" y="650" width="600" height="300" />
+      <vector id="119:753" name="Vector" x="25" y="110" width="340" height="240" />
+      <vector id="119:754" name="Vector" x="29.700000762939453" y="140.3800048828125" width="64.60000610351562" height="19.039993286132812" />
+      <vector id="119:755" name="Vector" x="32.555999755859375" y="70" width="58.88800048828125" height="34" />
+      <vector id="119:756" name="Vector" x="32.555999755859375" y="87" width="29.444000244140625" height="51" />
+      <vector id="119:757" name="Vector" x="62" y="87" width="29.444000244140625" height="51" />
+      <vector id="119:758" name="Vector" x="32.555999755859375" y="87" width="58.88800048828125" height="17" />
+      <vector id="119:759" name="Vector" x="316.8999938964844" y="319.260009765625" width="34.20001220703125" height="10.079986572265625" />
+      <vector id="119:760" name="Vector" x="318.4119873046875" y="282" width="31.176025390625" height="18" />
+      <vector id="119:761" name="Vector" x="318.4119873046875" y="291" width="15.5880126953125" height="27" />
+      <vector id="119:762" name="Vector" x="334" y="291" width="15.5880126953125" height="27" />
+      <vector id="119:763" name="Vector" x="318.4119873046875" y="291" width="31.176025390625" height="9" />
+      <vector id="119:764" name="Vector" x="19.100000381469727" y="613.5399780273438" width="41.80000305175781" height="12.32000732421875" />
+      <vector id="119:765" name="Vector" x="20.947999954223633" y="568" width="38.10399627685547" height="22" />
+      <vector id="119:766" name="Vector" x="20.947999954223633" y="579" width="19.052000045776367" height="33" />
+      <vector id="119:767" name="Vector" x="40" y="579" width="19.051998138427734" height="33" />
+      <vector id="119:768" name="Vector" x="20.947999954223633" y="579" width="38.10399627685547" height="11" />
+      <frame id="119:769" name="Group" x="255.0605926513672" y="117.32976531982422" width="89.87882471084595" height="58.799856662750244" />
+      <vector id="119:771" name="Vector" x="311.6000061035156" y="150.47999572753906" width="28.79998779296875" height="7.040008544921875" />
+      <vector id="119:772" name="Vector" x="310" y="114" width="32" height="32" />
+      <vector id="119:773" name="Vector" x="315.960205078125" y="123.48440551757812" width="10.479581299221536" height="9.191175953888887" />
+      <vector id="119:774" name="Vector" x="339.3999938964844" y="617.9199829101562" width="25.20001220703125" height="6.1600341796875" />
+      <vector id="119:775" name="Vector" x="338" y="586" width="28" height="28" />
+      <vector id="119:776" name="Vector" x="343.2151794433594" y="594.2988891601562" width="9.16964075514079" height="8.04228747425077" />
+      <vector id="119:777" name="Vector" x="113.69999694824219" y="48.959999084472656" width="12.600006103515625" height="3.0800018310546875" />
+      <vector id="119:778" name="Vector" x="113" y="33" width="14" height="14" />
+      <vector id="119:779" name="Vector" x="115.60758972167969" y="37.1494255065918" width="4.584818470221762" height="4.021140433500705" />
+    </frame>
+    <instance id="119:704" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="119:705" name="Content" x="0" y="44" width="390" height="800">
+      <frame id="119:706" name="Spacer" x="24" y="16" width="342" height="136" />
+      <frame id="119:707" name="Logo 3D" x="120" y="168" width="150" height="150" />
+      <text id="119:735" name="Title" x="24" y="334" width="342" height="80" />
+      <text id="119:736" name="Subtitle" x="24" y="430" width="342" height="78" />
+      <frame id="119:737" name="Spacer" x="24" y="524" width="342" height="136" />
+      <frame id="119:738" name="Button 3D" x="24" y="676" width="342" height="66">
+        <frame id="119:739" name="Shell" x="0" y="0" width="342" height="66">
+          <vector id="119:740" name="Vector" x="6" y="56" width="330" height="12" />
+          <vector id="119:741" name="Vector" x="0" y="8" width="342" height="52" />
+          <vector id="119:742" name="Vector" x="0" y="0" width="342" height="52" />
+          <vector id="119:743" name="Vector" x="2" y="2" width="338" height="20" />
+          <vector id="119:744" name="Vector" x="10" y="0.5" width="331.5" height="0" />
+          <vector id="119:745" name="Vector" x="0.5" y="10" width="331.5" height="41.5" />
+        </frame>
+        <frame id="119:746" name="Content" x="0" y="0" width="342" height="52">
+          <instance id="119:747" name="Icon/google" x="98.5" y="14" width="24" height="24" />
+          <text id="119:748" name="المتابعة عبر Google" x="132.5" y="16" width="111" height="20" />
+        </frame>
+      </frame>
+      <text id="119:749" name="Terms" x="24" y="758" width="342" height="18" />
+    </frame>
+  </frame>
+</canvas>

@@ -1,0 +1,252 @@
+<canvas id="68:2" name="S · Profile &amp; Settings" x="0" y="0" width="0" height="0">
+  <frame id="68:3" name="S-01 · الإعدادات" x="0" y="0" width="390" height="844">
+    <instance id="68:4" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="68:20" name="Content" x="0" y="44" width="390" height="698">
+      <text id="68:21" name="الإعدادات" x="24" y="16" width="342" height="32" />
+      <frame id="68:22" name="Profile card" x="24" y="58" width="342" height="86">
+        <frame id="68:23" name="Text" x="17" y="21" width="242" height="44">
+          <text id="68:24" name="أحمد محمد الحلبي" x="0" y="0" width="242" height="24" />
+          <text id="68:25" name="برمجيات · السنة الثانية · الفصل الثالث" x="0" y="26" width="242" height="18" />
+        </frame>
+        <frame id="68:26" name="Avatar" x="273" y="17" width="52" height="52">
+          <text id="68:27" name="أ" x="22.5" y="10" width="7" height="32" />
+          <vector id="68:28" name="Chamfer TL" x="0" y="0" width="10" height="10" />
+          <vector id="68:29" name="Chamfer BR" x="42" y="42" width="10" height="10" />
+        </frame>
+      </frame>
+      <text id="68:30" name="المظهر" x="24" y="154" width="342" height="20" />
+      <frame id="68:31" name="Theme" x="24" y="184" width="342" height="83">
+        <instance id="68:34" name="Theme: داكن" x="0" y="0" width="109.33333587646484" height="83" />
+        <instance id="68:43" name="Theme: فاتح" x="117.33333587646484" y="0" width="108.33332824707031" height="82" />
+        <instance id="68:51" name="Theme: تلقائي" x="233.66665649414062" y="0" width="108.33332824707031" height="82" />
+      </frame>
+      <text id="68:59" name="الحساب" x="24" y="277" width="342" height="20" />
+      <frame id="68:60" name="Rows" x="24" y="307" width="342" height="116">
+        <instance id="68:61" name="List Row" x="0" y="0" width="342" height="58" />
+        <instance id="68:79" name="List Row" x="0" y="58" width="342" height="58" />
+      </frame>
+      <text id="68:92" name="المساعدة" x="24" y="433" width="342" height="20" />
+      <frame id="68:93" name="Rows" x="24" y="463" width="342" height="116">
+        <instance id="68:94" name="List Row" x="0" y="0" width="342" height="58" />
+        <instance id="68:107" name="List Row" x="0" y="58" width="342" height="58" />
+      </frame>
+      <instance id="68:126" name="Button" x="24" y="589" width="342" height="52" />
+    </frame>
+    <frame id="68:141" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="68:172" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="68:205" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="68:207" name="S-02 · الملف الشخصي" x="470" y="0" width="390" height="844">
+    <instance id="68:208" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="68:224" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="68:229" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="68:230" name="Header" x="24" y="16" width="342" height="124">
+        <frame id="68:231" name="Avatar" x="127" y="0" width="88" height="88">
+          <text id="68:232" name="أ" x="39.5" y="24" width="9" height="40" />
+          <vector id="68:233" name="Chamfer TL" x="0" y="0" width="18" height="18" />
+          <vector id="68:234" name="Chamfer BR" x="70" y="70" width="18" height="18" />
+        </frame>
+        <text id="68:235" name="أحمد محمد الحلبي" x="0" y="96" width="342" height="28" />
+      </frame>
+      <frame id="68:236" name="Details" x="24" y="156" width="342" height="411">
+        <frame id="68:237" name="Row" x="17" y="5" width="308" height="67">
+          <text id="68:238" name="الاسم الرسمي" x="0" y="12" width="308" height="18" />
+          <text id="68:239" name="أحمد محمد الحلبي" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="68:240" name="Row" x="17" y="72" width="308" height="67">
+          <text id="68:241" name="رقم الهاتف" x="0" y="12" width="308" height="18" />
+          <text id="68:242" name="0991 234 567" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="68:243" name="Row" x="17" y="139" width="308" height="67">
+          <text id="68:244" name="البريد الإلكتروني" x="0" y="12" width="308" height="18" />
+          <text id="68:245" name="ahmad@gmail.com" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="68:246" name="Row" x="17" y="206" width="308" height="67">
+          <text id="68:247" name="القسم" x="0" y="12" width="308" height="18" />
+          <text id="68:248" name="برمجيات" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="68:249" name="Row" x="17" y="273" width="308" height="67">
+          <text id="68:250" name="السنة الدراسية" x="0" y="12" width="308" height="18" />
+          <text id="68:251" name="الثانية" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="68:252" name="Row" x="17" y="340" width="308" height="66">
+          <text id="68:253" name="الفصل الحالي" x="0" y="12" width="308" height="18" />
+          <text id="68:254" name="الثالث · 2026/2027" x="0" y="32" width="308" height="22" />
+        </frame>
+      </frame>
+      <frame id="68:255" name="Spacer" x="24" y="583" width="342" height="69" />
+      <instance id="68:256" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="68:266" name="S-03 · تعديل البيانات" x="940" y="0" width="390" height="844">
+    <instance id="68:267" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="68:283" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="68:288" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="68:289" name="Input" x="24" y="16" width="342" height="98" />
+      <instance id="68:304" name="Input" x="24" y="130" width="342" height="98" />
+      <instance id="68:316" name="Input" x="24" y="244" width="342" height="98" />
+      <frame id="68:328" name="Note" x="24" y="358" width="342" height="70">
+        <text id="68:329" name="لتغيير القسم أو السنة الدراسية، تواصل مع الإدارة عبر الدعم." x="17" y="17" width="274" height="36" />
+        <instance id="68:330" name="Icon/info" x="301" y="17" width="24" height="24" />
+      </frame>
+      <frame id="68:333" name="Spacer" x="24" y="444" width="342" height="208" />
+      <instance id="68:334" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="68:342" name="S-04 · الجهاز المسجّل" x="1410" y="0" width="390" height="844">
+    <instance id="68:343" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="68:359" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="68:364" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="68:365" name="Device" x="24" y="16" width="342" height="180">
+        <frame id="68:366" name="Top" x="17" y="17" width="308" height="44">
+          <instance id="68:367" name="Badge" x="0" y="10" width="48" height="24" />
+          <text id="68:369" name="Samsung Galaxy A54" x="60" y="10" width="192" height="24" />
+          <frame id="68:370" name="Icon tile" x="264" y="0" width="44" height="44">
+            <instance id="68:371" name="Icon/mobile" x="10" y="10" width="24" height="24" />
+          </frame>
+        </frame>
+        <frame id="68:375" name="Row" x="17" y="73" width="308" height="22">
+          <text id="68:376" name="Android 14" x="0" y="0" width="150" height="22" />
+          <text id="68:377" name="نظام التشغيل" x="158" y="0" width="150" height="18" />
+        </frame>
+        <frame id="68:378" name="Row" x="17" y="107" width="308" height="22">
+          <text id="68:379" name="12 أكتوبر 2026" x="0" y="0" width="150" height="22" />
+          <text id="68:380" name="تاريخ التسجيل" x="158" y="0" width="150" height="18" />
+        </frame>
+        <frame id="68:381" name="Row" x="17" y="141" width="308" height="22">
+          <text id="68:382" name="اليوم · 22:10" x="0" y="0" width="150" height="22" />
+          <text id="68:383" name="آخر استخدام" x="158" y="0" width="150" height="18" />
+        </frame>
+      </frame>
+      <text id="68:384" name="يُسمح بجهاز واحد فقط لحساب طالب المعهد. لتغيير الجهاز أرسل طلباً تراجعه الإدارة." x="24" y="212" width="342" height="36" />
+      <frame id="68:385" name="Spacer" x="24" y="264" width="342" height="388" />
+      <instance id="68:386" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3277" name="S-01 · الإعدادات · Light" x="0" y="964" width="390" height="844">
+    <instance id="103:3278" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <frame id="103:3279" name="Content" x="0" y="44" width="390" height="698">
+      <text id="103:3280" name="الإعدادات" x="24" y="16" width="342" height="32" />
+      <frame id="103:3281" name="Profile card" x="24" y="58" width="342" height="86">
+        <frame id="103:3282" name="Text" x="17" y="21" width="242" height="44">
+          <text id="103:3283" name="أحمد محمد الحلبي" x="0" y="0" width="242" height="24" />
+          <text id="103:3284" name="برمجيات · السنة الثانية · الفصل الثالث" x="0" y="26" width="242" height="18" />
+        </frame>
+        <frame id="103:3285" name="Avatar" x="273" y="17" width="52" height="52">
+          <text id="103:3286" name="أ" x="22.5" y="10" width="7" height="32" />
+          <vector id="103:3287" name="Chamfer TL" x="0" y="0" width="10" height="10" />
+          <vector id="103:3288" name="Chamfer BR" x="42" y="42" width="10" height="10" />
+        </frame>
+      </frame>
+      <text id="103:3289" name="المظهر" x="24" y="154" width="342" height="20" />
+      <frame id="103:3290" name="Theme" x="24" y="184" width="342" height="83">
+        <instance id="103:3291" name="Theme: داكن" x="0" y="0" width="109.33333587646484" height="83" />
+        <instance id="103:3292" name="Theme: فاتح" x="117.33333587646484" y="0" width="108.33332824707031" height="82" />
+        <instance id="103:3293" name="Theme: تلقائي" x="233.66665649414062" y="0" width="108.33332824707031" height="82" />
+      </frame>
+      <text id="103:3294" name="الحساب" x="24" y="277" width="342" height="20" />
+      <frame id="103:3295" name="Rows" x="24" y="307" width="342" height="116">
+        <instance id="103:3296" name="List Row" x="0" y="0" width="342" height="58" />
+        <instance id="103:3297" name="List Row" x="0" y="58" width="342" height="58" />
+      </frame>
+      <text id="103:3298" name="المساعدة" x="24" y="433" width="342" height="20" />
+      <frame id="103:3299" name="Rows" x="24" y="463" width="342" height="116">
+        <instance id="103:3300" name="List Row" x="0" y="0" width="342" height="58" />
+        <instance id="103:3301" name="List Row" x="0" y="58" width="342" height="58" />
+      </frame>
+      <instance id="103:3302" name="Button" x="24" y="589" width="342" height="52" />
+    </frame>
+    <frame id="103:3303" name="Bottom" x="0" y="742" width="390" height="102">
+      <instance id="103:3304" name="Tab Bar" x="0" y="0" width="390" height="68" />
+      <instance id="103:3305" name="Home Indicator (iOS)" x="0" y="68" width="390" height="34" />
+    </frame>
+  </frame>
+  <frame id="103:3306" name="S-02 · الملف الشخصي · Light" x="470" y="964" width="390" height="844">
+    <instance id="103:3307" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3308" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3309" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3310" name="Header" x="24" y="16" width="342" height="124">
+        <frame id="103:3311" name="Avatar" x="127" y="0" width="88" height="88">
+          <text id="103:3312" name="أ" x="39.5" y="24" width="9" height="40" />
+          <vector id="103:3313" name="Chamfer TL" x="0" y="0" width="18" height="18" />
+          <vector id="103:3314" name="Chamfer BR" x="70" y="70" width="18" height="18" />
+        </frame>
+        <text id="103:3315" name="أحمد محمد الحلبي" x="0" y="96" width="342" height="28" />
+      </frame>
+      <frame id="103:3316" name="Details" x="24" y="156" width="342" height="411">
+        <frame id="103:3317" name="Row" x="17" y="5" width="308" height="67">
+          <text id="103:3318" name="الاسم الرسمي" x="0" y="12" width="308" height="18" />
+          <text id="103:3319" name="أحمد محمد الحلبي" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="103:3320" name="Row" x="17" y="72" width="308" height="67">
+          <text id="103:3321" name="رقم الهاتف" x="0" y="12" width="308" height="18" />
+          <text id="103:3322" name="0991 234 567" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="103:3323" name="Row" x="17" y="139" width="308" height="67">
+          <text id="103:3324" name="البريد الإلكتروني" x="0" y="12" width="308" height="18" />
+          <text id="103:3325" name="ahmad@gmail.com" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="103:3326" name="Row" x="17" y="206" width="308" height="67">
+          <text id="103:3327" name="القسم" x="0" y="12" width="308" height="18" />
+          <text id="103:3328" name="برمجيات" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="103:3329" name="Row" x="17" y="273" width="308" height="67">
+          <text id="103:3330" name="السنة الدراسية" x="0" y="12" width="308" height="18" />
+          <text id="103:3331" name="الثانية" x="0" y="32" width="308" height="22" />
+        </frame>
+        <frame id="103:3332" name="Row" x="17" y="340" width="308" height="66">
+          <text id="103:3333" name="الفصل الحالي" x="0" y="12" width="308" height="18" />
+          <text id="103:3334" name="الثالث · 2026/2027" x="0" y="32" width="308" height="22" />
+        </frame>
+      </frame>
+      <frame id="103:3335" name="Spacer" x="24" y="583" width="342" height="69" />
+      <instance id="103:3336" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3337" name="S-03 · تعديل البيانات · Light" x="940" y="964" width="390" height="844">
+    <instance id="103:3338" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3339" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3340" name="Content" x="0" y="100" width="390" height="744">
+      <instance id="103:3341" name="Input" x="24" y="16" width="342" height="98" />
+      <instance id="103:3342" name="Input" x="24" y="130" width="342" height="98" />
+      <instance id="103:3343" name="Input" x="24" y="244" width="342" height="98" />
+      <frame id="103:3344" name="Note" x="24" y="358" width="342" height="70">
+        <text id="103:3345" name="لتغيير القسم أو السنة الدراسية، تواصل مع الإدارة عبر الدعم." x="17" y="17" width="274" height="36" />
+        <instance id="103:3346" name="Icon/info" x="301" y="17" width="24" height="24" />
+      </frame>
+      <frame id="103:3347" name="Spacer" x="24" y="444" width="342" height="208" />
+      <instance id="103:3348" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+  <frame id="103:3349" name="S-04 · الجهاز المسجّل · Light" x="1410" y="964" width="390" height="844">
+    <instance id="103:3350" name="Status Bar" x="0" y="0" width="390" height="44" />
+    <instance id="103:3351" name="App Bar" x="0" y="44" width="390" height="56" />
+    <frame id="103:3352" name="Content" x="0" y="100" width="390" height="744">
+      <frame id="103:3353" name="Device" x="24" y="16" width="342" height="180">
+        <frame id="103:3354" name="Top" x="17" y="17" width="308" height="44">
+          <instance id="103:3355" name="Badge" x="0" y="10" width="48" height="24" />
+          <text id="103:3356" name="Samsung Galaxy A54" x="60" y="10" width="192" height="24" />
+          <frame id="103:3357" name="Icon tile" x="264" y="0" width="44" height="44">
+            <instance id="103:3358" name="Icon/mobile" x="10" y="10" width="24" height="24" />
+          </frame>
+        </frame>
+        <frame id="103:3359" name="Row" x="17" y="73" width="308" height="22">
+          <text id="103:3360" name="Android 14" x="0" y="0" width="150" height="22" />
+          <text id="103:3361" name="نظام التشغيل" x="158" y="0" width="150" height="18" />
+        </frame>
+        <frame id="103:3362" name="Row" x="17" y="107" width="308" height="22">
+          <text id="103:3363" name="12 أكتوبر 2026" x="0" y="0" width="150" height="22" />
+          <text id="103:3364" name="تاريخ التسجيل" x="158" y="0" width="150" height="18" />
+        </frame>
+        <frame id="103:3365" name="Row" x="17" y="141" width="308" height="22">
+          <text id="103:3366" name="اليوم · 22:10" x="0" y="0" width="150" height="22" />
+          <text id="103:3367" name="آخر استخدام" x="158" y="0" width="150" height="18" />
+        </frame>
+      </frame>
+      <text id="103:3368" name="يُسمح بجهاز واحد فقط لحساب طالب المعهد. لتغيير الجهاز أرسل طلباً تراجعه الإدارة." x="24" y="212" width="342" height="36" />
+      <frame id="103:3369" name="Spacer" x="24" y="264" width="342" height="388" />
+      <instance id="103:3370" name="Button" x="24" y="668" width="342" height="52" />
+    </frame>
+  </frame>
+</canvas>

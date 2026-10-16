@@ -86,6 +86,9 @@ flutter:
   assets:
     - assets/hasobjy/
   fonts:
+    - family: RobotoMono
+      fonts:
+        - asset: assets/hasobjy/fonts/RobotoMono-Variable.ttf
     - family: Cairo
       fonts:
         - asset: assets/hasobjy/fonts/Cairo-Regular.ttf

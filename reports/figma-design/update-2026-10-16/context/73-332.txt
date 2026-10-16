@@ -1,0 +1,120 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgSignal = `${assetPathPrefix}/ec76a.svg`;
+const imgWiFi = `${assetPathPrefix}/22855.svg`;
+const imgBattery = `${assetPathPrefix}/00202.svg`;
+const imgBackIcon = `${assetPathPrefix}/e82f9.svg`;
+const imgGlyph = `${assetPathPrefix}/ff159.svg`;
+const imgChamferTl = `${assetPathPrefix}/b043f.svg`;
+const imgChamferBr = `${assetPathPrefix}/03567.svg`;
+
+export default function C07() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex flex-col items-start relative size-full" data-node-id="73:332" data-name="C-07 · حلّ التمرين">
+      <div className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" data-node-id="73:333" data-name="Status Bar">
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" data-node-id="I73:333;18:3">
+          9:41
+        </p>
+        <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="I73:333;18:4" data-name="Indicators">
+          <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="I73:333;18:5" data-name="Signal">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+          </div>
+          <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="I73:333;18:10" data-name="Wi-Fi">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+          </div>
+          <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="I73:333;18:14" data-name="Battery">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--color-bg-surface,#06224d)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" data-node-id="73:349" data-name="App Bar">
+        <div className="relative shrink-0 size-[24px]" data-node-id="I73:349;8:52" data-name="Spacer" />
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" dir="auto" data-node-id="I73:349;8:53">
+          تمرين 3: ربط الجداول
+        </p>
+        <div className="relative shrink-0 size-[24px]" data-node-id="I73:349;8:54" data-name="Back icon">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start min-h-px overflow-clip pb-[24px] pt-[16px] px-[24px] relative w-full" data-node-id="73:354" data-name="Content">
+        <div className="[word-break:break-word] bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-col gap-[6px] items-start not-italic overflow-clip p-[16px] relative shrink-0 text-[14px] text-right w-full" data-node-id="73:355" data-name="Problem">
+          <p className="font-['Cairo:Medium'] font-medium leading-[20px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-full" dir="auto" data-node-id="73:356">
+            المطلوب
+          </p>
+          <p className="font-['Cairo:Regular'] font-normal leading-[22px] relative shrink-0 text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="73:357">
+            اكتب استعلام SQL يعرض اسم كل طالب مع اسم المادة المسجّل بها، مرتّباً حسب اسم الطالب.
+          </p>
+        </div>
+        <div className="[word-break:break-word] bg-[var(--color-bg-subtle,#011755)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col font-['Roboto_Mono:Regular'] font-normal gap-[4px] items-start leading-[normal] min-h-px overflow-clip p-[14px] relative text-[13px] w-full" data-node-id="73:358" data-name="Code editor">
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:359" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:360">
+              1
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)]" data-node-id="73:361">
+              SELECT s.name, c.title
+            </p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:362" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:363">
+              2
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)]" data-node-id="73:364">
+              FROM students s
+            </p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:365" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:366">
+              3
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)]" data-node-id="73:367">
+              JOIN enrollments e
+            </p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:368" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:369">
+              4
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)] whitespace-pre-wrap" data-node-id="73:370">{`  ON e.student_id = s.id`}</p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:371" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:372">
+              5
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)]" data-node-id="73:373">
+              JOIN courses c
+            </p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:374" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:375">
+              6
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)] whitespace-pre-wrap" data-node-id="73:376">{`  ON c.id = e.course_id`}</p>
+          </div>
+          <div className="content-stretch flex gap-[12px] items-start overflow-clip relative shrink-0 w-full" data-node-id="73:377" data-name="Line">
+            <p className="h-[18px] relative shrink-0 text-[color:var(--color-text-muted,#9fc4e6)] w-[16px]" data-node-id="73:378">
+              7
+            </p>
+            <p className="flex-[1_0_0] min-w-px relative text-[color:var(--color-text-primary,white)]" data-node-id="73:379">
+              ORDER BY s.name;
+            </p>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-brand,#67a8dc)] content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="73:380" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-on-brand,#02112c)] whitespace-nowrap" dir="auto" data-node-id="I73:380;8:3">
+            إرسال للتصحيح
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="I73:380;19:410" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I73:380;19:410;19:52" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+            </div>
+          </div>
+          <div className="absolute left-0 size-[10px] top-0" data-node-id="I73:380;29:373" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-0 right-0 size-[10px]" data-node-id="I73:380;29:374" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

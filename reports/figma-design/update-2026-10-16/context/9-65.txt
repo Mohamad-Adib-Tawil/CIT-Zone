@@ -1,0 +1,96 @@
+const assetPathPrefix = "assets/hasobjy";
+const img3DBackground = `${assetPathPrefix}/8586f.svg`;
+const imgSignal = `${assetPathPrefix}/ec76a.svg`;
+const imgWiFi = `${assetPathPrefix}/22855.svg`;
+const imgBattery = `${assetPathPrefix}/00202.svg`;
+const imgIconCircle = `${assetPathPrefix}/68735.svg`;
+const imgShell = `${assetPathPrefix}/75ce9.svg`;
+const imgVector = `${assetPathPrefix}/80870.svg`;
+const imgVector1 = `${assetPathPrefix}/07489.svg`;
+const imgGlyph = `${assetPathPrefix}/92416.svg`;
+const imgChamferTl = `${assetPathPrefix}/b043f.svg`;
+const imgChamferBr = `${assetPathPrefix}/03567.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/84987.svg`;
+
+export default function AS05() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex flex-col items-start overflow-clip relative rounded-[44px] size-full" data-node-id="9:65" data-name="A-S05 · الجهاز غير مصرّح">
+      <div className="absolute h-[844px] left-0 top-0 w-[390px]" data-node-id="120:5420" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <div className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" data-node-id="18:158" data-name="Status Bar">
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" data-node-id="I18:158;18:3">
+          9:41
+        </p>
+        <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="I18:158;18:4" data-name="Indicators">
+          <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="I18:158;18:5" data-name="Signal">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+          </div>
+          <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="I18:158;18:10" data-name="Wi-Fi">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+          </div>
+          <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="I18:158;18:14" data-name="Battery">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-center min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="9:68" data-name="Content">
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="9:69" data-name="Spacer" />
+        <div className="relative shrink-0 size-[112px]" data-node-id="9:70" data-name="Icon circle">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgIconCircle} />
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[32px] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] text-center w-[min-content]" dir="auto" data-node-id="9:74">
+          هذا الحساب مرتبط بجهاز آخر
+        </p>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[26px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-secondary,#d9f1fd)] text-center w-[min-content]" dir="auto" data-node-id="9:75">
+          يمكن استخدام الحساب على جهاز واحد فقط. لتغيير الجهاز أرسل طلباً للإدارة وسنراجعه في أقرب وقت.
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="9:76" data-name="Spacer" />
+        <div className="drop-shadow-[0px_0px_11px_rgba(46,156,229,0.65)] h-[52px] relative shrink-0 w-full" data-node-id="120:5432" data-name="Button 3D">
+          <div className="absolute h-[52px] left-0 overflow-clip right-0 top-0" data-node-id="125:580" data-name="Shell">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgShell} />
+            <div className="absolute inset-[0_0_61.54%_0]" data-node-id="125:582" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="absolute inset-[1.44%_0.22%]" data-node-id="125:583" data-name="Vector">
+              <div className="absolute inset-[-1.49%_-0.22%]">
+                <img alt="" className="block max-w-none size-full" src={imgVector1} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute content-stretch flex gap-[10px] h-[52px] items-center justify-center left-0 overflow-clip right-0 top-0" data-node-id="120:5438" data-name="Content">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-shadow-[0px_1px_0px_rgba(0,13,51,0.5)] text-white whitespace-nowrap" dir="auto" data-node-id="120:5439">
+              طلب تغيير الجهاز
+            </p>
+            <div className="relative shrink-0 size-[24px]" data-node-id="120:5440" data-name="Icon/refresh">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I120:5440;19:81" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-strong,#3d5a78)] border-solid content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="9:79" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" dir="auto" data-node-id="I9:79;8:7">
+            تسجيل الخروج
+          </p>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I9:79;29:377" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I9:79;29:378" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I9:79;29:379" data-name="Chamfer line TL">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I9:79;29:380" data-name="Chamfer line BR">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

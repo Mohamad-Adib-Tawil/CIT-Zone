@@ -36,6 +36,7 @@ class AppRouter {
           builder: (_, state) => _identityBuilder(
             (context, identityState) => HasobjyDesignPage(
               frameId: HasobjyFrameId.aS01,
+              followSystemTheme: true,
               onGoogleSignIn: identityCubit.isConfigured
                   ? identityCubit.signIn
                   : null,

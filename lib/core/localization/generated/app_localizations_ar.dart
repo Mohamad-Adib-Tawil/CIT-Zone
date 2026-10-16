@@ -279,11 +279,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get contactSupport => 'التواصل مع الدعم';
 
   @override
-  String get designWelcomeTitle => 'مرحباً بك في حاسوبجي سيستم';
+  String get designWelcomeTitle => 'مرحباً بك في تطبيق حاسوبجي';
 
   @override
   String get designWelcomeDescription =>
-      'دروس مسجّلة وملفات PDF وتمارين لطلاب المعهد التقني للحاسوب، وكورسات برمجية لكل من يرغب بالتعلّم';
+      'تطبيق مخصص للحاسوبجيين وأي شخص شغوف يحب أن يطوّر نفسه بكورسات احترافية في مجال البرمجيات وما يندرج تحتها.';
 
   @override
   String get continueViaGoogle => 'المتابعة عبر Google';

@@ -1,0 +1,139 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgBackIcon = `${assetPathPrefix}/c318e.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const img3DBackground = `${assetPathPrefix}/b17d1.svg`;
+const imgChamferTl = `${assetPathPrefix}/8c721.svg`;
+const imgChamferBr = `${assetPathPrefix}/089c8.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/4c1f4.svg`;
+const imgGlyph = `${assetPathPrefix}/d921e.svg`;
+const imgVector = `${assetPathPrefix}/0ac5c.svg`;
+const imgVector1 = `${assetPathPrefix}/b926f.svg`;
+const imgVector2 = `${assetPathPrefix}/7d772.svg`;
+const imgVector3 = `${assetPathPrefix}/2592c.svg`;
+
+type AppBarProps = {
+  className?: string;
+  title?: string;
+};
+
+function AppBar({ className, title = "عنوان الشاشة" }: AppBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative w-[390px]"} data-node-id="8:51" data-name="App Bar">
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:52" data-name="Spacer" />
+      <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="8:53">
+        {title}
+      </p>
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:54" data-name="Back icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function AS06Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start overflow-clip relative rounded-[44px] size-full" data-node-id="103:1266" data-name="A-S06 · طلب تغيير الجهاز · Light">
+      <div className="absolute h-[844px] left-0 top-0 w-[390px]" data-node-id="120:5602" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <AppBar className="bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" title="طلب تغيير الجهاز" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[var(--space-md,16px)] items-start min-h-px overflow-clip pb-[var(--space-lg,24px)] pt-[var(--space-md,16px)] px-[var(--space-lg,24px)] relative w-full" data-node-id="103:1269" data-name="Content">
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col gap-[var(--space-xs,8px)] items-start p-[var(--space-md,16px)] relative shrink-0 w-full" data-node-id="103:1270" data-name="Card">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-muted,#587a9c)] text-right w-[min-content]" dir="auto" data-node-id="103:1271">
+            الجهاز الجديد
+          </p>
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-full not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-[min-content]" data-node-id="103:1272">
+            Samsung Galaxy A54 · Android 14
+          </p>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="103:1273" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="103:1274" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[12px] top-[-1px]" data-node-id="103:1275" data-name="Chamfer line TL">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[12px]" data-node-id="103:1276" data-name="Chamfer line BR">
+            <div className="absolute inset-[-5.89%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch drop-shadow-[0px_6px_6px_rgba(0,13,51,0.18)] flex flex-col gap-[var(--space-2xs,4px)] items-start relative shrink-0 w-full" data-node-id="103:1277" data-name="Input: Reason">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="I103:1277;8:20">
+            سبب التغيير
+          </p>
+          <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex gap-[8px] h-[52px] items-center overflow-clip px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="I103:1277;8:21" data-name="Field">
+            <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[26px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-muted,#587a9c)] text-right" dir="auto" data-node-id="I103:1277;8:22">
+              مثال: تغيّر هاتفي أو فُقد الجهاز القديم
+            </p>
+            <div className="relative shrink-0 size-[24px]" data-node-id="I103:1277;19:476" data-name="Icon">
+              <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:1277;19:476;19:49" data-name="Glyph">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+              </div>
+            </div>
+          </div>
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="I103:1277;8:23">
+            سيصل طلبك إلى الإدارة للمراجعة
+          </p>
+        </div>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="103:1278" data-name="Spacer" />
+        <div className="drop-shadow-[0px_8px_6px_rgba(0,0,0,0.3)] h-[60px] relative shrink-0 w-full" data-node-id="120:5614" data-name="Button 3D">
+          <div className="absolute h-[60px] left-0 overflow-clip right-0 top-0" data-node-id="120:5615" data-name="Shell">
+            <div className="absolute inset-[13.33%_0_0_0]" data-node-id="120:5616" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector} />
+            </div>
+            <div className="absolute inset-[0_0_13.33%_0]" data-node-id="120:5617" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector1} />
+            </div>
+            <div className="absolute inset-[3.33%_0.58%_63.33%_0.58%]" data-node-id="120:5618" data-name="Vector">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgVector2} />
+            </div>
+            <div className="absolute inset-[0.83%_0.15%_99.17%_2.92%]" data-node-id="120:5619" data-name="Vector">
+              <div className="absolute inset-[-0.5px_0]">
+                <img alt="" className="block max-w-none size-full" src={imgVector3} />
+              </div>
+            </div>
+          </div>
+          <div className="absolute content-stretch flex h-[52px] items-center justify-center left-0 overflow-clip right-0 top-0" data-node-id="120:5620" data-name="Content">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-shadow-[0px_1px_0px_rgba(0,13,51,0.5)] text-white whitespace-nowrap" dir="auto" data-node-id="120:5621">
+              إرسال الطلب
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

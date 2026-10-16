@@ -1,0 +1,1578 @@
+[
+  {
+    "node": "108:23",
+    "name": "A-S01 · تسجيل الدخول",
+    "page": "1:4",
+    "assets": {
+      "imgGlyph": "96346.svg",
+      "img3DBackground": "1c591.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgLogo3D": "e2776.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S01",
+    "enum": "aS01"
+  },
+  {
+    "node": "119:667",
+    "name": "A-S01 · تسجيل الدخول · Light",
+    "page": "1:4",
+    "assets": {
+      "imgGlyph": "96346.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "6fb9e.svg",
+      "imgLogo3D": "e2776.svg",
+      "imgVector": "d5276.svg",
+      "imgVector1": "0ac5c.svg",
+      "imgVector2": "b926f.svg",
+      "imgVector3": "7d772.svg",
+      "imgVector4": "2592c.svg",
+      "imgVector5": "605ac.svg"
+    },
+    "key": "A-S01-LIGHT",
+    "enum": "aS01Light"
+  },
+  {
+    "node": "9:15",
+    "name": "A-S03 · اختيار نوع الاستخدام",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "9d8e7.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgRadio": "0fd39.svg",
+      "imgGlyph": "4d691.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "416c4.svg",
+      "imgRadio1": "cb103.svg",
+      "imgGlyph1": "dbeae.svg",
+      "imgChamferLineTl1": "8c8a2.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S03",
+    "enum": "aS03"
+  },
+  {
+    "node": "103:1232",
+    "name": "A-S03 · اختيار نوع الاستخدام · Light",
+    "page": "1:4",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "2e5fe.svg",
+      "imgRadio": "c24b8.svg",
+      "imgGlyph": "0e972.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "ac7ea.svg",
+      "imgRadio1": "cefcd.svg",
+      "imgGlyph1": "cd925.svg",
+      "imgChamferLineTl1": "4c1f4.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg"
+    },
+    "key": "A-S03-LIGHT",
+    "enum": "aS03Light"
+  },
+  {
+    "node": "9:34",
+    "name": "A-S04 · المعلومات الأساسية",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "526bd.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "0699d.svg",
+      "imgGroup": "bf992.svg",
+      "imgGlyph1": "90d15.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S04",
+    "enum": "aS04"
+  },
+  {
+    "node": "103:1241",
+    "name": "A-S04 · المعلومات الأساسية · Light",
+    "page": "1:4",
+    "assets": {
+      "imgGlyph": "85e89.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "e14f6.svg",
+      "imgGroup": "02329.svg",
+      "imgGlyph1": "0a87c.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg"
+    },
+    "key": "A-S04-LIGHT",
+    "enum": "aS04Light"
+  },
+  {
+    "node": "9:65",
+    "name": "A-S05 · الجهاز غير مصرّح",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "8586f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgIconCircle": "68735.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg",
+      "imgGlyph": "92416.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "A-S05",
+    "enum": "aS05"
+  },
+  {
+    "node": "103:1251",
+    "name": "A-S05 · الجهاز غير مصرّح · Light",
+    "page": "1:4",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "76695.svg",
+      "imgIconCircle": "61117.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg",
+      "imgGlyph": "92416.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "A-S05-LIGHT",
+    "enum": "aS05Light"
+  },
+  {
+    "node": "9:81",
+    "name": "A-S06 · طلب تغيير الجهاز",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "5041f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg",
+      "imgGlyph": "4ece2.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S06",
+    "enum": "aS06"
+  },
+  {
+    "node": "103:1266",
+    "name": "A-S06 · طلب تغيير الجهاز · Light",
+    "page": "1:4",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "b17d1.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg",
+      "imgGlyph": "d921e.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg"
+    },
+    "key": "A-S06-LIGHT",
+    "enum": "aS06Light"
+  },
+  {
+    "node": "9:101",
+    "name": "A-S07 · حالة الطلب",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "9d8e7.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgIconCircle": "ef6d9.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg",
+      "imgGroup": "bf992.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg",
+      "imgChamferLineTl1": "84987.svg"
+    },
+    "key": "A-S07",
+    "enum": "aS07"
+  },
+  {
+    "node": "103:1280",
+    "name": "A-S07 · حالة الطلب · Light",
+    "page": "1:4",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "2e5fe.svg",
+      "imgIconCircle": "67a14.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg",
+      "imgGroup": "02329.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg",
+      "imgChamferLineTl1": "ee89b.svg"
+    },
+    "key": "A-S07-LIGHT",
+    "enum": "aS07Light"
+  },
+  {
+    "node": "65:237",
+    "name": "A-S08 · الشروط وسياسة الخصوصية",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "526bd.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S08",
+    "enum": "aS08"
+  },
+  {
+    "node": "103:1308",
+    "name": "A-S08 · الشروط وسياسة الخصوصية · Light",
+    "page": "1:4",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "e14f6.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg"
+    },
+    "key": "A-S08-LIGHT",
+    "enum": "aS08Light"
+  },
+  {
+    "node": "66:629",
+    "name": "A-S09 · معلومات الكورسات فقط",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "8586f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "0699d.svg",
+      "imgGroup": "bf992.svg",
+      "imgGlyph1": "90d15.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg"
+    },
+    "key": "A-S09",
+    "enum": "aS09"
+  },
+  {
+    "node": "103:1329",
+    "name": "A-S09 · معلومات الكورسات فقط · Light",
+    "page": "1:4",
+    "assets": {
+      "imgGlyph": "85e89.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "76695.svg",
+      "imgGroup": "02329.svg",
+      "imgGlyph1": "0a87c.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg"
+    },
+    "key": "A-S09-LIGHT",
+    "enum": "aS09Light"
+  },
+  {
+    "node": "66:692",
+    "name": "A-S10 · الحساب موقوف",
+    "page": "1:4",
+    "assets": {
+      "img3DBackground": "5041f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "4eb40.svg",
+      "imgChamferTl": "10a46.svg",
+      "imgChamferBr": "8551a.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg",
+      "imgGlyph1": "cf7cc.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "A-S10",
+    "enum": "aS10"
+  },
+  {
+    "node": "103:1338",
+    "name": "A-S10 · الحساب موقوف · Light",
+    "page": "1:4",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "b17d1.svg",
+      "imgGlyph": "b8a2d.svg",
+      "imgChamferTl": "1158f.svg",
+      "imgChamferBr": "2f699.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg",
+      "imgGlyph1": "cf7cc.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "A-S10-LIGHT",
+    "enum": "aS10Light"
+  },
+  {
+    "node": "10:2",
+    "name": "B-S01 · المعلومات الأكاديمية",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgRadio": "0fd39.svg",
+      "imgGlyph": "dbeae.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "416c4.svg",
+      "imgRadio1": "cb103.svg",
+      "imgGlyph1": "f52de.svg",
+      "imgChamferLineTl1": "8c8a2.svg",
+      "imgGlyph2": "1ee59.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg"
+    },
+    "key": "B-S01",
+    "enum": "bS01"
+  },
+  {
+    "node": "103:2957",
+    "name": "B-S01 · المعلومات الأكاديمية · Light",
+    "page": "1:5",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgRadio": "c24b8.svg",
+      "imgGlyph": "cd925.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "ac7ea.svg",
+      "imgRadio1": "cefcd.svg",
+      "imgGlyph1": "e080c.svg",
+      "imgChamferLineTl1": "4c1f4.svg",
+      "imgGlyph2": "23235.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg"
+    },
+    "key": "B-S01-LIGHT",
+    "enum": "bS01Light"
+  },
+  {
+    "node": "10:40",
+    "name": "B-S03 · ملخص التأكيد",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg",
+      "imgGlyph": "f17a9.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg",
+      "imgChamferLineTl1": "84987.svg"
+    },
+    "key": "B-S03",
+    "enum": "bS03"
+  },
+  {
+    "node": "103:2970",
+    "name": "B-S03 · ملخص التأكيد · Light",
+    "page": "1:5",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg",
+      "imgGlyph": "35def.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg",
+      "imgChamferLineTl1": "ee89b.svg"
+    },
+    "key": "B-S03-LIGHT",
+    "enum": "bS03Light"
+  },
+  {
+    "node": "10:69",
+    "name": "B-S04 · تأكيد تسجيل الفصل الجديد",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg",
+      "imgGlyph": "f17a9.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg",
+      "imgChamferLineTl1": "84987.svg"
+    },
+    "key": "B-S04",
+    "enum": "bS04"
+  },
+  {
+    "node": "103:2996",
+    "name": "B-S04 · تأكيد تسجيل الفصل الجديد · Light",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg",
+      "imgGlyph": "35def.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg",
+      "imgChamferLineTl1": "ee89b.svg"
+    },
+    "key": "B-S04-LIGHT",
+    "enum": "bS04Light"
+  },
+  {
+    "node": "10:92",
+    "name": "B-S05 · حالات الفصل في الرئيسية",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg"
+    },
+    "key": "B-S05",
+    "enum": "bS05"
+  },
+  {
+    "node": "103:3019",
+    "name": "B-S05 · حالات الفصل في الرئيسية · Light",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg"
+    },
+    "key": "B-S05-LIGHT",
+    "enum": "bS05Light"
+  },
+  {
+    "node": "10:115",
+    "name": "B-S06 · جدول الامتحانات",
+    "page": "1:5",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "8c8a2.svg"
+    },
+    "key": "B-S06",
+    "enum": "bS06"
+  },
+  {
+    "node": "103:3050",
+    "name": "B-S06 · جدول الامتحانات · Light",
+    "page": "1:5",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "4c1f4.svg"
+    },
+    "key": "B-S06-LIGHT",
+    "enum": "bS06Light"
+  },
+  {
+    "node": "69:3",
+    "name": "C-01 · الرئيسية",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "e3eac.svg",
+      "imgGlyph1": "38165.svg",
+      "imgGlyph2": "ba0b6.svg",
+      "imgGlyph3": "c0735.svg",
+      "imgGlyph4": "5238a.svg",
+      "imgGlyph5": "ba247.svg"
+    },
+    "key": "C-01",
+    "enum": "c01"
+  },
+  {
+    "node": "103:3371",
+    "name": "C-01 · الرئيسية · Light",
+    "page": "69:2",
+    "assets": {
+      "imgGlyph": "5286a.svg",
+      "imgGlyph1": "b7b86.svg",
+      "imgGlyph2": "ce630.svg",
+      "imgGlyph3": "6b548.svg",
+      "imgGlyph4": "3e782.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph5": "0a1db.svg"
+    },
+    "key": "C-01-LIGHT",
+    "enum": "c01Light"
+  },
+  {
+    "node": "69:93",
+    "name": "C-02 · المواد",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "38165.svg",
+      "imgGlyph1": "ba0b6.svg",
+      "imgGlyph2": "c0735.svg",
+      "imgGlyph3": "d7c97.svg",
+      "imgGlyph4": "cba16.svg"
+    },
+    "key": "C-02",
+    "enum": "c02"
+  },
+  {
+    "node": "103:3410",
+    "name": "C-02 · المواد · Light",
+    "page": "69:2",
+    "assets": {
+      "imgGlyph": "5286a.svg",
+      "imgGlyph1": "b7b86.svg",
+      "imgGlyph2": "aa30e.svg",
+      "imgGlyph3": "03c2c.svg",
+      "imgGlyph4": "3e782.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "C-02-LIGHT",
+    "enum": "c02Light"
+  },
+  {
+    "node": "69:203",
+    "name": "C-03 · تفاصيل المادة",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "46019.svg",
+      "imgGlyph1": "d589e.svg",
+      "imgGlyph2": "f969e.svg",
+      "imgGlyph3": "ba0b6.svg",
+      "imgGlyph4": "c0735.svg",
+      "imgGlyph5": "d7c97.svg",
+      "imgGlyph6": "cba16.svg"
+    },
+    "key": "C-03",
+    "enum": "c03"
+  },
+  {
+    "node": "103:3467",
+    "name": "C-03 · تفاصيل المادة · Light",
+    "page": "69:2",
+    "assets": {
+      "imgGlyph": "5286a.svg",
+      "imgGlyph1": "b7b86.svg",
+      "imgGlyph2": "aa30e.svg",
+      "imgGlyph3": "03c2c.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph4": "96bd9.svg",
+      "imgGlyph5": "c18cf.svg",
+      "imgGlyph6": "0bdf1.svg"
+    },
+    "key": "C-03-LIGHT",
+    "enum": "c03Light"
+  },
+  {
+    "node": "69:304",
+    "name": "C-04 · مشغّل الدرس",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "e3eac.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgGlyph1": "18141.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "C-04",
+    "enum": "c04"
+  },
+  {
+    "node": "103:3512",
+    "name": "C-04 · مشغّل الدرس · Light",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "0a1db.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgGlyph1": "89cce.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "C-04-LIGHT",
+    "enum": "c04Light"
+  },
+  {
+    "node": "73:206",
+    "name": "C-05 · عارض PDF (عرض فقط)",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "C-05",
+    "enum": "c05"
+  },
+  {
+    "node": "103:3532",
+    "name": "C-05 · عارض PDF (عرض فقط) · Light",
+    "page": "69:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "C-05-LIGHT",
+    "enum": "c05Light"
+  },
+  {
+    "node": "73:269",
+    "name": "C-06 · التمارين",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "5c3d1.svg"
+    },
+    "key": "C-06",
+    "enum": "c06"
+  },
+  {
+    "node": "103:3556",
+    "name": "C-06 · التمارين · Light",
+    "page": "69:2",
+    "assets": {
+      "imgGlyph": "822c8.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "C-06-LIGHT",
+    "enum": "c06Light"
+  },
+  {
+    "node": "73:332",
+    "name": "C-07 · حلّ التمرين",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "ff159.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "C-07",
+    "enum": "c07"
+  },
+  {
+    "node": "103:3588",
+    "name": "C-07 · حلّ التمرين · Light",
+    "page": "69:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "d27c4.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "C-07-LIGHT",
+    "enum": "c07Light"
+  },
+  {
+    "node": "73:391",
+    "name": "C-08 · نتيجة التصحيح",
+    "page": "69:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "49c93.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "C-08",
+    "enum": "c08"
+  },
+  {
+    "node": "103:3618",
+    "name": "C-08 · نتيجة التصحيح · Light",
+    "page": "69:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "5f95b.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "C-08-LIGHT",
+    "enum": "c08Light"
+  },
+  {
+    "node": "91:26",
+    "name": "E-01 · التنزيلات",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "18141.svg"
+    },
+    "key": "E-01",
+    "enum": "e01"
+  },
+  {
+    "node": "103:4398",
+    "name": "E-01 · التنزيلات · Light",
+    "page": "91:2",
+    "assets": {
+      "imgGlyph": "89cce.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "E-01-LIGHT",
+    "enum": "e01Light"
+  },
+  {
+    "node": "80:3",
+    "name": "F-01 · الكورسات",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "c0735.svg",
+      "imgGlyph1": "ba0b6.svg",
+      "imgGlyph2": "3ff11.svg",
+      "imgGlyph3": "5238a.svg",
+      "imgGlyph4": "cba16.svg"
+    },
+    "key": "F-01",
+    "enum": "f01"
+  },
+  {
+    "node": "103:4134",
+    "name": "F-01 · الكورسات · Light",
+    "page": "80:2",
+    "assets": {
+      "imgGlyph": "5286a.svg",
+      "imgGlyph1": "6cc2d.svg",
+      "imgGlyph2": "ce630.svg",
+      "imgGlyph3": "03c2c.svg",
+      "imgGlyph4": "b7b86.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "F-01-LIGHT",
+    "enum": "f01Light"
+  },
+  {
+    "node": "80:113",
+    "name": "F-02 · تفاصيل الكورس",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "c0735.svg",
+      "imgGlyph1": "0583d.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "F-02",
+    "enum": "f02"
+  },
+  {
+    "node": "103:4167",
+    "name": "F-02 · تفاصيل الكورس · Light",
+    "page": "80:2",
+    "assets": {
+      "imgGlyph": "b7b86.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph1": "45232.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "F-02-LIGHT",
+    "enum": "f02Light"
+  },
+  {
+    "node": "80:175",
+    "name": "F-03 · الدفع",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgRadio": "0fd39.svg",
+      "imgGlyph": "ed48e.svg",
+      "imgChamferTl": "21288.svg",
+      "imgChamferBr": "c95e6.svg",
+      "imgChamferLineTl": "416c4.svg",
+      "imgRadio1": "cb103.svg",
+      "imgGlyph1": "8c281.svg",
+      "imgChamferLineTl1": "8c8a2.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg"
+    },
+    "key": "F-03",
+    "enum": "f03"
+  },
+  {
+    "node": "103:4193",
+    "name": "F-03 · الدفع · Light",
+    "page": "80:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgRadio": "c24b8.svg",
+      "imgGlyph": "39b05.svg",
+      "imgChamferTl": "8c721.svg",
+      "imgChamferBr": "089c8.svg",
+      "imgChamferLineTl": "ac7ea.svg",
+      "imgRadio1": "cefcd.svg",
+      "imgGlyph1": "93f8b.svg",
+      "imgChamferLineTl1": "4c1f4.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg"
+    },
+    "key": "F-03-LIGHT",
+    "enum": "f03Light"
+  },
+  {
+    "node": "80:260",
+    "name": "F-04 · تأكيد الحوالة",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "F-04",
+    "enum": "f04"
+  },
+  {
+    "node": "103:4213",
+    "name": "F-04 · تأكيد الحوالة · Light",
+    "page": "80:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "F-04-LIGHT",
+    "enum": "f04Light"
+  },
+  {
+    "node": "80:312",
+    "name": "F-05 · قسيمة الشحن",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "8c281.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "F-05",
+    "enum": "f05"
+  },
+  {
+    "node": "103:4228",
+    "name": "F-05 · قسيمة الشحن · Light",
+    "page": "80:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "93f8b.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "F-05-LIGHT",
+    "enum": "f05Light"
+  },
+  {
+    "node": "80:357",
+    "name": "F-06 · نجاح العملية",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "46019.svg",
+      "imgGlyph1": "eb1d8.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "F-06",
+    "enum": "f06"
+  },
+  {
+    "node": "103:4236",
+    "name": "F-06 · نجاح العملية · Light",
+    "page": "80:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "96bd9.svg",
+      "imgGlyph1": "2b46f.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "F-06-LIGHT",
+    "enum": "f06Light"
+  },
+  {
+    "node": "85:3",
+    "name": "G-01 · كشف العلامات",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg"
+    },
+    "key": "G-01",
+    "enum": "g01"
+  },
+  {
+    "node": "103:4256",
+    "name": "G-01 · كشف العلامات · Light",
+    "page": "85:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "G-01-LIGHT",
+    "enum": "g01Light"
+  },
+  {
+    "node": "85:58",
+    "name": "G-02 · تفاصيل علامة المادة",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg"
+    },
+    "key": "G-02",
+    "enum": "g02"
+  },
+  {
+    "node": "103:4288",
+    "name": "G-02 · تفاصيل علامة المادة · Light",
+    "page": "85:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "G-02-LIGHT",
+    "enum": "g02Light"
+  },
+  {
+    "node": "85:100",
+    "name": "H-01 · الإشعارات",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "b15c8.svg",
+      "imgGlyph1": "f2880.svg",
+      "imgGlyph2": "ba0b6.svg",
+      "imgGlyph3": "c0735.svg",
+      "imgGlyph4": "5238a.svg",
+      "imgGlyph5": "ba247.svg"
+    },
+    "key": "H-01",
+    "enum": "h01"
+  },
+  {
+    "node": "103:4310",
+    "name": "H-01 · الإشعارات · Light",
+    "page": "85:2",
+    "assets": {
+      "imgGlyph": "5286a.svg",
+      "imgGlyph1": "b7b86.svg",
+      "imgGlyph2": "ce630.svg",
+      "imgGlyph3": "6b548.svg",
+      "imgGlyph4": "06c8c.svg",
+      "imgGlyph5": "e643d.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "H-01-LIGHT",
+    "enum": "h01Light"
+  },
+  {
+    "node": "85:193",
+    "name": "H-02 · الدعم",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "0ebba.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "H-02",
+    "enum": "h02"
+  },
+  {
+    "node": "103:4345",
+    "name": "H-02 · الدعم · Light",
+    "page": "85:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "b4b3f.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "H-02-LIGHT",
+    "enum": "h02Light"
+  },
+  {
+    "node": "85:252",
+    "name": "H-03 · تذكرة جديدة",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "H-03",
+    "enum": "h03"
+  },
+  {
+    "node": "103:4369",
+    "name": "H-03 · تذكرة جديدة · Light",
+    "page": "85:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "H-03-LIGHT",
+    "enum": "h03Light"
+  },
+  {
+    "node": "85:305",
+    "name": "H-04 · تفاصيل التذكرة",
+    "page": "85:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "H-04",
+    "enum": "h04"
+  },
+  {
+    "node": "103:4377",
+    "name": "H-04 · تفاصيل التذكرة · Light",
+    "page": "85:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "H-04-LIGHT",
+    "enum": "h04Light"
+  },
+  {
+    "node": "91:3",
+    "name": "I-01 · شاشة البداية",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgH": "902ed.svg"
+    },
+    "key": "I-01",
+    "enum": "i01"
+  },
+  {
+    "node": "103:4392",
+    "name": "I-01 · شاشة البداية · Light",
+    "page": "91:2",
+    "assets": {
+      "imgH": "77701.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg"
+    },
+    "key": "I-01-LIGHT",
+    "enum": "i01Light"
+  },
+  {
+    "node": "91:88",
+    "name": "I-02 · لا يوجد اتصال",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "1d2af.svg",
+      "imgGlyph1": "49c93.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "I-02",
+    "enum": "i02"
+  },
+  {
+    "node": "103:4432",
+    "name": "I-02 · لا يوجد اتصال · Light",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "2618f.svg",
+      "imgGlyph1": "5f95b.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "I-02-LIGHT",
+    "enum": "i02Light"
+  },
+  {
+    "node": "91:142",
+    "name": "I-03 · الصيانة",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "36e47.svg"
+    },
+    "key": "I-03",
+    "enum": "i03"
+  },
+  {
+    "node": "103:4442",
+    "name": "I-03 · الصيانة · Light",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "8c6db.svg"
+    },
+    "key": "I-03-LIGHT",
+    "enum": "i03Light"
+  },
+  {
+    "node": "91:168",
+    "name": "I-04 · تحديث إجباري",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "17175.svg",
+      "imgGlyph1": "18141.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "I-04",
+    "enum": "i04"
+  },
+  {
+    "node": "103:4450",
+    "name": "I-04 · تحديث إجباري · Light",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "3fa46.svg",
+      "imgGlyph1": "89cce.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "I-04-LIGHT",
+    "enum": "i04Light"
+  },
+  {
+    "node": "91:203",
+    "name": "I-05 · خطأ عام",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "d1465.svg",
+      "imgGlyph1": "49c93.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "I-05",
+    "enum": "i05"
+  },
+  {
+    "node": "103:4459",
+    "name": "I-05 · خطأ عام · Light",
+    "page": "91:2",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph": "42f22.svg",
+      "imgGlyph1": "5f95b.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "I-05-LIGHT",
+    "enum": "i05Light"
+  },
+  {
+    "node": "68:3",
+    "name": "S-01 · الإعدادات",
+    "page": "68:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgGlyph": "ee395.svg",
+      "imgGlyph1": "c0283.svg",
+      "imgGlyph2": "5beea.svg",
+      "imgGlyph3": "287fc.svg",
+      "imgGlyph4": "0699d.svg",
+      "imgGlyph5": "dcfca.svg",
+      "imgGlyph6": "0ebba.svg",
+      "imgGlyph7": "8c281.svg",
+      "imgGlyph8": "223ff.svg",
+      "imgChamferLineTl": "84987.svg",
+      "imgGlyph9": "d5522.svg",
+      "imgGlyph10": "c0735.svg",
+      "imgGlyph11": "5238a.svg",
+      "imgGlyph12": "cba16.svg"
+    },
+    "key": "S-01",
+    "enum": "s01"
+  },
+  {
+    "node": "103:3277",
+    "name": "S-01 · الإعدادات · Light",
+    "page": "68:2",
+    "assets": {
+      "imgGlyph": "fbcc8.svg",
+      "imgGlyph1": "b7b86.svg",
+      "imgGlyph2": "ce630.svg",
+      "imgGlyph3": "03c2c.svg",
+      "imgGlyph4": "575b9.svg",
+      "imgGlyph5": "85e89.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgGlyph6": "36fd3.svg",
+      "imgGlyph7": "e355e.svg",
+      "imgGlyph8": "99812.svg",
+      "imgGlyph9": "e8da6.svg",
+      "imgGlyph10": "b4b3f.svg",
+      "imgGlyph11": "93f8b.svg",
+      "imgGlyph12": "1983f.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "S-01-LIGHT",
+    "enum": "s01Light"
+  },
+  {
+    "node": "68:207",
+    "name": "S-02 · الملف الشخصي",
+    "page": "68:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "cbba1.svg",
+      "imgChamferBr": "19040.svg",
+      "imgGlyph": "9474c.svg",
+      "imgChamferTl1": "b043f.svg",
+      "imgChamferBr1": "03567.svg"
+    },
+    "key": "S-02",
+    "enum": "s02"
+  },
+  {
+    "node": "103:3306",
+    "name": "S-02 · الملف الشخصي · Light",
+    "page": "68:2",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgChamferTl": "75deb.svg",
+      "imgChamferBr": "fade5.svg",
+      "imgGlyph": "c1c06.svg",
+      "imgChamferTl1": "5aa0d.svg",
+      "imgChamferBr1": "66d1e.svg"
+    },
+    "key": "S-02-LIGHT",
+    "enum": "s02Light"
+  },
+  {
+    "node": "68:266",
+    "name": "S-03 · تعديل البيانات",
+    "page": "68:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "0699d.svg",
+      "imgGroup": "bf992.svg",
+      "imgGlyph1": "90d15.svg",
+      "imgGlyph2": "4ece2.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg"
+    },
+    "key": "S-03",
+    "enum": "s03"
+  },
+  {
+    "node": "103:3337",
+    "name": "S-03 · تعديل البيانات · Light",
+    "page": "68:2",
+    "assets": {
+      "imgGlyph": "d921e.svg",
+      "imgGlyph1": "85e89.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGroup": "02329.svg",
+      "imgGlyph2": "0a87c.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg"
+    },
+    "key": "S-03-LIGHT",
+    "enum": "s03Light"
+  },
+  {
+    "node": "68:342",
+    "name": "S-04 · الجهاز المسجّل",
+    "page": "68:2",
+    "assets": {
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "dcfca.svg",
+      "imgGlyph1": "49c93.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    },
+    "key": "S-04",
+    "enum": "s04"
+  },
+  {
+    "node": "103:3349",
+    "name": "S-04 · الجهاز المسجّل · Light",
+    "page": "68:2",
+    "assets": {
+      "imgGlyph": "e8da6.svg",
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "imgGlyph1": "5f95b.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    },
+    "key": "S-04-LIGHT",
+    "enum": "s04Light"
+  }
+]

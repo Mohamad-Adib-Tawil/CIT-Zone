@@ -1,0 +1,44 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgSignal = `${assetPathPrefix}/ec76a.svg`;
+const imgWiFi = `${assetPathPrefix}/22855.svg`;
+const imgBattery = `${assetPathPrefix}/00202.svg`;
+const imgGlyph = `${assetPathPrefix}/36e47.svg`;
+
+export default function I03() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex flex-col items-start relative size-full" data-node-id="91:142" data-name="I-03 · الصيانة">
+      <div className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" data-node-id="91:143" data-name="Status Bar">
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] whitespace-nowrap" data-node-id="I91:143;18:3">
+          9:41
+        </p>
+        <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="I91:143;18:4" data-name="Indicators">
+          <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="I91:143;18:5" data-name="Signal">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+          </div>
+          <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="I91:143;18:10" data-name="Wi-Fi">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+          </div>
+          <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="I91:143;18:14" data-name="Battery">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+          </div>
+        </div>
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-center justify-center min-h-px overflow-clip pb-[24px] pt-[16px] px-[24px] relative w-full" data-node-id="91:159" data-name="Content">
+        <div className="bg-[var(--color-bg-brand-subtle,#1b3f73)] content-stretch flex items-center justify-center overflow-clip relative shrink-0 size-[112px]" data-node-id="91:160" data-name="Icon tile">
+          <div className="relative shrink-0 size-[24px]" data-node-id="91:161" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I91:161;19:45" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+            </div>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[32px] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] text-center w-[min-content]" dir="auto" data-node-id="91:165">
+          التطبيق قيد الصيانة
+        </p>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-center w-[min-content]" dir="auto" data-node-id="91:166">
+          نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.
+        </p>
+        <div className="flex-[1_0_0] min-h-px relative w-full" data-node-id="91:167" data-name="Spacer" />
+      </div>
+    </div>
+  );
+}

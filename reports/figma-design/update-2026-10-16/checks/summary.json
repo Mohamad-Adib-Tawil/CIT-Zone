@@ -1,0 +1,25 @@
+{
+  "referenceFile": "11anMMsG6zbMHejcOukYC7",
+  "screens": 44,
+  "frameVariants": 88,
+  "contexts": 88,
+  "referenceScreenshots": 88,
+  "deviceCaptures": 176,
+  "nativeKeyboardInset": 362.0,
+  "flutterTest": {
+    "passed": 477,
+    "failed": 0
+  },
+  "analyze": "No issues found",
+  "format": "117 files, 0 changed",
+  "lockfile": "pub get --enforce-lockfile succeeded",
+  "referenceContentFrames": 62,
+  "referenceTextStyleSlots": 907,
+  "comparisonMeanAbsoluteChannelErrorRangeOutOf255": [
+    0.1246,
+    2.192
+  ],
+  "pixelEqualityClaimed": false,
+  "backendFeaturesClaimed": false,
+  "androidOrPhysicalDeviceValidation": false
+}

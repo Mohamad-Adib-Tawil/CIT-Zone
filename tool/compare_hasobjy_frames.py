@@ -1,8 +1,9 @@
 """Compare real simulator captures with Figma exports at 390 x 844.
 
 Requires Pillow (verification tooling only). Run from the project root:
-python3 tool/compare_hasobjy_frames.py
+python3 tool/compare_hasobjy_frames.py --root reports/figma-design/update-2026-10-16
 """
+import argparse
 import json
 from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageStat
@@ -15,14 +16,27 @@ FRAMES = {
     'B-S05': '10-92', 'B-S06': '10-115',
 }
 
+def flatten(path):
+    image = Image.open(path).convert('RGBA')
+    white = Image.new('RGBA', image.size, 'white')
+    white.alpha_composite(image)
+    return white.convert('RGB')
+
+
 def main():
-    output = ROOT / 'comparison'
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--root', type=Path, default=ROOT)
+    args = parser.parse_args()
+    root = args.root
+    manifest = root / 'frames.json'
+    frames = {f['key']: f['node'].replace(':', '-') for f in json.loads(manifest.read_text())} if manifest.exists() else FRAMES
+    output = root / 'comparison'
     output.mkdir(exist_ok=True)
     results = []
     pairs = []
-    for frame, node in FRAMES.items():
-        figma = Image.open(ROOT / f'figma-{node}.png').convert('RGB')
-        actual = Image.open(ROOT / 'device-390' / f'{frame}.png').convert('RGB')
+    for frame, node in frames.items():
+        figma = flatten(root / 'figma' / f'{node}.png' if manifest.exists() else root / f'figma-{node}.png')
+        actual = flatten(root / 'device-390' / f'{frame}.png')
         if figma.size != (390, 844) or actual.size != figma.size:
             raise ValueError(f'{frame}: mismatched capture dimensions')
         difference = ImageChops.difference(figma, actual)

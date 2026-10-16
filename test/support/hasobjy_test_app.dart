@@ -10,6 +10,10 @@ Future<void> loadCairoForTests() async {
     loader.addFont(rootBundle.load('assets/hasobjy/fonts/Cairo-$weight.ttf'));
   }
   await loader.load();
+  await (FontLoader('RobotoMono')..addFont(
+        rootBundle.load('assets/hasobjy/fonts/RobotoMono-Variable.ttf'),
+      ))
+      .load();
 }
 
 Widget arabicTestApp(Widget child) => MaterialApp(

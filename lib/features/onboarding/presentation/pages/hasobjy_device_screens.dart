@@ -1,7 +1,7 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/hasobjy_design_tokens.dart';
+import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 
 const _previewDeviceName = 'Samsung Galaxy A54 · Android 14';
@@ -20,33 +20,33 @@ class HasobjyDeviceConflictScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return HasobjyFigmaFrame(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           children: [
-            const Spacer(),
-            const SizedBox(height: 16),
-            const HasobjySvg('68735', width: 112, height: 112),
-            const SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
+            HasobjySvg('68735', width: 112, height: 112),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).deviceConflictTitle,
               textAlign: TextAlign.center,
-              style: HasobjyDesignTokens.title,
+              style: context.design.title,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               AppLocalizations.of(context).deviceConflictDescription,
               textAlign: TextAlign.center,
-              style: HasobjyDesignTokens.bodyLarge,
+              style: context.design.bodyLarge,
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).requestDeviceTransfer,
-              icon: const HasobjySvg('bb08f', width: 24, height: 24),
+              icon: HasobjySvg('bb08f', width: 24, height: 24),
               onPressed: onRequestTransfer,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).signOut,
               primary: false,
@@ -91,7 +91,7 @@ class _HasobjyDeviceTransferScreenState
       appBarTitle: AppLocalizations.of(context).requestDeviceTransfer,
       onBack: widget.onBack,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -99,7 +99,7 @@ class _HasobjyDeviceTransferScreenState
               label: AppLocalizations.of(context).newDevice,
               emphasized: true,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyFormField(
               label: AppLocalizations.of(context).transferReason,
               hint: AppLocalizations.of(context).transferReasonHint,
@@ -107,9 +107,9 @@ class _HasobjyDeviceTransferScreenState
               helper: AppLocalizations.of(context).transferReviewHelper,
               controller: _reasonController,
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).submitRequest,
               onPressed: widget.onSubmit,
@@ -136,7 +136,7 @@ class HasobjyTransferStatusScreen extends StatelessWidget {
     return HasobjyFigmaFrame(
       appBarTitle: AppLocalizations.of(context).requestStatus,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+        padding: EdgeInsets.fromLTRB(24, 16, 24, 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -149,48 +149,46 @@ class HasobjyTransferStatusScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Center(
-                    child: HasobjySvg('ef6d9', width: 72, height: 72),
-                  ),
-                  const SizedBox(height: 12),
+                  Center(child: HasobjySvg('ef6d9', width: 72, height: 72)),
+                  SizedBox(height: 12),
                   Center(
                     child: HasobjyBadge(
                       label: AppLocalizations.of(context).underReview,
-                      background: HasobjyDesignTokens.warning,
-                      foreground: HasobjyDesignTokens.warningText,
+                      background: context.design.warning,
+                      foreground: context.design.warningText,
                     ),
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(
                     AppLocalizations.of(context).requestUnderReview,
                     textAlign: TextAlign.center,
-                    style: HasobjyDesignTokens.headingMedium,
+                    style: context.design.headingMedium,
                   ),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
                   Text(
                     AppLocalizations.of(context).previewRequestSent,
                     textAlign: TextAlign.center,
-                    style: HasobjyDesignTokens.bodyMedium,
+                    style: context.design.bodyMedium,
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _DeviceSummaryCard(
               label: AppLocalizations.of(context).requestedDevice,
             ),
-            const SizedBox(height: 16),
-            const Spacer(),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
+            Spacer(),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).contactSupport,
               primary: false,
-              backgroundColor: HasobjyDesignTokens.selectedSurface,
+              backgroundColor: context.design.selectedSurface,
               cornerLine: '84987',
-              textColor: HasobjyDesignTokens.brand,
+              textColor: context.design.brand,
               icon: Transform.flip(
                 flipX: true,
-                child: const SizedBox(
+                child: SizedBox(
                   width: 24,
                   height: 24,
                   child: Center(
@@ -200,7 +198,7 @@ class HasobjyTransferStatusScreen extends StatelessWidget {
               ),
               onPressed: onContactSupport,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).signOut,
               primary: false,
@@ -229,19 +227,17 @@ class _DeviceSummaryCard extends StatelessWidget {
         Text(
           label,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.label.copyWith(
-            color: HasobjyDesignTokens.textMuted,
-          ),
+          style: context.design.label.copyWith(color: context.design.textMuted),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         Text(
           _previewDeviceName,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.right,
           style: emphasized
-              ? HasobjyDesignTokens.labelSemiBold
-              : HasobjyDesignTokens.bodyLarge.copyWith(
-                  color: HasobjyDesignTokens.textPrimary,
+              ? context.design.labelSemiBold
+              : context.design.bodyLarge.copyWith(
+                  color: context.design.textPrimary,
                 ),
         ),
       ],

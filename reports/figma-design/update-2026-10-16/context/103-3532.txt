@@ -1,0 +1,139 @@
+const assetPathPrefix = "assets/hasobjy";
+const imgBackIcon = `${assetPathPrefix}/c318e.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const imgChamferTl = `${assetPathPrefix}/5aa0d.svg`;
+const imgChamferBr = `${assetPathPrefix}/66d1e.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/ee89b.svg`;
+
+type BadgeProps = {
+  className?: string;
+  label?: string;
+  tone?: "Info";
+};
+
+function Badge({ className, label = "حالة", tone = "Info" }: BadgeProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-brand-subtle,#d9f1fd)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)]"} data-node-id="8:42">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-brand,#0578b7)] whitespace-nowrap" dir="auto" data-node-id="8:43">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+type AppBarProps = {
+  className?: string;
+  title?: string;
+};
+
+function AppBar({ className, title = "عنوان الشاشة" }: AppBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative w-[390px]"} data-node-id="8:51" data-name="App Bar">
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:52" data-name="Spacer" />
+      <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="8:53">
+        {title}
+      </p>
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:54" data-name="Back icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function C05PdfLight() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start relative size-full" data-node-id="103:3532" data-name="C-05 · عارض PDF (عرض فقط) · Light">
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <AppBar className="bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" title="ملخص الفصل الأول" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start min-h-px overflow-clip pb-[24px] pt-[16px] px-[24px] relative w-full" data-node-id="103:3535" data-name="Content">
+        <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0 w-full" data-node-id="103:3536" data-name="Meta">
+          <Badge className="bg-[var(--color-bg-brand-subtle,#d9f1fd)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="عرض فقط" />
+          <div className="flex-[1_0_0] h-[100px] min-w-px relative" data-node-id="103:3538" data-name="Spacer" />
+          <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] text-right whitespace-nowrap" dir="auto" data-node-id="103:3539">
+            صفحة 3 من 24
+          </p>
+        </div>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[10px] items-start min-h-px overflow-clip p-[20px] relative w-full" data-node-id="103:3540" data-name="Page">
+          <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[18px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="103:3541">
+            مبادئ قواعد البيانات
+          </p>
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3542" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3543" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3544" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3545" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3546" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3547" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3548" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3549" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3550" data-name="Text line" />
+          <div className="bg-[var(--color-bg-subtle,#e4f1f9)] h-[8px] relative shrink-0 w-full" data-node-id="103:3551" data-name="Text line" />
+          <p className="-translate-x-1/2 [word-break:break-word] absolute font-['Cairo:Regular'] font-normal h-[20px] leading-[18px] left-[169px] not-italic opacity-30 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-center top-[259px] w-[300px]" dir="auto" data-node-id="103:3552">
+            أحمد محمد · 0991 234 567
+          </p>
+        </div>
+        <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0 w-full" data-node-id="103:3553" data-name="Pager">
+          <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-strong,#9fc4e6)] border-solid content-stretch flex flex-[1_0_0] gap-[8px] h-[52px] items-center justify-center min-w-px px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative" data-node-id="103:3554" data-name="Button">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="I103:3554;8:7">
+              السابقة
+            </p>
+            <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I103:3554;29:377" data-name="Chamfer TL">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+            </div>
+            <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I103:3554;29:378" data-name="Chamfer BR">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+            </div>
+            <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I103:3554;29:379" data-name="Chamfer line TL">
+              <div className="absolute inset-[-7.07%]">
+                <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+              </div>
+            </div>
+            <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I103:3554;29:380" data-name="Chamfer line BR">
+              <div className="absolute inset-[-7.07%]">
+                <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+              </div>
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-brand,#0578b7)] content-stretch flex flex-[1_0_0] gap-[8px] h-[52px] items-center justify-center min-w-px px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative" data-node-id="103:3555" data-name="Button">
+            <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-on-brand,white)] whitespace-nowrap" dir="auto" data-node-id="I103:3555;8:3">
+              التالية
+            </p>
+            <div className="absolute left-0 size-[10px] top-0" data-node-id="I103:3555;29:373" data-name="Chamfer TL">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+            </div>
+            <div className="absolute bottom-0 right-0 size-[10px]" data-node-id="I103:3555;29:374" data-name="Chamfer BR">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,5 +1,8 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui' as ui;
+
+import 'package:cit_zone/features/onboarding/presentation/pages/preview/preview_widgets.dart';
 
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/widgets/hasobjy_figma_components.dart';
@@ -12,6 +15,23 @@ import 'support/hasobjy_test_app.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadCairoForTests);
+  final expectedContent = jsonDecode(
+    File('test/fixtures/hasobjy_figma_content_rects.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
+  final expectedStyles = jsonDecode(
+    File('test/fixtures/hasobjy_figma_text_styles.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
+  final observed = <String, Object>{};
+  final observedText = <String, Object>{};
+  tearDownAll(() {
+    File('reports/figma-design/update-2026-10-16/text-observed.json')
+        .writeAsStringSync(
+          const JsonEncoder.withIndent('  ').convert(observedText),
+        );
+    File(
+      'reports/figma-design/update-2026-10-16/layout-observed.json',
+    ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(observed));
+  });
 
   for (final size in [
     const Size(390, 844),
@@ -36,13 +56,141 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
+        await tester.runAsync(() async {
+          final images = find
+              .byType(Image)
+              .evaluate()
+              .map((e) => (e.widget as Image).image)
+              .toList();
+          for (final image in images) {
+            await precacheImage(
+              image,
+              tester.element(find.byType(HasobjyFigmaFrame)),
+            );
+          }
+        });
+        await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
+        if (size.width == 390) {
+          for (final expected
+              in expectedStyles[frame.frameName] as List<dynamic>) {
+            final actual = tester.widget<Text>(
+              find.byWidgetPredicate(
+                (widget) => widget is Text && widget.data == expected['text'],
+              ),
+            );
+            if (expected.containsKey('fontSize')) {
+              expect(
+                actual.style?.fontSize,
+                expected['fontSize'],
+                reason: '${frame.frameName}: ${expected['text']} size',
+              );
+            }
+            if (expected.containsKey('fontWeight')) {
+              expect(
+                actual.style?.fontWeight?.value,
+                expected['fontWeight'],
+                reason: '${frame.frameName}: ${expected['text']} weight',
+              );
+            }
+            if (expected.containsKey('color')) {
+              expect(
+                actual.style?.color?.toARGB32(),
+                expected['color'],
+                reason: '${frame.frameName}: ${expected['text']} color',
+              );
+            }
+          }
+          observedText[frame.frameName] = [
+            for (final t in tester.widgetList<Text>(find.byType(Text)))
+              if (t.data != null)
+                {
+                  'text': t.data!,
+                  'color': t.style?.color?.toARGB32(),
+                  'fontSize': t.style?.fontSize,
+                  'fontWeight': t.style?.fontWeight?.value,
+                  'rect': [
+                    tester.getRect(find.byWidget(t)).left,
+                    tester.getRect(find.byWidget(t)).top,
+                    tester.getRect(find.byWidget(t)).width,
+                    tester.getRect(find.byWidget(t)).height,
+                  ],
+                },
+          ];
+        }
+        if (size.width == 390 &&
+            find.byType(PreviewScaffold).evaluate().isNotEmpty) {
+          final scaffold = tester.widget<PreviewScaffold>(
+            find.byType(PreviewScaffold),
+          );
+          final measuredChildren = [
+            for (final child in scaffold.children)
+              if (child is! Spacer) child,
+          ];
+          final expected = expectedContent[frame.frameName] as List<dynamic>;
+          expect(measuredChildren.length, expected.length);
+          for (var index = 0; index < expected.length; index++) {
+            final child = measuredChildren[index];
+            final rect = tester.getRect(
+              find.byWidget(child is Center ? child.child! : child),
+            );
+            final reference = (expected[index]['rect'] as List<dynamic>)
+                .cast<num>();
+            expect(
+              rect.left,
+              closeTo(reference[0], .01),
+              reason: '${frame.frameName} child $index left',
+            );
+            expect(
+              rect.top,
+              closeTo(reference[1], .01),
+              reason: '${frame.frameName} child $index top',
+            );
+            expect(
+              rect.width,
+              closeTo(reference[2], .01),
+              reason: '${frame.frameName} child $index width',
+            );
+            expect(
+              rect.height,
+              closeTo(reference[3], .01),
+              reason: '${frame.frameName} child $index height',
+            );
+          }
+          observed[frame.frameName] = [
+            for (final w in scaffold.children)
+              if (find.byWidget(w).evaluate().length == 1)
+                {
+                  'widget': w.runtimeType.toString(),
+                  'rect': [
+                    tester.getRect(find.byWidget(w)).left,
+                    tester.getRect(find.byWidget(w)).top,
+                    tester.getRect(find.byWidget(w)).width,
+                    tester.getRect(find.byWidget(w)).height,
+                  ],
+                },
+          ];
+        }
         expect(
           Directionality.of(tester.element(find.byType(HasobjyFigmaFrame))),
           TextDirection.rtl,
         );
 
-        if (size.width == 390) {
+        if (size.width == 390 &&
+            !frame.isLight &&
+            const {
+              'A-S01',
+              'A-S03',
+              'A-S04',
+              'A-S05',
+              'A-S06',
+              'A-S07',
+              'B-S01',
+              'B-S03',
+              'B-S04',
+              'B-S05',
+              'B-S06',
+            }.contains(frame.frameName)) {
           final expectedButtons = switch (frame) {
             HasobjyFrameId.aS01 => [734.0],
             HasobjyFrameId.aS05 ||
@@ -132,7 +280,7 @@ void main() {
               format: ui.ImageByteFormat.png,
             );
             final folder = Directory(
-              '${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/figma-design/audit'}/widget-${size.width.toInt()}',
+              '${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/figma-design/update-2026-10-16'}/widget-${size.width.toInt()}',
             );
             folder.createSync(recursive: true);
             File('${folder.path}/${frame.frameName}.png')
@@ -143,6 +291,99 @@ void main() {
       });
     }
   }
+
+  for (final frame in HasobjyFrameId.values) {
+    testWidgets('${frame.frameName} supports enlarged Arabic text at 320', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(320, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(
+        arabicTestApp(
+          MediaQuery(
+            data: const MediaQueryData(
+              size: Size(320, 844),
+              textScaler: TextScaler.linear(1.3),
+            ),
+            child: HasobjyDesignPage(frameId: frame, referenceViewport: true),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  test(
+    'frame registry matches the 88 actual Figma frames and local assets',
+    () {
+      final frames = jsonDecode(
+        File('reports/figma-design/update-2026-10-16/frames.json')
+            .readAsStringSync(),
+      ) as List<dynamic>;
+      expect(frames.length, 88);
+      expect(HasobjyFrameId.values.length, frames.length);
+      for (final reference in frames) {
+        final frame = HasobjyFrameId.fromFrameName(reference['key'] as String)!;
+        expect(frame.figmaNodeId, reference['node']);
+        for (final asset
+            in (reference['assets'] as Map<String, dynamic>).values) {
+          expect(
+            File('assets/hasobjy/$asset').existsSync(),
+            isTrue,
+            reason: '${frame.frameName}: $asset',
+          );
+        }
+      }
+      expect(HasobjyFrameId.fromFrameName('A-S02'), isNull);
+      expect(HasobjyFrameId.fromFrameName('B-S02'), isNull);
+    },
+  );
+
+  for (final frame in [HasobjyFrameId.f03, HasobjyFrameId.f03Light]) {
+    testWidgets(
+      '${frame.frameName} coupon selection opens its existing frame',
+      (tester) async {
+        HasobjyFrameId? opened;
+        await tester.pumpWidget(
+          arabicTestApp(
+            HasobjyDesignPage(
+              frameId: frame,
+              onOpenFrame: (value) => opened = value,
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        await tester.tap(find.byType(HasobjySelectionOption).last);
+        await tester.pump();
+        await tester.tap(find.text('متابعة الدفع'));
+        await tester.pump();
+        expect(opened, HasobjyFrameId.f05.withLight(frame.isLight));
+      },
+    );
+  }
+
+  testWidgets('payment review cannot fabricate activation or navigation', (
+    tester,
+  ) async {
+    HasobjyFrameId? opened;
+    await tester.pumpWidget(
+      arabicTestApp(
+        HasobjyDesignPage(
+          frameId: HasobjyFrameId.f04,
+          onOpenFrame: (value) => opened = value,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('إرسال للمراجعة'));
+    await tester.pump();
+    expect(opened, isNull);
+    expect(find.textContaining('هذه معاينة تصميم'), findsOneWidget);
+    expect(find.text('تم تفعيل الكورس'), findsNothing);
+  });
 
   testWidgets('academic selection keeps one department and one year', (
     tester,

@@ -1,0 +1,24 @@
+Running Xcode build...                                          
+Xcode build done.                                            8.5s
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:56108/K0K3YD_xKo8=/
+VMServiceFlutterDriver: Isolate found with number: 828638265119915
+VMServiceFlutterDriver: Isolate 828638265119915 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+flutter: 00:00 +0: capture every Figma frame on the device
+VMServiceFlutterDriver: Connected to Flutter application.
+-[WFIsolatedShortcutRunner init] Taking sandbox extensions for execution
+-[WFIsolatedShortcutRunner init]_block_invoke Sandbox extensions acquired
+Indexing for request: <WFToolKitIndexingRequest: 0x1018500c0>, changeset: .partial(updatedCount: 1 removedCount: 1 updated: ["com.devmind.cit.learn"], removed: ["com.apple.siri.SiriCrisisAppIntentsExtension"], provenance: [VoiceShortcutClient.ToolKitIndexingReason.Changeset.Provenance.launchServicesSnapshot(<LaunchServicesSnapshot uuid=887174F3-4493-4C24-8222-77E41FF9875B, v=1912)> ["com.apple.FontInstallViewService", "com.apple.mobilesms.compose", "com.apple.Fitness.FitnessSettingsIntents", "com.apple.Passwords.PasswordSettingsAppIntentsExtension", "com.apple.SettingsAppIntents", "com.apple.CloudKit.ShareBear", "com.apple.AppSSOUIService", "com.apple.CredentialSharingService", "com.apple.RemoteiCloudQuotaUI", "com.jokercars.app", "com.apple.CompanionViewService", "com.apple.webapp", "com.apple.chrono.WidgetRenderer-StandBy", "com.apple.CarPlayWallpaper", "com.apple.HealthStandaloneIntents", "com.apple.ShortcutsUI", "com.apple.chrono.WidgetRenderer-WatchFaces", "com.apple.Passwords", "com.apple.AdaptiveMusicApp", "com.apple.Bus<…>, priority: <decode: missing data>
+Type indexing (params + content items) took 0.003133s
+Action indexing took 0.001116s
+Indexed: 0
+Errored: 0
+Skipped: [:]
+Bundle cache: 0 hits, 0 misses
+Finished in 0.707425s
+-[WFIsolatedShortcutRunner unaliveProcess] Releasing sandbox extensions
+flutter: HASOBJY_NATIVE_KEYBOARD_READY
+flutter: 00:58 +1: (tearDownAll)
+flutter: 00:58 +2: All tests passed!
+All tests passed.

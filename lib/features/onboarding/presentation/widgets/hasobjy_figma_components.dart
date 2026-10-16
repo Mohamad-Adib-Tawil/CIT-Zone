@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../theme/hasobjy_design_tokens.dart';
+import '../theme/hasobjy_visual_scope.dart';
+import 'hasobjy_3d_button.dart';
 
 /// Uses the design's status bar only for deterministic visual audit captures.
 /// Normal app routes retain the device's native safe areas and system chrome.
@@ -24,9 +26,13 @@ class HasobjyFigmaFrame extends StatelessWidget {
     required this.child,
     this.appBarTitle,
     this.onBack,
+    this.bottomNavigation,
+    this.header,
   });
 
   final Widget child;
+  final Widget? bottomNavigation;
+  final Widget? header;
   final String? appBarTitle;
   final VoidCallback? onBack;
 
@@ -35,27 +41,57 @@ class HasobjyFigmaFrame extends StatelessWidget {
     final reference = HasobjyReferenceViewport.isActive(context);
     final content = Column(
       children: [
-        if (reference) const HasobjyStatusBar(),
+        if (reference) HasobjyStatusBar(),
         if (appBarTitle != null)
           HasobjyAppBar(title: appBarTitle!, onBack: onBack),
+        ?header,
         Expanded(
           child: CustomScrollView(
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             slivers: [SliverFillRemaining(hasScrollBody: false, child: child)],
           ),
         ),
+        ?bottomNavigation,
       ],
     );
+    final background = context.designFrame?.assets['img3DBackground'];
+    Widget canvas = Stack(
+      fit: StackFit.expand,
+      children: [
+        if (background != null)
+          IgnorePointer(
+            child: Image.asset(
+              'assets/hasobjy/$background.png',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
+            ),
+          ),
+        reference
+            ? content
+            : SafeArea(bottom: bottomNavigation == null, child: content),
+      ],
+    );
+    if (reference && context.designFrame?.baseName.startsWith('A-') == true) {
+      canvas = ClipRRect(
+        borderRadius: BorderRadius.circular(44),
+        child: ColoredBox(color: context.design.background, child: canvas),
+      );
+    }
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: HasobjyDesignTokens.background,
+        backgroundColor:
+            reference && context.designFrame?.baseName.startsWith('A-') == true
+            ? Colors.transparent
+            : context.design.background,
         body: AnnotatedRegion<SystemUiOverlayStyle>(
-          value: SystemUiOverlayStyle.light,
+          value: context.design.isLight
+              ? SystemUiOverlayStyle.dark
+              : SystemUiOverlayStyle.light,
           child: Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 390),
-              child: reference ? content : SafeArea(child: content),
+              constraints: BoxConstraints(maxWidth: 390),
+              child: canvas,
             ),
           ),
         ),
@@ -68,7 +104,7 @@ class HasobjyStatusBar extends StatelessWidget {
   const HasobjyStatusBar({super.key});
 
   @override
-  Widget build(BuildContext context) => const SizedBox(
+  Widget build(BuildContext context) => SizedBox(
     height: 44,
     child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 28),
@@ -76,7 +112,7 @@ class HasobjyStatusBar extends StatelessWidget {
         textDirection: TextDirection.ltr,
         child: Row(
           children: [
-            Text('9:41', style: HasobjyDesignTokens.label),
+            Text('9:41', style: context.design.label),
             Spacer(),
             HasobjySvg('ec76a', width: 18, height: 12),
             SizedBox(width: 6),
@@ -100,17 +136,17 @@ class HasobjyAppBar extends StatelessWidget {
     width: double.infinity,
     height: 56,
     child: ColoredBox(
-      color: HasobjyDesignTokens.surface,
+      color: context.design.surface,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Text(title, style: HasobjyDesignTokens.labelSemiBold),
+          Text(title, style: context.design.labelSemiBold),
           Positioned(
             right: 4,
             child: IconButton(
               tooltip: AppLocalizations.of(context).backAction,
               onPressed: onBack,
-              icon: const HasobjySvg('e82f9', width: 24, height: 24),
+              icon: HasobjySvg('e82f9', width: 24, height: 24),
             ),
           ),
         ],
@@ -134,7 +170,7 @@ class HasobjySvg extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-    'assets/hasobjy/$name.svg',
+    'assets/hasobjy/${context.designFrame?.resolveAsset(name) ?? name}.svg',
     width: width,
     height: height,
     fit: fit,
@@ -220,9 +256,19 @@ class HasobjyButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scope = context.designFrame;
+    final google = scope?.baseName == 'A-S01';
+    if ((primary || google) && scope?.baseName.startsWith('A-') == true) {
+      return Hasobjy3DButton(
+        label: label,
+        onPressed: onPressed,
+        icon: icon,
+        google: google,
+      );
+    }
     final background =
         backgroundColor ??
-        (primary ? HasobjyDesignTokens.brand : HasobjyDesignTokens.surface);
+        (primary ? context.design.brand : context.design.surface);
     final outlined = !primary && backgroundColor == null;
     final borderWidth = outlined ? 1.0 : 0.0;
     return Semantics(
@@ -234,7 +280,7 @@ class HasobjyButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: background,
           border: outlined
-              ? Border.all(color: HasobjyDesignTokens.borderStrong)
+              ? Border.all(color: context.design.borderStrong)
               : null,
         ),
         child: Stack(
@@ -246,7 +292,7 @@ class HasobjyButton extends StatelessWidget {
               child: InkWell(
                 onTap: onPressed,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Center(
                     child: Directionality(
                       textDirection: TextDirection.ltr,
@@ -258,19 +304,16 @@ class HasobjyButton extends StatelessWidget {
                               label,
                               textDirection: TextDirection.rtl,
                               textAlign: TextAlign.center,
-                              style: HasobjyDesignTokens.labelLarge.copyWith(
+                              style: context.design.labelLarge.copyWith(
                                 color:
                                     textColor ??
                                     (primary
-                                        ? HasobjyDesignTokens.background
-                                        : HasobjyDesignTokens.textPrimary),
+                                        ? context.design.textOnBrand
+                                        : context.design.textPrimary),
                               ),
                             ),
                           ),
-                          if (icon != null) ...[
-                            const SizedBox(width: 8),
-                            icon!,
-                          ],
+                          if (icon != null) ...[SizedBox(width: 8), icon!],
                         ],
                       ),
                     ),
@@ -299,7 +342,7 @@ class HasobjySurface extends StatelessWidget {
     this.height,
     this.padding = const EdgeInsets.all(16),
     this.alignment = Alignment.topLeft,
-    this.fill = HasobjyDesignTokens.surface,
+    this.fill,
     this.border = HasobjyDesignTokens.border,
     this.selected = false,
     this.cornerSize = 12,
@@ -311,7 +354,7 @@ class HasobjySurface extends StatelessWidget {
   final double? height;
   final EdgeInsetsGeometry padding;
   final AlignmentGeometry alignment;
-  final Color fill;
+  final Color? fill;
   final Color? border;
   final bool selected;
   final double cornerSize;
@@ -326,11 +369,27 @@ class HasobjySurface extends StatelessWidget {
       width: double.infinity,
       constraints: BoxConstraints(minHeight: height ?? 0),
       decoration: BoxDecoration(
-        color: selected ? HasobjyDesignTokens.selectedSurface : fill,
+        color: selected
+            ? context.design.selectedSurface
+            : (fill ?? context.design.surface),
+        boxShadow:
+            context.design.isLight && context.designFrame?.baseName == 'A-S03'
+            ? const [
+                BoxShadow(
+                  color: Color(0x2E000D33),
+                  offset: Offset(0, 6),
+                  blurRadius: 12,
+                ),
+              ]
+            : null,
         border: borderWidth == 0
             ? null
             : Border.all(
-                color: selected ? HasobjyDesignTokens.brand : border!,
+                color: selected
+                    ? context.design.brand
+                    : (border == HasobjyDesignTokens.border
+                          ? context.design.border
+                          : context.design.resolve(border!)),
                 width: borderWidth,
               ),
       ),
@@ -382,13 +441,13 @@ class HasobjySelectionOption extends StatelessWidget {
         cornerTopLeft: '21288',
         cornerBottomRight: 'c95e6',
         cornerLine: selected ? '416c4' : '8c8a2',
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         child: Directionality(
           textDirection: TextDirection.ltr,
           child: Row(
             children: [
               HasobjySvg(selected ? '0fd39' : 'cb103', width: 22, height: 22),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Expanded(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -398,23 +457,23 @@ class HasobjySelectionOption extends StatelessWidget {
                       title,
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
-                      style: HasobjyDesignTokens.labelSemiBold,
+                      style: context.design.labelSemiBold,
                     ),
-                    const SizedBox(height: 4),
+                    SizedBox(height: 4),
                     Text(
                       subtitle,
                       textDirection: TextDirection.rtl,
                       textAlign: TextAlign.right,
-                      style: HasobjyDesignTokens.bodyMedium,
+                      style: context.design.bodyMedium,
                     ),
                   ],
                 ),
               ),
-              const SizedBox(width: 12),
+              SizedBox(width: 12),
               Container(
                 width: 44,
                 height: 44,
-                color: HasobjyDesignTokens.surfaceSubtle,
+                color: context.design.surfaceSubtle,
                 alignment: Alignment.center,
                 child: HasobjySvg(iconAsset, width: 24, height: 24),
               ),
@@ -435,14 +494,14 @@ class HasobjyStepper extends StatelessWidget {
     child: Row(
       children: [
         for (var index = 0; index < 3; index++) ...[
-          if (index > 0) const SizedBox(width: 4),
+          if (index > 0) SizedBox(width: 4),
           Expanded(
             child: Container(
               height: 6,
               decoration: BoxDecoration(
                 color: index < activeBars
-                    ? HasobjyDesignTokens.brand
-                    : HasobjyDesignTokens.surfaceSubtle,
+                    ? context.design.brand
+                    : context.design.surfaceSubtle,
                 borderRadius: BorderRadius.circular(999),
               ),
             ),
@@ -457,27 +516,29 @@ class HasobjyBadge extends StatelessWidget {
   const HasobjyBadge({
     super.key,
     required this.label,
-    this.background = HasobjyDesignTokens.surfaceSubtle,
-    this.foreground = HasobjyDesignTokens.textSecondary,
+    this.background,
+    this.foreground,
     this.onTap,
   });
   final String label;
-  final Color background;
-  final Color foreground;
+  final Color? background;
+  final Color? foreground;
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) => GestureDetector(
     onTap: onTap,
     child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
-        color: background,
+        color: background ?? context.design.surfaceSubtle,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Text(
         label,
         textDirection: TextDirection.rtl,
-        style: HasobjyDesignTokens.badge.copyWith(color: foreground),
+        style: context.design.badge.copyWith(
+          color: foreground ?? context.design.textSecondary,
+        ),
       ),
     ),
   );
@@ -492,6 +553,7 @@ class HasobjyFormField extends StatelessWidget {
     this.helper,
     this.controller,
     this.enabled = true,
+    this.dimDisabled = true,
     this.textDirection,
     this.keyboardType,
     this.maxLines = 1,
@@ -503,6 +565,7 @@ class HasobjyFormField extends StatelessWidget {
   final String? helper;
   final TextEditingController? controller;
   final bool enabled;
+  final bool dimDisabled;
   final TextDirection? textDirection;
   final TextInputType? keyboardType;
   final int maxLines;
@@ -510,25 +573,33 @@ class HasobjyFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Opacity(
-    opacity: enabled ? 1 : .6,
+    opacity: enabled || !dimDisabled ? 1 : .6,
     child: Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          label,
-          textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.label,
-        ),
-        const SizedBox(height: 4),
+        Text(label, textAlign: TextAlign.right, style: context.design.label),
+        SizedBox(height: 4),
         Container(
           height: 52,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: enabled
-                ? HasobjyDesignTokens.surface
-                : HasobjyDesignTokens.surfaceSubtle,
-            border: Border.all(color: HasobjyDesignTokens.border),
+            color: enabled || !dimDisabled
+                ? context.design.surface
+                : context.design.surfaceSubtle,
+            border: Border.all(color: context.design.border),
+            boxShadow:
+                enabled &&
+                    context.design.isLight &&
+                    context.designFrame?.baseName.startsWith('A-') == true
+                ? const [
+                    BoxShadow(
+                      color: Color(0x2E000D33),
+                      offset: Offset(0, 6),
+                      blurRadius: 12,
+                    ),
+                  ]
+                : null,
           ),
           child: Directionality(
             textDirection: TextDirection.ltr,
@@ -544,15 +615,15 @@ class HasobjyFormField extends StatelessWidget {
                     textAlign: textDirection == TextDirection.ltr
                         ? TextAlign.left
                         : TextAlign.right,
-                    style: HasobjyDesignTokens.bodyLarge.copyWith(
-                      color: HasobjyDesignTokens.textMuted,
+                    style: context.design.bodyLarge.copyWith(
+                      color: context.design.textMuted,
                     ),
-                    cursorColor: HasobjyDesignTokens.brand,
+                    cursorColor: context.design.brand,
                     decoration: InputDecoration(
                       hintText: hint,
                       filled: false,
-                      hintStyle: HasobjyDesignTokens.bodyLarge.copyWith(
-                        color: HasobjyDesignTokens.textMuted,
+                      hintStyle: context.design.bodyLarge.copyWith(
+                        color: context.design.textMuted,
                       ),
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
@@ -563,7 +634,7 @@ class HasobjyFormField extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 SizedBox(
                   width: 24,
                   height: 24,
@@ -583,11 +654,11 @@ class HasobjyFormField extends StatelessWidget {
           ),
         ),
         if (helper != null) ...[
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             helper!,
             textAlign: TextAlign.right,
-            style: HasobjyDesignTokens.bodySmall,
+            style: context.design.bodySmall,
           ),
         ],
       ],
@@ -596,9 +667,17 @@ class HasobjyFormField extends StatelessWidget {
 }
 
 class HasobjyKeyValue extends StatelessWidget {
-  const HasobjyKeyValue(this.label, this.value, {super.key});
+  const HasobjyKeyValue(
+    this.label,
+    this.value, {
+    super.key,
+    this.labelStyle,
+    this.valueStyle,
+  });
   final String label;
   final String value;
+  final TextStyle? labelStyle;
+  final TextStyle? valueStyle;
   @override
   Widget build(BuildContext context) => Directionality(
     textDirection: TextDirection.ltr,
@@ -610,15 +689,15 @@ class HasobjyKeyValue extends StatelessWidget {
             value,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.left,
-            style: HasobjyDesignTokens.label,
+            style: valueStyle ?? context.design.label,
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         Text(
           label,
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.right,
-          style: HasobjyDesignTokens.bodyMedium,
+          style: labelStyle ?? context.design.bodyMedium,
         ),
       ],
     ),
