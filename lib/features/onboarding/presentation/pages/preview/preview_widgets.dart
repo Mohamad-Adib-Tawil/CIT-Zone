@@ -250,6 +250,7 @@ class PreviewProgress extends StatelessWidget {
         alignment: Alignment.centerRight,
         child: FractionallySizedBox(
           widthFactor: value.clamp(0, 1),
+          heightFactor: 1,
           child: ColoredBox(color: fill ?? context.design.brand),
         ),
       ),

@@ -1,0 +1,10 @@
+{
+  "file": "build/hasobjy/Hasobjy-Figma-Preview.apk",
+  "sha256": "5c101d95b8216c109c640a8864db486eb97fe2a9d3717a894dd73221ae8c4e98",
+  "bytes": 198895694,
+  "mode": "debug",
+  "HASOBJY_FRAME": "FIGMA_GALLERY",
+  "model": "RMX3269",
+  "androidAPI": 30,
+  "testsPassed": 483
+}

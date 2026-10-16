@@ -99,6 +99,28 @@ void main() {
     }
   }
 
+  testWidgets('gallery build starts in the Figma inspector', (tester) async {
+    final deps = AppDependencies(
+      configuration: AppConfiguration.parse(
+        environment: AppEnvironment.parse(
+          stageName: 'development',
+          apiBaseUrl: '',
+        ),
+        debugBuild: true,
+        previewFrameName: 'FIGMA_GALLERY',
+      ),
+      googleIdentityGatewayFactory: () => FakeGoogleIdentityGateway(),
+    );
+    addTearDown(deps.dispose);
+    await tester.pumpWidget(CitZoneApp(dependencies: deps));
+    await tester.pumpAndSettle();
+    expect(
+      routerOf(tester).routeInformationProvider.value.uri.path,
+      AppRoutes.designGallery,
+    );
+    expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
+  });
+
   testWidgets('Figma gallery opens actual frames without server verification', (
     tester,
   ) async {
@@ -192,6 +214,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(GoogleIdentityPage), findsOneWidget);
       await tester.ensureVisible(find.text('الخروج من Google'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('الخروج من Google'));
       await tester.pumpAndSettle();
       expect(router.routeInformationProvider.value.uri.path, AppRoutes.signIn);
@@ -217,6 +240,7 @@ void main() {
       await tester.pumpWidget(CitZoneApp(dependencies: deps));
       await tester.pumpAndSettle();
       await tester.ensureVisible(find.text('الخروج من Google'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('الخروج من Google'));
       await tester.pump();
       expect(

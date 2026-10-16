@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:cit_zone/features/onboarding/presentation/pages/preview/preview_widgets.dart';
+import 'package:cit_zone/features/onboarding/presentation/theme/hasobjy_visual_scope.dart';
 
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/widgets/hasobjy_figma_components.dart';
@@ -32,6 +33,29 @@ void main() {
       'reports/figma-design/update-2026-10-16/layout-observed.json',
     ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(observed));
   });
+
+  for (final light in [false, true]) {
+    testWidgets(
+      'progress fill keeps its full height and RTL fraction (light=$light)',
+      (tester) async {
+        final scope = HasobjyVisualScope(
+          frameName: light ? 'C-01-LIGHT' : 'C-01',
+          child: const Center(
+            child: PreviewProgress(.4, width: 100, height: 6),
+          ),
+        );
+        await tester.pumpWidget(arabicTestApp(scope));
+        await tester.pumpAndSettle();
+        final palette = HasobjyPalette(light);
+        final fill = find.byWidgetPredicate(
+          (widget) => widget is ColoredBox && widget.color == palette.brand,
+        );
+        final track = find.byType(PreviewProgress);
+        expect(tester.getSize(fill), const Size(40, 6));
+        expect(tester.getRect(fill).right, tester.getRect(track).right);
+      },
+    );
+  }
 
   for (final size in [
     const Size(390, 844),
