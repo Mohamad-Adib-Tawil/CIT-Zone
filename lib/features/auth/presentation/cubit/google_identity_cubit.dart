@@ -1,7 +1,7 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/errors/result.dart';
+import '../../../../core/errors/either.dart';
 import '../../domain/google_identity.dart';
 import '../../domain/google_identity_failure.dart';
 import '../../domain/google_identity_repository.dart';
@@ -45,26 +45,29 @@ class GoogleIdentityCubit extends Cubit<GoogleIdentityState> {
   bool get isConfigured => _repository.isConfigured;
 
   Future<void> restore() async {
-    if (!isConfigured || state is! GoogleIdentityIdle) return;
+    if (isClosed || !isConfigured || state is! GoogleIdentityIdle) return;
     emit(const GoogleIdentityWorking());
     final result = await _repository.restoreIdentity();
     if (isClosed) return;
     emit(switch (result) {
-      Success(:final value) when value != null => GoogleIdentityReady(value),
+      Right(:final value) when value != null => GoogleIdentityReady(value),
       _ => const GoogleIdentityIdle(),
     });
   }
 
   Future<void> signIn() async {
-    if (state is GoogleIdentityWorking || state is GoogleIdentityReady) return;
+    if (isClosed ||
+        state is GoogleIdentityWorking ||
+        state is GoogleIdentityReady) {
+      return;
+    }
     emit(const GoogleIdentityWorking());
     final result = await _repository.signIn();
     if (isClosed) return;
     emit(switch (result) {
-      Success(:final value) => GoogleIdentityReady(value),
-      Failure(failure: GoogleIdentityFailure.canceled) =>
-        const GoogleIdentityIdle(),
-      Failure(:final failure) => GoogleIdentityError(
+      Right(:final value) => GoogleIdentityReady(value),
+      Left(value: GoogleIdentityFailure.canceled) => const GoogleIdentityIdle(),
+      Left(value: final failure) => GoogleIdentityError(
         googleIdentityFailureMessage(failure, messages),
       ),
     });
@@ -72,13 +75,13 @@ class GoogleIdentityCubit extends Cubit<GoogleIdentityState> {
 
   Future<void> signOut() async {
     final previous = state;
-    if (previous is! GoogleIdentityReady) return;
+    if (isClosed || previous is! GoogleIdentityReady) return;
     emit(GoogleIdentityWorking(identity: previous.identity));
     final result = await _repository.signOut();
     if (isClosed) return;
     emit(switch (result) {
-      Success() => const GoogleIdentityIdle(),
-      Failure() => GoogleIdentityReady(
+      Right() => const GoogleIdentityIdle(),
+      Left() => GoogleIdentityReady(
         previous.identity,
         error: messages.googleSignOutFailed,
       ),

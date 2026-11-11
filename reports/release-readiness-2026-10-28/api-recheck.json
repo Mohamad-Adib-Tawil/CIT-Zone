@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-28T07:04:49.188222+00:00",
+  "headers": {
+    "X-Platform": "android",
+    "X-App-Version": "1.0.0",
+    "X-Device-Id": "readiness-probe-20261028"
+  },
+  "results": [
+    {
+      "path": "/health",
+      "status": 200,
+      "body": {
+        "data": {
+          "status": "ok",
+          "checks": {
+            "database": "up"
+          }
+        }
+      }
+    },
+    {
+      "path": "/app/config",
+      "status": 500,
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "19ae1ec6-63a6-48d8-9f94-0fef206855d9"
+        }
+      }
+    },
+    {
+      "path": "/me/session-state",
+      "status": 500,
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "5ba1e1a5-5823-4ed5-a34a-ee7ee72dcd0d"
+        }
+      }
+    }
+  ]
+}

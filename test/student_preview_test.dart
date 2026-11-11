@@ -1,3 +1,6 @@
+import 'package:cit_zone/core/errors/either.dart';
+import 'package:cit_zone/features/student/domain/student_catalog_error.dart';
+
 import 'package:cit_zone/features/student/data/demo_student_repository.dart';
 
 import 'support/hasobjy_test_app.dart';
@@ -90,6 +93,9 @@ void main() {
         home: StudentPreviewPage(
           createCatalogCubit: _createPreviewCubit,
           identity: const GoogleIdentity(
+            idGoogle: 'google-user',
+            firebaseUid: 'firebase-user',
+            emailVerified: true,
             displayName: 'طالبة تجريبية',
             email: 'student@example.com',
           ),
@@ -107,9 +113,8 @@ void main() {
 
 class _FailingStudentRepository implements StudentRepository {
   @override
-  Future<List<StudentCourse>> loadCatalog() {
-    throw StateError('unavailable');
-  }
+  Future<Either<StudentCatalogError, List<StudentCourse>>>
+  loadCatalog() async => const Left(StudentCatalogError.unavailable);
 }
 
 StudentCatalogCubit _createPreviewCubit() =>

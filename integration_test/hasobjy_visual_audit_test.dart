@@ -15,6 +15,8 @@ void main() {
   testWidgets('capture every Figma frame on the device', (tester) async {
     final captures = <Map<String, Object>>[];
     binding.reportData = {'captures': captures};
+    await tester.binding.setSurfaceSize(const Size(700, 900));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
     for (final width in [390.0, 320.0]) {
       for (final frame in HasobjyFrameId.values) {
         final key = GlobalKey();
@@ -58,6 +60,7 @@ void main() {
         image.dispose();
       }
     }
+    await tester.binding.setSurfaceSize(null);
     // Exercise real platform text input and keyboard with native safe areas.
     await tester.pumpWidget(
       arabicTestApp(const HasobjyDesignPage(frameId: HasobjyFrameId.aS04)),

@@ -717,6 +717,84 @@ abstract class AppLocalizations {
   /// In ar, this message translates to:
   /// **'رجوع'**
   String get backAction;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'حاسوبجي سيستم'**
+  String get appStatusBrand;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'المعهد التقني للحاسوب'**
+  String get appStatusInstitute;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'لا يوجد اتصال بالإنترنت'**
+  String get appStatusOfflineTitle;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذر التحقق من إعدادات التطبيق. تحقق من الاتصال ثم أعد المحاولة.'**
+  String get appStatusOfflineMessage;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'التطبيق قيد الصيانة'**
+  String get appStatusMaintenanceTitle;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.'**
+  String get appStatusMaintenanceMessage;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'يتوفر تحديث جديد'**
+  String get appStatusUpdateTitle;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.'**
+  String get appStatusUpdateMessage;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'حدث خطأ غير متوقع'**
+  String get appStatusErrorTitle;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.'**
+  String get appStatusErrorMessage;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'إعادة المحاولة'**
+  String get appStatusRetry;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'تحديث الآن'**
+  String get appStatusUpdate;
+
+  /// Student API startup availability gate.
+  ///
+  /// In ar, this message translates to:
+  /// **'تعذر فتح رابط التحديث. أعد المحاولة لاحقاً أو تواصل مع الدعم.'**
+  String get appStatusStoreUnavailable;
 }
 
 class _AppLocalizationsDelegate

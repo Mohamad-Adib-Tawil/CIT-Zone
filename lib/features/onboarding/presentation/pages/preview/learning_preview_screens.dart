@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/hasobjy_visual_scope.dart';
 import '../../widgets/hasobjy_figma_components.dart';
 import 'preview_widgets.dart';
+import 'student_update_scaffold.dart';
 
 class LearningPreviewScreen extends StatelessWidget {
   const LearningPreviewScreen({
@@ -207,6 +208,9 @@ class LearningPreviewScreen extends StatelessWidget {
 
   Widget _player(BuildContext context) => PreviewScaffold(
     actions: actions,
+    backgroundLayer: context.designFrame?.baseName == 'C-09'
+        ? const StudentUpdateBackground()
+        : null,
     header: _PlayerPoster(actions: actions),
     bottomPadding: 16,
     gap: 12,
@@ -221,6 +225,46 @@ class LearningPreviewScreen extends StatelessWidget {
       ),
       const PreviewText(
         'تعرّف على أوامر الاستعلام الأساسية: SELECT وWHERE وORDER BY مع أمثلة تطبيقية على جداول المعهد.',
+      ),
+      InkWell(
+        onTap: () => actions.open('C-09'),
+        child: PreviewPanel(
+          padding: 16,
+          children: [
+            Row(
+              textDirection: TextDirection.ltr,
+              children: [
+                Row(
+                  children: [
+                    for (var i = 0; i < 5; i++)
+                      HasobjySvg(
+                        context.design.isLight ? '65432' : 'b8cdb',
+                        width: 26,
+                        height: 26,
+                      ),
+                  ],
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      PreviewText(
+                        'قيّم هذا الدرس',
+                        style: context.design.label,
+                      ),
+                      PreviewText(
+                        'اضغط على النجوم',
+                        style: context.design.bodySmall,
+                        color: context.design.textMuted,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       const Spacer(),
       PreviewButton('الدرس التالي', onTap: actions.notice),
@@ -435,7 +479,13 @@ class _PlayerPoster extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-              PreviewText('12:40 / 27:00', style: context.design.bodySmall),
+              Text(
+                '12:40 / 27:00',
+                textDirection: TextDirection.ltr,
+                style: context.design.bodySmall.copyWith(
+                  color: context.design.textSecondary,
+                ),
+              ),
               const SizedBox(width: 10),
               const Expanded(child: PreviewProgress(.47)),
             ],

@@ -73,3 +73,7 @@ node database/verify.mjs /tmp/hasobjy-db-validation-20261015/node_modules/@elect
 قبل إنتاج فعلي يلزم اختبار على PostgreSQL المستضاف المختار، معاملات متعددة الاتصالات والتزامن، سياسات أدوار الخادم وعزل قراءة الطالب، نسخ احتياطية واستعادة، API، وDRM على Android/iOS حقيقيين. السكيما لا تشفر الفيديو أو PDF ولا تمسح جهازاً غير متصل.
 
 تستعمل القيود الفريدة والمفاتيح الخارجية للقيود الممكنة، وTriggers للقواعد بين الصفوف؛ ذلك يوافق حدود [قيود PostgreSQL](https://www.postgresql.org/docs/current/ddl-constraints.html). صلاحيات API لا تستنتج من نجاح قيد قاعدة بيانات.
+
+## هوية Firebase/Google — 2026-10-26
+
+بتوجيه المستخدم أضيفت محلياً users.id_google (Google provider UID) وfirebase_uid وemail_verified وحقول Google given/family/locale الاختيارية؛ الاسم/الصورة/البريد موجودة سابقاً. حقلا الهوية فريدان nullable لترحيل الحسابات القديمة بعد التحقق، وusers.id يبقى داخلياً. oauth_identities هو ربط المزود القائم؛ Backend يحافظ على اتساقه ذرياً مع id_google ولا يدمج بالبريد. مصدر الأصل لا يحتوي google_sub؛ تكليف Notion بترحيله مشروط بوجوده في قاعدة Backend الفعلية. لا ترحيل إنتاج أو Firebase token في SQL؛ هذه إضافة تصميم محلي، ويكتب صاحب Backend migration وفق مخططه واختبارات التزامن. [العقد](../plans/implementation/2026-10-26-firebase-google-auth.md).

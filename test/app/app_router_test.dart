@@ -7,6 +7,7 @@ import 'package:cit_zone/app/di/app_dependencies.dart';
 import 'package:cit_zone/app/router/app_routes.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/auth/presentation/pages/google_identity_page.dart';
+import 'package:cit_zone/features/admin/presentation/admin_figma_preview_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
 import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
@@ -16,6 +17,7 @@ import 'package:go_router/go_router.dart';
 
 import '../support/fake_google_identity_gateway.dart';
 import '../support/hasobjy_test_app.dart';
+import '../support/fake_app_availability.dart';
 
 AppDependencies dependencies({
   AppStage stage = AppStage.development,
@@ -27,6 +29,8 @@ AppDependencies dependencies({
     debugBuild: debugBuild,
   ),
   googleIdentityGatewayFactory: () => gateway ?? FakeGoogleIdentityGateway(),
+  apiClientFactory: FakeAvailableApiClient.new,
+  mobileAppGateway: FakeMobileAppGateway(),
 );
 
 GoRouter routerOf(WidgetTester tester) =>
@@ -36,6 +40,29 @@ GoRouter routerOf(WidgetTester tester) =>
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadCairoForTests);
+
+  testWidgets(
+    'production cannot skip availability when API configuration is missing',
+    (tester) async {
+      final deps = AppDependencies(
+        configuration: AppConfiguration.parse(
+          environment: AppEnvironment.parse(
+            stageName: 'production',
+            apiBaseUrl: '',
+          ),
+          debugBuild: false,
+        ),
+        googleIdentityGatewayFactory: FakeGoogleIdentityGateway.new,
+        mobileAppGateway: FakeMobileAppGateway(),
+      );
+      addTearDown(deps.dispose);
+      await tester.pumpWidget(CitZoneApp(dependencies: deps));
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyDesignPage), findsNothing);
+      expect(find.byType(GoogleIdentityPage), findsNothing);
+      expect(find.text('إعادة المحاولة'), findsOneWidget);
+    },
+  );
 
   test(
     'containers are isolated, dispose is terminal and previews are guarded',
@@ -68,6 +95,8 @@ void main() {
     AppRoutes.designGallery,
     AppRoutes.studentPreview,
     AppRoutes.adminPreview,
+    AppRoutes.adminFigmaGallery,
+    AppRoutes.adminFrame('M-A03', light: false),
     AppRoutes.frame('B-S06'),
   ]) {
     for (final debugBuild in [true, false]) {
@@ -119,6 +148,32 @@ void main() {
       AppRoutes.designGallery,
     );
     expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
+  });
+
+  testWidgets('admin Figma gallery opens a debug-only frame without backend', (
+    tester,
+  ) async {
+    final deps = dependencies();
+    addTearDown(deps.dispose);
+    await tester.pumpWidget(
+      CitZoneApp(dependencies: deps, initialLocation: AppRoutes.designGallery),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('شاشات الإدارة من Figma — 30 شاشة'));
+    await tester.pumpAndSettle();
+    expect(find.byType(AdminFigmaGalleryPage), findsOneWidget);
+    final frameButton = find.text('داكن · 96:199');
+    await tester.ensureVisible(frameButton);
+    await tester.pumpAndSettle();
+    await tester.tap(frameButton);
+    await tester.pumpAndSettle();
+    expect(find.byType(AdminFigmaPreviewPage), findsOneWidget);
+    expect(find.text('إدارة حسابات طلاب المعهد'), findsOneWidget);
+    expect(
+      routerOf(tester).state.uri.path,
+      AppRoutes.adminFigmaFrame.replaceAll(':frame', 'M-A03'),
+    );
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets('Figma gallery opens actual frames without server verification', (
@@ -183,10 +238,17 @@ void main() {
     await tester.pumpAndSettle();
     final router = routerOf(tester);
     expect(router.routeInformationProvider.value.uri.path, AppRoutes.signIn);
-    router.go(AppRoutes.frame('missing-frame'));
-    await tester.pumpAndSettle();
-    expect(router.routeInformationProvider.value.uri.path, AppRoutes.signIn);
-    expect(tester.takeException(), isNull);
+    for (final invalid in [
+      AppRoutes.frame('missing-frame'),
+      AppRoutes.frame('M-A03'),
+      AppRoutes.adminFrame('C-01', light: false),
+      AppRoutes.adminFrame('missing-frame', light: true),
+    ]) {
+      router.go(invalid);
+      await tester.pumpAndSettle();
+      expect(router.routeInformationProvider.value.uri.path, AppRoutes.signIn);
+      expect(tester.takeException(), isNull);
+    }
   });
 
   testWidgets(

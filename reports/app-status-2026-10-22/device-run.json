@@ -1,0 +1,159 @@
+{
+  "device": "iPhone Duo simulator, iOS 27.1",
+  "nativePlatform": "ios",
+  "installedVersion": "1.0.0",
+  "publicConfig": "successful read, no authentication or writes",
+  "captures": [
+    {
+      "frame": "I-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-02",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-02-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "I-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-02",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-02-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "I-01",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-02",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-03",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-04",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-05",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-01-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-02-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-03-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-04-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "I-05-LIGHT",
+      "width": 600,
+      "height": 844
+    }
+  ],
+  "limits": "Simulator and public config only; no student session, real device performance or DRM validation."
+}

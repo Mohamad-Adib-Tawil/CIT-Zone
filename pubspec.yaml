@@ -50,6 +50,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.3.0
+  fpdart: ^1.2.0
+  firebase_core: ^5.1.0
+  firebase_auth: ^7.0.1
 
 dev_dependencies:
   # Parse Dart directives for executable architecture boundaries.
@@ -85,6 +88,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/hasobjy/
+    - assets/hasobjy/admin/
   fonts:
     - family: RobotoMono
       fonts:

@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/media/media_failure.dart';
 import 'package:cit_zone/features/playback/domain/playback_repository.dart';
 import 'package:cit_zone/features/playback/domain/single_playback_owner.dart';
@@ -25,10 +25,10 @@ void main() {
           if (opens == 1) await release.future;
           active++;
           if (active > maximum) maximum = active;
-          return Success(
+          return Right(
             _Session(() async {
               active--;
-              return const Success(null);
+              return const Right(null);
             }),
           );
         }),
@@ -38,8 +38,8 @@ void main() {
       await Future<void>.delayed(Duration.zero);
       expect(opens, 1);
       release.complete();
-      expect(await first, isA<Success<PlaybackSession, MediaFailure>>());
-      expect(await second, isA<Success<PlaybackSession, MediaFailure>>());
+      expect(await first, isA<Right<MediaFailure, PlaybackSession>>());
+      expect(await second, isA<Right<MediaFailure, PlaybackSession>>());
       expect(opens, 2);
       expect(maximum, 1);
       expect(active, 1);
@@ -55,12 +55,12 @@ void main() {
     final owner = SinglePlaybackOwner(
       _Repository(() async {
         opens++;
-        return Success(
+        return Right(
           _Session(() async {
             closes++;
             return closeAllowed
-                ? const Success(null)
-                : const Failure(MediaFailure.unexpected);
+                ? const Right(null)
+                : const Left(MediaFailure.unexpected);
           }),
         );
       }),
@@ -68,16 +68,16 @@ void main() {
     await owner.open(request);
     expect(
       await owner.open(request),
-      isA<Failure<PlaybackSession, MediaFailure>>(),
+      isA<Left<MediaFailure, PlaybackSession>>(),
     );
     expect(opens, 1);
     expect(closes, 1);
     closeAllowed = true;
-    expect(await owner.dispose(), isA<Success<void, MediaFailure>>());
+    expect(await owner.dispose(), isA<Right<MediaFailure, void>>());
     expect(closes, 2);
     expect(
       await owner.open(request),
-      isA<Failure<PlaybackSession, MediaFailure>>(),
+      isA<Left<MediaFailure, PlaybackSession>>(),
     );
     expect(opens, 1);
   });
@@ -85,26 +85,26 @@ void main() {
   test(
     'dispose during open releases a late resource and cancels queued opens',
     () async {
-      final pending = Completer<Result<PlaybackSession, MediaFailure>>();
+      final pending = Completer<Either<MediaFailure, PlaybackSession>>();
       var closes = 0;
       final owner = SinglePlaybackOwner(_Repository(() => pending.future));
       final opening = owner.open(request);
       await Future<void>.delayed(Duration.zero);
       final disposal = owner.dispose();
       pending.complete(
-        Success(
+        Right(
           _Session(() async {
             closes++;
-            return const Success(null);
+            return const Right(null);
           }),
         ),
       );
       final opened = await opening;
       expect(
-        opened.fold(onSuccess: (_) => null, onFailure: (failure) => failure),
+        opened.match((failure) => failure, (_) => null),
         MediaFailure.canceled,
       );
-      expect(await disposal, isA<Success<void, MediaFailure>>());
+      expect(await disposal, isA<Right<MediaFailure, void>>());
       expect(closes, 1);
     },
   );
@@ -113,36 +113,36 @@ void main() {
     'license or entitlement denial never creates a playable session',
     () async {
       final owner = SinglePlaybackOwner(
-        _Repository(() async => const Failure(MediaFailure.notEntitled)),
+        _Repository(() async => const Left(MediaFailure.notEntitled)),
       );
       final result = await owner.open(request);
       expect(
-        result.fold(onSuccess: (_) => null, onFailure: (failure) => failure),
+        result.match((failure) => failure, (_) => null),
         MediaFailure.notEntitled,
       );
-      expect(await owner.dispose(), isA<Success<void, MediaFailure>>());
+      expect(await owner.dispose(), isA<Right<MediaFailure, void>>());
     },
   );
 }
 
 class _Repository implements PlaybackRepository {
   _Repository(this.openSession);
-  final Future<Result<PlaybackSession, MediaFailure>> Function() openSession;
+  final Future<Either<MediaFailure, PlaybackSession>> Function() openSession;
   @override
-  Future<Result<PlaybackSession, MediaFailure>> open(PlaybackRequest request) =>
+  Future<Either<MediaFailure, PlaybackSession>> open(PlaybackRequest request) =>
       openSession();
 }
 
 class _Session implements PlaybackSession {
   _Session(this.onClose);
-  final Future<Result<void, MediaFailure>> Function() onClose;
+  final Future<Either<MediaFailure, void>> Function() onClose;
   @override
-  Future<Result<void, MediaFailure>> close() => onClose();
+  Future<Either<MediaFailure, void>> close() => onClose();
   @override
-  Future<Result<void, MediaFailure>> pause() async => const Success(null);
+  Future<Either<MediaFailure, void>> pause() async => const Right(null);
   @override
-  Future<Result<void, MediaFailure>> play() async => const Success(null);
+  Future<Either<MediaFailure, void>> play() async => const Right(null);
   @override
-  Future<Result<void, MediaFailure>> seek(Duration position) async =>
-      const Success(null);
+  Future<Either<MediaFailure, void>> seek(Duration position) async =>
+      const Right(null);
 }

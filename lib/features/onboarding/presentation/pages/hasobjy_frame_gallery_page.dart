@@ -4,9 +4,14 @@ import 'hasobjy_design_page.dart';
 
 /// Development inspector for existing Figma frames, not a product screen.
 class HasobjyFrameGalleryPage extends StatelessWidget {
-  const HasobjyFrameGalleryPage({super.key, required this.onOpenFrame});
+  const HasobjyFrameGalleryPage({
+    super.key,
+    required this.onOpenFrame,
+    required this.onOpenAdminGallery,
+  });
 
   final ValueChanged<HasobjyFrameId> onOpenFrame;
+  final VoidCallback onOpenAdminGallery;
 
   @override
   Widget build(BuildContext context) => Directionality(
@@ -16,8 +21,8 @@ class HasobjyFrameGalleryPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
-            '44 شاشة · 88 إطاراً بالنمطين الفاتح والداكن\n'
+          Text(
+            '${HasobjyFrameId.values.length ~/ 2} شاشة · ${HasobjyFrameId.values.length} إطاراً بالنمطين الفاتح والداكن\n'
             'هذه واجهات Flutter المنفذة من Figma. البيانات أمثلة؛ '
             'الخادم والدفع والتصحيح غير متصلين.',
           ),
@@ -25,6 +30,12 @@ class HasobjyFrameGalleryPage extends StatelessWidget {
           FilledButton(
             onPressed: () => onOpenFrame(HasobjyFrameId.c01),
             child: const Text('افتح الرئيسية من Figma — C-01'),
+          ),
+          const SizedBox(height: 8),
+          OutlinedButton.icon(
+            onPressed: onOpenAdminGallery,
+            icon: const Icon(Icons.admin_panel_settings_outlined),
+            label: const Text('شاشات الإدارة من Figma — 30 شاشة'),
           ),
           const SizedBox(height: 12),
           for (final frame in HasobjyFrameId.values.where((f) => !f.isLight))

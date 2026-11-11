@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../theme/hasobjy_visual_scope.dart';
 import 'preview_widgets.dart';
+import 'grade_report_preview_screen.dart';
+import '../../widgets/hasobjy_figma_components.dart';
 
 class GradesSupportPreviewScreen extends StatelessWidget {
   const GradesSupportPreviewScreen({
@@ -15,6 +17,7 @@ class GradesSupportPreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) => switch (frame) {
     'G-01' => _grades(context),
     'G-02' => _grade(context),
+    'G-03' => GradeReportPreviewScreen(actions: actions),
     'H-01' => _notifications(context),
     'H-02' => _tickets(context),
     'H-03' => _newTicket(context),
@@ -81,6 +84,13 @@ class GradesSupportPreviewScreen extends StatelessWidget {
             ],
           ),
         ),
+      const Spacer(),
+      PreviewText(
+        'يُتاح الكشف بعد انتهاء الفصل وإعلان جميع العلامات',
+        style: context.design.bodySmall,
+        align: TextAlign.center,
+      ),
+      const HasobjyButton(label: 'طباعة كشف علاماتي', onPressed: null),
     ],
   );
   Widget _grade(BuildContext context) => PreviewScaffold(
@@ -212,7 +222,12 @@ class GradesSupportPreviewScreen extends StatelessWidget {
     actions: actions,
     gap: 12,
     children: [
-      PreviewButton('تذكرة جديدة', onTap: () => actions.open('H-03')),
+      PreviewButton(
+        'تذكرة جديدة',
+        onTap: () => actions.open('H-03'),
+        light3D: true,
+        iconAsset: context.design.isLight ? 'cf7cc' : null,
+      ),
       PreviewText(
         'تذاكري',
         style: context.design.label,

@@ -1,0 +1,12 @@
+{
+  "nodes": [
+    "80:113",
+    "198:9601"
+  ],
+  "size": [
+    390,
+    844
+  ],
+  "pixelIdentical": true,
+  "scope": "Current Figma renders only; does not select canonical node or compare Flutter"
+}

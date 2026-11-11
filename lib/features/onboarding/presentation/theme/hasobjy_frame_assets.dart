@@ -1,6 +1,9 @@
+import 'hasobjy_student_update_assets.dart';
+
 // Generated from the verified Figma contexts on 2026-10-16.
 // Original static asset references only; no temporary URLs.
 const hasobjyFrameAssets = <String, Map<String, String>>{
+  ...hasobjyStudentUpdateAssets,
   'A-S03': {
     'img3DBackground': '9d8e7',
     'imgSignal': 'ec76a',

@@ -1,3 +1,6 @@
+import '../../../../core/errors/either.dart';
+import '../../domain/student_catalog_error.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/student_models.dart';
@@ -12,11 +15,11 @@ class StudentCatalogLoading extends StudentCatalogState {
 }
 
 class StudentCatalogReady extends StudentCatalogState {
-  const StudentCatalogReady(
-    this.courses, {
+  StudentCatalogReady(
+    List<StudentCourse> courses, {
     this.refreshing = false,
     this.error,
-  });
+  }) : courses = List.unmodifiable(courses);
 
   final List<StudentCourse> courses;
   final bool refreshing;
@@ -24,7 +27,9 @@ class StudentCatalogReady extends StudentCatalogState {
 }
 
 class StudentCatalogFailure extends StudentCatalogState {
-  const StudentCatalogFailure();
+  const StudentCatalogFailure(this.failure);
+
+  final StudentCatalogError failure;
 }
 
 class StudentCatalogCubit extends Cubit<StudentCatalogState> {
@@ -34,7 +39,7 @@ class StudentCatalogCubit extends Cubit<StudentCatalogState> {
   bool _inFlight = false;
 
   Future<void> load() async {
-    if (_inFlight) return;
+    if (isClosed || _inFlight) return;
     _inFlight = true;
     final previous = state;
     if (previous case StudentCatalogReady(:final courses)) {
@@ -44,21 +49,18 @@ class StudentCatalogCubit extends Cubit<StudentCatalogState> {
     }
 
     try {
-      final courses = await _repository.loadCatalog();
-      if (!isClosed) emit(StudentCatalogReady(courses));
-    } catch (_) {
-      if (!isClosed) {
-        if (previous case StudentCatalogReady(:final courses)) {
-          emit(
-            StudentCatalogReady(
-              courses,
-              error: 'تعذر تحديث المواد التجريبية. حاول مجدداً.',
-            ),
-          );
-        } else {
-          emit(const StudentCatalogFailure());
-        }
-      }
+      final result = await _repository.loadCatalog();
+      if (isClosed) return;
+      emit(switch (result) {
+        Right(:final value) => StudentCatalogReady(value),
+        Left(value: final failure) => switch (previous) {
+          StudentCatalogReady(:final courses) => StudentCatalogReady(
+            courses,
+            error: 'تعذر تحديث المواد التجريبية. حاول مجدداً.',
+          ),
+          _ => StudentCatalogFailure(failure),
+        },
+      });
     } finally {
       _inFlight = false;
     }

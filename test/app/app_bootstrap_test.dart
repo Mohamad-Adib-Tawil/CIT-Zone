@@ -16,6 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../support/hasobjy_test_app.dart';
+import '../support/fake_app_availability.dart';
 
 AppConfiguration configuration({
   AppStage stage = AppStage.development,
@@ -100,6 +101,8 @@ void main() {
     await tester.pumpWidget(
       AppBootstrap(
         configuration: configuration(stage: AppStage.production),
+        apiClientFactory: FakeAvailableApiClient.new,
+        mobileAppGateway: FakeMobileAppGateway(),
         googleIdentityGatewayFactory: () => gateway,
       ),
     );
@@ -126,6 +129,8 @@ void main() {
         await tester.pumpWidget(
           AppBootstrap(
             configuration: config,
+            apiClientFactory: FakeAvailableApiClient.new,
+            mobileAppGateway: FakeMobileAppGateway(),
             googleIdentityGatewayFactory: () => TestIdentityGateway(),
           ),
         );
@@ -176,6 +181,9 @@ class TestIdentityGateway implements GoogleIdentityGateway {
   int restoreCalls = 0;
   int signOutCalls = 0;
   static const identity = GoogleIdentity(
+    idGoogle: 'google-user',
+    firebaseUid: 'firebase-user',
+    emailVerified: true,
     displayName: 'طالب',
     email: 'student@example.com',
   );

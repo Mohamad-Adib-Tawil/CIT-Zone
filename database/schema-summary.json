@@ -12,7 +12,13 @@
       "terms_version",
       "deleted_at",
       "created_at",
-      "updated_at"
+      "updated_at",
+      "id_google",
+      "firebase_uid",
+      "email_verified",
+      "google_given_name",
+      "google_family_name",
+      "google_locale"
     ],
     "oauth_identities": [
       "id",

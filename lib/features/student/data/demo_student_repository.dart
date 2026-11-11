@@ -1,12 +1,15 @@
+import '../../../core/errors/either.dart';
+import '../domain/student_catalog_error.dart';
+
 import '../domain/student_models.dart';
 import '../domain/student_repository.dart';
 
 /// Sample content for the debug-only UI preview; it is not an approved syllabus.
 class DemoStudentRepository implements StudentRepository {
   @override
-  Future<List<StudentCourse>> loadCatalog() async {
+  Future<Either<StudentCatalogError, List<StudentCourse>>> loadCatalog() async {
     await Future<void>.delayed(const Duration(milliseconds: 180));
-    return const [
+    return const Right([
       StudentCourse(
         id: 'sample-programming',
         code: 'DEMO-101',
@@ -96,6 +99,6 @@ class DemoStudentRepository implements StudentRepository {
           ),
         ],
       ),
-    ];
+    ]);
   }
 }

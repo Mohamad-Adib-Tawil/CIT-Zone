@@ -1,6 +1,8 @@
 import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
 import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
 import 'package:cit_zone/app/bootstrap/app_bootstrap.dart';
+import 'package:cit_zone/app/app_environment.dart';
+import 'package:cit_zone/app/config/app_configuration.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/auth/domain/google_identity_gateway.dart';
 import 'package:cit_zone/features/auth/presentation/cubit/google_identity_cubit.dart';
@@ -12,7 +14,17 @@ void main() {
   testWidgets('زر Google معطل دون إعداد OAuth', (tester) async {
     debugDefaultTargetPlatformOverride = TargetPlatform.macOS;
     try {
-      await tester.pumpWidget(const AppBootstrap());
+      await tester.pumpWidget(
+        AppBootstrap(
+          configuration: AppConfiguration.parse(
+            environment: AppEnvironment.parse(
+              stageName: 'development',
+              apiBaseUrl: '',
+            ),
+            debugBuild: true,
+          ),
+        ),
+      );
       await tester.pumpAndSettle();
       final button = tester.widget<HasobjyButton>(
         find.widgetWithText(HasobjyButton, 'المتابعة عبر Google'),
@@ -122,6 +134,9 @@ class _FakeGoogleGateway implements GoogleIdentityGateway {
   Future<void> signOut() async => signedOut = true;
 
   static const _identity = GoogleIdentity(
+    idGoogle: 'google-user',
+    firebaseUid: 'firebase-user',
+    emailVerified: true,
     email: 'student@example.com',
     displayName: 'طالب',
   );

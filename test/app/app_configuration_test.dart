@@ -25,7 +25,10 @@ void main() {
   test('build configuration uses the validated environment', () {
     final configuration = AppConfiguration.fromBuild();
     expect(configuration.environment.stage, AppStage.development);
-    expect(configuration.environment.apiBaseUrl, isNull);
+    expect(
+      configuration.environment.apiBaseUrl,
+      Uri.parse('https://hasobjy-system-api.vercel.app/api/v1/'),
+    );
     expect(configuration.previewFrameName, isEmpty);
   });
 }

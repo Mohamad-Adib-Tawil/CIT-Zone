@@ -1,0 +1,12 @@
+{
+  "capturedFrames": 30,
+  "referenceFrames": 10,
+  "artifacts": {
+    "build/app/outputs/flutter-apk/app-debug.apk": {
+      "sha256": "4c68a8115134062478a1e9e26ba01893363c5363188c3f2e78a1e32764112f68",
+      "bytes": 198545377,
+      "mode": "debug",
+      "releaseAcceptance": false
+    }
+  }
+}

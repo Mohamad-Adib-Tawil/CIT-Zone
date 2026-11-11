@@ -1,4 +1,4 @@
-import '../../../core/errors/result.dart';
+import '../../../core/errors/either.dart';
 import '../../../core/media/media_failure.dart';
 
 enum DownloadFileState {
@@ -41,12 +41,12 @@ final class ProtectedVideoDownloadRequest {
 /// Provider-owned encrypted media and offline licenses, no plaintext export.
 /// Implement only after D08/D09/D28 real-device streaming/offline/expiry proof.
 abstract interface class ProtectedVideoDownloads {
-  Future<Result<void, MediaFailure>> enqueue(
+  Future<Either<MediaFailure, void>> enqueue(
     ProtectedVideoDownloadRequest request,
   );
-  Future<Result<void, MediaFailure>> pause(String assetId);
-  Future<Result<void, MediaFailure>> resume(String assetId);
-  Future<Result<void, MediaFailure>> delete(String assetId);
-  Future<Result<void, MediaFailure>> renewLicense(String assetId);
-  Future<Result<ProtectedDownloadStatus, MediaFailure>> status(String assetId);
+  Future<Either<MediaFailure, void>> pause(String assetId);
+  Future<Either<MediaFailure, void>> resume(String assetId);
+  Future<Either<MediaFailure, void>> delete(String assetId);
+  Future<Either<MediaFailure, void>> renewLicense(String assetId);
+  Future<Either<MediaFailure, ProtectedDownloadStatus>> status(String assetId);
 }

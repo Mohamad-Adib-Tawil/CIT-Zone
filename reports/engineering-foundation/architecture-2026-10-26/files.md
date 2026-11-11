@@ -1,0 +1,61 @@
+# ملفات شريحة26 أكتوبر
+
+المقارنة مع لقطة بداية الجولة، وليست كل ملفات git diff. التقارير وسجلاتها في هذا المجلد جديدة أيضاً.
+
+- معدل: `.cursor/rules/hasobjy-engineering.mdc`
+- معدل: `AGENTS.md`
+- معدل: `CLAUDE.md`
+- جديد: `docs/AI_ENGINEERING_ROLES.md`
+- معدل: `docs/ENGINEERING_OVERVIEW.md`
+- معدل: `docs/TEAM_COORDINATION.md`
+- معدل: `integration_test/app_status_test.dart`
+- معدل: `integration_test/foundation_native_test.dart`
+- معدل: `lib/app/di/app_dependencies.dart`
+- معدل: `lib/app/router/app_router.dart`
+- جديد: `lib/app/router/preview_route_policy.dart`
+- جديد: `lib/core/errors/either.dart`
+- محذوف بعد الترحيل: `lib/core/errors/result.dart`
+- معدل: `lib/core/network/api_failure.dart`
+- معدل: `lib/core/network/api_transport_policy.dart`
+- معدل: `lib/core/security/secure_session_secret_store.dart`
+- معدل: `lib/core/security/session_secret_store.dart`
+- معدل: `lib/core/storage/account_cache.dart`
+- معدل: `lib/core/storage/account_local_data.dart`
+- معدل: `lib/core/storage/drift_account_cache.dart`
+- معدل: `lib/features/app_status/data/api_app_availability_repository.dart`
+- جديد: `lib/features/app_status/data/app_config_remote_data_source.dart`
+- معدل: `lib/features/app_status/domain/app_availability_repository.dart`
+- معدل: `lib/features/app_status/presentation/cubit/app_availability_cubit.dart`
+- معدل: `lib/features/auth/data/google_identity_repository_impl.dart`
+- معدل: `lib/features/auth/domain/google_identity_repository.dart`
+- معدل: `lib/features/auth/presentation/cubit/google_identity_cubit.dart`
+- معدل: `lib/features/documents/domain/document_repository.dart`
+- معدل: `lib/features/downloads/domain/protected_video_downloads.dart`
+- معدل: `lib/features/playback/domain/playback_repository.dart`
+- معدل: `lib/features/playback/domain/single_playback_owner.dart`
+- معدل: `lib/features/student/data/demo_student_repository.dart`
+- جديد: `lib/features/student/domain/student_catalog_error.dart`
+- معدل: `lib/features/student/domain/student_repository.dart`
+- معدل: `lib/features/student/presentation/cubit/student_catalog_cubit.dart`
+- معدل: `plans/02-architecture.md`
+- معدل: `plans/09-decisions.md`
+- معدل: `plans/12-engineering-foundation.md`
+- معدل: `plans/13-packages.md`
+- معدل: `plans/README.md`
+- معدل: `plans/features/00-execution-contract.md`
+- جديد: `plans/implementation/2026-10-26-clean-architecture.md`
+- معدل: `pubspec.lock`
+- معدل: `pubspec.yaml`
+- معدل: `test/app/app_router_test.dart`
+- معدل: `test/architecture/architecture_test.dart`
+- معدل: `test/core/network/api_client_contract_test.dart`
+- معدل: `test/core/storage/local_storage_test.dart`
+- معدل: `test/core/storage/secure_session_store_test.dart`
+- معدل: `test/features/app_status/app_availability_test.dart`
+- جديد: `test/features/app_status/app_config_repository_test.dart`
+- جديد: `test/features/auth/google_identity_lifecycle_test.dart`
+- معدل: `test/features/auth/google_identity_repository_test.dart`
+- معدل: `test/features/playback/single_playback_owner_test.dart`
+- جديد: `test/features/student/student_catalog_cubit_test.dart`
+- معدل: `test/student_preview_test.dart`
+- معدل: `tool/architecture_rules.dart`

@@ -1,0 +1,11 @@
+{
+  "checkedOn": "2026-10-24",
+  "baseUrl": "https://hasobjy-system-api.vercel.app/",
+  "method": "GET, unauthenticated, X-Platform android and X-App-Version 1.0.0",
+  "health": {"status": 200, "database": "up"},
+  "appConfig": {"status": 200, "maintenance": false, "androidMinimum": "1.0.0", "iosMinimum": "1.0.0", "storeUrls": null, "updateRequired": null},
+  "sessionState": {"status": 401, "code": "UNAUTHENTICATED"},
+  "academicDepartments": {"status": 401, "code": "UNAUTHENTICATED"},
+  "openapiJson": {"status": 404, "code": "NOT_FOUND"},
+  "limits": "No authenticated flow, write, credential, session or authorization success was tested. A single missing docs URL does not prove all documentation is absent."
+}

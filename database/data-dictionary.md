@@ -21,7 +21,13 @@ id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   terms_version varchar(20),
   deleted_at timestamptz,
   created_at timestamptz NOT NULL DEFAULT now(),
-  updated_at timestamptz NOT NULL DEFAULT now()
+  updated_at timestamptz NOT NULL DEFAULT now(),
+  id_google varchar(255) UNIQUE,
+  firebase_uid varchar(128) UNIQUE,
+  email_verified boolean,
+  google_given_name varchar(150),
+  google_family_name varchar(150),
+  google_locale varchar(35)
 );
 ```
 

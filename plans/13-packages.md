@@ -1,5 +1,14 @@
 # 13 — سجل الحزم وخطة تفعيلها
 
+## تفعيل هوية Firebase — 2026-10-26
+
+firebase_core للتهيئة الرسمية وfirebase_auth لتبادل Google credential واستعادة مستخدم Firebase وتجديد إثباته والخروج؛ تضافان إلى dependencies في pubspec.yaml، والإعداد كسول في auth/data. google_sign_in يبقى لاختيار الحساب. لا firebase_messaging/Analytics. الصيانة تتطلب اختبارات المنصتين وعقود الهوية وبقاء API24/iOS15، دون overrides. [العقد وخطة القبول](implementation/2026-10-26-firebase-google-auth.md).
+
+
+تحديث2026-10-26: أضيفت `fpdart: ^1.2.0`، والمحلول المقفل1.2.0. سببها طلب Either الصريح وتوحيد عقود النتائج؛ الاستعمال من `core/errors/either.dart` الذي يصدر Either/Left/Right فقط. رُحّلت جميع عقود Result ومستهلكيها واختباراتها، وحُذف Result المحلي. الحزمة Dart بلا إعداد Native أو مورد في bootstrap؛ تعتمد ترقيتها مستقبلاً اختبار عقود الهوية والتخزين والوسائط والإعدادات والكتالوج وحدود AST. لا تبعية أخرى أو override أو تحديث جماعي. [تقرير الشريحة](../reports/engineering-foundation/architecture-2026-10-26/README.md).
+
+تحديث2026-10-24: اختار المستخدم Firebase project `cit-learn-dc483` للدخول والإشعارات. خدمة FCM لم تعد مجهولة؛ `firebase_core` و`firebase_messaging` مرشحتان لشريحة P3، غير مضافتين وغير مفعّلتين بعد. حددت [خطة النشر](implementation/2026-10-24-publication-readiness.md) ملفات المنصات وAPNs وقيود API24/iOS15 والاختبارات والحجم؛ لا إضافة firebase_auth أو Analytics تلقائياً ولا تغيير نوع رمز الجلسة دون عقد Backend.
+
 2026-10-16. أضيفت الحزم التالية فعلياً إلى `pubspec.yaml`؛ القيد الأدنى في الملف ونسخة الحل الدقيقة في `pubspec.lock`. نجاح حل الاعتماديات لا يعني تنفيذ قدراتها. لا تحديث شامل بـ`--major-versions`؛ كل تحديث يقيس الحد الأدنى للنظام وABI وحجم الإصدار والاختبارات.
 
 ## تفعيل الجودة — FND-06

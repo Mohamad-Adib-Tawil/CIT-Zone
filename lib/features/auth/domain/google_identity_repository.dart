@@ -1,4 +1,4 @@
-import '../../../core/errors/result.dart';
+import '../../../core/errors/either.dart';
 import 'google_identity.dart';
 import 'google_identity_failure.dart';
 
@@ -6,7 +6,7 @@ import 'google_identity_failure.dart';
 abstract interface class GoogleIdentityRepository {
   bool get isConfigured;
 
-  Future<Result<GoogleIdentity?, GoogleIdentityFailure>> restoreIdentity();
-  Future<Result<GoogleIdentity, GoogleIdentityFailure>> signIn();
-  Future<Result<void, GoogleIdentityFailure>> signOut();
+  Future<Either<GoogleIdentityFailure, GoogleIdentity?>> restoreIdentity();
+  Future<Either<GoogleIdentityFailure, GoogleIdentity>> signIn();
+  Future<Either<GoogleIdentityFailure, void>> signOut();
 }

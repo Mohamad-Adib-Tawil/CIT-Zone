@@ -4,12 +4,14 @@ class ApiRequest {
     required this.path,
     this.query = const {},
     this.jsonBody,
+    this.headers = const {},
   });
 
   final String method;
   final String path;
   final Map<String, String> query;
   final Object? jsonBody;
+  final Map<String, String> headers;
 }
 
 class ApiResponse {

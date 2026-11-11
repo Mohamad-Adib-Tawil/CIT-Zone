@@ -5,6 +5,60 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../tool/architecture_rules.dart';
 
 void main() {
+  test(
+    'shared domain-safe helpers cannot import transport or platform SDKs',
+    () {
+      for (final path in [
+        'lib/core/errors/error.dart',
+        'lib/core/media/media.dart',
+      ]) {
+        final violations = architectureViolations({
+          path: "import 'package:dio/dio.dart';",
+        });
+        expect(violations.single, contains('domain imports'));
+      }
+    },
+  );
+
+  test(
+    'Either is approved in pure domain and service location stays in DI',
+    () {
+      expect(
+        architectureViolations({
+          'lib/core/errors/either.dart':
+              "export 'package:fpdart/fpdart.dart' show Either, Left, Right;",
+          'lib/features/course/domain/repository.dart':
+              "import '../../../core/errors/either.dart';",
+          'lib/app/di/dependencies.dart':
+              "import 'package:get_it/get_it.dart';",
+          'lib/app/router/router.dart':
+              "import 'package:go_router/go_router.dart';",
+        }),
+        isEmpty,
+      );
+    },
+  );
+
+  test('cross-feature data dependencies cannot bypass domain contracts', () {
+    final violations = architectureViolations({
+      'lib/features/course/data/source.dart':
+          "import '../../auth/data/source.dart';",
+      'lib/features/auth/data/source.dart': '',
+    });
+    expect(violations.single, contains('another feature data layer'));
+  });
+
+  test('feature UI cannot import composition or construct routing', () {
+    final violations = architectureViolations({
+      'lib/features/course/presentation/page.dart':
+          "import '../../../app/config/config.dart';\n"
+          "import 'package:go_router/go_router.dart';",
+      'lib/app/config/config.dart': '',
+    });
+    expect(violations.any((v) => v.contains('composition layer')), isTrue);
+    expect(violations.any((v) => v.contains('app/router')), isTrue);
+  });
+
   test('repository preserves domain, data, presentation and composition boundaries', () {
     expect(
       architectureViolations(readArchitectureSources(Directory('lib'))),
@@ -15,14 +69,14 @@ void main() {
   test('barrel exports cannot hide a platform dependency from domain', () {
     final result = architectureViolations({
       'lib/features/course/domain/course.dart':
-          "import '../../../core/errors/result.dart';",
-      'lib/core/errors/result.dart': "export '../media/barrel.dart';",
+          "import '../../../core/errors/either.dart';",
+      'lib/core/errors/either.dart': "export '../media/barrel.dart';",
       'lib/core/media/barrel.dart': "export 'package:flutter/material.dart';",
     });
     expect(
       result.any(
         (value) => value.contains(
-          'course.dart -> lib/core/errors/result.dart -> lib/core/media/barrel.dart -> package:flutter/',
+          'course.dart -> lib/core/errors/either.dart -> lib/core/media/barrel.dart -> package:flutter/',
         ),
       ),
       isTrue,
@@ -43,12 +97,12 @@ void main() {
       architectureViolations({
         'lib/features/course/domain/course.dart': """
 // import 'package:flutter/material.dart';
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 part 'course_part.dart';
 """,
         'lib/features/course/domain/course_part.dart': "part of 'course.dart';",
-        'lib/core/errors/result.dart': "export '../media/value.dart';",
-        'lib/core/media/value.dart': "export '../errors/result.dart';",
+        'lib/core/errors/either.dart': "export '../media/value.dart';",
+        'lib/core/media/value.dart': "export '../errors/either.dart';",
       }),
       isEmpty,
     );

@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "637124336690",
+    "project_id": "cit-learn-dc483",
+    "storage_bucket": "cit-learn-dc483.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637124336690:android:251e502c45941c9222302b",
+        "android_client_info": {
+          "package_name": "com.devmind.cit.learn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637124336690-k3hmhfhnktopj1mchddc5smska60pngb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devmind.cit.learn",
+            "certificate_hash": "51b31972d0542b400ccbbce6947e9b2dc7bbbe5a"
+          }
+        },
+        {
+          "client_id": "637124336690-lq0f3ca7fs09n0sn827gjip0lhii12f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.devmind.cit.learn",
+            "certificate_hash": "9a10a73319e061a481b21f73510fd530f1ee3ee3"
+          }
+        },
+        {
+          "client_id": "637124336690-ckb8c62mu855i8219nfjv5l4pnu9ob4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD1VTkb9nz-Jkn-OvX2i7LPxKU8oxtKvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637124336690-ckb8c62mu855i8219nfjv5l4pnu9ob4i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "637124336690-q31nv9rdo829dilk6n9d785kvafplhtp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.devmind.cit.learn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-import '../../../core/errors/result.dart';
+import '../../../core/errors/either.dart';
 import '../../../core/media/media_failure.dart';
 
 sealed class PdfReference {
@@ -34,17 +34,17 @@ final class EncryptedCoursePdf extends CoursePdf {
 /// release its buffers on close/memory pressure. PDF protection is not video DRM.
 abstract interface class DocumentSession {
   int get pageCount;
-  Future<Result<void, MediaFailure>> close();
+  Future<Either<MediaFailure, void>> close();
 }
 
 abstract interface class DocumentRepository {
-  Future<Result<DocumentSession, MediaFailure>> open(PdfReference document);
+  Future<Either<MediaFailure, DocumentSession>> open(PdfReference document);
 
   /// Only academic PDFs may enter an exportable download path.
-  Future<Result<void, MediaFailure>> downloadAcademic(AcademicPdf document);
+  Future<Either<MediaFailure, void>> downloadAcademic(AcademicPdf document);
 
   /// Private encrypted storage only, after a separate protection/expiry proof.
-  Future<Result<void, MediaFailure>> cacheProtectedCourse(
+  Future<Either<MediaFailure, void>> cacheProtectedCourse(
     EncryptedCoursePdf document,
   );
 }

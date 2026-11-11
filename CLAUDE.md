@@ -3,6 +3,8 @@
 @AGENTS.md
 @docs/TEAM_COORDINATION.md
 
+اقرأ `docs/AI_ENGINEERING_ROLES.md` لمراحل المعمارية/التنفيذ/مراجعة API والأمن/الجودة والأداء. العقود الجديدة تستخدم `Either<Failure, Value>` من `core/errors/either.dart` وفق متابعة D29 بتاريخ2026-10-26؛ لا تعِد نظام Result المحلي ولا تخلط google identity بجلسة خادم. لا تغير هذه الأدوار توزيع الفريق أو تفوض تشغيل وكلاء إضافيين.
+
 ابدأ من [قواعد التعاون وسجل الإنجاز المشترك في Notion](https://app.notion.com/p/Codex-Claude-3fb921ef52a98054914bf51b7fda3f85).
 
 تعمل افتراضياً في مسار **Mohammad Mokhmaljy مع Claude** وفق توجيه صاحب المشروع بتاريخ 2026-10-16، ما لم يسند المستخدم المهمة صراحة لمسار مختلف. الاسم في Notion مطابق للحساب الموجود؛ Claude أداة العمل وليس حساب مستخدم جديداً.

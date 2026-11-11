@@ -19,14 +19,20 @@ void main() {
       () async {
         final http = _HttpClient();
         final request = _HttpRequest();
+        final opening = Completer<void>();
         final opened = Completer<HttpClientRequest>();
         final uri = Uri.parse('https://api.test/v1/items')
             .replace(queryParameters: {});
-        when(() => http.openUrl('GET', uri)).thenAnswer((_) => opened.future);
+        when(() => http.openUrl('GET', uri)).thenAnswer((_) {
+          opening.complete();
+          return opened.future;
+        });
         final client = IoApiClient(
           Uri.parse('https://api.test/v1/'),
           httpClient: http,
-          timeout: const Duration(milliseconds: 20),
+          timeout: cancel
+              ? const Duration(seconds: 30)
+              : const Duration(milliseconds: 20),
         );
         addTearDown(client.close);
         final token = ApiCancellationToken();
@@ -44,8 +50,8 @@ void main() {
             ),
           ),
         );
-        // Let openUrl start; it deliberately completes after the public operation.
-        await Future<void>.delayed(Duration.zero);
+        // Keep the connection pending until the public operation stops.
+        await opening.future;
         if (cancel) token.cancel();
         await check;
         opened.complete(request);

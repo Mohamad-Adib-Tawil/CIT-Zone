@@ -1,0 +1,686 @@
+{
+  "checkedOn": "2026-10-24",
+  "fileKey": "11anMMsG6zbMHejcOukYC7",
+  "method": "Figma MCP get_metadata, direct child frames of student pages only; no visual equivalence claim",
+  "frames": [
+    {
+      "nodeId": "9:15",
+      "name": "A-S03 · اختيار نوع الاستخدام",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "9:34",
+      "name": "A-S04 · المعلومات الأساسية",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "9:65",
+      "name": "A-S05 · الجهاز غير مصرّح",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "9:81",
+      "name": "A-S06 · طلب تغيير الجهاز",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "9:101",
+      "name": "A-S07 · حالة الطلب",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "65:237",
+      "name": "A-S08 · الشروط وسياسة الخصوصية",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "66:629",
+      "name": "A-S09 · معلومات الكورسات فقط",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "66:692",
+      "name": "A-S10 · الحساب موقوف",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1232",
+      "name": "A-S03 · اختيار نوع الاستخدام · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1241",
+      "name": "A-S04 · المعلومات الأساسية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1251",
+      "name": "A-S05 · الجهاز غير مصرّح · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1266",
+      "name": "A-S06 · طلب تغيير الجهاز · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1280",
+      "name": "A-S07 · حالة الطلب · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1308",
+      "name": "A-S08 · الشروط وسياسة الخصوصية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1329",
+      "name": "A-S09 · معلومات الكورسات فقط · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "103:1338",
+      "name": "A-S10 · الحساب موقوف · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "108:23",
+      "name": "A-S01 · تسجيل الدخول",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "119:667",
+      "name": "A-S01 · تسجيل الدخول · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:4"
+    },
+    {
+      "nodeId": "10:2",
+      "name": "B-S01 · المعلومات الأكاديمية",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "10:40",
+      "name": "B-S03 · ملخص التأكيد",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "10:69",
+      "name": "B-S04 · تأكيد تسجيل الفصل الجديد",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "10:92",
+      "name": "B-S05 · حالات الفصل في الرئيسية",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "10:115",
+      "name": "B-S06 · جدول الامتحانات",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "103:2957",
+      "name": "B-S01 · المعلومات الأكاديمية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "103:2970",
+      "name": "B-S03 · ملخص التأكيد · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "103:2996",
+      "name": "B-S04 · تأكيد تسجيل الفصل الجديد · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "103:3019",
+      "name": "B-S05 · حالات الفصل في الرئيسية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "103:3050",
+      "name": "B-S06 · جدول الامتحانات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "1:5"
+    },
+    {
+      "nodeId": "68:3",
+      "name": "S-01 · الإعدادات",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "68:207",
+      "name": "S-02 · الملف الشخصي",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "68:266",
+      "name": "S-03 · تعديل البيانات",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "68:342",
+      "name": "S-04 · الجهاز المسجّل",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "103:3277",
+      "name": "S-01 · الإعدادات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "103:3306",
+      "name": "S-02 · الملف الشخصي · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "103:3337",
+      "name": "S-03 · تعديل البيانات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "103:3349",
+      "name": "S-04 · الجهاز المسجّل · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "196:657",
+      "name": "S-05 · وقتي في التطبيق",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "196:785",
+      "name": "S-05 · وقتي في التطبيق · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "68:2"
+    },
+    {
+      "nodeId": "69:3",
+      "name": "C-01 · الرئيسية",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "69:93",
+      "name": "C-02 · المواد",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "69:203",
+      "name": "C-03 · تفاصيل المادة",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "69:304",
+      "name": "C-04 · مشغّل الدرس",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "73:206",
+      "name": "C-05 · عارض PDF (عرض فقط)",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "73:269",
+      "name": "C-06 · التمارين",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "73:332",
+      "name": "C-07 · حلّ التمرين",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "73:391",
+      "name": "C-08 · نتيجة التصحيح",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3371",
+      "name": "C-01 · الرئيسية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3410",
+      "name": "C-02 · المواد · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3467",
+      "name": "C-03 · تفاصيل المادة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3512",
+      "name": "C-04 · مشغّل الدرس · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3532",
+      "name": "C-05 · عارض PDF (عرض فقط) · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3556",
+      "name": "C-06 · التمارين · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3588",
+      "name": "C-07 · حلّ التمرين · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "103:3618",
+      "name": "C-08 · نتيجة التصحيح · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "195:9128",
+      "name": "C-09 · تقييم الدرس",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "195:9206",
+      "name": "C-09 · تقييم الدرس · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "69:2"
+    },
+    {
+      "nodeId": "80:3",
+      "name": "F-01 · الكورسات",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "80:113",
+      "name": "F-02 · تفاصيل الكورس",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "80:175",
+      "name": "F-03 · الدفع",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "80:260",
+      "name": "F-04 · تأكيد الحوالة",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "80:312",
+      "name": "F-05 · قسيمة الشحن",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "80:357",
+      "name": "F-06 · نجاح العملية",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4134",
+      "name": "F-01 · الكورسات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4167",
+      "name": "F-02 · تفاصيل الكورس · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4193",
+      "name": "F-03 · الدفع · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4213",
+      "name": "F-04 · تأكيد الحوالة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4228",
+      "name": "F-05 · قسيمة الشحن · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "103:4236",
+      "name": "F-06 · نجاح العملية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "198:9601",
+      "name": "F-02 · تفاصيل الكورس",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "198:9674",
+      "name": "F-07 · اشتراكاتي",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "198:9819",
+      "name": "F-07 · اشتراكاتي · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "80:2"
+    },
+    {
+      "nodeId": "85:3",
+      "name": "G-01 · كشف العلامات",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "85:58",
+      "name": "G-02 · تفاصيل علامة المادة",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "85:100",
+      "name": "H-01 · الإشعارات",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "85:193",
+      "name": "H-02 · الدعم",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "85:252",
+      "name": "H-03 · تذكرة جديدة",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "85:305",
+      "name": "H-04 · تفاصيل التذكرة",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4256",
+      "name": "G-01 · كشف العلامات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4288",
+      "name": "G-02 · تفاصيل علامة المادة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4310",
+      "name": "H-01 · الإشعارات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4345",
+      "name": "H-02 · الدعم · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4369",
+      "name": "H-03 · تذكرة جديدة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "103:4377",
+      "name": "H-04 · تفاصيل التذكرة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "197:637",
+      "name": "G-03 · كشف العلامات PDF",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "197:755",
+      "name": "G-03 · كشف العلامات PDF · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "85:2"
+    },
+    {
+      "nodeId": "91:3",
+      "name": "I-01 · شاشة البداية",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "91:26",
+      "name": "E-01 · التنزيلات",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "91:88",
+      "name": "I-02 · لا يوجد اتصال",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "91:142",
+      "name": "I-03 · الصيانة",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "91:168",
+      "name": "I-04 · تحديث إجباري",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "91:203",
+      "name": "I-05 · خطأ عام",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4392",
+      "name": "I-01 · شاشة البداية · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4398",
+      "name": "E-01 · التنزيلات · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4432",
+      "name": "I-02 · لا يوجد اتصال · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4442",
+      "name": "I-03 · الصيانة · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4450",
+      "name": "I-04 · تحديث إجباري · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    },
+    {
+      "nodeId": "103:4459",
+      "name": "I-05 · خطأ عام · Light",
+      "width": 390,
+      "height": 844,
+      "pageId": "91:2"
+    }
+  ]
+}

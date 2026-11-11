@@ -1,0 +1,76 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/ec5304f6-eef5-443b-ba60-9159644408ae";
+const imgH = `${assetPathPrefix}/77701.svg`;
+const img3DBackground = `${assetPathPrefix}/e67ae.svg`;
+const imgGlyph = `${assetPathPrefix}/96346.svg`;
+const imgChamferTl = `${assetPathPrefix}/5aa0d.svg`;
+const imgChamferBr = `${assetPathPrefix}/66d1e.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/ee89b.svg`;
+
+function LogoH({ className }: { className?: string }) {
+  return (
+    <div className={className || "relative size-[96px]"} data-node-id="28:396" data-name="Logo/H">
+      <div className="absolute left-0 size-[96px] top-0" data-node-id="28:397" data-name="H">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgH} />
+      </div>
+    </div>
+  );
+}
+
+export default function MA01Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-center justify-center relative size-full" data-node-id="103:5011" data-name="M-A01 · دخول الإدارة · Light">
+      <div className="absolute h-[900px] left-0 top-0 w-[1440px]" data-node-id="135:13452" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col gap-[16px] items-center overflow-clip px-[32px] py-[36px] relative shrink-0 w-[420px]" data-node-id="103:5012" data-name="Login card">
+        <LogoH className="relative shrink-0 size-[72px]" />
+        <p className="[word-break:break-word] font-['Cairo:Bold'] font-bold leading-[32px] min-w-full not-italic relative shrink-0 text-[22px] text-[color:var(--color-text-primary,#02112c)] text-center w-[min-content]" dir="auto" data-node-id="103:5014">
+          لوحة إدارة حاسوبجي
+        </p>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] min-w-full not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-secondary,#3d5a78)] text-center w-[min-content]" dir="auto" data-node-id="103:5015">
+          سجّل الدخول بحساب Google المصرّح له من الإدارة.
+        </p>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-strong,#9fc4e6)] border-solid content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="103:5016" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="I103:5016;8:7">
+            المتابعة عبر Google
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="I103:5016;19:446" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I103:5016;19:446;19:4" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+            </div>
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I103:5016;29:377" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I103:5016;29:378" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I103:5016;29:379" data-name="Chamfer line TL">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I103:5016;29:380" data-name="Chamfer line BR">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: heading/lg: Font(family: "Cairo", style: Bold, size: 22, weight: 700, lineHeight: 32, letterSpacing: 0), body/md: Font(family: "Cairo", style: Regular, size: 14, weight: 400, lineHeight: 22, letterSpacing: 0), label/lg: Font(family: "Cairo", style: Medium, size: 16, weight: 500, lineHeight: 24, letterSpacing: 0).
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

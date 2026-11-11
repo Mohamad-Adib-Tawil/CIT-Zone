@@ -1,0 +1,206 @@
+{
+  "checkedAt": "2026-10-28T07:03:19.682088+00:00",
+  "baseUrl": "https://hasobjy-system-api.vercel.app/api/v1",
+  "scope": "Read-only unauthenticated and invalid bearer probes; no successful session or writes tested",
+  "results": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "headers": {},
+      "status": 200,
+      "ms": 10653,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "data": {
+          "status": "ok",
+          "checks": {
+            "database": "up"
+          }
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/app/config",
+      "headers": {},
+      "status": 500,
+      "ms": 11009,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "8a13096f-b641-4299-a616-90373b18b5cb"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/legal/terms",
+      "headers": {},
+      "status": 200,
+      "ms": 10755,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "data": {
+          "version": 0,
+          "body": "",
+          "publishedAt": null
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me/session-state",
+      "headers": {},
+      "status": 500,
+      "ms": 4458,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "a7201123-aee8-4a7b-a14f-95e314b023e5"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/academic/departments",
+      "headers": {},
+      "status": 500,
+      "ms": 4360,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "b77f5854-0097-446c-bad5-a85d6aed7914"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me/registration-summary",
+      "headers": {},
+      "status": 500,
+      "ms": 4065,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "f3a7defe-f8d8-49aa-ac9b-95979e8d373d"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me/device",
+      "headers": {},
+      "status": 500,
+      "ms": 2303,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "d6c97ab6-4107-4963-aafc-6fa49ebd5b75"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me/device-change-requests/current",
+      "headers": {},
+      "status": 500,
+      "ms": 2250,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "005f3646-0f38-407c-af66-439c88a36629"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/openapi.json",
+      "headers": {},
+      "status": 500,
+      "ms": 3402,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "d25af25c-f9f0-48be-941d-99935ae88b22"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/app/config",
+      "headers": {
+        "X-Platform": "android",
+        "X-App-Version": "1.0.0"
+      },
+      "status": 500,
+      "ms": 4219,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "3de48941-2c5c-4754-9121-ac36caf0547d"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/app/config",
+      "headers": {
+        "X-Platform": "ios",
+        "X-App-Version": "1.0.0"
+      },
+      "status": 500,
+      "ms": 4367,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "e82e4ea2-f10e-4978-8153-677f6f3825c9"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/me/session-state",
+      "headers": {
+        "Authorization": "Bearer invalid-readiness-probe"
+      },
+      "status": 500,
+      "ms": 4103,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "error": {
+          "code": "INTERNAL",
+          "message": "حدث خطأ غير متوقع",
+          "details": [],
+          "requestId": "c78b2535-ecb6-43a2-af2f-861d30e738a4"
+        }
+      }
+    }
+  ]
+}

@@ -68,6 +68,45 @@ void contract(ClientFactory factory) {
     return result;
   }
 
+  test('sends request context without allowing header injection', () async {
+    final received = Completer<Map<String, String?>>();
+    final endpoint = await server((request) {
+      received.complete({
+        'platform': request.headers.value('X-Platform'),
+        'version': request.headers.value('X-App-Version'),
+      });
+      request.response.write('{"data":{}}');
+      unawaited(request.response.close());
+    });
+    final transport = client(endpoint.port);
+    await transport.send(
+      const ApiRequest(
+        method: 'GET',
+        path: 'app/config',
+        headers: {'X-Platform': 'android', 'X-App-Version': '1.0.0'},
+      ),
+    );
+    expect(await received.future, {'platform': 'android', 'version': '1.0.0'});
+    for (final headers in [
+      {'X-Platform': 'android\r\nAuthorization: forged'},
+      {'Host': 'evil.example'},
+      {'X-Request-ID': 'forged'},
+    ]) {
+      await expectLater(
+        transport.send(
+          ApiRequest(method: 'GET', path: 'app/config', headers: headers),
+        ),
+        throwsA(
+          isA<ApiFailure>().having(
+            (error) => error.kind,
+            'kind',
+            ApiFailureKind.configuration,
+          ),
+        ),
+      );
+    }
+  });
+
   test(
     'validates configuration and confines URL before any connection',
     () async {
@@ -167,11 +206,13 @@ void contract(ClientFactory factory) {
     for (final item in {
       401: ApiFailureKind.unauthenticated,
       403: ApiFailureKind.forbidden,
+      404: ApiFailureKind.notFound,
       408: ApiFailureKind.timeout,
       409: ApiFailureKind.conflict,
+      422: ApiFailureKind.validation,
       429: ApiFailureKind.rateLimited,
       503: ApiFailureKind.server,
-      400: ApiFailureKind.unexpected,
+      400: ApiFailureKind.badRequest,
     }.entries) {
       await expectLater(
         transport.send(ApiRequest(method: 'GET', path: '${item.key}')),

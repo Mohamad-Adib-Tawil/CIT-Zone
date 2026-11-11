@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
+import '../debug/safe_debug_log.dart';
 import 'api_cancellation_token.dart';
 import 'api_client.dart';
 import 'api_failure.dart';
@@ -53,6 +54,14 @@ class DioApiClient implements ApiClient {
   }) async {
     if (_closed) throw const ApiFailure(ApiFailureKind.configuration);
     final uri = _policy.resolve(request);
+    SafeDebugLog.event('API', 'request', {
+      'method': request.method,
+      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
+      'headers': request.headers,
+      'body': request.jsonBody is Map<String, Object?>
+          ? request.jsonBody! as Map<String, Object?>
+          : {'payload': request.jsonBody?.runtimeType.toString()},
+    });
     if (cancellationToken?.isCanceled == true) {
       throw const ApiFailure(ApiFailureKind.canceled);
     }
@@ -80,6 +89,7 @@ class DioApiClient implements ApiClient {
                 ? null
                 : Headers.jsonContentType,
             headers: {
+              ...request.headers,
               'Accept': 'application/json',
               'X-Request-ID': scope.requestId,
             },
@@ -102,12 +112,26 @@ class DioApiClient implements ApiClient {
           body.stream,
           _policy.maxResponseBytes,
         );
-        return _policy.decode(response.statusCode!, bytes, responseId);
+        final decoded = _policy.decode(response.statusCode!, bytes, responseId);
+        SafeDebugLog.event('API', 'response', {
+          'status': decoded.statusCode,
+          'request_id': decoded.requestId,
+          'body': decoded.json,
+        });
+        return decoded;
       });
     } catch (error) {
       cancel.cancel();
       scope.throwIfStopped();
-      if (error is ApiFailure) rethrow;
+      if (error is ApiFailure) {
+        SafeDebugLog.event('API', 'failure', {
+          'kind': error.kind.name,
+          'status': error.statusCode,
+          'code': error.code,
+          'request_id': error.requestId,
+        });
+        rethrow;
+      }
       final kind = switch (error) {
         DioException(
           type: DioExceptionType.connectionTimeout ||
@@ -127,6 +151,10 @@ class DioApiClient implements ApiClient {
         FormatException() => ApiFailureKind.invalidResponse,
         _ => ApiFailureKind.unexpected,
       };
+      SafeDebugLog.event('API', 'failure', {
+        'kind': kind.name,
+        'request_id': scope.requestId,
+      });
       throw ApiFailure(kind, requestId: scope.requestId);
     } finally {
       _active.remove(scope);

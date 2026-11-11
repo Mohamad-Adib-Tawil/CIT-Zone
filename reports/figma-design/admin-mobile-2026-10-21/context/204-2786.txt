@@ -1,0 +1,345 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/7fa4773f-5dcd-4961-b9b2-349fb6731d10";
+const img3DBackground = `${assetPathPrefix}/ba830.svg`;
+const imgShell = `${assetPathPrefix}/d1aed.svg`;
+const imgGlyph = `${assetPathPrefix}/99f16.svg`;
+const imgGlyph1 = `${assetPathPrefix}/ff159.svg`;
+const imgH = `${assetPathPrefix}/902ed.svg`;
+const imgGlyph2 = `${assetPathPrefix}/cba16.svg`;
+const imgGlyph3 = `${assetPathPrefix}/cc25a.svg`;
+const imgGlyph4 = `${assetPathPrefix}/68169.svg`;
+const imgGlyph5 = `${assetPathPrefix}/25eff.svg`;
+const imgGlyph6 = `${assetPathPrefix}/5238a.svg`;
+const imgGlyph7 = `${assetPathPrefix}/0583d.svg`;
+const imgGlyph8 = `${assetPathPrefix}/0ebba.svg`;
+const imgGlyph9 = `${assetPathPrefix}/b15c8.svg`;
+const imgGlyph10 = `${assetPathPrefix}/666be.svg`;
+const imgGlyph11 = `${assetPathPrefix}/ba0b6.svg`;
+
+export default function MB10() {
+  return (
+    <div className="bg-[var(--color-bg-app,#02112c)] content-stretch flex items-start relative size-full" data-node-id="204:2786" data-name="M-B10 · إغلاق الفصل">
+      <div className="absolute h-[900px] left-0 top-0 w-[1440px]" data-node-id="204:2787" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[20px] h-full items-start min-w-px overflow-clip px-[32px] py-[28px] relative" data-node-id="204:2791" data-name="Main">
+        <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" data-node-id="204:2942" data-name="Header">
+          <div className="drop-shadow-[0px_0px_10px_rgba(46,156,229,0.6)] h-[52px] relative shrink-0 w-[150px]" data-node-id="204:2943" data-name="Button 3D">
+            <div className="absolute h-[52px] left-0 top-0 w-[150px]" data-node-id="204:2944" data-name="Shell">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgShell} />
+            </div>
+            <div className="absolute content-stretch flex gap-[8px] h-[52px] items-center justify-center left-0 overflow-clip top-0 w-[150px]" data-node-id="204:2948" data-name="Content">
+              <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-white whitespace-nowrap" dir="auto" data-node-id="204:2949">
+                إغلاق الفصل
+              </p>
+              <div className="relative shrink-0 size-[20px]" data-node-id="204:2950" data-name="Icon/lock">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2950;19:32" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="[word-break:break-word] content-stretch flex flex-[1_0_0] flex-col gap-[2px] items-start min-w-px not-italic relative text-right" data-node-id="204:2954" data-name="Titles">
+            <p className="font-['Cairo:Bold'] font-bold leading-[32px] relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] w-full" dir="auto" data-node-id="204:2955">
+              إغلاق الفصل الثالث
+            </p>
+            <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="204:2956">
+              الفصول والامتحانات › إغلاق الفصل ونقل الطلاب
+            </p>
+          </div>
+        </div>
+        <div className="[word-break:break-word] content-stretch flex gap-[16px] items-start not-italic relative shrink-0 text-right w-full" data-node-id="204:2957" data-name="Stats">
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px px-[20px] py-[18px] relative" data-node-id="204:2958" data-name="Stat">
+            <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="204:2959">
+              إشعارات ستُرسل
+            </p>
+            <p className="font-['Cairo:Bold'] font-bold leading-[32px] relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] w-full" data-node-id="204:2960">
+              1,248
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px px-[20px] py-[18px] relative" data-node-id="204:2961" data-name="Stat">
+            <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="204:2962">
+              اشتراكات ستنتهي
+            </p>
+            <p className="font-['Cairo:Bold'] font-bold leading-[32px] relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] w-full" data-node-id="204:2963">
+              812
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px px-[20px] py-[18px] relative" data-node-id="204:2964" data-name="Stat">
+            <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="204:2965">
+              مواد راسبة تبقى مفتوحة
+            </p>
+            <p className="font-['Cairo:Bold'] font-bold leading-[32px] relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] w-full" data-node-id="204:2966">
+              41
+            </p>
+          </div>
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[6px] items-start min-w-px px-[20px] py-[18px] relative" data-node-id="204:2967" data-name="Stat">
+            <p className="font-['Cairo:Regular'] font-normal leading-[18px] relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] w-full" dir="auto" data-node-id="204:2968">
+              طلاب سيُنقلون للفصل الرابع
+            </p>
+            <p className="font-['Cairo:Bold'] font-bold leading-[32px] relative shrink-0 text-[22px] text-[color:var(--color-text-primary,white)] w-full" data-node-id="204:2969">
+              1,196
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[16px] items-start relative shrink-0 w-full" data-node-id="204:3033" data-name="Columns">
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-[1_0_0] flex-col gap-[14px] items-start min-w-px p-[20px] relative" data-node-id="204:2970" data-name="Card">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] text-right w-full" dir="auto" data-node-id="204:2971">
+              ما الذي سيحدث عند الإغلاق
+            </p>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:2972" data-name="Frame">
+              <div className="relative shrink-0 size-[18px]" data-node-id="204:2973" data-name="Icon/tick-circle">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2973;19:52" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:2977">
+                يُغلق الوصول للمواد المدفوعة الخاصة بهذا الفصل.
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:2978" data-name="Frame">
+              <div className="relative shrink-0 size-[18px]" data-node-id="204:2979" data-name="Icon/tick-circle">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2979;19:52" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:2983">
+                تبقى المواد الراسبة أو المحمّلة مفتوحة للمراجعة.
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:2984" data-name="Frame">
+              <div className="relative shrink-0 size-[18px]" data-node-id="204:2985" data-name="Icon/tick-circle">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2985;19:52" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:2989">
+                يُسجَّل الطلاب تلقائياً على الفصل الرابع.
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:2990" data-name="Frame">
+              <div className="relative shrink-0 size-[18px]" data-node-id="204:2991" data-name="Icon/tick-circle">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2991;19:52" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:2995">
+                يُرسَل إشعار تذكير للطلاب الذين لديهم مواد راسبة.
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:2996" data-name="Frame">
+              <div className="relative shrink-0 size-[18px]" data-node-id="204:2997" data-name="Icon/tick-circle">
+                <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2997;19:52" data-name="Glyph">
+                  <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph1} />
+                </div>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3001">
+                يُفعَّل زر «طباعة كشف علاماتي» لكل الطلاب.
+              </p>
+            </div>
+            <div className="content-stretch flex flex-col gap-[6px] items-start relative shrink-0 w-full" data-node-id="204:3002" data-name="Field">
+              <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right w-full" dir="auto" data-node-id="204:3003">
+                تاريخ بدء الفصل الرابع
+              </p>
+              <div className="bg-[var(--color-bg-subtle,#011755)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex items-center px-[14px] py-[10px] relative shrink-0 w-full" data-node-id="204:3004" data-name="Input">
+                <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3005">
+                  1 فبراير 2027
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-[var(--color-bg-surface,#06224d)] border border-[var(--color-border-default,#1b3f73)] border-solid content-stretch flex flex-col gap-[14px] items-start p-[20px] relative shrink-0 w-[520px]" data-node-id="204:3006" data-name="Card">
+            <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,white)] text-right w-full" dir="auto" data-node-id="204:3007">
+              قائمة التحقق قبل الإغلاق
+            </p>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:3008" data-name="Frame">
+              <div className="bg-[var(--color-bg-success-subtle,#12713f)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" data-node-id="204:3009" data-name="Badge">
+                <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-success,#e8f8ef)] whitespace-nowrap" dir="auto" data-node-id="I204:3009;8:45">
+                  مكتمل
+                </p>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3011">
+                نشر نتائج جميع المواد
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:3012" data-name="Frame">
+              <div className="bg-[var(--color-bg-warning-subtle,#8c5e10)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" data-node-id="204:3013" data-name="Badge">
+                <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-warning,#fdf4e1)] whitespace-nowrap" dir="auto" data-node-id="I204:3013;8:47">
+                  ناقص
+                </p>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3015">
+                مراجعة أسطر العلامات المرفوضة (3)
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:3016" data-name="Frame">
+              <div className="bg-[var(--color-bg-success-subtle,#12713f)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" data-node-id="204:3017" data-name="Badge">
+                <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-success,#e8f8ef)] whitespace-nowrap" dir="auto" data-node-id="I204:3017;8:45">
+                  مكتمل
+                </p>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3019">
+                ضبط تواريخ الفصل الرابع
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:3020" data-name="Frame">
+              <div className="bg-[var(--color-bg-warning-subtle,#8c5e10)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" data-node-id="204:3021" data-name="Badge">
+                <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-warning,#fdf4e1)] whitespace-nowrap" dir="auto" data-node-id="I204:3021;8:47">
+                  ناقص
+                </p>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3023">
+                مراجعة طلبات الأجهزة المعلّقة (14)
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[10px] items-center relative shrink-0 w-full" data-node-id="204:3024" data-name="Frame">
+              <div className="bg-[var(--color-bg-success-subtle,#12713f)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" data-node-id="204:3025" data-name="Badge">
+                <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-success,#e8f8ef)] whitespace-nowrap" dir="auto" data-node-id="I204:3025;8:45">
+                  مكتمل
+                </p>
+              </div>
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:3027">
+                تجهيز قوالب الإشعارات
+              </p>
+            </div>
+            <div className="content-stretch flex gap-[12px] items-center relative shrink-0 w-full" data-node-id="204:3028" data-name="Toggle row">
+              <div className="bg-[var(--color-bg-brand,#67a8dc)] border border-[var(--color-border-strong,#3d5a78)] border-solid content-stretch flex h-[20px] items-center justify-end p-[2px] relative shrink-0 w-[38px]" data-node-id="204:3029" data-name="Toggle">
+                <div className="bg-[var(--color-text-on-brand,#02112c)] relative shrink-0 size-[14px]" data-node-id="204:3030" data-name="Frame" />
+              </div>
+              <div className="content-stretch flex flex-[1_0_0] flex-col items-start min-w-px relative" data-node-id="204:3031" data-name="Frame">
+                <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[22px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,white)] text-right w-full" dir="auto" data-node-id="204:3032">
+                  إرسال الإشعارات فور الإغلاق
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[var(--color-bg-surface,#06224d)] border-[var(--color-border-default,#1b3f73)] border-l border-r border-solid content-stretch flex flex-col gap-[6px] h-full items-start overflow-clip px-[16px] py-[24px] relative shrink-0 w-[260px]" data-node-id="204:2859" data-name="Sidebar">
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip pb-[20px] relative shrink-0 w-full" data-node-id="204:2860" data-name="Brand">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-primary,white)] text-right" dir="auto" data-node-id="204:2861">
+            حاسوبجي · الإدارة
+          </p>
+          <div className="relative shrink-0 size-[36px]" data-node-id="204:2862" data-name="Logo/H">
+            <div className="absolute left-0 size-[96px] top-0" data-node-id="I204:2862;28:397" data-name="H">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgH} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2863" data-name="Nav: لوحة التحكم">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2864">
+            لوحة التحكم
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2865" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2865;66:45" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph2} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2866" data-name="Nav: الطلاب">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2867">
+            الطلاب
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2868" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2868;19:10" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph3} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2869" data-name="Nav: طلبات الأجهزة">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2870">
+            طلبات الأجهزة
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2871" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2871;19:21" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph4} />
+            </div>
+          </div>
+        </div>
+        <div className="bg-[var(--color-bg-brand-subtle,#1b3f73)] content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2872" data-name="Nav: الفصول والامتحانات">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-brand,#67a8dc)] text-right" dir="auto" data-node-id="204:2873">
+            الفصول والامتحانات
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2874" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2874;19:25" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph5} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2875" data-name="Nav: المحتوى">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2876">
+            المحتوى
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2877" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2877;19:29" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph6} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2878" data-name="Nav: الكورسات والمدفوعات">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2879">
+            الكورسات والمدفوعات
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2880" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2880;66:91" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph7} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2881" data-name="Nav: الدعم">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2882">
+            الدعم
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2883" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2883;66:72" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph8} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2884" data-name="Nav: الإعلانات">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2885">
+            الإعلانات
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2886" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2886;66:56" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph9} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2933" data-name="Nav: التقارير">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2934">
+            التقارير
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2935" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2935;19:67" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph10} />
+            </div>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[10px] items-center overflow-clip px-[12px] py-[11px] relative shrink-0 w-full" data-node-id="204:2887" data-name="Nav: الإعدادات">
+          <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:Regular'] font-normal leading-[22px] min-w-px not-italic relative text-[14px] text-[color:var(--color-text-secondary,#d9f1fd)] text-right" dir="auto" data-node-id="204:2888">
+            الإعدادات
+          </p>
+          <div className="relative shrink-0 size-[24px]" data-node-id="204:2889" data-name="Icon">
+            <div className="absolute left-0 size-[24px] top-0" data-node-id="I204:2889;66:52" data-name="Glyph">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgGlyph11} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+
+These styles are contained in the design: label/md: Font(family: "Cairo", style: Medium, size: 14, weight: 500, lineHeight: 20, letterSpacing: 0), heading/lg: Font(family: "Cairo", style: Bold, size: 22, weight: 700, lineHeight: 32, letterSpacing: 0), body/sm: Font(family: "Cairo", style: Regular, size: 12, weight: 400, lineHeight: 18, letterSpacing: 0), heading/sm: Font(family: "Cairo", style: SemiBold, size: 16, weight: 600, lineHeight: 24, letterSpacing: 0), body/md: Font(family: "Cairo", style: Regular, size: 14, weight: 400, lineHeight: 22, letterSpacing: 0), label/sm: Font(family: "Cairo", style: Medium, size: 12, weight: 500, lineHeight: 16, letterSpacing: 0).
+
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

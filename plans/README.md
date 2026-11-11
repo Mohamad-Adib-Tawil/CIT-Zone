@@ -1,5 +1,18 @@
 # خطط حاسوبجي / Hasobjy
 
+## هوية Firebase — 2026-10-26
+
+[خطة Google عبر Firebase وتكليف Backend](implementation/2026-10-26-firebase-google-auth.md) هي مرجع نوع الرمز الحالي، وتتجاوز ملاحظات التدفق المباشر التاريخية. ربط API ينتظر عقد BE-AUTH-FIREBASE؛ لا يمنع تنفيذ الهوية المستقلة.
+
+
+## توحيد البنية والنتائج — 2026-10-26
+
+[شريحة Either/حدود الطبقات وAPI/GoRouter/Cubit](implementation/2026-10-26-clean-architecture.md) و[تسليم الفحوص](../reports/engineering-foundation/architecture-2026-10-26/README.md) و[أدوار AI](../docs/AI_ENGINEERING_ROLES.md) هي متابعة الأساس المعماري؛ لا تغير حالة الخادم أو DRM أو خطة النشر أدناه.
+
+## حالة تطبيق الطالب وخطة النشر — 2026-10-24
+
+المرجع الحالي للمنجز والباقي وترتيب P0–P6 والمالكين ومعايير القبول: [خطة إكمال النشر](implementation/2026-10-24-publication-readiness.md) و[تقرير الفحص](../reports/release-readiness-2026-10-24/README.md). النطاق Flutter للطالب؛ Dashboard خارج التكليف. 543 اختباراً محلياً ناجحاً اليوم لا تعني جلسة/بيانات طالب حية أو جاهزية النشر.
+
 ## التنسيق بين Codex وClaude
 
 قبل أي مهمة اقرأ [عقد تنسيق الفريق](../docs/TEAM_COORDINATION.md) وأحدث تسليم في [صفحة Notion المشتركة](https://app.notion.com/p/Codex-Claude-3fb921ef52a98054914bf51b7fda3f85). سجل الإنسان والأداة والنطاق والأدلة والباقي؛ قواعد Claude في [CLAUDE.md](../CLAUDE.md). لا تمسح نسبة إنشاء الأصل عند مراجعته.

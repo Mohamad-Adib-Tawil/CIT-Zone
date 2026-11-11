@@ -1,0 +1,18 @@
+Because l10n.yaml exists, the options defined there will be used instead.
+To use the command line arguments, delete the l10n.yaml file in the Flutter project.
+
+
+  compiling builders/aot
+  14s compiling builders/aot
+  0s freezed on 153 inputs; integration_test/app_navigation_test.dart
+  0s freezed on 153 inputs: 153 no-op
+  0s json_serializable on 306 inputs; integration_test/app_navigation_test.dart
+  5s json_serializable on 306 inputs: 1 no-op; spent 4s analyzing; integration_test/app_navigation_test.freezed.dart
+  7s json_serializable on 306 inputs: 128 skipped, 129 no-op; spent 5s analyzing, 1s resolving; test/architecture/architecture_test.freezed.dart
+  7s json_serializable on 306 inputs: 153 skipped, 153 no-op; spent 5s analyzing, 1s resolving
+  0s drift_dev on 1224 inputs; integration_test/app_navigation_test.dart
+  0s drift_dev on 1224 inputs: 765 skipped, 287 output, 172 no-op
+  0s source_gen:combining_builder on 612 inputs; integration_test/app_navigation_test.dart
+  0s source_gen:combining_builder on 612 inputs: 459 skipped, 1 output, 152 no-op
+  Built with build_runner/aot in 22s; wrote 288 outputs.
+Generated output reproducible: 3 files.

@@ -1,6 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-import '../errors/result.dart';
+import '../errors/either.dart';
 import '../storage/account_scope.dart';
 import '../storage/storage_failure.dart';
 import 'session_secret_store.dart';
@@ -32,37 +32,37 @@ final class SecureSessionSecretStore implements SessionSecretStore {
   final FlutterSecureStorage _storage;
 
   @override
-  Future<Result<String?, StorageFailure>> read() => _capture(() async {
+  Future<Either<StorageFailure, String?>> read() => _capture(() async {
     final value = await _storage.read(key: _key);
     if (value != null && (value.isEmpty || value.length > 16384)) {
-      return const Failure(StorageFailure.corrupt);
+      return const Left(StorageFailure.corrupt);
     }
-    return Success(value);
+    return Right(value);
   });
 
   @override
-  Future<Result<void, StorageFailure>> write(String secret) =>
+  Future<Either<StorageFailure, void>> write(String secret) =>
       _capture(() async {
         if (secret.isEmpty || secret.length > 16384) {
-          return const Failure(StorageFailure.corrupt);
+          return const Left(StorageFailure.corrupt);
         }
         await _storage.write(key: _key, value: secret);
-        return const Success(null);
+        return const Right(null);
       });
 
   @override
-  Future<Result<void, StorageFailure>> clear() => _capture(() async {
+  Future<Either<StorageFailure, void>> clear() => _capture(() async {
     await _storage.delete(key: _key);
-    return const Success(null);
+    return const Right(null);
   });
 
-  Future<Result<T, StorageFailure>> _capture<T>(
-    Future<Result<T, StorageFailure>> Function() operation,
+  Future<Either<StorageFailure, T>> _capture<T>(
+    Future<Either<StorageFailure, T>> Function() operation,
   ) async {
     try {
       return await operation();
     } catch (_) {
-      return const Failure(StorageFailure.unavailable);
+      return const Left(StorageFailure.unavailable);
     }
   }
 }

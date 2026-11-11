@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:drift/drift.dart';
 
-import '../errors/result.dart';
+import '../errors/either.dart';
 import 'account_cache.dart';
 import 'account_scope.dart';
 import 'cache_database.dart';
@@ -20,9 +20,9 @@ final class DriftAccountCache implements AccountCache {
   bool _validKey(String key) => key.isNotEmpty && key.length <= 256;
 
   @override
-  Future<Result<CachedPageIndex?, StorageFailure>> readPage(String key) async {
-    if (_retired) return const Success(null);
-    if (!_validKey(key)) return const Failure(StorageFailure.corrupt);
+  Future<Either<StorageFailure, CachedPageIndex?>> readPage(String key) async {
+    if (_retired) return const Right(null);
+    if (!_validKey(key)) return const Left(StorageFailure.corrupt);
     try {
       final table = _database.accountPageIndices;
       final row =
@@ -32,13 +32,13 @@ final class DriftAccountCache implements AccountCache {
                     row.cacheKey.equals(key),
               ))
               .getSingleOrNull();
-      if (_retired || row == null) return const Success(null);
+      if (_retired || row == null) return const Right(null);
       try {
         final ids = jsonDecode(row.itemIdsJson);
         if (ids is! List || ids.any((id) => id is! String)) {
-          return const Failure(StorageFailure.corrupt);
+          return const Left(StorageFailure.corrupt);
         }
-        return Success(
+        return Right(
           CachedPageIndex(
             itemIds: ids.cast<String>(),
             cachedAt: DateTime.fromMillisecondsSinceEpoch(
@@ -48,26 +48,24 @@ final class DriftAccountCache implements AccountCache {
           ),
         );
       } catch (_) {
-        return const Failure(StorageFailure.corrupt);
+        return const Left(StorageFailure.corrupt);
       }
     } catch (_) {
-      return const Failure(StorageFailure.unavailable);
+      return const Left(StorageFailure.unavailable);
     }
   }
 
   @override
-  Future<Result<void, StorageFailure>> writePage(
+  Future<Either<StorageFailure, void>> writePage(
     String key,
     CachedPageIndex page,
   ) async {
-    if (_retired) return const Failure(StorageFailure.unavailable);
-    if (!_validKey(key)) return const Failure(StorageFailure.corrupt);
+    if (_retired) return const Left(StorageFailure.unavailable);
+    if (!_validKey(key)) return const Left(StorageFailure.corrupt);
     try {
       return await _database.transaction(() async {
         if (_retired) {
-          return const Failure<void, StorageFailure>(
-            StorageFailure.unavailable,
-          );
+          return const Left<StorageFailure, void>(StorageFailure.unavailable);
         }
         await _database
             .into(_database.accountPageIndices)
@@ -80,24 +78,24 @@ final class DriftAccountCache implements AccountCache {
               ),
             );
         return _retired
-            ? const Failure<void, StorageFailure>(StorageFailure.unavailable)
-            : const Success<void, StorageFailure>(null);
+            ? const Left<StorageFailure, void>(StorageFailure.unavailable)
+            : const Right<StorageFailure, void>(null);
       });
     } catch (_) {
-      return const Failure(StorageFailure.unavailable);
+      return const Left(StorageFailure.unavailable);
     }
   }
 
   @override
-  Future<Result<void, StorageFailure>> clear() async {
+  Future<Either<StorageFailure, void>> clear() async {
     _retired = true;
     try {
       await (_database.delete(
         _database.accountPageIndices,
       )..where((row) => row.accountId.equals(_account.id))).go();
-      return const Success(null);
+      return const Right(null);
     } catch (_) {
-      return const Failure(StorageFailure.unavailable);
+      return const Left(StorageFailure.unavailable);
     }
   }
 }

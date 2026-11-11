@@ -415,5 +415,57 @@
   "backAction": "رجوع",
   "@backAction": {
     "description": "Existing Arabic copy, preserved during foundation extraction."
+  },
+  "appStatusBrand": "حاسوبجي سيستم",
+  "@appStatusBrand": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusInstitute": "المعهد التقني للحاسوب",
+  "@appStatusInstitute": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusOfflineTitle": "لا يوجد اتصال بالإنترنت",
+  "@appStatusOfflineTitle": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusOfflineMessage": "تعذر التحقق من إعدادات التطبيق. تحقق من الاتصال ثم أعد المحاولة.",
+  "@appStatusOfflineMessage": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusMaintenanceTitle": "التطبيق قيد الصيانة",
+  "@appStatusMaintenanceTitle": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusMaintenanceMessage": "نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.",
+  "@appStatusMaintenanceMessage": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusUpdateTitle": "يتوفر تحديث جديد",
+  "@appStatusUpdateTitle": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusUpdateMessage": "لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.",
+  "@appStatusUpdateMessage": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusErrorTitle": "حدث خطأ غير متوقع",
+  "@appStatusErrorTitle": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusErrorMessage": "لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.",
+  "@appStatusErrorMessage": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusRetry": "إعادة المحاولة",
+  "@appStatusRetry": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusUpdate": "تحديث الآن",
+  "@appStatusUpdate": {
+    "description": "Student API startup availability gate."
+  },
+  "appStatusStoreUnavailable": "تعذر فتح رابط التحديث. أعد المحاولة لاحقاً أو تواصل مع الدعم.",
+  "@appStatusStoreUnavailable": {
+    "description": "Student API startup availability gate."
   }
 }

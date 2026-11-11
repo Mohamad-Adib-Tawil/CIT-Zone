@@ -1,0 +1,18 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: Google is exchanged through Firebase and IDs remain distinct
+00:00 +1: restore reloads Firebase without opening Google account chooser
+00:00 +2: restore without Firebase account returns empty
+00:00 +3: disabled/deleted account restore is a safe repository failure
+00:00 +4: missing-token rejects partial login and signs both providers out
+00:00 +5: wrong-provider rejects partial login and signs both providers out
+00:00 +6: wrong-google-id rejects partial login and signs both providers out
+00:00 +7: missing-provider rejects partial login and signs both providers out
+00:00 +8: Google cancellation does not start Firebase
+00:00 +9: initialization failure can be retried
+00:00 +10: proof refuses wrong expected user before reading token
+00:00 +11: account switch/logout while token refresh is pending is rejected
+00:00 +12: sign-out attempts Google even if Firebase fails
+00:00 +13: sign-out clears Firebase even if Google fails
+00:00 +14: (tearDownAll)
+00:00 +14: All tests passed!

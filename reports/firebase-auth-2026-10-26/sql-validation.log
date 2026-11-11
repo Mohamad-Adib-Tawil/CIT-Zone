@@ -1,0 +1,1 @@
+PASS: full schema execution, six columns, distinct IDs/profile, duplicate Google/Firebase rejection, blank IDs rejection and multiple legacy NULL identities. Local PGlite 0.5.12; no production or multi-connection concurrency claim.

@@ -64,6 +64,7 @@ class IoApiClient implements ApiClient {
         scope.onAbort(() => outgoing!.abort());
         scope.throwIfStopped();
         outgoing!.followRedirects = false;
+        request.headers.forEach(outgoing!.headers.set);
         outgoing!.headers.set(HttpHeaders.acceptHeader, 'application/json');
         outgoing!.headers.set('X-Request-ID', scope.requestId);
         if (request.jsonBody != null) {

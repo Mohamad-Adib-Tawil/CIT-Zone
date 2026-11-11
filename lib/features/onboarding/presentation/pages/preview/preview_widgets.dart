@@ -28,7 +28,9 @@ class PreviewScaffold extends StatelessWidget {
     required this.children,
     this.navigation = false,
     this.header,
+    this.backgroundLayer,
     this.gap = 14,
+    this.topPadding = 16,
     this.bottomPadding = 24,
   });
   final String? title;
@@ -36,7 +38,9 @@ class PreviewScaffold extends StatelessWidget {
   final List<Widget> children;
   final bool navigation;
   final Widget? header;
+  final Widget? backgroundLayer;
   final double gap;
+  final double topPadding;
   final double bottomPadding;
 
   @override
@@ -44,9 +48,10 @@ class PreviewScaffold extends StatelessWidget {
     appBarTitle: title,
     onBack: actions.back,
     header: header,
+    backgroundLayer: backgroundLayer,
     bottomNavigation: navigation ? PreviewNavigation(actions: actions) : null,
     child: Padding(
-      padding: EdgeInsets.fromLTRB(24, 16, 24, bottomPadding),
+      padding: EdgeInsets.fromLTRB(24, topPadding, 24, bottomPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -323,22 +328,30 @@ class PreviewButton extends StatelessWidget {
     this.primary = true,
     this.icon = true,
     this.subtle = false,
+    this.light3D = false,
+    this.iconAsset,
   });
   final String label;
   final VoidCallback onTap;
   final bool primary;
   final bool icon;
   final bool subtle;
+  final bool light3D;
+  final String? iconAsset;
   @override
   Widget build(BuildContext context) {
-    final asset = icon ? previewIcon(context, label) : null;
+    final asset = icon ? iconAsset ?? previewIcon(context, label) : null;
+    final glyph = asset == null
+        ? null
+        : HasobjySvg(asset, width: 24, height: 24);
     return HasobjyButton(
       label: label,
       onPressed: onTap,
       primary: primary,
+      light3D: light3D,
       backgroundColor: subtle ? context.design.selectedSurface : null,
       textColor: subtle ? context.design.brand : null,
-      icon: asset == null ? null : HasobjySvg(asset, width: 24, height: 24),
+      icon: glyph,
     );
   }
 }

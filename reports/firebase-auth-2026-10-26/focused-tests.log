@@ -1,0 +1,129 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart
+00:00 +0: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: identity, missing identity and sign-out are distinct successful results
+00:00 +1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_lifecycle_test.dart: a disposed idle cubit cannot restore or start Google sign-in
+00:00 +2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: typed failure GoogleIdentityFailure.unavailable is preserved for all repository operations
+00:00 +3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_lifecycle_test.dart: late Google completion cannot navigate or log out after disposal
+00:00 +4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: typed failure GoogleIdentityFailure.missingToken is preserved for all repository operations
+00:00 +5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_lifecycle_test.dart: a disposed ready cubit does not issue native sign-out
+00:00 +6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: typed failure GoogleIdentityFailure.canceled is preserved for all repository operations
+00:00 +7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: typed failure GoogleIdentityFailure.unexpected is preserved for all repository operations
+00:00 +8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_repository_test.dart: raw SDK errors and sensitive messages cannot cross repository boundary
+00:00 +9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_outcome_cubit_test.dart: one in-flight sign-in; failed sign-out retains identity and safe error
+00:00 +10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_outcome_cubit_test.dart: GoogleIdentityFailure.unavailable produces a safe presentation error
+00:00 +11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_outcome_cubit_test.dart: GoogleIdentityFailure.missingToken produces a safe presentation error
+00:00 +12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/google_identity_outcome_cubit_test.dart: GoogleIdentityFailure.unexpected produces a safe presentation error
+00:00 +13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: (setUpAll)
+00:00 +13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google is exchanged through Firebase and IDs remain distinct
+00:00 +13 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google is exchanged through Firebase and IDs remain distinct [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                             when
+  test/features/auth/firebase_google_identity_gateway_test.dart 19:3   googleInfo
+  test/features/auth/firebase_google_identity_gateway_test.dart 56:47  main.<fn>
+  
+00:00 +13 -1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: restore reloads Firebase without opening Google account chooser
+00:00 +13 -2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: restore reloads Firebase without opening Google account chooser [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: restore without Firebase account returns empty
+00:00 +13 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: restore without Firebase account returns empty [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: disabled/deleted account restore is a safe repository failure
+00:00 +13 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: disabled/deleted account restore is a safe repository failure [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: missing-token rejects partial login and signs both providers out
+00:00 +13 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: missing-token rejects partial login and signs both providers out [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: wrong-provider rejects partial login and signs both providers out
+00:00 +13 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: wrong-provider rejects partial login and signs both providers out [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: wrong-google-id rejects partial login and signs both providers out
+00:00 +13 -7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: wrong-google-id rejects partial login and signs both providers out [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: missing-provider rejects partial login and signs both providers out
+00:00 +13 -8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: missing-provider rejects partial login and signs both providers out [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google cancellation does not start Firebase
+00:00 +13 -9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google cancellation does not start Firebase [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: initialization failure can be retried
+00:00 +13 -10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: initialization failure can be retried [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: proof refuses wrong expected user before reading token
+00:00 +13 -11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: proof refuses wrong expected user before reading token [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: account switch/logout while token refresh is pending is rejected
+00:00 +13 -12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: account switch/logout while token refresh is pending is rejected [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: sign-out attempts Google even if Firebase fails
+00:00 +13 -13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: sign-out attempts Google even if Firebase fails [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: sign-out clears Firebase even if Google fails
+00:00 +13 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: sign-out clears Firebase even if Google fails [E]
+  Bad state: Cannot call `when` within a stub response
+  package:mocktail/src/mocktail.dart 206:5                            when
+  test/features/auth/firebase_google_identity_gateway_test.dart 45:5  main.<fn>
+  
+00:00 +13 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: (tearDownAll)
+00:00 +13 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: (setUpAll)
+00:00 +13 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: composition is lazy and shares only gateway, never Cubit state
+00:00 +14 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +15 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:01 +16 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +17 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +18 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +19 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +20 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +21 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: Google identity restores and signs out without server session
+00:01 +22 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview ADMIN_PREVIEW: production
+00:01 +23 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview ADMIN_PREVIEW: development
+00:01 +24 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview STUDENT_PREVIEW: production
+00:01 +25 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview STUDENT_PREVIEW: development
+00:01 +26 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview B-S06: production
+00:01 +27 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: blocked preview B-S06: development
+00:01 +28 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview ADMIN_PREVIEW
+00:01 +29 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview STUDENT_PREVIEW
+00:01 +30 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview B-S06
+00:01 +31 -14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: (tearDownAll)
+00:01 +31 -14: Some tests failed.
+
+Failing tests:
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google cancellation does not start Firebase
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: Google is exchanged through Firebase and IDs remain distinct
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: account switch/logout while token refresh is pending is rejected
+  /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/auth/firebase_google_identity_gateway_test.dart: disabled/deleted account restore is a safe repository failure
+  ... and 10 more

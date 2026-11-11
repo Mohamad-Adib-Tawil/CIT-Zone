@@ -1,0 +1,59 @@
+Building com.devmind.cit.learn for simulator (ios)...
+Running Xcode build...                                          
+Xcode build done.                                           113.1s
+Failed to build iOS app
+Error (Xcode): Undefined symbol: _FlutterMethodNotImplemented
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterAppDelegate
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterBasicMessageChannel
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterError
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterEventChannel
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterMethodChannel
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterSceneDelegate
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterStandardMessageCodec
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterStandardReader
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterStandardReaderWriter
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_CLASS_$_FlutterStandardWriter
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterAppDelegate
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterSceneDelegate
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterStandardMessageCodec
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterStandardReader
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterStandardReaderWriter
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Undefined symbol: _OBJC_METACLASS_$_FlutterStandardWriter
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Error (Xcode): Linker command failed with exit code 1 (use -v to see invocation)
+/Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/%20%20%20%20E-Learning%20Platform/Hasobjy/ios/Runner.xcodeproj
+
+Encountered error while building for simulator.

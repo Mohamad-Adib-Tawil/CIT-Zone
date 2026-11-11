@@ -30,8 +30,7 @@ List<String> architectureViolations(Map<String, String> sources) {
 
   final violations = <String>{};
   for (final root in sources.keys.where((path) => !path.endsWith('.g.dart'))) {
-    final domain =
-        root.startsWith('lib/features/') && root.contains('/domain/');
+    final domain = _domainFile(root);
     final presentation =
         root.startsWith('lib/features/') && root.contains('/presentation/');
     final data = root.startsWith('lib/features/') && root.contains('/data/');
@@ -70,6 +69,20 @@ List<String> architectureViolations(Map<String, String> sources) {
         if (uri.startsWith('package:get_it/') &&
             !file.startsWith('lib/app/di/')) {
           reason = 'service locator is restricted to the composition root';
+        }
+        if (uri.startsWith('package:go_router/') &&
+            !file.startsWith('lib/app/router/')) {
+          reason = 'router construction is restricted to app/router';
+        }
+        if (target != null &&
+            file.startsWith('lib/features/') &&
+            target.startsWith('lib/features/') &&
+            file.split('/')[2] != target.split('/')[2] &&
+            target.contains('/data/')) {
+          reason = 'a feature cannot depend on another feature data layer';
+        }
+        if (target != null && presentation && target.startsWith('lib/app/')) {
+          reason = 'presentation depends on the composition layer';
         }
         final next = [...trail, target ?? uri];
         if (reason != null) {
@@ -110,6 +123,7 @@ bool _pureDomainLibrary(String uri) => const {
   'dart:math',
   'dart:typed_data',
   'package:meta/meta.dart',
+  'package:fpdart/fpdart.dart',
 }.contains(uri);
 
 bool _infrastructureFile(String path) => const [
@@ -125,6 +139,8 @@ bool _infrastructureLibrary(String uri) =>
       'drift_flutter',
       'flutter_secure_storage',
       'google_sign_in',
+      'firebase_auth',
+      'firebase_core',
       'get_it',
       'http',
       'sqflite',

@@ -1,0 +1,13 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart
+00:00 +0: (setUpAll)
+00:00 +0: S-05 matches current Figma content geometry at 390
+00:00 +1: G-03 matches current Figma content geometry at 390
+00:00 +2: F-07 matches current Figma content geometry at 390
+00:00 +3: rating selection accepts only 1–5 without inventing a saved rating
+00:00 +4: rating sheet requires selection and delegates saving to owner
+00:00 +5: pending rating prevents changing stars or duplicate submission
+00:00 +6: updated lesson opens rating in the same theme
+00:00 +7: subscriptions navigate to catalog without fabricating activation
+00:00 +8: unpublished grade prevents report action in reference state
+00:00 +9: (tearDownAll)
+00:00 +9: All tests passed!

@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/admin/presentation/cubit/admin_dashboard_cubit.dart';
+import '../../features/admin/presentation/admin_figma_frame.dart';
+import '../../features/admin/presentation/admin_figma_preview_page.dart';
 import '../../features/admin/presentation/pages/admin_dashboard_page.dart';
 import '../../features/auth/domain/google_identity.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
@@ -15,6 +17,7 @@ import '../../features/onboarding/presentation/pages/hasobjy_frame_gallery_page.
 import '../../features/student/presentation/pages/student_preview_page.dart';
 import '../di/app_dependencies.dart';
 import 'app_routes.dart';
+import 'preview_route_policy.dart';
 
 /// Owns route refresh subscription and router. Google readiness is NOT a session.
 class AppRouter {
@@ -90,7 +93,32 @@ class AppRouter {
           builder: (context, state) => HasobjyFrameGalleryPage(
             onOpenFrame: (frame) =>
                 context.push(AppRoutes.frame(frame.frameName)),
+            onOpenAdminGallery: () => context.push(AppRoutes.adminFigmaGallery),
           ),
+        ),
+        GoRoute(
+          path: AppRoutes.adminFigmaGallery,
+          builder: (context, state) => AdminFigmaGalleryPage(
+            onOpenFrame: (frame, light) =>
+                context.push(AppRoutes.adminFrame(frame.key, light: light)),
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.adminFigmaFrame,
+          builder: (context, state) {
+            final frame = AdminFigmaFrame.fromKey(
+              state.pathParameters['frame']!,
+            );
+            if (frame == null) return const SizedBox.shrink();
+            final light = state.uri.queryParameters['theme'] == 'light';
+            return AdminFigmaPreviewPage(
+              frame: frame,
+              light: light,
+              onOpenFrame: (target, targetLight) => context.push(
+                AppRoutes.adminFrame(target.key, light: targetLight),
+              ),
+            );
+          },
         ),
         GoRoute(
           path: AppRoutes.designFrame,
@@ -122,6 +150,7 @@ class AppRouter {
   final _RouterRefresh _refresh = _RouterRefresh();
   late final StreamSubscription<GoogleIdentityState> _subscription;
   late final GoRouter router;
+  bool _disposed = false;
 
   bool get _previewsEnabled =>
       kDebugMode && _dependencies.configuration.previewsEnabled;
@@ -139,16 +168,9 @@ class AppRouter {
 
   String get _initialLocation {
     if (!_previewsEnabled) return AppRoutes.signIn;
-    final frameName = _dependencies.configuration.previewFrameName;
-    return switch (frameName) {
-      'FIGMA_GALLERY' => AppRoutes.designGallery,
-      'STUDENT_PREVIEW' => AppRoutes.studentPreview,
-      'ADMIN_PREVIEW' => AppRoutes.adminPreview,
-      _ when HasobjyFrameId.fromFrameName(frameName) != null => AppRoutes.frame(
-        frameName,
-      ),
-      _ => AppRoutes.signIn,
-    };
+    return PreviewRoutePolicy.initialLocation(
+      _dependencies.configuration.previewFrameName,
+    );
   }
 
   String? _redirect(GoRouterState state) {
@@ -158,8 +180,10 @@ class AppRouter {
     }
     if (path.startsWith('/debug/')) {
       if (!_previewsEnabled) return _identityLocation;
-      final frame = state.pathParameters['frame'];
-      if (frame != null && HasobjyFrameId.fromFrameName(frame) == null) {
+      if (!PreviewRoutePolicy.acceptsFrame(
+        route: state.fullPath,
+        frame: state.pathParameters['frame'],
+      )) {
         return _identityLocation;
       }
     }
@@ -171,6 +195,8 @@ class AppRouter {
   ) => BlocBuilder<GoogleIdentityCubit, GoogleIdentityState>(builder: builder);
 
   void dispose() {
+    if (_disposed) return;
+    _disposed = true;
     unawaited(_subscription.cancel());
     router.dispose();
     _refresh.dispose();

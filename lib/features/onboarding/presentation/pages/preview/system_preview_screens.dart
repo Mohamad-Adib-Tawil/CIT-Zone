@@ -71,9 +71,12 @@ class SystemPreviewScreen extends StatelessWidget {
         'لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.',
       ),
     };
+    final lightOffline = frame == 'I-02' && context.design.isLight;
     return PreviewScaffold(
       actions: actions,
+      topPadding: lightOffline ? 44 : 16,
       children: [
+        if (lightOffline) const Spacer(flex: 2),
         Center(
           child: PreviewIconTile(
             asset: context.designFrame!.assets['imgGlyph'],
@@ -90,7 +93,12 @@ class SystemPreviewScreen extends StatelessWidget {
         const Spacer(),
         if (frame == 'I-04') PreviewButton('تحديث الآن', onTap: actions.notice),
         if (frame == 'I-02' || frame == 'I-05') ...[
-          PreviewButton('إعادة المحاولة', onTap: actions.notice),
+          PreviewButton(
+            'إعادة المحاولة',
+            onTap: actions.notice,
+            light3D: lightOffline,
+            iconAsset: lightOffline ? '92416' : null,
+          ),
           PreviewButton(
             frame == 'I-02' ? 'الانتقال إلى التنزيلات' : 'التواصل مع الدعم',
             onTap: () => actions.open(frame == 'I-02' ? 'E-01' : 'H-02'),

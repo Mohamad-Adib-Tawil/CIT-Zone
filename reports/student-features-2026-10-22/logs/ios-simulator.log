@@ -1,0 +1,23 @@
+Running Xcode build...                                          
+Xcode build done.                                            9.7s
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:59113/t5fVfpid-VU=/
+VMServiceFlutterDriver: Isolate found with number: 4066762518320771
+VMServiceFlutterDriver: Isolate 4066762518320771 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+flutter: 00:00 +0: capture student Figma additions and updated links on simulator
+VMServiceFlutterDriver: Connected to Flutter application.
+-[WFIsolatedShortcutRunner init] Taking sandbox extensions for execution
+-[WFIsolatedShortcutRunner init]_block_invoke Sandbox extensions acquired
+Indexing for request: <WFToolKitIndexingRequest: 0x105c540c0>, changeset: .partial(updatedCount: 1 removedCount: 1 updated: ["com.devmind.cit.learn"], removed: ["com.apple.siri.SiriCrisisAppIntentsExtension"], provenance: [VoiceShortcutClient.ToolKitIndexingReason.Changeset.Provenance.launchServicesSnapshot(<LaunchServicesSnapshot uuid=B57A2F36-E854-4941-8B37-28D2F979DAA7, v=700)> ["com.apple.VideoSubscriberAccount.Intents", "com.apple.Home.HomeControlService", "com.apple.HealthPrivacyService", "com.apple.PhotosUIPrivate.PhotosClockPoster", "com.apple.mobilesafari", "com.apple.ContactsUI.Carousel", "com.apple.VoiceOverTouch", "com.apple.PassbookSecureUIService", "com.apple.coreidv.CoreIDVUIService", "com.apple.GuestUserHandoverSetup", "com.apple.siri", "com.apple.PassKit.PassbookStubAppIntentsExtension", "com.apple.DocumentManager.DockFolderViewService", "com.apple.findmy.remoteuiservice", "com.apple.TelephonyUtilities.FaceTimeMessageStoreIntentsExtension", "com.apple.family.FamilyIntents", "com.apple.ScreenshotServicesService"<…>, priority: <decode: missing data>
+Type indexing (params + content items) took 0.000083s
+Action indexing took 0.000034s
+Indexed: 0
+Errored: 0
+Skipped: [:]
+Bundle cache: 0 hits, 0 misses
+Finished in 0.340702s
+-[WFIsolatedShortcutRunner unaliveProcess] Releasing sandbox extensions
+flutter: 00:07 +1: (tearDownAll)
+flutter: 00:07 +2: All tests passed!
+All tests passed.

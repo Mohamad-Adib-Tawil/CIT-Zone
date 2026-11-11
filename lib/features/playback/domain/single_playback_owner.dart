@@ -1,4 +1,4 @@
-import '../../../core/errors/result.dart';
+import '../../../core/errors/either.dart';
 import '../../../core/media/media_failure.dart';
 import 'playback_repository.dart';
 
@@ -10,48 +10,48 @@ final class SinglePlaybackOwner {
   Future<void> _tail = Future.value();
   bool _disposed = false;
 
-  Future<Result<PlaybackSession, MediaFailure>> open(PlaybackRequest request) =>
+  Future<Either<MediaFailure, PlaybackSession>> open(PlaybackRequest request) =>
       _serialize(() async {
-        if (_disposed) return const Failure(MediaFailure.canceled);
+        if (_disposed) return const Left(MediaFailure.canceled);
         final closed = await _closeActive();
-        if (closed case Failure(:final failure)) return Failure(failure);
+        if (closed case Left(value: final failure)) return Left(failure);
         final opened = await _repository.open(request);
-        if (opened case Success(:final value)) {
+        if (opened case Right(:final value)) {
           _active = value;
           if (_disposed) {
             final cleanup = await _closeActive();
             return switch (cleanup) {
-              Failure(:final failure) => Failure(failure),
-              Success() => const Failure(MediaFailure.canceled),
+              Left(value: final failure) => Left(failure),
+              Right() => const Left(MediaFailure.canceled),
             };
           }
         }
         return opened;
       });
 
-  Future<Result<void, MediaFailure>> close() => _serialize(_closeActive);
+  Future<Either<MediaFailure, void>> close() => _serialize(_closeActive);
 
-  Future<Result<void, MediaFailure>> dispose() {
+  Future<Either<MediaFailure, void>> dispose() {
     _disposed = true;
     return _serialize(_closeActive);
   }
 
-  Future<Result<void, MediaFailure>> _closeActive() async {
+  Future<Either<MediaFailure, void>> _closeActive() async {
     final current = _active;
-    if (current == null) return const Success(null);
+    if (current == null) return const Right(null);
     final closed = await current.close();
-    if (closed is Success<void, MediaFailure>) _active = null;
+    if (closed is Right<MediaFailure, void>) _active = null;
     return closed;
   }
 
-  Future<Result<T, MediaFailure>> _serialize<T>(
-    Future<Result<T, MediaFailure>> Function() operation,
+  Future<Either<MediaFailure, T>> _serialize<T>(
+    Future<Either<MediaFailure, T>> Function() operation,
   ) {
     final result = _tail.then((_) async {
       try {
         return await operation();
       } catch (_) {
-        return Failure<T, MediaFailure>(MediaFailure.unexpected);
+        return Left<MediaFailure, T>(MediaFailure.unexpected);
       }
     });
     _tail = result.then((_) {});

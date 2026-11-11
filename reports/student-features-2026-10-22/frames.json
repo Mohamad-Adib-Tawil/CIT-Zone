@@ -1,0 +1,141 @@
+[
+  {
+    "key": "C-09",
+    "node": "195:9128",
+    "assets": {
+      "img3DBackground": "acb67.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgGlyph": "e3eac.svg",
+      "imgStarEmpty": "b8cdb.svg",
+      "imgShell": "75ce9.svg",
+      "imgVector": "80870.svg",
+      "imgVector1": "07489.svg",
+      "imgGlyph1": "18141.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg",
+      "imgStarEmpty1": "9ac21.svg",
+      "imgStar": "5da48.svg"
+    }
+  },
+  {
+    "key": "C-09-LIGHT",
+    "node": "195:9206",
+    "assets": {
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "624a4.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg",
+      "imgGlyph": "0a1db.svg",
+      "imgStarEmpty": "65432.svg",
+      "imgVector": "0ac5c.svg",
+      "imgVector1": "b926f.svg",
+      "imgVector2": "7d772.svg",
+      "imgVector3": "2592c.svg",
+      "imgGlyph1": "89cce.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg",
+      "imgStarEmpty1": "848d7.svg",
+      "imgStar": "47532.svg"
+    }
+  },
+  {
+    "key": "S-05",
+    "node": "196:657",
+    "assets": {
+      "img3DBackground": "acb67.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg"
+    }
+  },
+  {
+    "key": "S-05-LIGHT",
+    "node": "196:785",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "624a4.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg"
+    }
+  },
+  {
+    "key": "G-03",
+    "node": "197:637",
+    "assets": {
+      "img3DBackground": "acb67.svg",
+      "imgFloatSph": "a12f7.svg",
+      "imgFloatCube": "f1409.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgGlyph": "18141.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    }
+  },
+  {
+    "key": "G-03-LIGHT",
+    "node": "197:755",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "624a4.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg",
+      "imgGlyph": "89cce.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    }
+  },
+  {
+    "key": "F-07",
+    "node": "198:9674",
+    "assets": {
+      "img3DBackground": "acb67.svg",
+      "imgFloatSph": "a12f7.svg",
+      "imgFloatCube": "f1409.svg",
+      "imgSignal": "ec76a.svg",
+      "imgWiFi": "22855.svg",
+      "imgBattery": "00202.svg",
+      "imgBackIcon": "e82f9.svg",
+      "imgChamferTl": "b043f.svg",
+      "imgChamferBr": "03567.svg",
+      "imgChamferLineTl": "84987.svg"
+    }
+  },
+  {
+    "key": "F-07-LIGHT",
+    "node": "198:9819",
+    "assets": {
+      "imgBackIcon": "c318e.svg",
+      "imgSignal": "8b564.svg",
+      "imgWiFi": "a8a0a.svg",
+      "imgBattery": "1dc6c.svg",
+      "img3DBackground": "624a4.svg",
+      "imgFloatSph": "ff7c9.svg",
+      "imgFloatCube": "5a19f.svg",
+      "imgChamferTl": "5aa0d.svg",
+      "imgChamferBr": "66d1e.svg",
+      "imgChamferLineTl": "ee89b.svg"
+    }
+  }
+]

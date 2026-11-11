@@ -1,5 +1,10 @@
 # 02 — تسجيل Google والأدوار والجهاز الواحد
 
+## تحديث Firebase — 2026-10-26
+
+[الخطة الحالية](../implementation/2026-10-26-firebase-google-auth.md) تعتمد Firebase Auth بعد Google، وترسل Firebase ID token عند تسليم عقد API. id_google منفصل عن firebase_uid وعن users.id. الهوية وCubit بلا رموز؛ بيانات users المتحقق منها ومبادلة الجلسة والتزامن لدى Backend. الحالة التاريخية أدناه لا تحكم نوع الرمز الجديد.
+
+
 ## حالة التنفيذ المحلي — FND-02 / 2026-10-16
 
 هوية Google فقط مفصولة الآن بعقد repository يعيد Result typed، وتطبيق data يترجم إخفاق gateway، وCubit ورسائل عرض آمنة. حقنها عبر حاوية get_it خاصة، ومسارا sign-in/google-identity في go_router يتغيران مع الاستعادة/الدخول/الخروج؛ فشل الخروج يبقي الهوية. هذه ليست جلسة Hasobjy أو ربط جهاز أو دوراً أو انتقالاً للكتالوج الإنتاجي. بقيت عقود exchange/refresh/revoke وD07/D10 وتصاميم الحالات الخادمية خارج التنفيذ. [تقرير FND-02](../../reports/engineering-foundation/architecture-2026-10-16/README.md).

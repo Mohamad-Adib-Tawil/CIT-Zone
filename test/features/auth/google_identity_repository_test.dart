@@ -1,4 +1,4 @@
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
 import 'package:cit_zone/features/auth/domain/google_identity_gateway.dart';
@@ -14,25 +14,25 @@ void main() {
         FakeGoogleIdentityGateway(),
       );
       final restore = await repository.restoreIdentity();
-      expect(restore, isA<Success<GoogleIdentity?, GoogleIdentityFailure>>());
+      expect(restore, isA<Right<GoogleIdentityFailure, GoogleIdentity?>>());
       expect(
-        restore.fold(
-          onSuccess: (value) => value,
-          onFailure: (_) => throw StateError('unexpected failure'),
+        restore.match(
+          (_) => throw StateError('unexpected failure'),
+          (value) => value,
         ),
         isNull,
       );
       final login = await repository.signIn();
       expect(
-        login.fold(
-          onSuccess: (value) => value,
-          onFailure: (_) => throw StateError('unexpected failure'),
+        login.match(
+          (_) => throw StateError('unexpected failure'),
+          (value) => value,
         ),
         same(FakeGoogleIdentityGateway.identity),
       );
       expect(
         await repository.signOut(),
-        isA<Success<void, GoogleIdentityFailure>>(),
+        isA<Right<GoogleIdentityFailure, void>>(),
       );
     },
   );
@@ -55,10 +55,7 @@ void main() {
           await repository.signOut(),
         ];
         for (final result in results) {
-          expect(
-            result.fold(onSuccess: (_) => null, onFailure: (error) => error),
-            failure,
-          );
+          expect(result.match((error) => error, (_) => null), failure);
         }
       },
     );
@@ -82,7 +79,7 @@ void main() {
         await repository.signOut(),
       ]) {
         expect(
-          result.fold(onSuccess: (_) => null, onFailure: (error) => error),
+          result.match((error) => error, (_) => null),
           GoogleIdentityFailure.unexpected,
         );
       }

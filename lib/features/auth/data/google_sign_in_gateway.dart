@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart' hide GoogleIdentity;
 
-import '../domain/google_identity.dart';
+import 'google_oauth_client.dart';
 import '../domain/google_identity_gateway.dart';
 
 class GoogleSignInConfiguration {
@@ -32,7 +32,7 @@ class GoogleSignInConfiguration {
       defaultTargetPlatform == TargetPlatform.iOS ? iosClientId : null;
 }
 
-class GoogleSignInGateway implements GoogleIdentityGateway {
+class GoogleSignInGateway implements GoogleOAuthClient {
   GoogleSignInGateway({GoogleSignInConfiguration? configuration})
     : _configuration = configuration ?? const GoogleSignInConfiguration();
 
@@ -56,29 +56,7 @@ class GoogleSignInGateway implements GoogleIdentityGateway {
   }
 
   @override
-  Future<GoogleIdentity?> restoreIdentity() async {
-    if (!isConfigured) return null;
-    try {
-      await _initialize();
-      final attempt = GoogleSignIn.instance.attemptLightweightAuthentication();
-      final account = await attempt;
-      if (account == null) return null;
-      if (account.authentication.idToken?.isNotEmpty != true) return null;
-      return _identityFor(account);
-    } catch (_) {
-      // Restoring a Google account is optional. The user can sign in manually.
-      return null;
-    }
-  }
-
-  GoogleIdentity _identityFor(GoogleSignInAccount account) => GoogleIdentity(
-    displayName: account.displayName,
-    email: account.email,
-    photoUrl: account.photoUrl == null ? null : Uri.tryParse(account.photoUrl!),
-  );
-
-  @override
-  Future<GoogleIdentity> authenticate() async {
+  Future<GoogleOAuthCredential> authenticate() async {
     if (!isConfigured) {
       throw const GoogleIdentityException(GoogleIdentityFailure.unavailable);
     }
@@ -94,7 +72,7 @@ class GoogleSignInGateway implements GoogleIdentityGateway {
         await GoogleSignIn.instance.signOut();
         throw const GoogleIdentityException(GoogleIdentityFailure.missingToken);
       }
-      return _identityFor(account);
+      return GoogleOAuthCredential(idToken: idToken, idGoogle: account.id);
     } on GoogleIdentityException {
       rethrow;
     } on GoogleSignInException catch (error) {
@@ -113,7 +91,6 @@ class GoogleSignInGateway implements GoogleIdentityGateway {
 
   @override
   Future<void> signOut() async {
-    if (_initialization == null) return;
     await _initialize();
     await GoogleSignIn.instance.signOut();
   }

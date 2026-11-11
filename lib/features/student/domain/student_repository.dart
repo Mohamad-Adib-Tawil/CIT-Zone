@@ -1,5 +1,7 @@
+import '../../../core/errors/either.dart';
+import 'student_catalog_error.dart';
 import 'student_models.dart';
 
-abstract class StudentRepository {
-  Future<List<StudentCourse>> loadCatalog();
+abstract interface class StudentRepository {
+  Future<Either<StudentCatalogError, List<StudentCourse>>> loadCatalog();
 }

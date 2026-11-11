@@ -1,4 +1,4 @@
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/security/secure_session_secret_store.dart';
 import 'package:cit_zone/core/storage/account_scope.dart';
 import 'package:cit_zone/core/storage/storage_failure.dart';
@@ -39,28 +39,19 @@ void main() {
     await a.write('test-only-secret-a');
     await b.write('test-only-secret-b');
     expect(
-      (await a.read()).fold(
-        onSuccess: (value) => value,
-        onFailure: (_) => null,
-      ),
+      (await a.read()).match((_) => null, (value) => value),
       'test-only-secret-a',
     );
     await a.clear();
     expect(
-      (await a.read()).fold(
-        onSuccess: (value) => value,
-        onFailure: (_) => 'unexpected',
-      ),
+      (await a.read()).match((_) => 'unexpected', (value) => value),
       isNull,
     );
     expect(
-      (await b.read()).fold(
-        onSuccess: (value) => value,
-        onFailure: (_) => null,
-      ),
+      (await b.read()).match((_) => null, (value) => value),
       'test-only-secret-b',
     );
-    expect(await a.write(''), isA<Failure<void, StorageFailure>>());
+    expect(await a.write(''), isA<Left<StorageFailure, void>>());
   });
 
   test(
@@ -87,7 +78,7 @@ void main() {
         await store.clear(),
       ]) {
         expect(
-          result.fold(onSuccess: (_) => null, onFailure: (failure) => failure),
+          result.match((failure) => failure, (_) => null),
           StorageFailure.unavailable,
         );
       }

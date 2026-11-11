@@ -1,4 +1,4 @@
-import '../errors/result.dart';
+import '../errors/either.dart';
 import 'storage_failure.dart';
 import 'account_scope.dart';
 
@@ -17,12 +17,12 @@ final class CachedPageIndex {
 
 abstract interface class AccountCache {
   AccountScope get account;
-  Future<Result<CachedPageIndex?, StorageFailure>> readPage(String key);
-  Future<Result<void, StorageFailure>> writePage(
+  Future<Either<StorageFailure, CachedPageIndex?>> readPage(String key);
+  Future<Either<StorageFailure, void>> writePage(
     String key,
     CachedPageIndex page,
   );
 
   /// Purges this account and retires the handle. A later session gets a new one.
-  Future<Result<void, StorageFailure>> clear();
+  Future<Either<StorageFailure, void>> clear();
 }

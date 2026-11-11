@@ -1,0 +1,197 @@
+const assetPathPrefix = "https://www.figma.com/api/mcp/asset/78a1453c-3614-441c-9be8-5ba99fd780be";
+const imgBackIcon = `${assetPathPrefix}/c318e.svg`;
+const imgSignal = `${assetPathPrefix}/8b564.svg`;
+const imgWiFi = `${assetPathPrefix}/a8a0a.svg`;
+const imgBattery = `${assetPathPrefix}/1dc6c.svg`;
+const img3DBackground = `${assetPathPrefix}/624a4.svg`;
+const imgFloatSph = `${assetPathPrefix}/ff7c9.svg`;
+const imgFloatCube = `${assetPathPrefix}/5a19f.svg`;
+const imgChamferTl = `${assetPathPrefix}/5aa0d.svg`;
+const imgChamferBr = `${assetPathPrefix}/66d1e.svg`;
+const imgChamferLineTl = `${assetPathPrefix}/ee89b.svg`;
+
+type BadgeProps = {
+  className?: string;
+  label?: string;
+  tone?: "Neutral" | "Success" | "Warning";
+};
+
+function Badge({ className, label = "حالة", tone = "Neutral" }: BadgeProps) {
+  const isSuccess = tone === "Success";
+  const isWarning = tone === "Warning";
+  return (
+    <div className={className || `content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] ${isWarning ? "bg-[var(--color-bg-warning-subtle,#fdf4e1)]" : isSuccess ? "bg-[var(--color-bg-success-subtle,#e8f8ef)]" : "bg-[var(--color-bg-subtle,#e4f1f9)]"}`} id={isWarning ? "node-8_46" : isSuccess ? "node-8_44" : "node-8_40"}>
+      {tone === "Neutral" && (
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-secondary,#3d5a78)] whitespace-nowrap" dir="auto" data-node-id="8:41">
+          {label}
+        </p>
+      )}
+      {isSuccess && (
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-success,#12713f)] whitespace-nowrap" dir="auto" data-node-id="8:45">
+          {label}
+        </p>
+      )}
+      {isWarning && (
+        <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-warning,#8c5e10)] whitespace-nowrap" dir="auto" data-node-id="8:47">
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+
+type AppBarProps = {
+  className?: string;
+  title?: string;
+};
+
+function AppBar({ className, title = "عنوان الشاشة" }: AppBarProps) {
+  return (
+    <div className={className || "bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative w-[390px]"} data-node-id="8:51" data-name="App Bar">
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:52" data-name="Spacer" />
+      <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="8:53">
+        {title}
+      </p>
+      <div className="relative shrink-0 size-[24px]" data-node-id="8:54" data-name="Back icon">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBackIcon} />
+      </div>
+    </div>
+  );
+}
+
+type StatusBarProps = {
+  className?: string;
+  platform?: "iOS";
+};
+
+function StatusBar({ className, platform = "iOS" }: StatusBarProps) {
+  return (
+    <div className={className || "content-stretch flex h-[44px] items-center justify-between px-[28px] relative w-[390px]"} data-node-id="18:2">
+      <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" data-node-id="18:3">
+        9:41
+      </p>
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0" data-node-id="18:4" data-name="Indicators">
+        <div className="h-[12px] relative shrink-0 w-[18px]" data-node-id="18:5" data-name="Signal">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgSignal} />
+        </div>
+        <div className="h-[12px] relative shrink-0 w-[17px]" data-node-id="18:10" data-name="Wi-Fi">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgWiFi} />
+        </div>
+        <div className="h-[13px] relative shrink-0 w-[27px]" data-node-id="18:14" data-name="Battery">
+          <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgBattery} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function F07Light() {
+  return (
+    <div className="bg-[var(--color-bg-app,#f4fbff)] content-stretch flex flex-col items-start overflow-clip relative rounded-[44px] size-full" data-node-id="198:9819" data-name="F-07 · اشتراكاتي · Light">
+      <div className="absolute h-[844px] left-0 top-0 w-[390px]" data-node-id="198:9820" data-name="3D background">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={img3DBackground} />
+      </div>
+      <div className="absolute left-[380.8px] size-[38.4px] top-[240.8px]" data-node-id="198:9824" data-name="Float · sph">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFloatSph} />
+      </div>
+      <div className="absolute left-[-42.67px] size-[69.333px] top-[155.33px]" data-node-id="198:9825" data-name="Float · cube">
+        <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFloatCube} />
+      </div>
+      <StatusBar className="content-stretch flex h-[44px] items-center justify-between px-[28px] relative shrink-0 w-full" />
+      <AppBar className="bg-[var(--color-bg-surface,white)] content-stretch flex h-[56px] items-center justify-between px-[var(--space-md,16px)] py-[var(--space-xs,8px)] relative shrink-0 w-full" title="اشتراكاتي" />
+      <div className="content-stretch flex flex-[1_0_0] flex-col gap-[12px] items-start min-h-px overflow-clip pb-[24px] pt-[16px] px-[24px] relative w-full" data-node-id="198:9828" data-name="Content">
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="198:9902">
+          المواد الدراسية
+        </p>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col items-start overflow-clip px-[16px] py-[4px] relative shrink-0 w-full" data-node-id="198:9903" data-name="Info">
+          <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip py-[12px] relative shrink-0 w-full" data-node-id="198:9916" data-name="Frame">
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0 w-full" data-node-id="198:9917" data-name="Frame">
+              <Badge className="bg-[var(--color-bg-success-subtle,#e8f8ef)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="نشط" tone="Success" />
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right" dir="auto" data-node-id="198:9920">
+                اشتراك الفصل الثالث الكامل
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="198:9921">
+              4 مواد · حتى 30 يونيو 2027
+            </p>
+          </div>
+          <div className="bg-[var(--color-border-default,#c5dff0)] h-px relative shrink-0 w-full" data-node-id="198:9922" data-name="Divider" />
+          <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip py-[12px] relative shrink-0 w-full" data-node-id="198:9923" data-name="Frame">
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0 w-full" data-node-id="198:9924" data-name="Frame">
+              <Badge className="bg-[var(--color-bg-subtle,#e4f1f9)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="مراجعة" />
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right" dir="auto" data-node-id="198:9927">
+                هندسة البرمجيات
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="198:9928">
+              مفتوحة للمراجعة فقط بعد انتهاء الفصل
+            </p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:SemiBold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right w-full" dir="auto" data-node-id="198:9929">
+          الكورسات
+        </p>
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-default,#c5dff0)] border-solid content-stretch flex flex-col items-start overflow-clip px-[16px] py-[4px] relative shrink-0 w-full" data-node-id="198:9930" data-name="Info">
+          <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip py-[12px] relative shrink-0 w-full" data-node-id="198:9943" data-name="Frame">
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0 w-full" data-node-id="198:9944" data-name="Frame">
+              <Badge className="bg-[var(--color-bg-success-subtle,#e8f8ef)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="نشط" tone="Success" />
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right" dir="auto" data-node-id="198:9947">
+                تطوير تطبيقات Flutter
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="198:9948">
+              ينتهي الوصول في 15 أكتوبر 2027
+            </p>
+          </div>
+          <div className="bg-[var(--color-border-default,#c5dff0)] h-px relative shrink-0 w-full" data-node-id="198:9949" data-name="Divider" />
+          <div className="content-stretch flex flex-col gap-[6px] items-start overflow-clip py-[12px] relative shrink-0 w-full" data-node-id="198:9950" data-name="Frame">
+            <div className="content-stretch flex gap-[8px] items-center overflow-clip relative shrink-0 w-full" data-node-id="198:9951" data-name="Frame">
+              <Badge className="bg-[var(--color-bg-warning-subtle,#fdf4e1)] content-stretch flex items-center justify-center px-[var(--space-sm,12px)] py-[var(--space-2xs,4px)] relative rounded-[var(--radius-full,999px)] shrink-0" label="ينتهي قريباً" tone="Warning" />
+              <p className="[word-break:break-word] flex-[1_0_0] font-['Cairo:SemiBold'] font-semibold leading-[24px] min-w-px not-italic relative text-[16px] text-[color:var(--color-text-primary,#02112c)] text-right" dir="auto" data-node-id="198:9954">
+                أساسيات Python
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="198:9955">
+              ينتهي الوصول في 28 أكتوبر 2026
+            </p>
+          </div>
+        </div>
+        <p className="[word-break:break-word] font-['Cairo:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--color-text-muted,#587a9c)] text-right w-full" dir="auto" data-node-id="198:9956">
+          مدة الوصول إلى كل كورس سنة كاملة من تاريخ الشراء.
+        </p>
+        <div className="h-[204px] relative shrink-0 w-full" data-node-id="198:9957" data-name="Spacer" />
+        <div className="bg-[var(--color-bg-surface,white)] border border-[var(--color-border-strong,#9fc4e6)] border-solid content-stretch flex gap-[8px] h-[52px] items-center justify-center px-[var(--space-md,16px)] py-[var(--space-sm,12px)] relative shrink-0 w-full" data-node-id="198:9958" data-name="Button">
+          <p className="[word-break:break-word] font-['Cairo:Medium'] font-medium leading-[24px] not-italic relative shrink-0 text-[16px] text-[color:var(--color-text-primary,#02112c)] whitespace-nowrap" dir="auto" data-node-id="I198:9958;8:7">
+            تصفّح الكورسات
+          </p>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I198:9958;29:377" data-name="Chamfer TL">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferTl} />
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I198:9958;29:378" data-name="Chamfer BR">
+            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgChamferBr} />
+          </div>
+          <div className="absolute left-[-1px] size-[10px] top-[-1px]" data-node-id="I198:9958;29:379" data-name="Chamfer line TL">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+          <div className="absolute bottom-[-1px] right-[-1px] size-[10px]" data-node-id="I198:9958;29:380" data-name="Chamfer line BR">
+            <div className="absolute inset-[-7.07%]">
+              <img alt="" className="block max-w-none size-full" src={imgChamferLineTl} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+SUPER CRITICAL: The generated React+Tailwind code MUST be converted to match the target project's technology stack and styling system.
+1. Analyze the target codebase to identify: technology stack, styling approach, component patterns, and design tokens
+2. Convert React syntax to the target framework/library
+3. Transform all Tailwind classes to the target styling system while preserving exact visual design
+4. Follow the project's existing patterns and conventions
+DO NOT install any Tailwind as a dependency unless the user instructs you to do so.
+
+Node ids have been added to the code as data attributes, e.g. `data-node-id="1:2"`.
+These styles are contained in the design: label/md: Font(family: "Cairo", style: Medium, size: 14, weight: 500, lineHeight: 20, letterSpacing: 0), heading/sm: Font(family: "Cairo", style: SemiBold, size: 16, weight: 600, lineHeight: 24, letterSpacing: 0), label/sm: Font(family: "Cairo", style: Medium, size: 12, weight: 500, lineHeight: 16, letterSpacing: 0), body/sm: Font(family: "Cairo", style: Regular, size: 12, weight: 400, lineHeight: 18, letterSpacing: 0), label/lg: Font(family: "Cairo", style: Medium, size: 16, weight: 500, lineHeight: 24, letterSpacing: 0).
+The generated code contains image and SVG URL constants, e.g. const image = `${assetPathPrefix}/<asset file name>`, where assetPathPrefix is declared once at the top of the code and every asset URL interpolates it. These URLs are temporary download sources and expire after 7 days. Download each asset into the project with curl -L, then replace its URL in the generated code with a reference to the downloaded asset. Never use the temporary URLs as runtime image sources.

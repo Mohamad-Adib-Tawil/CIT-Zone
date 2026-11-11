@@ -20,6 +20,8 @@
 
 ## الحالة التشغيلية
 
+2026-10-26: [شريحة البنية والنتائج](../plans/implementation/2026-10-26-clean-architecture.md) وحدت Either بدل Result مع API service للإعدادات وحواجز AST أشد واختبارات دورة الحياة وGoRouter. [الأدوار الهندسية للمساعد](AI_ENGINEERING_ROLES.md) و[نتائج الفحوص وحدودها](../reports/engineering-foundation/architecture-2026-10-26/README.md) مرجع التحديث؛ أرقام FND التاريخية أدناه لا تمثل إعادة تحقق حالية.
+
 FND-07 جهز أداة قياس Android واختباراتها7/7 ودليلها دون API أو تغيير واجهة؛ قياسات debug/emulator مصنفة تشخيصية فقط. [التقرير](../reports/performance/foundation-2026-10-16/README.md) و[الأوامر](performance/README.md). فتحت صفحة تنسيق Notion ومهمة Flutter عبر Brave وسجلت التسليم؛ لا تغيير لمسار Claude.
 
 FND-06:154 اختباراً و3 تكاملات لكل من Android API36 وiOS27؛ guard قابل للتشغيل لحدود Clean Architecture/DI وCI للتوليد الحتمي والأدلة. فعّل gen_l10n/ARB للعربية في مدخل التطبيق/Google/onboarding (104 نصوص)؛22 صورة متطابقة قبل/بعد. معاينات الطالب/الإدارة القديمة ما زالت تحتاج استخراج نصوصها. لا دليل أداء2GB/DRM أو جلسة خادم. [أحدث تقرير](../reports/engineering-foundation/quality-2026-10-16/README.md).

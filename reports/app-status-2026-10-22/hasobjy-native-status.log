@@ -1,0 +1,35 @@
+Running Xcode build...                                          
+Xcode build done.                                           10.0s
+-[WFIsolatedShortcutRunner init] Taking sandbox extensions for execution
+-[WFIsolatedShortcutRunner init]_block_invoke Sandbox extensions acquired
+Indexing for request: <WFToolKitIndexingRequest: 0x1014540c0>, changeset: .partial(updatedCount: 1 removedCount: 0 updated: ["com.devmind.cit.learn"], removed: [], provenance: [VoiceShortcutClient.ToolKitIndexingReason.Changeset.Provenance.launchServicesSnapshot(<LaunchServicesSnapshot uuid=B57A2F36-E854-4941-8B37-28D2F979DAA7, v=676)> ["com.apple.VideoSubscriberAccount.Intents", "com.apple.DocumentsApp.DocumentAppIntents", "com.apple.LoginUI", "com.apple.DefaultAppsSettingsIntents", "com.apple.HealthStandaloneIntents", "com.apple.GeneralSettingsIntents", "com.apple.GuestUserHandoverSetup", "com.apple.Preferences.PassbookSettingsIntentExtension", "com.apple.compass.CompassSettingsAppIntents", "com.apple.ctkui", "com.apple.SafetyMonitorApp", "com.apple.CarPlayWallpaper", "com.apple.MediaRemoteUIService", "com.apple.CarPlayApp", "com.apple.PeopleMessageService", "com.apple.GameCenter.Settings.DeviceExpertExtension", "com.apple.MusicUIService", "com.apple.AuthKitUIService", "com.apple.ActivityProgress.ActivityProgressUI", "com.app<…>, priority: <decode: missing data>
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:58584/cmuCFJfUUx8=/
+Type indexing (params + content items) took 0.003854s
+Action indexing took 0.000036s
+Indexed: 0
+Errored: 0
+Skipped: [:]
+Bundle cache: 0 hits, 0 misses
+VMServiceFlutterDriver: Isolate found with number: 2194325187766759
+VMServiceFlutterDriver: Isolate 2194325187766759 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+flutter: 00:00 +0: installed app version and live public config cross native boundary
+VMServiceFlutterDriver: Connected to Flutter application.
+Finished in 0.883989s
+-[WFIsolatedShortcutRunner unaliveProcess] Releasing sandbox extensions
+flutter: 00:04 +1: capture production status screens and verify responsive Arabic layout
+-[WFIsolatedShortcutRunner init] Taking sandbox extensions for execution
+-[WFIsolatedShortcutRunner init]_block_invoke Sandbox extensions acquired
+Indexing for request: <WFToolKitIndexingRequest: 0x1064540c0>, changeset: .partial(updatedCount: 0 removedCount: 1 updated: [], removed: ["com.apple.siri.SiriCrisisAppIntentsExtension"], provenance: [VoiceShortcutClient.ToolKitIndexingReason.Changeset.Provenance.appIntentsChange(<LinkSnapshot> ["com.apple.PeopleViewService", "com.apple.siri.SiriNotebookAppIntentsExtension", "com.apple.GameCenter.Settings.DeviceExpertExtension", "com.apple.AppIntents", "com.apple.musicrecognition", "com.apple.siri.messages.SiriMessagesAppIntentsExtension", "com.apple.siri.-FlowToolTypes-AppIntents", "com.apple.siri.-MediaIntents-AppIntents", "com.apple.siri.SiriPhoneAppIntentsExtension", "com.apple.TransparencySettingsIntents", "com.apple.BarcodeScanner", "com.apple.ShortcutsActions", "com.apple.Preferences", "com.apple.compass.CompassSettingsAppIntents", "com.apple.-FinanceKit-AppIntents", "com.apple.-Photos-AppIntents", "com.apple.HealthStandaloneIntents", "com.apple.PhotosUIPrivate.PhotosClockPoster", "com.apple.Contacts.AppIntents", "com.app<…>, priority: <decode: missing data>
+Type indexing (params + content items) took 0.000074s
+Action indexing took 0.000014s
+Indexed: 0
+Errored: 0
+Skipped: [:]
+Bundle cache: 0 hits, 0 misses
+Finished in 0.133913s
+-[WFIsolatedShortcutRunner unaliveProcess] Releasing sandbox extensions
+flutter: 00:09 +2: (tearDownAll)
+flutter: 00:09 +3: All tests passed!
+All tests passed.

@@ -8,6 +8,7 @@ alwaysApply: true
 - اقرأ `AGENTS.md` وخطة الميزة قبل التنفيذ؛ مرجع البنية `plans/02-architecture.md` و`plans/12-engineering-foundation.md`.
 - تطبيق الطالب Flutter/Cubit، والإدارة ويب مستقل، والخادم API خاص مقسم إلى وحدات. تقنية الخادم ومزود DRM يظلان ضمن D07/D08.
 - اعمل feature-first؛ `presentation -> domain <- data`، وحقن constructors. لا منطق عمل في Widget أو أنواع HTTP/Flutter داخل domain.
+- طبق أدوار `docs/AI_ENGINEERING_ROLES.md` ضمن النطاق نفسه؛ لا تعيين/تشغيل مساعدين أو مراسلة الفريق دون تكليف. استخدم `Either<Failure, Value>` من core/errors/either.dart، وحوّل ApiFailure في data. قواعد SOLID تعني عقوداً ضيقة ومسؤولية واضحة، لا طبقات تمرير عامة.
 - لا تنشئ مجلدات أو use cases أو حزم عامة بلا استعمال فعلي. احترم العقود القائمة مثل `ApiClient`.
 - الحزم والإصدارات وأماكن استخدامها وحالتها في `plans/13-packages.md`؛ lockfile معتمد. تثبيت الحزمة لا يعني تنفيذ الميزة.
 - دعم الهواتف الضعيفة والقديمة شرط قبول: `plans/14-low-end-devices.md`. لا ترفع الحد الأدنى للنظام بسبب حزمة دون توثيق الأثر وقرار.

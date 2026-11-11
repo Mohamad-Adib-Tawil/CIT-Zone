@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/hasobjy_visual_scope.dart';
 import '../../widgets/hasobjy_figma_components.dart';
 import 'preview_widgets.dart';
+import 'activity_preview_screen.dart';
 
 class ProfilePreviewScreen extends StatelessWidget {
   const ProfilePreviewScreen({
@@ -17,6 +18,7 @@ class ProfilePreviewScreen extends StatelessWidget {
     'S-01' => _Settings(actions: actions),
     'S-02' => _Profile(actions: actions),
     'S-03' => _EditProfile(actions: actions),
+    'S-05' => ActivityPreviewScreen(actions: actions),
     _ => _Device(actions: actions),
   };
 }
@@ -167,6 +169,7 @@ class _Settings extends StatelessWidget {
         children: [
           _row(context, 'ملفي الشخصي', 'S-02'),
           _row(context, 'الجهاز المسجّل', 'S-04'),
+          _row(context, 'اشتراكاتي', 'F-07'),
         ],
       ),
       PreviewText(
@@ -207,7 +210,13 @@ class _Settings extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              PreviewIconTile(label: title, size: 40),
+              PreviewIconTile(
+                label: title,
+                size: 40,
+                asset: title == 'اشتراكاتي'
+                    ? (context.design.isLight ? '36fd3' : '0583d')
+                    : null,
+              ),
             ],
           ),
         ),
@@ -307,6 +316,7 @@ class _EditProfileState extends State<_EditProfile> {
     children: [
       HasobjyFormField(
         label: 'الاسم الرسمي',
+        raised: true,
         hint: 'أحمد محمد الحلبي',
         iconAsset: '0699d',
         controller: name,
@@ -314,6 +324,7 @@ class _EditProfileState extends State<_EditProfile> {
       ),
       HasobjyFormField(
         label: 'رقم الهاتف',
+        raised: true,
         hint: '0991 234 567',
         iconAsset: 'bf992',
         mirrorIcon: true,
@@ -323,6 +334,7 @@ class _EditProfileState extends State<_EditProfile> {
       ),
       const HasobjyFormField(
         label: 'البريد الإلكتروني',
+        raised: true,
         hint: 'ahmad@gmail.com',
         iconAsset: '90d15',
         enabled: false,
@@ -350,7 +362,11 @@ class _EditProfileState extends State<_EditProfile> {
         ],
       ),
       const Spacer(),
-      PreviewButton('حفظ التعديلات', onTap: widget.actions.notice),
+      PreviewButton(
+        'حفظ التعديلات',
+        onTap: widget.actions.notice,
+        light3D: true,
+      ),
     ],
   );
 }

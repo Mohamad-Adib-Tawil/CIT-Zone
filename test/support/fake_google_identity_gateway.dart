@@ -18,6 +18,9 @@ class FakeGoogleIdentityGateway implements GoogleIdentityGateway {
   int signOutCalls = 0;
 
   static const identity = GoogleIdentity(
+    idGoogle: 'google-user',
+    firebaseUid: 'firebase-user',
+    emailVerified: true,
     displayName: 'طالب اختبار',
     email: 'student@example.com',
   );

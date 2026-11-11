@@ -1,4 +1,4 @@
-import '../errors/result.dart';
+import '../errors/either.dart';
 import '../storage/storage_failure.dart';
 import '../storage/account_scope.dart';
 
@@ -6,7 +6,7 @@ import '../storage/account_scope.dart';
 /// DRM keys/licenses must remain in their platform/provider-owned store.
 abstract interface class SessionSecretStore {
   AccountScope get account;
-  Future<Result<String?, StorageFailure>> read();
-  Future<Result<void, StorageFailure>> write(String secret);
-  Future<Result<void, StorageFailure>> clear();
+  Future<Either<StorageFailure, String?>> read();
+  Future<Either<StorageFailure, void>> write(String secret);
+  Future<Either<StorageFailure, void>> clear();
 }

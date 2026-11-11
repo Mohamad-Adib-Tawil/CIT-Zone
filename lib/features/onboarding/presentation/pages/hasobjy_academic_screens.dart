@@ -75,6 +75,7 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
             SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).continueAction,
+              light3D: true,
               onPressed: widget.onContinue,
             ),
           ],
@@ -165,7 +166,12 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
             SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmAndStart,
-              icon: HasobjySvg('f17a9', width: 24, height: 24),
+              light3D: true,
+              icon: HasobjySvg(
+                context.design.isLight ? '2cd43' : 'f17a9',
+                width: 24,
+                height: 24,
+              ),
               onPressed: onConfirm,
             ),
             SizedBox(height: 16),
@@ -248,7 +254,12 @@ class HasobjyNewTermScreen extends StatelessWidget {
             SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmEnrollmentYes,
-              icon: HasobjySvg('f17a9', width: 24, height: 24),
+              light3D: true,
+              icon: HasobjySvg(
+                context.design.isLight ? '2cd43' : 'f17a9',
+                width: 24,
+                height: 24,
+              ),
               onPressed: onConfirm,
             ),
             SizedBox(height: 16),

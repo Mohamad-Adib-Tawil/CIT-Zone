@@ -4,10 +4,15 @@ import 'package:get_it/get_it.dart';
 
 import '../../core/network/api_client.dart';
 import '../../core/network/dio_api_client.dart';
+import '../../features/app_status/data/api_app_availability_repository.dart';
+import '../../features/app_status/data/app_config_remote_data_source.dart';
+import '../../features/app_status/data/native_mobile_app_gateway.dart';
+import '../../features/app_status/domain/app_availability_repository.dart';
+import '../../features/app_status/presentation/cubit/app_availability_cubit.dart';
 import '../../features/admin/data/demo_admin_repository.dart';
 import '../../features/admin/presentation/cubit/admin_dashboard_cubit.dart';
 import '../../features/auth/data/google_identity_repository_impl.dart';
-import '../../features/auth/data/google_sign_in_gateway.dart';
+import '../../features/auth/data/firebase_google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_repository.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
@@ -22,6 +27,7 @@ class AppDependencies {
     required this.configuration,
     GoogleIdentityGateway Function()? googleIdentityGatewayFactory,
     ApiClient Function()? apiClientFactory,
+    MobileAppGateway? mobileAppGateway,
   }) {
     _container.registerLazySingleton<ApiClient>(
       apiClientFactory ??
@@ -33,7 +39,15 @@ class AppDependencies {
       dispose: (client) => client.close(),
     );
     _container.registerLazySingleton<GoogleIdentityGateway>(
-      googleIdentityGatewayFactory ?? GoogleSignInGateway.new,
+      googleIdentityGatewayFactory ?? FirebaseGoogleIdentityGateway.new,
+    );
+    _container.registerFactory<AppAvailabilityCubit>(
+      () => AppAvailabilityCubit(
+        ApiAppAvailabilityRepository(
+          AppConfigRemoteDataSource(apiClient),
+          mobileAppGateway ?? const NativeMobileAppGateway(),
+        ),
+      ),
     );
     _container.registerLazySingleton<GoogleIdentityRepository>(
       () => GoogleIdentityRepositoryImpl(_container<GoogleIdentityGateway>()),
@@ -58,6 +72,11 @@ class AppDependencies {
   GoogleIdentityCubit createGoogleIdentityCubit() {
     _ensureActive();
     return _container<GoogleIdentityCubit>();
+  }
+
+  AppAvailabilityCubit createAppAvailabilityCubit() {
+    _ensureActive();
+    return _container<AppAvailabilityCubit>();
   }
 
   StudentCatalogCubit createStudentPreviewCubit() {

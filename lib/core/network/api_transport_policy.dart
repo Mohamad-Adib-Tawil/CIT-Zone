@@ -41,6 +41,19 @@ class ApiTransportPolicy {
   }
 
   Uri resolve(ApiRequest request) {
+    for (final entry in request.headers.entries) {
+      if (!RegExp(r'^[A-Za-z0-9-]+$').hasMatch(entry.key) ||
+          entry.value.contains(RegExp(r'[\x00-\x1f\x7f]')) ||
+          const {
+            'host',
+            'content-length',
+            'transfer-encoding',
+            'connection',
+            'x-request-id',
+          }.contains(entry.key.toLowerCase())) {
+        throw const ApiFailure(ApiFailureKind.configuration);
+      }
+    }
     final base = baseUrl;
     if (base == null) throw const ApiFailure(ApiFailureKind.configuration);
     final path = Uri.tryParse(request.path);
@@ -93,10 +106,13 @@ class ApiTransportPolicy {
     final error = json['error'];
     final rawCode = error is Map<String, dynamic> ? error['code'] : null;
     final kind = switch (status) {
+      400 => ApiFailureKind.badRequest,
       401 => ApiFailureKind.unauthenticated,
       403 => ApiFailureKind.forbidden,
+      404 => ApiFailureKind.notFound,
       408 => ApiFailureKind.timeout,
       409 => ApiFailureKind.conflict,
+      422 => ApiFailureKind.validation,
       429 => ApiFailureKind.rateLimited,
       >= 500 => ApiFailureKind.server,
       _ => ApiFailureKind.unexpected,

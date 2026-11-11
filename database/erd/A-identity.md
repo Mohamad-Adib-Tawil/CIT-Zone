@@ -119,6 +119,12 @@ erDiagram
     timestamptz deleted_at
     timestamptz created_at
     timestamptz updated_at
+    varchar id_google
+    varchar firebase_uid
+    boolean email_verified
+    varchar google_given_name
+    varchar google_family_name
+    varchar google_locale
   }
   users ||--o{ oauth_identities : "user_id"
   users ||--o| student_profiles : "user_id"

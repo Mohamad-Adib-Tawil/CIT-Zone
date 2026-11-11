@@ -531,3 +531,19 @@ CREATE INDEX ix_attempts_passed ON exercise_attempts(user_id, exercise_id) WHERE
 -- Backend roles and per-request authorization are not defined until the server is selected.
 REVOKE ALL ON ALL TABLES IN SCHEMA public FROM PUBLIC;
 REVOKE ALL ON ALL FUNCTIONS IN SCHEMA public FROM PUBLIC;
+
+-- 2026-10-26: Firebase Google identity, local design only; no deployment.
+-- users.id remains internal; id_google is Google provider UID, not Firebase sub.
+-- oauth_identities(provider, provider_subject) remains the canonical link;
+-- the backend must atomically maintain the same Google identity in both records.
+-- NULLs preserve existing accounts until their identities are verified by Admin SDK.
+ALTER TABLE users ADD COLUMN id_google varchar(255) UNIQUE;
+ALTER TABLE users ADD COLUMN firebase_uid varchar(128) UNIQUE;
+ALTER TABLE users ADD COLUMN email_verified boolean;
+ALTER TABLE users ADD COLUMN google_given_name varchar(150);
+ALTER TABLE users ADD COLUMN google_family_name varchar(150);
+ALTER TABLE users ADD COLUMN google_locale varchar(35);
+ALTER TABLE users ADD CONSTRAINT ck_users_google_id_nonempty CHECK (id_google IS NULL OR length(btrim(id_google)) > 0);
+ALTER TABLE users ADD CONSTRAINT ck_users_firebase_uid_nonempty CHECK (firebase_uid IS NULL OR length(btrim(firebase_uid)) > 0);
+-- display_name/avatar_url/email already exist. users.locale is the app language,
+-- not the Google locale. No tokens/raw provider profile are stored in users.

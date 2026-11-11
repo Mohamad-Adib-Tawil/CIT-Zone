@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/hasobjy_visual_scope.dart';
 import '../../widgets/hasobjy_figma_components.dart';
 import 'preview_widgets.dart';
+import 'subscriptions_preview_screen.dart';
 
 class PaymentPreviewScreen extends StatelessWidget {
   const PaymentPreviewScreen({
@@ -19,6 +20,7 @@ class PaymentPreviewScreen extends StatelessWidget {
     'F-03' => _Checkout(actions: actions),
     'F-04' => _transfer(context),
     'F-05' => _voucher(context),
+    'F-07' => SubscriptionsPreviewScreen(actions: actions),
     _ => _success(context),
   };
   Widget _courses(BuildContext context) => PreviewScaffold(
@@ -181,14 +183,24 @@ class PaymentPreviewScreen extends StatelessWidget {
     actions: actions,
     children: [
       const PreviewText('أدخل رمز القسيمة لتفعيل الكورس مباشرة.'),
-      const PreviewField(
-        label: 'رمز القسيمة',
-        hint: 'XXXX-XXXX-XXXX',
-        helper: 'الرمز صالح للاستخدام مرة واحدة',
-        direction: TextDirection.ltr,
-      ),
+      if (context.design.isLight)
+        const HasobjyFormField(
+          label: 'رمز القسيمة',
+          hint: 'XXXX-XXXX-XXXX',
+          helper: 'الرمز صالح للاستخدام مرة واحدة',
+          textDirection: TextDirection.ltr,
+          iconAsset: '93f8b',
+          raised: true,
+        )
+      else
+        const PreviewField(
+          label: 'رمز القسيمة',
+          hint: 'XXXX-XXXX-XXXX',
+          helper: 'الرمز صالح للاستخدام مرة واحدة',
+          direction: TextDirection.ltr,
+        ),
       const Spacer(),
-      PreviewButton('تفعيل القسيمة', onTap: actions.notice),
+      PreviewButton('تفعيل القسيمة', onTap: actions.notice, light3D: true),
     ],
   );
   Widget _success(BuildContext context) => PreviewScaffold(

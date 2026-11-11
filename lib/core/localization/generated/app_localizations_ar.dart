@@ -340,4 +340,48 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get backAction => 'رجوع';
+
+  @override
+  String get appStatusBrand => 'حاسوبجي سيستم';
+
+  @override
+  String get appStatusInstitute => 'المعهد التقني للحاسوب';
+
+  @override
+  String get appStatusOfflineTitle => 'لا يوجد اتصال بالإنترنت';
+
+  @override
+  String get appStatusOfflineMessage =>
+      'تعذر التحقق من إعدادات التطبيق. تحقق من الاتصال ثم أعد المحاولة.';
+
+  @override
+  String get appStatusMaintenanceTitle => 'التطبيق قيد الصيانة';
+
+  @override
+  String get appStatusMaintenanceMessage =>
+      'نُجري تحديثات لتحسين الخدمة. سنعود قريباً، شكراً لصبرك.';
+
+  @override
+  String get appStatusUpdateTitle => 'يتوفر تحديث جديد';
+
+  @override
+  String get appStatusUpdateMessage =>
+      'لمتابعة الاستخدام يجب تحديث التطبيق إلى أحدث إصدار.';
+
+  @override
+  String get appStatusErrorTitle => 'حدث خطأ غير متوقع';
+
+  @override
+  String get appStatusErrorMessage =>
+      'لم نتمكن من إكمال العملية. حاول مجدداً، وإن تكرر الخطأ تواصل مع الدعم.';
+
+  @override
+  String get appStatusRetry => 'إعادة المحاولة';
+
+  @override
+  String get appStatusUpdate => 'تحديث الآن';
+
+  @override
+  String get appStatusStoreUnavailable =>
+      'تعذر فتح رابط التحديث. أعد المحاولة لاحقاً أو تواصل مع الدعم.';
 }

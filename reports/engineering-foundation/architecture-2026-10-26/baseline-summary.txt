@@ -1,0 +1,3 @@
+00:16 +543: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/ ... Platform/Hasobjy/test/hasobjy_design_frames_test.dart: basic fields keep RTL, disabled email, and keyboard access at 320      
+00:16 +543: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: (tearDownAll)                                                
+00:16 +543: All tests passed!                                                                                                                                                                          

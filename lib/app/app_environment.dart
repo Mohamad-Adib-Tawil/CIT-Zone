@@ -15,7 +15,10 @@ class AppEnvironment {
           ? 'production'
           : 'development',
     ),
-    apiBaseUrl: const String.fromEnvironment('API_BASE_URL'),
+    apiBaseUrl: const String.fromEnvironment(
+      'API_BASE_URL',
+      defaultValue: 'https://hasobjy-system-api.vercel.app/api/v1/',
+    ),
     releaseBuild: const bool.fromEnvironment('dart.vm.product'),
   );
 

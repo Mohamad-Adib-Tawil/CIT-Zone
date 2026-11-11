@@ -1,0 +1,35 @@
+Updating local specs repositories
+Analyzing dependencies
+firebase_auth: Using Firebase SDK version '12.19.3' defined in 'firebase_core'
+firebase_core: Using Firebase SDK version '12.19.3' defined in 'firebase_core'
+Downloading dependencies
+Installing AppAuth (2.0.0)
+Installing AppCheckCore (11.2.0)
+Installing Firebase (12.19.3)
+Installing FirebaseAppCheckInterop (12.19.0)
+Installing FirebaseAuth (12.19.0)
+Installing FirebaseAuthInterop (12.19.0)
+Installing FirebaseCore (12.19.3)
+Installing FirebaseCoreExtension (12.19.0)
+Installing FirebaseCoreInternal (12.19.0)
+Installing Flutter (1.0.0)
+Installing GTMAppAuth (5.0.0)
+Installing GTMSessionFetcher (3.5.0)
+Installing GoogleSignIn (9.1.0)
+Installing GoogleUtilities (8.1.0)
+Installing PromisesObjC (2.4.0)
+Installing RecaptchaInterop (101.0.0)
+Installing firebase_auth (7.0.1)
+Installing firebase_core (5.1.0)
+Installing flutter_secure_storage_darwin (10.0.0)
+Installing google_sign_in_ios (0.0.1)
+Installing integration_test (0.0.1)
+Installing pdfium_flutter (0.1.5)
+Installing url_launcher_ios (0.0.1)
+Generating Pods project
+Integrating client project
+Pod installation complete! There are 8 dependencies from the Podfile and 23 total pods installed.
+
+[!] CocoaPods did not set the base configuration of your project because your project already has a custom config set. In order for CocoaPods integration to work at all, please either set the base configurations of the target `Runner` to `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` or include the `Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig` in your build configuration (`Flutter/Release.xcconfig`).
+
+[!] FirebaseCore has been deprecated in favor of the Firebase Apple SDK via Swift Package Manager. Existing CocoaPods versions will remain available and installations will remain functional, but new versions will no longer be published to CocoaPods after October 2026. See: https://firebase.google.com/docs/ios/cocoapods-deprecation

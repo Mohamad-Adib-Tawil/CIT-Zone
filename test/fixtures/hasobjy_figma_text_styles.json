@@ -1057,7 +1057,7 @@
     {
       "text": "متابعة",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     }
   ],
@@ -1217,7 +1217,7 @@
     {
       "text": "تأكيد وبدء الاستخدام",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     },
     {
@@ -1359,7 +1359,7 @@
     {
       "text": "نعم، تأكيد التسجيل",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     },
     {
@@ -3619,7 +3619,7 @@
     {
       "text": "تفعيل القسيمة",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     }
   ],
@@ -4377,7 +4377,7 @@
     {
       "text": "تذكرة جديدة",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     },
     {
@@ -4747,7 +4747,7 @@
     {
       "text": "إعادة المحاولة",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     },
     {
@@ -5461,7 +5461,7 @@
     {
       "text": "حفظ التعديلات",
       "color": 4294967295,
-      "fontSize": 16,
+      "fontSize": 14,
       "fontWeight": 500
     }
   ],

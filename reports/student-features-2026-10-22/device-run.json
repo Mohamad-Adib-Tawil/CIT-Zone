@@ -1,0 +1,216 @@
+{
+  "device": "iPhone Duo simulator, iOS 27.1",
+  "captures": [
+    {
+      "frame": "C-09",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-05",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-03",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-07",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-04",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-01",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-09-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-05-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-03-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "F-07-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-04-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "S-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "G-01-LIGHT",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "frame": "C-09",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-05",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-03",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-07",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-04",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-01",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-09-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-05-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-03-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "F-07-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-04-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "S-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "G-01-LIGHT",
+      "width": 320,
+      "height": 844
+    },
+    {
+      "frame": "C-09",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "S-05",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "G-03",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "F-07",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "C-04",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "S-01",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "G-01",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "C-09-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "S-05-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "G-03-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "F-07-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "C-04-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "S-01-LIGHT",
+      "width": 600,
+      "height": 844
+    },
+    {
+      "frame": "G-01-LIGHT",
+      "width": 600,
+      "height": 844
+    }
+  ],
+  "limits": "Design fixtures in debug previews only; no student API, actual PDF export, purchase, usage tracking or persisted rating. No real device performance or DRM validation."
+}

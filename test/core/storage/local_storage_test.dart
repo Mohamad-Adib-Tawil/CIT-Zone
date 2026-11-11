@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/security/session_secret_store.dart';
 import 'package:cit_zone/core/storage/account_cache.dart';
 import 'package:cit_zone/core/storage/account_local_data.dart';
@@ -12,10 +12,8 @@ import 'package:drift/drift.dart' show LazyDatabase;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-T value<T>(Result<T, StorageFailure> result) => result.fold(
-  onSuccess: (value) => value,
-  onFailure: (failure) => throw StateError('$failure'),
-);
+T value<T>(Either<StorageFailure, T> result) =>
+    result.match((failure) => throw StateError('$failure'), (value) => value);
 CachedPageIndex page(List<String> ids) =>
     CachedPageIndex(itemIds: ids, cachedAt: DateTime.utc(2026, 10, 16));
 
@@ -82,7 +80,7 @@ void main() {
     value(await cleanup);
     expect(
       await old.writePage('page', page(['late'])),
-      isA<Failure<void, StorageFailure>>(),
+      isA<Left<StorageFailure, void>>(),
     );
     final fresh = DriftAccountCache(database, account);
     expect(value(await fresh.readPage('page')), isNull);
@@ -117,7 +115,7 @@ void main() {
     final unsupported = CacheDatabase(NativeDatabase(file));
     expect(
       await DriftAccountCache(unsupported, account).readPage('page'),
-      isA<Failure<CachedPageIndex?, StorageFailure>>(),
+      isA<Left<StorageFailure, CachedPageIndex?>>(),
     );
     await unsupported.close();
     // Simulate reopening with the newer owner, proving no destructive fallback.
@@ -142,13 +140,12 @@ void main() {
         ['{"invalid":"shape"}'],
       );
       expect(
-        (await cache.readPage('page'))
-            .fold(onSuccess: (_) => null, onFailure: (failure) => failure),
+        (await cache.readPage('page')).match((failure) => failure, (_) => null),
         StorageFailure.corrupt,
       );
       expect(
         await cache.writePage('', page([])),
-        isA<Failure<void, StorageFailure>>(),
+        isA<Left<StorageFailure, void>>(),
       );
       final ids = ['id'];
       final immutable = page(ids);
@@ -175,7 +172,7 @@ void main() {
         );
         final result = await local.readSecret();
         if (readFailure) {
-          expect(result, isA<Failure<String?, StorageFailure>>());
+          expect(result, isA<Left<StorageFailure, String?>>());
         } else {
           expect(value(result), isNull);
         }
@@ -195,7 +192,7 @@ void main() {
       cache: cache,
       secrets: _SecretStore(account, clearFailure: true),
     );
-    expect(await local.clear(), isA<Failure<void, StorageFailure>>());
+    expect(await local.clear(), isA<Left<StorageFailure, void>>());
     expect(value(await cache.readPage('page')), isNull);
     expect(
       () => AccountLocalData(
@@ -224,14 +221,12 @@ class _SecretStore implements SessionSecretStore {
   final bool readFailure;
   final bool clearFailure;
   @override
-  Future<Result<String?, StorageFailure>> read() async => readFailure
-      ? const Failure(StorageFailure.unavailable)
-      : const Success(null);
+  Future<Either<StorageFailure, String?>> read() async =>
+      readFailure ? const Left(StorageFailure.unavailable) : const Right(null);
   @override
-  Future<Result<void, StorageFailure>> write(String secret) async =>
-      const Success(null);
+  Future<Either<StorageFailure, void>> write(String secret) async =>
+      const Right(null);
   @override
-  Future<Result<void, StorageFailure>> clear() async => clearFailure
-      ? const Failure(StorageFailure.unavailable)
-      : const Success(null);
+  Future<Either<StorageFailure, void>> clear() async =>
+      clearFailure ? const Left(StorageFailure.unavailable) : const Right(null);
 }

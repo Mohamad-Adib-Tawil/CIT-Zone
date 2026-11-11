@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:integration_test/integration_test.dart';
 
 import '../test/support/fake_google_identity_gateway.dart';
+import '../test/support/fake_app_availability.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -36,8 +37,11 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(GoogleIdentityPage), findsOneWidget);
     expect(find.text('بانتظار ربط حساب التطبيق'), findsOneWidget);
-    await tester.ensureVisible(find.text('معاينة واجهة الطالب'));
-    await tester.tap(find.text('معاينة واجهة الطالب'));
+    final studentPreview = find.text(
+      'المعاينة الطلابية القديمة — ليست تصميم Figma',
+    );
+    await tester.ensureVisible(studentPreview);
+    await tester.tap(studentPreview);
     await tester.pumpAndSettle();
     expect(find.byType(StudentPreviewPage), findsOneWidget);
     await tester.binding.handlePopRoute();
@@ -60,6 +64,8 @@ void main() {
     tester,
   ) async {
     final deps = AppDependencies(
+      apiClientFactory: FakeAvailableApiClient.new,
+      mobileAppGateway: FakeMobileAppGateway(),
       configuration: AppConfiguration.parse(
         environment: AppEnvironment.parse(
           stageName: 'production',

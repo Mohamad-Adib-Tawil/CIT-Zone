@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../auth/domain/google_identity.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import 'preview/account_preview_screens.dart';
+import 'preview/rating_preview_screen.dart';
 import 'preview/system_preview_screens.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
@@ -58,6 +59,8 @@ enum HasobjyFrameId {
   c06Light('C-06-LIGHT', '103:3556'),
   c07('C-07', '73:332'),
   c07Light('C-07-LIGHT', '103:3588'),
+  c09('C-09', '195:9128'),
+  c09Light('C-09-LIGHT', '195:9206'),
   c08('C-08', '73:391'),
   c08Light('C-08-LIGHT', '103:3618'),
   e01('E-01', '91:26'),
@@ -72,10 +75,14 @@ enum HasobjyFrameId {
   f04Light('F-04-LIGHT', '103:4213'),
   f05('F-05', '80:312'),
   f05Light('F-05-LIGHT', '103:4228'),
+  f07('F-07', '198:9674'),
+  f07Light('F-07-LIGHT', '198:9819'),
   f06('F-06', '80:357'),
   f06Light('F-06-LIGHT', '103:4236'),
   g01('G-01', '85:3'),
   g01Light('G-01-LIGHT', '103:4256'),
+  g03('G-03', '197:637'),
+  g03Light('G-03-LIGHT', '197:755'),
   g02('G-02', '85:58'),
   g02Light('G-02-LIGHT', '103:4288'),
   h01('H-01', '85:100'),
@@ -102,6 +109,8 @@ enum HasobjyFrameId {
   s02Light('S-02-LIGHT', '103:3306'),
   s03('S-03', '68:266'),
   s03Light('S-03-LIGHT', '103:3337'),
+  s05('S-05', '196:657'),
+  s05Light('S-05-LIGHT', '196:785'),
   s04('S-04', '68:342'),
   s04Light('S-04-LIGHT', '103:3349');
 
@@ -199,6 +208,7 @@ class HasobjyDesignPage extends StatelessWidget {
       back: back,
     );
     final page = switch (effective.dark) {
+      HasobjyFrameId.c09 => RatingPreviewScreen(actions: actions),
       HasobjyFrameId.aS01 => HasobjyWelcomeScreen(
         onGoogleSignIn: onGoogleSignIn,
         working: working,

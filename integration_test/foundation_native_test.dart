@@ -1,4 +1,4 @@
-import 'package:cit_zone/core/errors/result.dart';
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/security/secure_session_secret_store.dart';
 import 'package:cit_zone/core/storage/account_cache.dart';
 import 'package:cit_zone/core/storage/account_local_data.dart';
@@ -10,10 +10,9 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'app_navigation_test.dart' as navigation;
 
-T success<T>(Result<T, StorageFailure> result) => result.fold(
-  onSuccess: (value) => value,
-  onFailure: (failure) =>
-      throw StateError('Storage integration failed: $failure'),
+T success<T>(Either<StorageFailure, T> result) => result.match(
+  (failure) => throw StateError('Storage integration failed: $failure'),
+  (value) => value,
 );
 
 void main() {

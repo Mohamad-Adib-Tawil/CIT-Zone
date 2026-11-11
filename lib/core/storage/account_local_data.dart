@@ -1,4 +1,4 @@
-import '../errors/result.dart';
+import '../errors/either.dart';
 import '../security/session_secret_store.dart';
 import 'account_cache.dart';
 import 'storage_failure.dart';
@@ -14,20 +14,20 @@ final class AccountLocalData {
   final SessionSecretStore secrets;
   final AccountCache cache;
 
-  Future<Result<String?, StorageFailure>> readSecret() async {
+  Future<Either<StorageFailure, String?>> readSecret() async {
     final result = await secrets.read();
-    if (result case Success(value: final secret?)) return Success(secret);
+    if (result case Right(value: final secret?)) return Right(secret);
     final cleanup = await cache.clear();
-    if (result case Failure(:final failure)) return Failure(failure);
-    if (cleanup case Failure(:final failure)) return Failure(failure);
-    return const Success(null);
+    if (result case Left(value: final failure)) return Left(failure);
+    if (cleanup case Left(value: final failure)) return Left(failure);
+    return const Right(null);
   }
 
   /// Both stores are attempted; a failure is never reported as successful logout.
-  Future<Result<void, StorageFailure>> clear() async {
+  Future<Either<StorageFailure, void>> clear() async {
     final secretResult = await secrets.clear();
     final cacheResult = await cache.clear();
-    if (secretResult case Failure(:final failure)) return Failure(failure);
+    if (secretResult case Left(value: final failure)) return Left(failure);
     return cacheResult;
   }
 }

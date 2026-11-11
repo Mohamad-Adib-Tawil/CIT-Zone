@@ -25,12 +25,13 @@ void main() {
   final observed = <String, Object>{};
   final observedText = <String, Object>{};
   tearDownAll(() {
-    File('reports/figma-design/update-2026-10-16/text-observed.json')
-        .writeAsStringSync(
-          const JsonEncoder.withIndent('  ').convert(observedText),
-        );
     File(
-      'reports/figma-design/update-2026-10-16/layout-observed.json',
+      "${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/student-features-2026-10-22'}/text-observed.json",
+    ).writeAsStringSync(
+      const JsonEncoder.withIndent('  ').convert(observedText),
+    );
+    File(
+      "${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/student-features-2026-10-22'}/layout-observed.json",
     ).writeAsStringSync(const JsonEncoder.withIndent('  ').convert(observed));
   });
 
@@ -97,7 +98,8 @@ void main() {
         expect(tester.takeException(), isNull);
         if (size.width == 390) {
           for (final expected
-              in expectedStyles[frame.frameName] as List<dynamic>) {
+              in (expectedStyles[frame.frameName] as List<dynamic>? ??
+                  const [])) {
             final actual = tester.widget<Text>(
               find.byWidgetPredicate(
                 (widget) => widget is Text && widget.data == expected['text'],
@@ -142,7 +144,11 @@ void main() {
                 },
           ];
         }
+        // The fixture includes revisions for the light frames reviewed in Figma.
+        // Student feature additions have separate layout tests.
         if (size.width == 390 &&
+            !{'C-04', 'C-09', 'S-01', 'G-01'}.contains(frame.baseName) &&
+            expectedContent.containsKey(frame.frameName) &&
             find.byType(PreviewScaffold).evaluate().isNotEmpty) {
           final scaffold = tester.widget<PreviewScaffold>(
             find.byType(PreviewScaffold),
@@ -304,7 +310,7 @@ void main() {
               format: ui.ImageByteFormat.png,
             );
             final folder = Directory(
-              '${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/figma-design/update-2026-10-16'}/widget-${size.width.toInt()}',
+              '${Platform.environment['HASOBJY_WIDGET_OUTPUT'] ?? 'reports/student-features-2026-10-22'}/widget-${size.width.toInt()}',
             );
             folder.createSync(recursive: true);
             File('${folder.path}/${frame.frameName}.png')
@@ -340,31 +346,33 @@ void main() {
     });
   }
 
-  test(
-    'frame registry matches the 88 actual Figma frames and local assets',
-    () {
-      final frames = jsonDecode(
-        File('reports/figma-design/update-2026-10-16/frames.json')
-            .readAsStringSync(),
-      ) as List<dynamic>;
-      expect(frames.length, 88);
-      expect(HasobjyFrameId.values.length, frames.length);
-      for (final reference in frames) {
-        final frame = HasobjyFrameId.fromFrameName(reference['key'] as String)!;
-        expect(frame.figmaNodeId, reference['node']);
-        for (final asset
-            in (reference['assets'] as Map<String, dynamic>).values) {
-          expect(
-            File('assets/hasobjy/$asset').existsSync(),
-            isTrue,
-            reason: '${frame.frameName}: $asset',
-          );
-        }
+  test('frame registry preserves the historical frames and adds verified student updates', () {
+    final frames = jsonDecode(
+      File('reports/figma-design/update-2026-10-16/frames.json')
+          .readAsStringSync(),
+    ) as List<dynamic>;
+    expect(frames.length, 88);
+    final additions = jsonDecode(
+      File('reports/student-features-2026-10-22/frames.json')
+          .readAsStringSync(),
+    ) as List<dynamic>;
+    expect(HasobjyFrameId.values.length, frames.length + additions.length);
+    frames.addAll(additions);
+    for (final reference in frames) {
+      final frame = HasobjyFrameId.fromFrameName(reference['key'] as String)!;
+      expect(frame.figmaNodeId, reference['node']);
+      for (final asset
+          in (reference['assets'] as Map<String, dynamic>).values) {
+        expect(
+          File('assets/hasobjy/$asset').existsSync(),
+          isTrue,
+          reason: '${frame.frameName}: $asset',
+        );
       }
-      expect(HasobjyFrameId.fromFrameName('A-S02'), isNull);
-      expect(HasobjyFrameId.fromFrameName('B-S02'), isNull);
-    },
-  );
+    }
+    expect(HasobjyFrameId.fromFrameName('A-S02'), isNull);
+    expect(HasobjyFrameId.fromFrameName('B-S02'), isNull);
+  });
 
   for (final frame in [HasobjyFrameId.f03, HasobjyFrameId.f03Light]) {
     testWidgets(

@@ -1,0 +1,564 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart
+00:00 +0: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/app_environment_test.dart: بيئة التطوير تقبل عنوان الاختبار المحلي فقط عبر HTTP
+00:00 +1: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io sends request context without allowing header injection
+00:00 +2: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io sends request context without allowing header injection
+00:00 +3: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io sends request context without allowing header injection
+00:00 +4: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +5: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +6: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart: لا يرسل طلباً دون عنوان API أو عند خروج المسار عن الأصل
+00:00 +7: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io maps all status classes and never returns unsafe remote metadata
+00:00 +8: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after cancellation
+00:00 +9: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after cancellation
+00:00 +10: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after cancellation
+00:00 +11: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after cancellation
+00:00 +12: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io does not follow redirects or retry sensitive POST failures
+00:00 +13: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +14: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_test.dart: يصنف رفض الهوية والصلاحية والتعارض والمعدل والخادم
+00:00 +15: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after deadline
+00:00 +16: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after deadline
+00:00 +17: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after deadline
+00:00 +18: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/io_api_client_lifecycle_test.dart: late connection is aborted after deadline
+00:00 +19: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io total deadline also expires a continuously arriving body
+00:00 +20: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io total deadline also expires a continuously arriving body
+00:00 +21: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Io connection refusal maps to network without raw exception
+00:00 +22: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio sends request context without allowing header injection
+00:00 +23: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio validates configuration and confines URL before any connection
+00:00 +24: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio preserves JSON encoding, query, request ID and excludes credentials
+00:00 +25: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio maps all status classes and never returns unsafe remote metadata
+00:00 +26: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio strict UTF8, object JSON, empty success and exact byte limit
+00:00 +27: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio bounds decoded gzip bytes rather than compressed content length
+00:00 +28: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio does not follow redirects or retry sensitive POST failures
+00:00 +29: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio pre-cancel never sends, one canceled request does not poison others
+00:00 +30: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio cancel aborts a response stalled after headers
+00:00 +31: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio close aborts a response stalled after headers
+00:00 +32: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio total deadline also expires a continuously arriving body
+00:00 +33: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: Dio connection refusal maps to network without raw exception
+00:00 +34: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/network/api_client_contract_test.dart: cancellation listeners detach and late listeners fire once
+00:00 +35: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/secure_session_store_test.dart: secure adapter isolates accounts and removes only one key
+00:00 +36: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:00 +37: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:00 +38: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:01 +39: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:01 +40: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:01 +41: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:01 +42: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/core/storage/local_storage_test.dart: database opens lazily and unopened close does not activate SQLite
+00:01 +43: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +44: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +45: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +46: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +47: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +48: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +49: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +50: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +51: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +52: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +53: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +54: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +55: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +56: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +57: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +58: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +59: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: rebuild retains dependencies; unmount closes pending Cubit
+00:01 +60: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +61: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +62: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +63: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +64: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +65: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +66: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +67: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +68: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +69: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +70: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +71: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +72: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +73: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +74: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +75: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +76: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +77: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +78: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +79: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +80: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +81: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +82: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +83: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +84: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +85: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +86: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +87: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/admin_dashboard_test.dart: لوحة الإدارة تعرض المحتوى وتنتقل على شاشة هاتف
+00:02 +88: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview STUDENT_PREVIEW
+00:02 +89: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview STUDENT_PREVIEW
+00:02 +90: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_bootstrap_test.dart: development keeps explicit preview STUDENT_PREVIEW
+00:02 +91: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +92: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +93: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +94: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +95: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +96: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +97: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +98: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:02 +99: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +100: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +101: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +102: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +103: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +104: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +105: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +106: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +107: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +108: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +109: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +110: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +111: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/features/app_status/app_availability_test.dart: gate hides entry until verified, retry recovers without showing demo data
+00:03 +112: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +113: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +114: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +115: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +116: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +117: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +118: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +119: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +120: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +121: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +122: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +123: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: admin Figma gallery opens a debug-only frame without backend
+00:03 +124: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: Figma gallery opens actual frames without server verification
+00:03 +125: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: Figma gallery opens actual frames without server verification
+00:03 +126: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: Figma gallery opens actual frames without server verification
+00:03 +127: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: Figma gallery opens actual frames without server verification
+00:03 +128: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: Figma gallery opens actual frames without server verification
+00:03 +129: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: identity link waits for restoration without issuing a session
+00:03 +130: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: identity link waits for restoration without issuing a session
+00:03 +131: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: identity link waits for restoration without issuing a session
+00:03 +132: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: identity link waits for restoration without issuing a session
+00:03 +133: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/app/app_router_test.dart: identity link waits for restoration without issuing a session
+00:03 +134: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:03 +135: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:04 +136: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:04 +137: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:04 +138: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/lesson_editor_preview_test.dart: معاينة إضافة درس تُظهر تحقق الحقول والمجانية للأول
+00:04 +139: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_preview_test.dart: معاينة الطالب تتنقل بين الأقسام على هاتف صغير
+00:05 +140: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_preview_test.dart: المادة المشتركة تظهر بدورة واحدة في المعاينة
+00:05 +141: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_preview_test.dart: فشل تحميل بيانات المعاينة ينتج حالة خطأ
+00:05 +142: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_preview_test.dart: معاينة الملف تعرض هوية Google الفعلية عند توفرها
+00:05 +143: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/architecture/architecture_test.dart: shared domain-safe helpers cannot import transport or platform SDKs
+00:05 +144: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/architecture/architecture_test.dart: Either is approved in pure domain and service location stays in DI
+00:05 +145: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/architecture/architecture_test.dart: cross-feature data dependencies cannot bypass domain contracts
+00:05 +146: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/architecture/architecture_test.dart: feature UI cannot import composition or construct routing
+00:05 +147: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/architecture/architecture_test.dart: repository preserves domain, data, presentation and composition boundaries
+00:06 +148: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +149: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +150: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +151: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +152: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +153: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: progress fill keeps its full height and RTL fraction (light=false)
+00:06 +154: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: S-05 matches current Figma content geometry at 390
+00:06 +155: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: S-05 matches current Figma content geometry at 390
+00:06 +156: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: S-05 matches current Figma content geometry at 390
+00:06 +157: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: S-05 matches current Figma content geometry at 390
+00:06 +158: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +159: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +160: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +161: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +162: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +163: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/google_identity_cubit_test.dart: زر Google معطل دون إعداد OAuth
+00:06 +164: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +165: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +166: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +167: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +168: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +169: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: rating sheet requires selection and delegates saving to owner
+00:06 +170: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:06 +171: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:06 +172: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:06 +173: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 390.0
+00:06 +174: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/student_update_frames_test.dart: unpublished grade prevents report action in reference state
+00:06 +175: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04-LIGHT Cairo RTL layout at 390.0
+00:06 +176: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 390.0
+00:06 +177: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05-LIGHT Cairo RTL layout at 390.0
+00:06 +178: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 390.0
+00:06 +179: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06-LIGHT Cairo RTL layout at 390.0
+00:07 +180: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 390.0
+00:07 +181: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07-LIGHT Cairo RTL layout at 390.0
+00:07 +182: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08 Cairo RTL layout at 390.0
+00:07 +183: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08-LIGHT Cairo RTL layout at 390.0
+00:07 +184: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09 Cairo RTL layout at 390.0
+00:07 +185: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09-LIGHT Cairo RTL layout at 390.0
+00:07 +186: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10 Cairo RTL layout at 390.0
+00:07 +187: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10-LIGHT Cairo RTL layout at 390.0
+00:07 +188: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 390.0
+00:07 +189: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01-LIGHT Cairo RTL layout at 390.0
+00:07 +190: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 390.0
+00:07 +191: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03-LIGHT Cairo RTL layout at 390.0
+00:07 +192: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 390.0
+00:07 +193: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04-LIGHT Cairo RTL layout at 390.0
+00:07 +194: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 390.0
+00:07 +195: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05-LIGHT Cairo RTL layout at 390.0
+00:07 +196: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 390.0
+00:07 +197: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06-LIGHT Cairo RTL layout at 390.0
+00:07 +198: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01 Cairo RTL layout at 390.0
+00:07 +199: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01-LIGHT Cairo RTL layout at 390.0
+00:07 +200: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02 Cairo RTL layout at 390.0
+00:07 +201: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02-LIGHT Cairo RTL layout at 390.0
+00:07 +202: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03 Cairo RTL layout at 390.0
+00:07 +203: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03-LIGHT Cairo RTL layout at 390.0
+00:07 +204: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04 Cairo RTL layout at 390.0
+00:08 +205: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04-LIGHT Cairo RTL layout at 390.0
+00:08 +206: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05 Cairo RTL layout at 390.0
+00:08 +207: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05-LIGHT Cairo RTL layout at 390.0
+00:08 +208: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06 Cairo RTL layout at 390.0
+00:08 +209: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06-LIGHT Cairo RTL layout at 390.0
+00:08 +210: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07 Cairo RTL layout at 390.0
+00:08 +211: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07-LIGHT Cairo RTL layout at 390.0
+00:08 +212: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09 Cairo RTL layout at 390.0
+00:08 +213: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09-LIGHT Cairo RTL layout at 390.0
+00:08 +214: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08 Cairo RTL layout at 390.0
+00:08 +215: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08-LIGHT Cairo RTL layout at 390.0
+00:08 +216: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01 Cairo RTL layout at 390.0
+00:08 +217: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01-LIGHT Cairo RTL layout at 390.0
+00:08 +218: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01 Cairo RTL layout at 390.0
+00:08 +219: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01-LIGHT Cairo RTL layout at 390.0
+00:08 +220: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02 Cairo RTL layout at 390.0
+00:08 +221: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02-LIGHT Cairo RTL layout at 390.0
+00:08 +222: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03 Cairo RTL layout at 390.0
+00:08 +223: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03-LIGHT Cairo RTL layout at 390.0
+00:08 +224: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04 Cairo RTL layout at 390.0
+00:08 +225: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04-LIGHT Cairo RTL layout at 390.0
+00:08 +226: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05 Cairo RTL layout at 390.0
+00:08 +227: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05-LIGHT Cairo RTL layout at 390.0
+00:08 +228: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07 Cairo RTL layout at 390.0
+00:08 +229: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07-LIGHT Cairo RTL layout at 390.0
+00:08 +230: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06 Cairo RTL layout at 390.0
+00:08 +231: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06-LIGHT Cairo RTL layout at 390.0
+00:08 +232: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01 Cairo RTL layout at 390.0
+00:09 +233: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01-LIGHT Cairo RTL layout at 390.0
+00:09 +234: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03 Cairo RTL layout at 390.0
+00:09 +235: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03-LIGHT Cairo RTL layout at 390.0
+00:09 +236: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02 Cairo RTL layout at 390.0
+00:09 +237: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02-LIGHT Cairo RTL layout at 390.0
+00:09 +238: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01 Cairo RTL layout at 390.0
+00:09 +239: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01-LIGHT Cairo RTL layout at 390.0
+00:09 +240: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02 Cairo RTL layout at 390.0
+00:09 +241: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02-LIGHT Cairo RTL layout at 390.0
+00:09 +242: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03 Cairo RTL layout at 390.0
+00:09 +243: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03-LIGHT Cairo RTL layout at 390.0
+00:09 +244: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04 Cairo RTL layout at 390.0
+00:09 +245: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04-LIGHT Cairo RTL layout at 390.0
+00:09 +246: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01 Cairo RTL layout at 390.0
+00:09 +247: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01-LIGHT Cairo RTL layout at 390.0
+00:09 +248: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02 Cairo RTL layout at 390.0
+00:09 +249: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02-LIGHT Cairo RTL layout at 390.0
+00:09 +250: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03 Cairo RTL layout at 390.0
+00:09 +251: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03-LIGHT Cairo RTL layout at 390.0
+00:09 +252: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04 Cairo RTL layout at 390.0
+00:09 +253: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04-LIGHT Cairo RTL layout at 390.0
+00:09 +254: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05 Cairo RTL layout at 390.0
+00:09 +255: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05-LIGHT Cairo RTL layout at 390.0
+00:09 +256: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01 Cairo RTL layout at 390.0
+00:09 +257: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01-LIGHT Cairo RTL layout at 390.0
+00:09 +258: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02 Cairo RTL layout at 390.0
+00:09 +259: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02-LIGHT Cairo RTL layout at 390.0
+00:09 +260: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03 Cairo RTL layout at 390.0
+00:09 +261: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03-LIGHT Cairo RTL layout at 390.0
+00:09 +262: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05 Cairo RTL layout at 390.0
+00:09 +263: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05-LIGHT Cairo RTL layout at 390.0
+00:09 +264: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04 Cairo RTL layout at 390.0
+00:09 +265: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04-LIGHT Cairo RTL layout at 390.0
+00:10 +266: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01 Cairo RTL layout at 320.0
+00:10 +267: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01-LIGHT Cairo RTL layout at 320.0
+00:10 +268: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03 Cairo RTL layout at 320.0
+00:10 +269: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03-LIGHT Cairo RTL layout at 320.0
+00:10 +270: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 320.0
+00:10 +271: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04-LIGHT Cairo RTL layout at 320.0
+00:10 +272: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 320.0
+00:10 +273: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05-LIGHT Cairo RTL layout at 320.0
+00:10 +274: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 320.0
+00:10 +275: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06-LIGHT Cairo RTL layout at 320.0
+00:10 +276: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 320.0
+00:10 +277: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07-LIGHT Cairo RTL layout at 320.0
+00:10 +278: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08 Cairo RTL layout at 320.0
+00:10 +279: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08-LIGHT Cairo RTL layout at 320.0
+00:10 +280: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09 Cairo RTL layout at 320.0
+00:10 +281: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09-LIGHT Cairo RTL layout at 320.0
+00:10 +282: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10 Cairo RTL layout at 320.0
+00:10 +283: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10-LIGHT Cairo RTL layout at 320.0
+00:10 +284: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 320.0
+00:10 +285: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01-LIGHT Cairo RTL layout at 320.0
+00:10 +286: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 320.0
+00:10 +287: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03-LIGHT Cairo RTL layout at 320.0
+00:10 +288: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 320.0
+00:10 +289: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04-LIGHT Cairo RTL layout at 320.0
+00:10 +290: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 320.0
+00:10 +291: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05-LIGHT Cairo RTL layout at 320.0
+00:10 +292: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 320.0
+00:10 +293: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06-LIGHT Cairo RTL layout at 320.0
+00:10 +294: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01 Cairo RTL layout at 320.0
+00:10 +295: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01-LIGHT Cairo RTL layout at 320.0
+00:10 +296: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02 Cairo RTL layout at 320.0
+00:10 +297: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02-LIGHT Cairo RTL layout at 320.0
+00:10 +298: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03 Cairo RTL layout at 320.0
+00:10 +299: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03-LIGHT Cairo RTL layout at 320.0
+00:10 +300: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04 Cairo RTL layout at 320.0
+00:10 +301: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04-LIGHT Cairo RTL layout at 320.0
+00:11 +302: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05 Cairo RTL layout at 320.0
+00:11 +303: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05-LIGHT Cairo RTL layout at 320.0
+00:11 +304: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06 Cairo RTL layout at 320.0
+00:11 +305: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06-LIGHT Cairo RTL layout at 320.0
+00:11 +306: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07 Cairo RTL layout at 320.0
+00:11 +307: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07-LIGHT Cairo RTL layout at 320.0
+00:11 +308: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09 Cairo RTL layout at 320.0
+00:11 +309: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09-LIGHT Cairo RTL layout at 320.0
+00:11 +310: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08 Cairo RTL layout at 320.0
+00:11 +311: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08-LIGHT Cairo RTL layout at 320.0
+00:11 +312: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01 Cairo RTL layout at 320.0
+00:11 +313: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01-LIGHT Cairo RTL layout at 320.0
+00:11 +314: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01 Cairo RTL layout at 320.0
+00:11 +315: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01-LIGHT Cairo RTL layout at 320.0
+00:11 +316: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02 Cairo RTL layout at 320.0
+00:11 +317: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02-LIGHT Cairo RTL layout at 320.0
+00:11 +318: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03 Cairo RTL layout at 320.0
+00:11 +319: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03-LIGHT Cairo RTL layout at 320.0
+00:11 +320: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04 Cairo RTL layout at 320.0
+00:11 +321: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04-LIGHT Cairo RTL layout at 320.0
+00:11 +322: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05 Cairo RTL layout at 320.0
+00:11 +323: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05-LIGHT Cairo RTL layout at 320.0
+00:11 +324: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07 Cairo RTL layout at 320.0
+00:11 +325: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07-LIGHT Cairo RTL layout at 320.0
+00:11 +326: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06 Cairo RTL layout at 320.0
+00:11 +327: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06-LIGHT Cairo RTL layout at 320.0
+00:11 +328: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01 Cairo RTL layout at 320.0
+00:11 +329: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01-LIGHT Cairo RTL layout at 320.0
+00:11 +330: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03 Cairo RTL layout at 320.0
+00:11 +331: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03-LIGHT Cairo RTL layout at 320.0
+00:11 +332: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02 Cairo RTL layout at 320.0
+00:11 +333: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02-LIGHT Cairo RTL layout at 320.0
+00:11 +334: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01 Cairo RTL layout at 320.0
+00:11 +335: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01-LIGHT Cairo RTL layout at 320.0
+00:11 +336: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02 Cairo RTL layout at 320.0
+00:11 +337: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02-LIGHT Cairo RTL layout at 320.0
+00:11 +338: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03 Cairo RTL layout at 320.0
+00:11 +339: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03-LIGHT Cairo RTL layout at 320.0
+00:11 +340: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04 Cairo RTL layout at 320.0
+00:11 +341: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04-LIGHT Cairo RTL layout at 320.0
+00:11 +342: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01 Cairo RTL layout at 320.0
+00:11 +343: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01-LIGHT Cairo RTL layout at 320.0
+00:11 +344: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02 Cairo RTL layout at 320.0
+00:11 +345: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02-LIGHT Cairo RTL layout at 320.0
+00:11 +346: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03 Cairo RTL layout at 320.0
+00:11 +347: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03-LIGHT Cairo RTL layout at 320.0
+00:11 +348: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04 Cairo RTL layout at 320.0
+00:11 +349: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04-LIGHT Cairo RTL layout at 320.0
+00:11 +350: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05 Cairo RTL layout at 320.0
+00:11 +351: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05-LIGHT Cairo RTL layout at 320.0
+00:11 +352: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01 Cairo RTL layout at 320.0
+00:11 +353: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01-LIGHT Cairo RTL layout at 320.0
+00:12 +354: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02 Cairo RTL layout at 320.0
+00:12 +355: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02-LIGHT Cairo RTL layout at 320.0
+00:12 +356: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03 Cairo RTL layout at 320.0
+00:12 +357: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03-LIGHT Cairo RTL layout at 320.0
+00:12 +358: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05 Cairo RTL layout at 320.0
+00:12 +359: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05-LIGHT Cairo RTL layout at 320.0
+00:12 +360: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04 Cairo RTL layout at 320.0
+00:12 +361: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04-LIGHT Cairo RTL layout at 320.0
+00:12 +362: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01 Cairo RTL layout at 600.0
+00:12 +363: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01-LIGHT Cairo RTL layout at 600.0
+00:12 +364: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03 Cairo RTL layout at 600.0
+00:12 +365: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03-LIGHT Cairo RTL layout at 600.0
+00:12 +366: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 Cairo RTL layout at 600.0
+00:12 +367: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04-LIGHT Cairo RTL layout at 600.0
+00:12 +368: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05 Cairo RTL layout at 600.0
+00:12 +369: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05-LIGHT Cairo RTL layout at 600.0
+00:12 +370: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06 Cairo RTL layout at 600.0
+00:12 +371: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06-LIGHT Cairo RTL layout at 600.0
+00:12 +372: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07 Cairo RTL layout at 600.0
+00:12 +373: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07-LIGHT Cairo RTL layout at 600.0
+00:12 +374: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08 Cairo RTL layout at 600.0
+00:12 +375: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08-LIGHT Cairo RTL layout at 600.0
+00:12 +376: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09 Cairo RTL layout at 600.0
+00:12 +377: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09-LIGHT Cairo RTL layout at 600.0
+00:12 +378: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10 Cairo RTL layout at 600.0
+00:12 +379: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10-LIGHT Cairo RTL layout at 600.0
+00:12 +380: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01 Cairo RTL layout at 600.0
+00:12 +381: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01-LIGHT Cairo RTL layout at 600.0
+00:12 +382: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03 Cairo RTL layout at 600.0
+00:12 +383: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03-LIGHT Cairo RTL layout at 600.0
+00:12 +384: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04 Cairo RTL layout at 600.0
+00:12 +385: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04-LIGHT Cairo RTL layout at 600.0
+00:12 +386: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05 Cairo RTL layout at 600.0
+00:12 +387: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05-LIGHT Cairo RTL layout at 600.0
+00:12 +388: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06 Cairo RTL layout at 600.0
+00:12 +389: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06-LIGHT Cairo RTL layout at 600.0
+00:12 +390: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01 Cairo RTL layout at 600.0
+00:12 +391: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01-LIGHT Cairo RTL layout at 600.0
+00:12 +392: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02 Cairo RTL layout at 600.0
+00:12 +393: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02-LIGHT Cairo RTL layout at 600.0
+00:12 +394: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03 Cairo RTL layout at 600.0
+00:12 +395: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03-LIGHT Cairo RTL layout at 600.0
+00:12 +396: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04 Cairo RTL layout at 600.0
+00:12 +397: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04-LIGHT Cairo RTL layout at 600.0
+00:12 +398: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05 Cairo RTL layout at 600.0
+00:12 +399: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05-LIGHT Cairo RTL layout at 600.0
+00:12 +400: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06 Cairo RTL layout at 600.0
+00:12 +401: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06-LIGHT Cairo RTL layout at 600.0
+00:12 +402: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07 Cairo RTL layout at 600.0
+00:12 +403: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07-LIGHT Cairo RTL layout at 600.0
+00:12 +404: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09 Cairo RTL layout at 600.0
+00:12 +405: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09-LIGHT Cairo RTL layout at 600.0
+00:12 +406: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08 Cairo RTL layout at 600.0
+00:12 +407: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08-LIGHT Cairo RTL layout at 600.0
+00:12 +408: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01 Cairo RTL layout at 600.0
+00:12 +409: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01-LIGHT Cairo RTL layout at 600.0
+00:12 +410: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01 Cairo RTL layout at 600.0
+00:12 +411: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01-LIGHT Cairo RTL layout at 600.0
+00:12 +412: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02 Cairo RTL layout at 600.0
+00:12 +413: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02-LIGHT Cairo RTL layout at 600.0
+00:12 +414: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03 Cairo RTL layout at 600.0
+00:12 +415: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03-LIGHT Cairo RTL layout at 600.0
+00:12 +416: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04 Cairo RTL layout at 600.0
+00:12 +417: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04-LIGHT Cairo RTL layout at 600.0
+00:12 +418: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05 Cairo RTL layout at 600.0
+00:12 +419: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05-LIGHT Cairo RTL layout at 600.0
+00:12 +420: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07 Cairo RTL layout at 600.0
+00:13 +421: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07-LIGHT Cairo RTL layout at 600.0
+00:13 +422: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06 Cairo RTL layout at 600.0
+00:13 +423: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06-LIGHT Cairo RTL layout at 600.0
+00:13 +424: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01 Cairo RTL layout at 600.0
+00:13 +425: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01-LIGHT Cairo RTL layout at 600.0
+00:13 +426: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03 Cairo RTL layout at 600.0
+00:13 +427: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03-LIGHT Cairo RTL layout at 600.0
+00:13 +428: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02 Cairo RTL layout at 600.0
+00:13 +429: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02-LIGHT Cairo RTL layout at 600.0
+00:13 +430: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01 Cairo RTL layout at 600.0
+00:13 +431: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01-LIGHT Cairo RTL layout at 600.0
+00:13 +432: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02 Cairo RTL layout at 600.0
+00:13 +433: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02-LIGHT Cairo RTL layout at 600.0
+00:13 +434: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03 Cairo RTL layout at 600.0
+00:13 +435: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03-LIGHT Cairo RTL layout at 600.0
+00:13 +436: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04 Cairo RTL layout at 600.0
+00:13 +437: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04-LIGHT Cairo RTL layout at 600.0
+00:13 +438: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01 Cairo RTL layout at 600.0
+00:13 +439: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01-LIGHT Cairo RTL layout at 600.0
+00:13 +440: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02 Cairo RTL layout at 600.0
+00:13 +441: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02-LIGHT Cairo RTL layout at 600.0
+00:13 +442: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03 Cairo RTL layout at 600.0
+00:13 +443: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03-LIGHT Cairo RTL layout at 600.0
+00:13 +444: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04 Cairo RTL layout at 600.0
+00:13 +445: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04-LIGHT Cairo RTL layout at 600.0
+00:13 +446: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05 Cairo RTL layout at 600.0
+00:13 +447: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05-LIGHT Cairo RTL layout at 600.0
+00:13 +448: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01 Cairo RTL layout at 600.0
+00:13 +449: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01-LIGHT Cairo RTL layout at 600.0
+00:13 +450: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02 Cairo RTL layout at 600.0
+00:13 +451: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02-LIGHT Cairo RTL layout at 600.0
+00:13 +452: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03 Cairo RTL layout at 600.0
+00:13 +453: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03-LIGHT Cairo RTL layout at 600.0
+00:13 +454: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05 Cairo RTL layout at 600.0
+00:13 +455: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05-LIGHT Cairo RTL layout at 600.0
+00:13 +456: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04 Cairo RTL layout at 600.0
+00:13 +457: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04-LIGHT Cairo RTL layout at 600.0
+00:13 +458: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01 supports enlarged Arabic text at 320
+00:13 +459: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S01-LIGHT supports enlarged Arabic text at 320
+00:13 +460: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03 supports enlarged Arabic text at 320
+00:13 +461: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S03-LIGHT supports enlarged Arabic text at 320
+00:13 +462: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04 supports enlarged Arabic text at 320
+00:13 +463: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S04-LIGHT supports enlarged Arabic text at 320
+00:13 +464: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05 supports enlarged Arabic text at 320
+00:13 +465: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S05-LIGHT supports enlarged Arabic text at 320
+00:13 +466: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06 supports enlarged Arabic text at 320
+00:13 +467: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S06-LIGHT supports enlarged Arabic text at 320
+00:13 +468: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07 supports enlarged Arabic text at 320
+00:13 +469: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S07-LIGHT supports enlarged Arabic text at 320
+00:13 +470: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08 supports enlarged Arabic text at 320
+00:13 +471: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S08-LIGHT supports enlarged Arabic text at 320
+00:13 +472: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09 supports enlarged Arabic text at 320
+00:13 +473: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S09-LIGHT supports enlarged Arabic text at 320
+00:13 +474: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10 supports enlarged Arabic text at 320
+00:13 +475: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: A-S10-LIGHT supports enlarged Arabic text at 320
+00:13 +476: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01 supports enlarged Arabic text at 320
+00:13 +477: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S01-LIGHT supports enlarged Arabic text at 320
+00:13 +478: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03 supports enlarged Arabic text at 320
+00:13 +479: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S03-LIGHT supports enlarged Arabic text at 320
+00:13 +480: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04 supports enlarged Arabic text at 320
+00:13 +481: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S04-LIGHT supports enlarged Arabic text at 320
+00:13 +482: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05 supports enlarged Arabic text at 320
+00:13 +483: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S05-LIGHT supports enlarged Arabic text at 320
+00:13 +484: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06 supports enlarged Arabic text at 320
+00:13 +485: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: B-S06-LIGHT supports enlarged Arabic text at 320
+00:13 +486: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01 supports enlarged Arabic text at 320
+00:13 +487: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-01-LIGHT supports enlarged Arabic text at 320
+00:13 +488: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02 supports enlarged Arabic text at 320
+00:13 +489: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-02-LIGHT supports enlarged Arabic text at 320
+00:13 +490: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03 supports enlarged Arabic text at 320
+00:13 +491: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-03-LIGHT supports enlarged Arabic text at 320
+00:13 +492: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04 supports enlarged Arabic text at 320
+00:13 +493: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-04-LIGHT supports enlarged Arabic text at 320
+00:13 +494: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05 supports enlarged Arabic text at 320
+00:13 +495: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-05-LIGHT supports enlarged Arabic text at 320
+00:13 +496: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06 supports enlarged Arabic text at 320
+00:13 +497: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-06-LIGHT supports enlarged Arabic text at 320
+00:13 +498: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07 supports enlarged Arabic text at 320
+00:13 +499: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-07-LIGHT supports enlarged Arabic text at 320
+00:13 +500: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09 supports enlarged Arabic text at 320
+00:13 +501: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-09-LIGHT supports enlarged Arabic text at 320
+00:13 +502: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08 supports enlarged Arabic text at 320
+00:14 +503: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: C-08-LIGHT supports enlarged Arabic text at 320
+00:14 +504: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01 supports enlarged Arabic text at 320
+00:14 +505: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: E-01-LIGHT supports enlarged Arabic text at 320
+00:14 +506: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01 supports enlarged Arabic text at 320
+00:14 +507: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-01-LIGHT supports enlarged Arabic text at 320
+00:14 +508: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02 supports enlarged Arabic text at 320
+00:14 +509: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-02-LIGHT supports enlarged Arabic text at 320
+00:14 +510: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03 supports enlarged Arabic text at 320
+00:14 +511: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03-LIGHT supports enlarged Arabic text at 320
+00:14 +512: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04 supports enlarged Arabic text at 320
+00:14 +513: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-04-LIGHT supports enlarged Arabic text at 320
+00:14 +514: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05 supports enlarged Arabic text at 320
+00:14 +515: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-05-LIGHT supports enlarged Arabic text at 320
+00:14 +516: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07 supports enlarged Arabic text at 320
+00:14 +517: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-07-LIGHT supports enlarged Arabic text at 320
+00:14 +518: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06 supports enlarged Arabic text at 320
+00:14 +519: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-06-LIGHT supports enlarged Arabic text at 320
+00:14 +520: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01 supports enlarged Arabic text at 320
+00:14 +521: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-01-LIGHT supports enlarged Arabic text at 320
+00:14 +522: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03 supports enlarged Arabic text at 320
+00:14 +523: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-03-LIGHT supports enlarged Arabic text at 320
+00:14 +524: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02 supports enlarged Arabic text at 320
+00:14 +525: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: G-02-LIGHT supports enlarged Arabic text at 320
+00:14 +526: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01 supports enlarged Arabic text at 320
+00:14 +527: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-01-LIGHT supports enlarged Arabic text at 320
+00:14 +528: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02 supports enlarged Arabic text at 320
+00:14 +529: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-02-LIGHT supports enlarged Arabic text at 320
+00:14 +530: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03 supports enlarged Arabic text at 320
+00:14 +531: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-03-LIGHT supports enlarged Arabic text at 320
+00:14 +532: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04 supports enlarged Arabic text at 320
+00:14 +533: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: H-04-LIGHT supports enlarged Arabic text at 320
+00:14 +534: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01 supports enlarged Arabic text at 320
+00:14 +535: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-01-LIGHT supports enlarged Arabic text at 320
+00:14 +536: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02 supports enlarged Arabic text at 320
+00:14 +537: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-02-LIGHT supports enlarged Arabic text at 320
+00:14 +538: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03 supports enlarged Arabic text at 320
+00:14 +539: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-03-LIGHT supports enlarged Arabic text at 320
+00:14 +540: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04 supports enlarged Arabic text at 320
+00:14 +541: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-04-LIGHT supports enlarged Arabic text at 320
+00:14 +542: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05 supports enlarged Arabic text at 320
+00:14 +543: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: I-05-LIGHT supports enlarged Arabic text at 320
+00:14 +544: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01 supports enlarged Arabic text at 320
+00:14 +545: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-01-LIGHT supports enlarged Arabic text at 320
+00:14 +546: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02 supports enlarged Arabic text at 320
+00:14 +547: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-02-LIGHT supports enlarged Arabic text at 320
+00:14 +548: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03 supports enlarged Arabic text at 320
+00:14 +549: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-03-LIGHT supports enlarged Arabic text at 320
+00:14 +550: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05 supports enlarged Arabic text at 320
+00:14 +551: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-05-LIGHT supports enlarged Arabic text at 320
+00:14 +552: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04 supports enlarged Arabic text at 320
+00:14 +553: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: S-04-LIGHT supports enlarged Arabic text at 320
+00:14 +554: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: frame registry preserves the historical frames and adds verified student updates
+00:14 +555: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03 coupon selection opens its existing frame
+00:14 +556: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: F-03-LIGHT coupon selection opens its existing frame
+00:14 +557: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: payment review cannot fabricate activation or navigation
+00:14 +558: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: academic selection keeps one department and one year
+00:14 +559: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: unsupported supplementary filter cannot invent exam dates
+00:14 +560: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: basic fields keep RTL, disabled email, and keyboard access at 320
+00:14 +561: /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/test/hasobjy_design_frames_test.dart: (tearDownAll)
+00:14 +561: All tests passed!

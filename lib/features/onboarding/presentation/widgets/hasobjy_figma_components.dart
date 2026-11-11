@@ -28,11 +28,13 @@ class HasobjyFigmaFrame extends StatelessWidget {
     this.onBack,
     this.bottomNavigation,
     this.header,
+    this.backgroundLayer,
   });
 
   final Widget child;
   final Widget? bottomNavigation;
   final Widget? header;
+  final Widget? backgroundLayer;
   final String? appBarTitle;
   final VoidCallback? onBack;
 
@@ -55,10 +57,13 @@ class HasobjyFigmaFrame extends StatelessWidget {
       ],
     );
     final background = context.designFrame?.assets['img3DBackground'];
+    final visualBackground = backgroundLayer ?? _lightBackground(context);
     Widget canvas = Stack(
       fit: StackFit.expand,
       children: [
-        if (background != null)
+        if (visualBackground != null)
+          visualBackground
+        else if (background != null)
           IgnorePointer(
             child: Image.asset(
               'assets/hasobjy/$background.png',
@@ -94,6 +99,45 @@ class HasobjyFigmaFrame extends StatelessWidget {
               child: canvas,
             ),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget? _lightBackground(BuildContext context) {
+    final ornaments = switch (context.designFrame?.frameName) {
+      'F-05-LIGHT' || 'B-S03-LIGHT' || 'S-03-LIGHT' => const [
+        ('5df30', 364.0, 118.0, 64.0),
+        ('ae3b3', -21.2, 280.8, 38.4),
+      ],
+      'H-02-LIGHT' || 'B-S01-LIGHT' => const [
+        ('a12f7', -26.4, 227.6, 44.8),
+        ('f1409', 368.67, 180.67, 58.667),
+      ],
+      'B-S04-LIGHT' => const [
+        ('ff7c9', 380.8, 240.8, 38.4),
+        ('5a19f', -42.67, 155.33, 69.333),
+      ],
+      'I-02-LIGHT' => const [
+        ('6f3f1', -43.33, 122.67, 74.667),
+        ('9af13', 381.2, 99.2, 41.6),
+      ],
+      _ => null,
+    };
+    if (ornaments == null) return null;
+    return IgnorePointer(
+      child: LayoutBuilder(
+        builder: (_, constraints) => Stack(
+          fit: StackFit.expand,
+          children: [
+            const HasobjySvg('624a4', fit: BoxFit.fill),
+            for (final (asset, x, y, size) in ornaments)
+              Positioned(
+                left: x > 195 ? constraints.maxWidth - (390 - x) : x,
+                top: y,
+                child: HasobjySvg(asset, width: size, height: size),
+              ),
+          ],
         ),
       ),
     );
@@ -239,6 +283,7 @@ class HasobjyButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.primary = true,
+    this.light3D = false,
     this.icon,
     this.height = 52,
     this.backgroundColor,
@@ -248,6 +293,7 @@ class HasobjyButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final bool primary;
+  final bool light3D;
   final Widget? icon;
   final double height;
   final Color? backgroundColor;
@@ -258,7 +304,8 @@ class HasobjyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final scope = context.designFrame;
     final google = scope?.baseName == 'A-S01';
-    if ((primary || google) && scope?.baseName.startsWith('A-') == true) {
+    if ((primary || google) && scope?.baseName.startsWith('A-') == true ||
+        primary && light3D && context.design.isLight) {
       return Hasobjy3DButton(
         label: label,
         onPressed: onPressed,
@@ -373,7 +420,9 @@ class HasobjySurface extends StatelessWidget {
             ? context.design.selectedSurface
             : (fill ?? context.design.surface),
         boxShadow:
-            context.design.isLight && context.designFrame?.baseName == 'A-S03'
+            context.design.isLight &&
+                (context.designFrame?.baseName == 'A-S03' ||
+                    context.designFrame?.baseName == 'B-S01')
             ? const [
                 BoxShadow(
                   color: Color(0x2E000D33),
@@ -558,6 +607,7 @@ class HasobjyFormField extends StatelessWidget {
     this.keyboardType,
     this.maxLines = 1,
     this.mirrorIcon = false,
+    this.raised = false,
   });
   final String label;
   final String hint;
@@ -570,6 +620,7 @@ class HasobjyFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final int maxLines;
   final bool mirrorIcon;
+  final bool raised;
 
   @override
   Widget build(BuildContext context) => Opacity(
@@ -589,9 +640,11 @@ class HasobjyFormField extends StatelessWidget {
                 : context.design.surfaceSubtle,
             border: Border.all(color: context.design.border),
             boxShadow:
-                enabled &&
-                    context.design.isLight &&
-                    context.designFrame?.baseName.startsWith('A-') == true
+                context.design.isLight &&
+                    (raised && (enabled || !dimDisabled) ||
+                        enabled &&
+                            context.designFrame?.baseName.startsWith('A-') ==
+                                true)
                 ? const [
                     BoxShadow(
                       color: Color(0x2E000D33),
