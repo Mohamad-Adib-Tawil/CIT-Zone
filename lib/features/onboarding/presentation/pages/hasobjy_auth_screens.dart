@@ -1,5 +1,6 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../auth/domain/google_identity.dart';
 import '../theme/hasobjy_visual_scope.dart';
@@ -26,20 +27,13 @@ class HasobjyWelcomeScreen extends StatelessWidget {
           children: [
             Spacer(),
             SizedBox(height: 16),
-            SizedBox(
-              width: 150,
-              height: 150,
-              child: Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Positioned(
-                    left: -19.38,
-                    top: -.255,
-                    width: 195.188,
-                    height: 186.688,
-                    child: Image.asset('assets/hasobjy/e2776.png'),
-                  ),
-                ],
+            ClipRRect(
+              borderRadius: BorderRadius.circular(32.5),
+              child: SvgPicture.asset(
+                'assets/hasobjy/app_icon.svg',
+                width: 150,
+                height: 150,
+                fit: BoxFit.cover,
               ),
             ),
             SizedBox(height: 16),

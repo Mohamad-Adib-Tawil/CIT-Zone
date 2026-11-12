@@ -1,0 +1,9 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="app-icon-background" x1="30" y1="30" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0543AE"/>
+      <stop offset="1" stop-color="#010A1A"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" fill="url(#app-icon-background)"/>
+</svg>

@@ -140,9 +140,9 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: assets/hasobjy/e2776.png
+  image_path: branding/hasobjy/app_icon_launcher.png
   min_sdk_android: 24
-  adaptive_icon_background: "#0175C2"
-  adaptive_icon_foreground: assets/hasobjy/e2776.png
+  adaptive_icon_background: branding/hasobjy/app_icon_background.png
+  adaptive_icon_foreground: branding/hasobjy/app_icon_foreground.png
   remove_alpha_ios: true
-  background_color_ios: "#0175C2"
+  background_color_ios: "#010A1A"

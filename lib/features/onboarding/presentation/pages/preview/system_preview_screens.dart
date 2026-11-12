@@ -16,6 +16,12 @@ class SystemPreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     if (frame == 'I-01') {
       return HasobjyFigmaFrame(
+        backgroundLayer: IgnorePointer(
+          child: HasobjySvg(
+            context.design.isLight ? '6fb9e' : '1c591',
+            fit: BoxFit.fill,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
           child: Center(
