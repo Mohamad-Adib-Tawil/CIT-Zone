@@ -27,13 +27,15 @@ class HasobjyWelcomeScreen extends StatelessWidget {
           children: [
             Spacer(),
             SizedBox(height: 16),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(32.5),
-              child: SvgPicture.asset(
-                'assets/hasobjy/app_icon.svg',
-                width: 150,
-                height: 150,
-                fit: BoxFit.cover,
+            SizedBox(
+              width: 150,
+              height: 150,
+              child: Center(
+                child: SvgPicture.asset(
+                  'assets/hasobjy/app_icon_foreground.svg',
+                  width: 93.75,
+                  height: 93.75,
+                ),
               ),
             ),
             SizedBox(height: 16),

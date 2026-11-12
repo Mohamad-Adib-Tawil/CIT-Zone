@@ -2,7 +2,7 @@
 
 ## أيقونة التطبيق — 2026-11-12
 
-`flutter_launcher_icons: ^0.14.4` أداة تطوير لتوليد أيقونات Android وiOS من `branding/hasobjy/app_icon_launcher.png` (1024×1024، مركب من طبقتي Figma `28:402` و`28:403`). طبقتا Android التكيفيتان تستخدمان خلفية التدرج `branding/hasobjy/app_icon_background.png` ومقدمة H في `branding/hasobjy/app_icon_foreground.png`. شاشة الترحيب تعرض إطار اللوغو الأصلي `assets/hasobjy/app_icon.svg`. ملفات التوليد معزولة خارج `assets/` فلا تدخل حزمة Flutter؛ لا تبعية runtime ولا تغيير لمعرفات الحزم أو حد Android API 24. إعادة التوليد: `fvm dart run flutter_launcher_icons`.
+`flutter_launcher_icons: ^0.14.4` أداة تطوير لتوليد أيقونات Android وiOS من `branding/hasobjy/app_icon_launcher.png` (1024×1024، مركب من طبقتي Figma `28:402` و`28:403`). طبقتا Android التكيفيتان تستخدمان خلفية التدرج `branding/hasobjy/app_icon_background.png` ومقدمة H في `branding/hasobjy/app_icon_foreground.png`. شاشة الترحيب تعرض العلامة H الشفافة `assets/hasobjy/app_icon_foreground.svg` بمقاس يحافظ على نسبة إطار Figma؛ ملفات التوليد معزولة خارج `assets/` فلا تدخل حزمة Flutter. لا تبعية runtime ولا تغيير لمعرفات الحزم أو حد Android API 24. إعادة التوليد: `fvm dart run flutter_launcher_icons`.
 
 ## تفعيل هوية Firebase — 2026-10-26
 
