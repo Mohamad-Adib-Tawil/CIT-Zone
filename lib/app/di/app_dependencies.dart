@@ -13,6 +13,7 @@ import '../../features/admin/data/demo_admin_repository.dart';
 import '../../features/admin/presentation/cubit/admin_dashboard_cubit.dart';
 import '../../features/auth/data/google_identity_repository_impl.dart';
 import '../../features/auth/data/firebase_google_identity_gateway.dart';
+import '../../features/auth/data/student_session_gateway.dart';
 import '../../features/auth/domain/google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_repository.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
@@ -47,9 +48,30 @@ class AppDependencies {
         ),
       ),
     );
-    _container.registerLazySingleton<GoogleIdentityRepository>(
-      () => GoogleIdentityRepositoryImpl(_container<GoogleIdentityGateway>()),
-    );
+    _container.registerLazySingleton<GoogleIdentityRepository>(() {
+      final gateway = _container<GoogleIdentityGateway>();
+      final environment = configuration.environment.apiBaseUrl;
+      final platform = switch (defaultTargetPlatform) {
+        TargetPlatform.android => 'android',
+        TargetPlatform.iOS => 'ios',
+        _ => null,
+      };
+      return GoogleIdentityRepositoryImpl(
+        gateway,
+        session:
+            gateway is FirebaseGoogleIdentityGateway &&
+                environment != null &&
+                platform != null &&
+                !kIsWeb
+            ? StudentSessionGateway(
+                api: apiClient,
+                proofSource: gateway,
+                environment: environment,
+                platform: platform,
+              )
+            : null,
+      );
+    });
     _container.registerFactory<GoogleIdentityCubit>(
       () => GoogleIdentityCubit(
         _container<GoogleIdentityRepository>(),

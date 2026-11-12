@@ -5,6 +5,7 @@ final class FirebaseIdentityProof {
   const FirebaseIdentityProof(this._idToken, {required this.identity});
 
   final String _idToken;
+  String get idToken => _idToken;
   final GoogleIdentity identity;
 
   /// Proposed payload, awaiting BE-AUTH-FIREBASE contract confirmation.
