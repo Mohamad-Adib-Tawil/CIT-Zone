@@ -10,10 +10,12 @@ class PreviewActions {
     required this.open,
     required this.notice,
     required this.back,
+    this.selectedAppearance = 'داكن',
   });
   final ValueChanged<String> open;
   final VoidCallback notice;
   final VoidCallback back;
+  final String selectedAppearance;
 }
 
 String? previewIcon(BuildContext context, String label) =>

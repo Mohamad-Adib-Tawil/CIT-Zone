@@ -8,14 +8,12 @@ class GoogleIdentityPage extends StatelessWidget {
     super.key,
     required this.identity,
     required this.onSignOut,
-    this.onStudentPreview,
     this.onFigmaPreview,
     this.error,
   });
 
   final GoogleIdentity identity;
   final VoidCallback onSignOut;
-  final VoidCallback? onStudentPreview;
   final VoidCallback? onFigmaPreview;
   final String? error;
 
@@ -83,16 +81,6 @@ class GoogleIdentityPage extends StatelessWidget {
                 FilledButton(
                   onPressed: onFigmaPreview,
                   child: const Text('عرض شاشات Figma — دون خادم'),
-                ),
-              ],
-              if (onStudentPreview != null) ...[
-                const SizedBox(height: 16),
-                OutlinedButton.icon(
-                  onPressed: onStudentPreview,
-                  icon: const Icon(Icons.phone_android_rounded),
-                  label: const Text(
-                    'المعاينة الطلابية القديمة — ليست تصميم Figma',
-                  ),
                 ),
               ],
               const SizedBox(height: 12),

@@ -169,12 +169,6 @@ abstract class AppLocalizations {
   /// Existing Arabic copy, preserved during foundation extraction.
   ///
   /// In ar, this message translates to:
-  /// **'معاينة واجهة الطالب'**
-  String get studentPreview;
-
-  /// Existing Arabic copy, preserved during foundation extraction.
-  ///
-  /// In ar, this message translates to:
   /// **'معاينة لوحة الإدارة'**
   String get adminPreview;
 

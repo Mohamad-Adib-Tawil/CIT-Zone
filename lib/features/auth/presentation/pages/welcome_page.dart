@@ -7,7 +7,6 @@ class WelcomePage extends StatelessWidget {
     required this.googleConfigured,
     required this.working,
     required this.onGoogleSignIn,
-    this.onStudentPreview,
     this.onAdminPreview,
     this.error,
   });
@@ -15,7 +14,6 @@ class WelcomePage extends StatelessWidget {
   final bool googleConfigured;
   final bool working;
   final VoidCallback onGoogleSignIn;
-  final VoidCallback? onStudentPreview;
   final VoidCallback? onAdminPreview;
   final String? error;
 
@@ -99,16 +97,6 @@ class WelcomePage extends StatelessWidget {
                     error!,
                     style: TextStyle(color: scheme.error),
                     textAlign: TextAlign.center,
-                  ),
-                ],
-                if (onStudentPreview != null) ...[
-                  const SizedBox(height: 25),
-                  const Divider(),
-                  const SizedBox(height: 12),
-                  OutlinedButton.icon(
-                    onPressed: onStudentPreview,
-                    icon: const Icon(Icons.phone_android_rounded),
-                    label: Text(AppLocalizations.of(context).studentPreview),
                   ),
                 ],
                 if (onAdminPreview != null) ...[

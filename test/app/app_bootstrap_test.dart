@@ -10,7 +10,6 @@ import 'package:cit_zone/features/auth/domain/google_identity_gateway.dart';
 import 'package:cit_zone/features/auth/presentation/cubit/google_identity_cubit.dart';
 import 'package:cit_zone/features/auth/presentation/pages/google_identity_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
-import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -109,8 +108,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(GoogleIdentityPage), findsOneWidget);
     expect(find.text('بانتظار ربط حساب التطبيق'), findsOneWidget);
-    expect(find.text('معاينة واجهة الطالب'), findsNothing);
-    expect(find.byType(StudentPreviewPage), findsNothing);
+    expect(find.text('عرض شاشات Figma — دون خادم'), findsNothing);
     await tester.tap(find.text('الخروج من Google'));
     await tester.pumpAndSettle();
     expect(gateway.signOutCalls, 1);
@@ -118,7 +116,7 @@ void main() {
     expect(find.byType(HasobjyDesignPage), findsOneWidget);
   });
 
-  for (final frame in ['ADMIN_PREVIEW', 'STUDENT_PREVIEW', 'B-S06']) {
+  for (final frame in ['ADMIN_PREVIEW', 'B-S06']) {
     for (final config in [
       configuration(stage: AppStage.production, frame: frame),
       configuration(debugBuild: false, frame: frame),
@@ -135,7 +133,6 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.byType(StudentPreviewPage), findsNothing);
         expect(find.byType(AdminDashboardPage), findsNothing);
         expect(
           tester
@@ -147,7 +144,7 @@ void main() {
     }
   }
 
-  for (final frame in ['ADMIN_PREVIEW', 'STUDENT_PREVIEW', 'B-S06']) {
+  for (final frame in ['ADMIN_PREVIEW', 'B-S06']) {
     testWidgets('development keeps explicit preview $frame', (tester) async {
       await tester.pumpWidget(
         AppBootstrap(
@@ -159,8 +156,6 @@ void main() {
       switch (frame) {
         case 'ADMIN_PREVIEW':
           expect(find.byType(AdminDashboardPage), findsOneWidget);
-        case 'STUDENT_PREVIEW':
-          expect(find.byType(StudentPreviewPage), findsOneWidget);
         default:
           expect(
             tester

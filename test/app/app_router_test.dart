@@ -10,7 +10,6 @@ import 'package:cit_zone/features/auth/presentation/pages/google_identity_page.d
 import 'package:cit_zone/features/admin/presentation/admin_figma_preview_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
-import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -79,7 +78,6 @@ void main() {
       final secondCubit = second.createGoogleIdentityCubit();
       expect(firstCreations, 0);
       await secondCubit.signIn();
-      expect(() => second.createStudentPreviewCubit(), throwsStateError);
       expect(() => second.createAdminPreviewCubit(), throwsStateError);
       await first.dispose();
       expect(firstCreations, 0);
@@ -93,7 +91,6 @@ void main() {
 
   for (final route in [
     AppRoutes.designGallery,
-    AppRoutes.studentPreview,
     AppRoutes.adminPreview,
     AppRoutes.adminFigmaGallery,
     AppRoutes.adminFrame('M-A03', light: false),
@@ -122,7 +119,6 @@ void main() {
               .frameId,
           HasobjyFrameId.aS01,
         );
-        expect(find.byType(StudentPreviewPage), findsNothing);
         expect(tester.takeException(), isNull);
       });
     }
@@ -192,7 +188,6 @@ void main() {
       tester.widget<HasobjyDesignPage>(find.byType(HasobjyDesignPage)).frameId,
       HasobjyFrameId.c01,
     );
-    expect(find.byType(StudentPreviewPage), findsNothing);
     expect(find.text('مرحباً أحمد'), findsOneWidget);
     routerOf(tester).pop();
     await tester.pumpAndSettle();
@@ -252,7 +247,7 @@ void main() {
   });
 
   testWidgets(
-    'sign-in redirects, preview push/back restores identity, logout clears history',
+    'sign-in opens Figma preview, platform back and logout clear history',
     (tester) async {
       final gateway = FakeGoogleIdentityGateway();
       final deps = dependencies(gateway: gateway);
@@ -266,11 +261,9 @@ void main() {
         router.routeInformationProvider.value.uri.path,
         AppRoutes.googleIdentity,
       );
-      await tester.tap(
-        find.text('المعاينة الطلابية القديمة — ليست تصميم Figma'),
-      );
+      await tester.tap(find.text('عرض شاشات Figma — دون خادم'));
       await tester.pumpAndSettle();
-      expect(find.byType(StudentPreviewPage), findsOneWidget);
+      expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
       expect(router.canPop(), isTrue);
       router.pop();
       await tester.pumpAndSettle();

@@ -7,7 +7,6 @@ abstract final class PreviewRoutePolicy {
   static String initialLocation(String frameName) => switch (frameName) {
     'FIGMA_GALLERY' => AppRoutes.designGallery,
     'ADMIN_FIGMA_GALLERY' => AppRoutes.adminFigmaGallery,
-    'STUDENT_PREVIEW' => AppRoutes.studentPreview,
     'ADMIN_PREVIEW' => AppRoutes.adminPreview,
     _ when HasobjyFrameId.fromFrameName(frameName) != null => AppRoutes.frame(
       frameName,

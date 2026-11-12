@@ -58,24 +58,35 @@ class HasobjyFigmaFrame extends StatelessWidget {
     );
     final background = context.designFrame?.assets['img3DBackground'];
     final visualBackground = backgroundLayer ?? _lightBackground(context);
-    Widget canvas = Stack(
-      fit: StackFit.expand,
-      children: [
-        if (visualBackground != null)
-          visualBackground
-        else if (background != null)
-          IgnorePointer(
-            child: Image.asset(
-              'assets/hasobjy/$background.png',
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
-            ),
-          ),
-        reference
-            ? content
-            : SafeArea(bottom: bottomNavigation == null, child: content),
-      ],
-    );
+    final backgroundLayerWidget =
+        visualBackground ??
+        (background == null
+            ? null
+            : IgnorePointer(
+                child: Image.asset(
+                  'assets/hasobjy/$background.png',
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                ),
+              ));
+    Widget canvas = reference
+        ? Stack(
+            fit: StackFit.expand,
+            children: [?backgroundLayerWidget, content],
+          )
+        : Stack(
+            fit: StackFit.expand,
+            children: [
+              if (backgroundLayerWidget case final layer?)
+                Positioned.fill(child: layer),
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 390),
+                  child: SafeArea(child: content),
+                ),
+              ),
+            ],
+          );
     if (reference && context.designFrame?.baseName.startsWith('A-') == true) {
       canvas = ClipRRect(
         borderRadius: BorderRadius.circular(44),
@@ -93,12 +104,7 @@ class HasobjyFigmaFrame extends StatelessWidget {
           value: context.design.isLight
               ? SystemUiOverlayStyle.dark
               : SystemUiOverlayStyle.light,
-          child: Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 390),
-              child: canvas,
-            ),
-          ),
+          child: canvas,
         ),
       ),
     );

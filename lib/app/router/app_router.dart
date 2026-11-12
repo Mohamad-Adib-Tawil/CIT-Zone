@@ -15,7 +15,6 @@ import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../../features/auth/presentation/pages/google_identity_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
-import '../../features/student/presentation/pages/student_preview_page.dart';
 import '../di/app_dependencies.dart';
 import 'app_routes.dart';
 import 'preview_route_policy.dart';
@@ -68,20 +67,8 @@ class AppRouter {
               onFigmaPreview: _previewsEnabled
                   ? () => context.push(AppRoutes.designGallery)
                   : null,
-              onStudentPreview: _previewsEnabled
-                  ? () => context.push(AppRoutes.studentPreview)
-                  : null,
             );
           }),
-        ),
-        GoRoute(
-          path: AppRoutes.studentPreview,
-          builder: (_, state) => _identityBuilder(
-            (_, identityState) => StudentPreviewPage(
-              identity: _identityOf(identityState),
-              createCatalogCubit: dependencies.createStudentPreviewCubit,
-            ),
-          ),
         ),
         GoRoute(
           path: AppRoutes.adminPreview,
@@ -129,6 +116,9 @@ class AppRouter {
               frameId: HasobjyFrameId.fromFrameName(
                 state.pathParameters['frame']!,
               )!,
+              selectedAppearance: state.uri.queryParameters['appearance'],
+              followSystemTheme:
+                  state.uri.queryParameters['appearance'] == 'تلقائي',
               identity: _identityOf(identityState),
               onGoogleSignIn: identityCubit.isConfigured
                   ? identityCubit.signIn
@@ -140,6 +130,9 @@ class AppRouter {
                   : null,
               onOpenFrame: (frame) =>
                   context.push(AppRoutes.frame(frame.frameName)),
+              onOpenAppearance: (frame, appearance) => context.push(
+                AppRoutes.frame(frame.frameName, appearance: appearance),
+              ),
             ),
           ),
         ),

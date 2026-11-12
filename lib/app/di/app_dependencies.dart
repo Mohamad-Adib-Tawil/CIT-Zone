@@ -16,8 +16,6 @@ import '../../features/auth/data/firebase_google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_repository.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
-import '../../features/student/data/demo_student_repository.dart';
-import '../../features/student/presentation/cubit/student_catalog_cubit.dart';
 import '../config/app_configuration.dart';
 import '../app_environment.dart';
 
@@ -77,11 +75,6 @@ class AppDependencies {
   AppAvailabilityCubit createAppAvailabilityCubit() {
     _ensureActive();
     return _container<AppAvailabilityCubit>();
-  }
-
-  StudentCatalogCubit createStudentPreviewCubit() {
-    _ensurePreviewsAllowed();
-    return StudentCatalogCubit(DemoStudentRepository());
   }
 
   AdminDashboardCubit createAdminPreviewCubit() {

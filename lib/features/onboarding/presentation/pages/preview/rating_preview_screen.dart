@@ -26,38 +26,41 @@ class _RatingPreviewScreenState extends State<RatingPreviewScreen> {
   @override
   Widget build(BuildContext context) => Directionality(
     textDirection: TextDirection.rtl,
-    child: Center(
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 390),
-        child: Material(
-          type: MaterialType.transparency,
-          child: Stack(
-            children: [
-              LearningPreviewScreen(frame: 'C-04', actions: widget.actions),
-              const Positioned.fill(
-                child: ColoredBox(color: Color(0xB8010712)),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Transform.translate(
-                  offset: Offset(
-                    0,
-                    HasobjyReferenceViewport.isActive(context) ? 16 : 0,
-                  ),
-                  child: SingleChildScrollView(
-                    child: LessonRatingSheet(
-                      cubit: selection,
-                      heading: 'قيّم الدرس 4',
-                      prompt: 'ما رأيك في «لغة SQL الأساسية»؟',
-                      onSubmit: (_) => widget.actions.notice(),
-                      onDismiss: () => widget.actions.open('C-04'),
+    child: Material(
+      type: MaterialType.transparency,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          LearningPreviewScreen(frame: 'C-04', actions: widget.actions),
+          const Positioned.fill(child: ColoredBox(color: Color(0xB8010712))),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SafeArea(
+              top: false,
+              bottom: !HasobjyReferenceViewport.isActive(context),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 390),
+                  child: Transform.translate(
+                    offset: Offset(
+                      0,
+                      HasobjyReferenceViewport.isActive(context) ? 16 : 0,
+                    ),
+                    child: SingleChildScrollView(
+                      child: LessonRatingSheet(
+                        cubit: selection,
+                        heading: 'قيّم الدرس 4',
+                        prompt: 'ما رأيك في «لغة SQL الأساسية»؟',
+                        onSubmit: (_) => widget.actions.notice(),
+                        onDismiss: () => widget.actions.open('C-04'),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     ),
   );

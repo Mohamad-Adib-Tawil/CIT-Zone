@@ -144,11 +144,14 @@ class HasobjyDesignPage extends StatelessWidget {
     this.error,
     this.referenceViewport = false,
     this.onOpenFrame,
+    this.onOpenAppearance,
     this.followSystemTheme = false,
+    this.selectedAppearance,
   });
 
   final HasobjyFrameId frameId;
   final bool followSystemTheme;
+  final String? selectedAppearance;
   final GoogleIdentity? identity;
   final VoidCallback? onGoogleSignIn;
   final VoidCallback? onSignOut;
@@ -156,9 +159,20 @@ class HasobjyDesignPage extends StatelessWidget {
   final String? error;
   final bool referenceViewport;
   final ValueChanged<HasobjyFrameId>? onOpenFrame;
+  final void Function(HasobjyFrameId frame, String appearance)?
+  onOpenAppearance;
 
-  void _open(BuildContext context, HasobjyFrameId next, {bool? light}) {
+  void _open(
+    BuildContext context,
+    HasobjyFrameId next, {
+    bool? light,
+    String? appearance,
+  }) {
     next = next.withLight(light ?? frameId.isLight);
+    if (appearance != null && onOpenAppearance != null) {
+      onOpenAppearance!(next, appearance);
+      return;
+    }
     if (onOpenFrame != null) {
       onOpenFrame!(next);
       return;
@@ -170,7 +184,10 @@ class HasobjyDesignPage extends StatelessWidget {
           identity: identity,
           onGoogleSignIn: onGoogleSignIn,
           onSignOut: onSignOut,
+          onOpenAppearance: onOpenAppearance,
           referenceViewport: referenceViewport,
+          followSystemTheme: appearance == 'تلقائي',
+          selectedAppearance: appearance ?? selectedAppearance,
         ),
       ),
     );
@@ -188,19 +205,34 @@ class HasobjyDesignPage extends StatelessWidget {
     final effective = followSystemTheme
         ? frameId.withLight(Theme.of(context).brightness == Brightness.light)
         : frameId;
+    final currentAppearance =
+        selectedAppearance ?? (frameId.isLight ? 'فاتح' : 'داكن');
     final actions = PreviewActions(
+      selectedAppearance: currentAppearance,
       open: (name) {
         final explicitDark = name.endsWith('-DARK');
+        final isAppearance =
+            name == 'S-01' || name == 'S-01-DARK' || name == 'S-01-LIGHT';
+        final appearance = name == 'S-01-LIGHT'
+            ? 'فاتح'
+            : name == 'S-01'
+            ? 'تلقائي'
+            : explicitDark
+            ? 'داكن'
+            : currentAppearance;
         final next = HasobjyFrameId.fromFrameName(name.replaceAll('-DARK', ''));
         if (next != null) {
           _open(
             context,
             next,
-            light: explicitDark
+            light: isAppearance && appearance == 'تلقائي'
+                ? Theme.of(context).brightness == Brightness.light
+                : explicitDark
                 ? false
                 : name.endsWith('-LIGHT')
                 ? true
                 : effective.isLight,
+            appearance: appearance,
           );
         }
       },

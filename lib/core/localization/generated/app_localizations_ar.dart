@@ -50,9 +50,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'يتطلب تسجيل Google إعداد معرّفات OAuth لهذا التطبيق.';
 
   @override
-  String get studentPreview => 'معاينة واجهة الطالب';
-
-  @override
   String get adminPreview => 'معاينة لوحة الإدارة';
 
   @override

@@ -27,15 +27,14 @@ class _Avatar extends StatelessWidget {
   const _Avatar({this.size = 88});
   final double size;
   @override
-  Widget build(BuildContext context) => SizedBox(
-    width: size,
-    height: size,
-    child: Stack(
-      children: [
-        Positioned.fill(
-          child: ColoredBox(color: context.design.selectedSurface),
-        ),
-        Center(
+  Widget build(BuildContext context) => ClipPath(
+    clipper: _AvatarChamferClipper(cutSize: size == 52 ? 10 : 18),
+    child: SizedBox(
+      width: size,
+      height: size,
+      child: ColoredBox(
+        color: context.design.selectedSurface,
+        child: Center(
           child: PreviewText(
             'أ',
             style: size == 52 ? context.design.title : context.design.display,
@@ -43,27 +42,28 @@ class _Avatar extends StatelessWidget {
             color: context.design.brand,
           ),
         ),
-        Positioned(
-          left: 0,
-          top: 0,
-          child: HasobjySvg(
-            context.designFrame!.assets['imgChamferTl']!,
-            width: size == 88 ? 18 : 10,
-            height: size == 88 ? 18 : 10,
-          ),
-        ),
-        Positioned(
-          right: 0,
-          bottom: 0,
-          child: HasobjySvg(
-            context.designFrame!.assets['imgChamferBr']!,
-            width: size == 88 ? 18 : 10,
-            height: size == 88 ? 18 : 10,
-          ),
-        ),
-      ],
+      ),
     ),
   );
+}
+
+class _AvatarChamferClipper extends CustomClipper<Path> {
+  const _AvatarChamferClipper({required this.cutSize});
+  final double cutSize;
+
+  @override
+  Path getClip(Size size) => Path()
+    ..moveTo(cutSize, 0)
+    ..lineTo(size.width, 0)
+    ..lineTo(size.width, size.height - cutSize)
+    ..lineTo(size.width - cutSize, size.height)
+    ..lineTo(0, size.height)
+    ..lineTo(0, cutSize)
+    ..close();
+
+  @override
+  bool shouldReclip(_AvatarChamferClipper oldClipper) =>
+      oldClipper.cutSize != cutSize;
 }
 
 class _Settings extends StatelessWidget {
@@ -127,14 +127,14 @@ class _Settings extends StatelessWidget {
                     vertical: 14,
                   ),
                   decoration: BoxDecoration(
-                    color: item.$1 == 'داكن'
+                    color: actions.selectedAppearance == item.$1
                         ? context.design.selectedSurface
                         : context.design.surface,
                     border: Border.all(
-                      color: item.$1 == 'داكن'
+                      color: actions.selectedAppearance == item.$1
                           ? context.design.brand
                           : context.design.border,
-                      width: item.$1 == 'داكن' ? 1.5 : 1,
+                      width: actions.selectedAppearance == item.$1 ? 1.5 : 1,
                     ),
                   ),
                   child: Column(
@@ -149,7 +149,7 @@ class _Settings extends StatelessWidget {
                       PreviewText(
                         item.$1,
                         style: context.design.label,
-                        color: item.$1 == 'داكن'
+                        color: actions.selectedAppearance == item.$1
                             ? context.design.textPrimary
                             : context.design.textSecondary,
                       ),

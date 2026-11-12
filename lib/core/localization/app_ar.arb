@@ -48,10 +48,6 @@
   "@googleSetupRequired": {
     "description": "Existing Arabic copy, preserved during foundation extraction."
   },
-  "studentPreview": "معاينة واجهة الطالب",
-  "@studentPreview": {
-    "description": "Existing Arabic copy, preserved during foundation extraction."
-  },
   "adminPreview": "معاينة لوحة الإدارة",
   "@adminPreview": {
     "description": "Existing Arabic copy, preserved during foundation extraction."

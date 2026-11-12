@@ -5,7 +5,7 @@ import 'package:cit_zone/app/di/app_dependencies.dart';
 import 'package:cit_zone/app/router/app_routes.dart';
 import 'package:cit_zone/features/auth/presentation/pages/google_identity_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
-import 'package:cit_zone/features/student/presentation/pages/student_preview_page.dart';
+import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -37,13 +37,9 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(GoogleIdentityPage), findsOneWidget);
     expect(find.text('بانتظار ربط حساب التطبيق'), findsOneWidget);
-    final studentPreview = find.text(
-      'المعاينة الطلابية القديمة — ليست تصميم Figma',
-    );
-    await tester.ensureVisible(studentPreview);
-    await tester.tap(studentPreview);
+    await tester.tap(find.text('عرض شاشات Figma — دون خادم'));
     await tester.pumpAndSettle();
-    expect(find.byType(StudentPreviewPage), findsOneWidget);
+    expect(find.byType(HasobjyFrameGalleryPage), findsOneWidget);
     await tester.binding.handlePopRoute();
     await tester.pumpAndSettle();
     expect(find.byType(GoogleIdentityPage), findsOneWidget);
