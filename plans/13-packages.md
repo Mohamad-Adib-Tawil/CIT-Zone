@@ -21,6 +21,8 @@ firebase_core للتهيئة الرسمية وfirebase_auth لتبادل Google 
 
 ## حزم التطبيق
 
+- `shared_preferences` 2.5.6: تخزين محلي غير حساس لاختيار المظهر فقط (`system/light/dark`) عبر `SharedPreferencesAsync`، يحمّل قبل إنشاء `MaterialApp` لتجنب وميض الثيم الافتراضي. لا تحفظ فيه جلسات أو أسرار؛ لا إعداد native يدوي ولا تغيير للحد الأدنى API24/iOS15.
+
 - `flutter_bloc` موجود: Cubit وحالات الشاشة داخل presentation؛ لا حاجة إلى Riverpod/GetX معه.
 - `google_sign_in` موجود: اختيار هوية Google خلف `GoogleIdentityGateway`؛ التحقق والجلسة وربط الجهاز من الخادم.
 - `flutter_svg` موجود: أصول Figma المحلية، مع قياس كلفة SVG المعقد قبل استعماله في قائمة طويلة.

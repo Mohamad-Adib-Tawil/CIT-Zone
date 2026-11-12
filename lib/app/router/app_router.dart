@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/debug/diagnostic_route_observer.dart';
+import '../../core/theme/theme_mode_controller.dart';
 import '../../features/admin/presentation/cubit/admin_dashboard_cubit.dart';
 import '../../features/admin/presentation/admin_figma_frame.dart';
 import '../../features/admin/presentation/admin_figma_preview_page.dart';
@@ -24,6 +25,7 @@ class AppRouter {
   AppRouter({
     required AppDependencies dependencies,
     required GoogleIdentityCubit identityCubit,
+    required this.themeModeController,
     String? initialLocation,
   }) : _dependencies = dependencies,
        _identityCubit = identityCubit {
@@ -116,9 +118,10 @@ class AppRouter {
               frameId: HasobjyFrameId.fromFrameName(
                 state.pathParameters['frame']!,
               )!,
-              selectedAppearance: state.uri.queryParameters['appearance'],
-              followSystemTheme:
-                  state.uri.queryParameters['appearance'] == 'تلقائي',
+              selectedAppearance:
+                  state.uri.queryParameters['appearance'] ??
+                  _appearanceFor(themeModeController.value),
+              followSystemTheme: themeModeController.value == ThemeMode.system,
               identity: _identityOf(identityState),
               onGoogleSignIn: identityCubit.isConfigured
                   ? identityCubit.signIn
@@ -130,9 +133,14 @@ class AppRouter {
                   : null,
               onOpenFrame: (frame) =>
                   context.push(AppRoutes.frame(frame.frameName)),
-              onOpenAppearance: (frame, appearance) => context.push(
-                AppRoutes.frame(frame.frameName, appearance: appearance),
-              ),
+              onOpenAppearance: (frame, appearance) {
+                unawaited(
+                  themeModeController.setMode(_themeModeFor(appearance)),
+                );
+                context.push(
+                  AppRoutes.frame(frame.frameName, appearance: appearance),
+                );
+              },
             ),
           ),
         ),
@@ -142,6 +150,7 @@ class AppRouter {
 
   final AppDependencies _dependencies;
   final GoogleIdentityCubit _identityCubit;
+  final ThemeModeController themeModeController;
   final _RouterRefresh _refresh = _RouterRefresh();
   late final StreamSubscription<GoogleIdentityState> _subscription;
   late final GoRouter router;
@@ -149,6 +158,18 @@ class AppRouter {
 
   bool get _previewsEnabled =>
       kDebugMode && _dependencies.configuration.previewsEnabled;
+
+  static String _appearanceFor(ThemeMode mode) => switch (mode) {
+    ThemeMode.light => 'فاتح',
+    ThemeMode.dark => 'داكن',
+    ThemeMode.system => 'تلقائي',
+  };
+
+  static ThemeMode _themeModeFor(String appearance) => switch (appearance) {
+    'فاتح' => ThemeMode.light,
+    'داكن' => ThemeMode.dark,
+    _ => ThemeMode.system,
+  };
 
   static GoogleIdentity? _identityOf(GoogleIdentityState state) =>
       switch (state) {
