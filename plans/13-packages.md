@@ -1,5 +1,9 @@
 # 13 — سجل الحزم وخطة تفعيلها
 
+## أيقونة التطبيق — 2026-11-12
+
+`flutter_launcher_icons: ^0.14.4` أداة تطوير لتوليد أيقونات Android وiOS من أصل العلامة `assets/hasobjy/e2776.png`؛ Android يستخدم خلفية adaptive زرقاء، وiOS يزيل الشفافية على الخلفية نفسها. إعدادها في `pubspec.yaml` ومخرجاتها native؛ لا تبعية runtime ولا تغيير لمعرفات الحزم أو حد Android API 24. الأصل مستخدم بالفعل كشعار شاشة الترحيب. إعادة التوليد: `fvm dart run flutter_launcher_icons`.
+
 ## تفعيل هوية Firebase — 2026-10-26
 
 firebase_core للتهيئة الرسمية وfirebase_auth لتبادل Google credential واستعادة مستخدم Firebase وتجديد إثباته والخروج؛ تضافان إلى dependencies في pubspec.yaml، والإعداد كسول في auth/data. google_sign_in يبقى لاختيار الحساب. لا firebase_messaging/Analytics. الصيانة تتطلب اختبارات المنصتين وعقود الهوية وبقاء API24/iOS15، دون overrides. [العقد وخطة القبول](implementation/2026-10-26-firebase-google-auth.md).
