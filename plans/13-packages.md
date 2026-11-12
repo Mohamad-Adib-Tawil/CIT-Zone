@@ -65,3 +65,22 @@ firebase_core للتهيئة الرسمية وfirebase_auth لتبادل Google 
 ## مصادر الحزم
 
 [Bloc](https://pub.dev/packages/flutter_bloc)، [GoRouter](https://pub.dev/packages/go_router)، [Dio](https://pub.dev/packages/dio)، [GetIt](https://pub.dev/packages/get_it)، [Drift](https://pub.dev/packages/drift)، [Drift Flutter](https://pub.dev/packages/drift_flutter)، [Secure Storage](https://pub.dev/packages/flutter_secure_storage)، [Freezed](https://pub.dev/packages/freezed)، [JSON Serializable](https://pub.dev/packages/json_serializable)، [pdfrx](https://pub.dev/packages/pdfrx)، [bloc_test](https://pub.dev/packages/bloc_test). روجعت عند حل المجموعة؛ lockfile هو مرجع النسخ الفعلية لا رقم أحدث في صفحة الويب.
+## بيئة بناء Android المعتمدة — 2026-11-12
+
+استخدم Flutter 3.47.2 عبر FVM مع Dart 3.13.2 وJDK 17 وAGP 9.1.0 وGradle 9.3.1-bin وKGP 2.4.0. يبقى Flutter plugin loader 1.0.0 وcompileSdk/targetSdk 36 وminSdk 24 وNDK 29.0.14206865. وضع التوافق `android.builtInKotlin=false` و`android.newDsl=false` يبقي فحوص البناء مفعّلة.
+
+أحدث إصدارين منشورين وقت المراجعة هما `firebase_auth 7.0.1` و`firebase_core 5.1.0`. كلاهما يطبق KGP في وضع التوافق، ويحتفظ بالسطر المشروط حتى عند تفعيل Kotlin المدمجة. تحذير Flutter يرصد سطر التطبيق في الملف، لذلك قد يستمر بعد تفعيل Kotlin المدمجة حتى إذا لم ينفذ Gradle ذلك الفرع.
+
+للتحقق من هذه المجموعة على JDK 17:
+
+```sh
+fvm install
+fvm flutter pub get --enforce-lockfile
+fvm flutter build apk --debug --split-per-abi --target-platform android-arm,android-arm64 --no-pub
+```
+
+نتيجة 2026-11-12: نجح حل الحزم بالـlockfile وبناء APK منفصل لكل من ARM32 وARM64. أكد فحص الحزمتين معرّف التطبيق `com.devmind.cit.learn` وminSdk 24 وtargetSdk 36. بقي تحذير KGP للإضافتين وتحذير قراءة Android SDK XML ظاهرين أثناء البناء. هذه نتيجة تجميع وفحص APK.
+
+اختبر الترقية في فرع مستقل. ابدأ ببناء المجموعة الحالية، ثم افحص ملفات Gradle المنشورة للحزم وأداة الكشف في إصدار Flutter المرشح. Flutter 3.50 يختبر قالب Android مع AGP 9.3.1 وGradle 9.5.0 وKGP 2.4.20. أي انتقال إلى Kotlin المدمجة يتطلب مراجعة كل إضافات Android وتوافق إصدار Kotlin المدمج مع فحوص Flutter، ثم بناء APK لكل ABI وفحص حد التثبيت وتجربة تسجيل الدخول. احتفظ بمجموعة الإصدارات وملف القفل الحاليين إذا لم تنجح البوابات. تجنب تجاوز فحوص البناء أو تعديل pub cache أو فرض نسخ عبر dependency_overrides.
+
+المصادر: [Flutter 3.47](https://flutter.dev/blog/whats-new-in-flutter-3-47)، [Flutter 3.50](https://flutter.dev/blog/whats-new-in-flutter-3-50)، [دليل Kotlin المدمجة](https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers)، [AGP 9.1](https://developer.android.com/build/releases/agp-9-1-0-release-notes)، [Gradle 9.3.1](https://docs.gradle.org/9.3.1/release-notes.html)، [Firebase Auth](https://pub.dev/packages/firebase_auth/versions)، [Firebase Core](https://pub.dev/packages/firebase_core/versions).

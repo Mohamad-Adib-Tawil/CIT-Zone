@@ -67,7 +67,7 @@ class _AppBootstrapState extends State<AppBootstrap> {
     unawaited(
       _themeController.then<void>(
         (controller) => controller.dispose(),
-        onError: (Object _, StackTrace __) {},
+        onError: (Object error, StackTrace stackTrace) {},
       ),
     );
     unawaited(_dependencies.dispose());
