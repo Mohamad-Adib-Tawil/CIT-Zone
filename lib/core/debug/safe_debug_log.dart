@@ -2,11 +2,29 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-/// Debug-only structured logs with common credential and personal-data fields
-/// redacted before they reach the IDE console.
+/// Bounded, debug-only diagnostics. Never pass raw credentials or user objects.
 abstract final class SafeDebugLog {
-  static const _sensitiveKey =
-      r'(token|authorization|cookie|secret|password|credential|email|phone|name|photo|profile|uid|subject|id_google)';
+  static const int _maxDepth = 5;
+  static const int _maxEntries = 40;
+  static const int _maxStringLength = 1200;
+  static final RegExp _sensitiveKey = RegExp(
+    r'(authorization|cookie|token|secret|password|credential|email|phone|full.?name|display.?name|photo|profile|uid|id_google|session|license|student|grade|score|transcript|answer)',
+    caseSensitive: false,
+  );
+  static final RegExp _email = RegExp(
+    r'\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b',
+    caseSensitive: false,
+  );
+  static final RegExp _bearer = RegExp(
+    r'\bBearer\s+[^\s,;]+',
+    caseSensitive: false,
+  );
+  static final RegExp _jwt = RegExp(
+    r'\beyJ[A-Za-z0-9_-]*\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b',
+  );
+  static final RegExp _phone = RegExp(
+    r'(?<!\w)\+?[0-9][0-9 ()-]{7,}[0-9](?!\w)',
+  );
 
   static void event(
     String scope,
@@ -14,22 +32,65 @@ abstract final class SafeDebugLog {
     Map<String, Object?> fields = const {},
   ]) {
     if (!kDebugMode) return;
-    debugPrint('[Hasobjy][$scope] $message ${jsonEncode(_redact(fields))}');
+    try {
+      debugPrint(
+        '[Hasobjy][$scope][${DateTime.now().toIso8601String()}] '
+        '$message ${jsonEncode(_sanitize(fields, 0))}',
+      );
+    } on Object {
+      debugPrint(
+        '[Hasobjy][$scope][${DateTime.now().toIso8601String()}] '
+        '$message {"details":"unavailable"}',
+      );
+    }
   }
 
-  static Map<String, Object?> _redact(Map<String, Object?> values) => {
-    for (final entry in values.entries)
-      entry.key: RegExp(_sensitiveKey, caseSensitive: false).hasMatch(entry.key)
-          ? '[REDACTED]'
-          : entry.value is Map<String, Object?>
-          ? _redact(entry.value! as Map<String, Object?>)
-          : entry.value is List
-          ? (entry.value! as List)
-                .map(
-                  (value) =>
-                      value is Map<String, Object?> ? _redact(value) : value,
-                )
-                .toList()
-          : entry.value,
-  };
+  static void error(
+    String scope,
+    Object error, [
+    StackTrace? stackTrace,
+    Map<String, Object?> fields = const {},
+  ]) {
+    if (!kDebugMode) return;
+    event(scope, 'error', {
+      ...fields,
+      'error_type': error.runtimeType.toString(),
+      'error': error.toString(),
+      if (stackTrace != null) 'stack': stackTrace.toString(),
+    });
+  }
+
+  static Object? _sanitize(Object? value, int depth) {
+    if (depth >= _maxDepth) return '[MAX_DEPTH]';
+    if (value is Map) {
+      final entries = value.entries.take(_maxEntries);
+      return {
+        for (final entry in entries)
+          entry.key.toString(): _sensitiveKey.hasMatch(entry.key.toString())
+              ? '[REDACTED]'
+              : _sanitize(entry.value, depth + 1),
+        if (value.length > _maxEntries) 'truncated_entries': true,
+      };
+    }
+    if (value is Iterable) {
+      final items = value.take(_maxEntries).toList();
+      return [
+        for (final item in items) _sanitize(item, depth + 1),
+        if (value.length > _maxEntries) '[TRUNCATED]',
+      ];
+    }
+    if (value is String) {
+      var safe = value
+          .replaceAll(_bearer, 'Bearer [REDACTED]')
+          .replaceAll(_jwt, '[REDACTED_TOKEN]')
+          .replaceAll(_email, '[REDACTED_EMAIL]')
+          .replaceAll(_phone, '[REDACTED_PHONE]');
+      if (safe.length > _maxStringLength) {
+        safe = '${safe.substring(0, _maxStringLength)}…[TRUNCATED]';
+      }
+      return safe;
+    }
+    if (value == null || value is num || value is bool) return value;
+    return value.runtimeType.toString();
+  }
 }

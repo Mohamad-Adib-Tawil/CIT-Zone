@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/debug/diagnostic_route_observer.dart';
 import '../../features/admin/presentation/cubit/admin_dashboard_cubit.dart';
 import '../../features/admin/presentation/admin_figma_frame.dart';
 import '../../features/admin/presentation/admin_figma_preview_page.dart';
@@ -31,6 +32,7 @@ class AppRouter {
     router = GoRouter(
       initialLocation: initialLocation ?? _initialLocation,
       refreshListenable: _refresh,
+      observers: [DiagnosticRouteObserver()],
       redirect: (_, state) => _redirect(state),
       onException: (_, state, router) => router.go(_identityLocation),
       routes: [

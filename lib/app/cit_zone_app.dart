@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../core/debug/safe_debug_log.dart';
 import '../core/theme/app_theme.dart';
 import '../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../features/app_status/presentation/cubit/app_availability_cubit.dart';
@@ -27,7 +28,7 @@ class CitZoneApp extends StatefulWidget {
   State<CitZoneApp> createState() => _CitZoneAppState();
 }
 
-class _CitZoneAppState extends State<CitZoneApp> {
+class _CitZoneAppState extends State<CitZoneApp> with WidgetsBindingObserver {
   late final GoogleIdentityCubit _identityCubit;
   late final AppRouter _router;
   AppAvailabilityCubit? _availabilityCubit;
@@ -35,6 +36,7 @@ class _CitZoneAppState extends State<CitZoneApp> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _identityCubit = widget.dependencies.createGoogleIdentityCubit();
     if (widget.dependencies.configuration.environment.hasApi ||
         widget.dependencies.configuration.environment.stage !=
@@ -47,6 +49,11 @@ class _CitZoneAppState extends State<CitZoneApp> {
       initialLocation: widget.initialLocation,
     );
     unawaited(_identityCubit.restore());
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    SafeDebugLog.event('App', 'lifecycle', {'state': state.name});
   }
 
   @override
@@ -70,6 +77,7 @@ class _CitZoneAppState extends State<CitZoneApp> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _router.dispose();
     unawaited(_availabilityCubit?.close());
     unawaited(_identityCubit.close());

@@ -54,15 +54,9 @@ class DioApiClient implements ApiClient {
   }) async {
     if (_closed) throw const ApiFailure(ApiFailureKind.configuration);
     final uri = _policy.resolve(request);
-    SafeDebugLog.event('API', 'request', {
-      'method': request.method,
-      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
-      'headers': request.headers,
-      'body': request.jsonBody is Map<String, Object?>
-          ? request.jsonBody! as Map<String, Object?>
-          : {'payload': request.jsonBody?.runtimeType.toString()},
-    });
+    final stopwatch = Stopwatch()..start();
     if (cancellationToken?.isCanceled == true) {
+      SafeDebugLog.event('API', 'failure', {'kind': 'canceled'});
       throw const ApiFailure(ApiFailureKind.canceled);
     }
     final scope = ApiRequestScope(
@@ -70,6 +64,15 @@ class DioApiClient implements ApiClient {
       requestId: ApiTransportPolicy.newRequestId(),
       cancellationToken: cancellationToken,
     );
+    SafeDebugLog.event('API', 'request', {
+      'request_id': scope.requestId,
+      'method': request.method,
+      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
+      'headers': request.headers,
+      'body': request.jsonBody is Map<String, Object?>
+          ? request.jsonBody! as Map<String, Object?>
+          : {'payload': request.jsonBody?.runtimeType.toString()},
+    });
     final cancel = CancelToken();
     scope.onAbort(() => cancel.cancel());
     _active.add(scope);
@@ -115,20 +118,32 @@ class DioApiClient implements ApiClient {
         final decoded = _policy.decode(response.statusCode!, bytes, responseId);
         SafeDebugLog.event('API', 'response', {
           'status': decoded.statusCode,
-          'request_id': decoded.requestId,
+          'request_id': scope.requestId,
+          'response_request_id': decoded.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
           'body': decoded.json,
         });
         return decoded;
       });
     } catch (error) {
       cancel.cancel();
-      scope.throwIfStopped();
+      try {
+        scope.throwIfStopped();
+      } on ApiFailure catch (failure) {
+        SafeDebugLog.event('API', 'failure', {
+          'kind': failure.kind.name,
+          'request_id': failure.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
+        });
+        rethrow;
+      }
       if (error is ApiFailure) {
         SafeDebugLog.event('API', 'failure', {
           'kind': error.kind.name,
           'status': error.statusCode,
           'code': error.code,
           'request_id': error.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
         });
         rethrow;
       }
@@ -154,6 +169,7 @@ class DioApiClient implements ApiClient {
       SafeDebugLog.event('API', 'failure', {
         'kind': kind.name,
         'request_id': scope.requestId,
+        'duration_ms': stopwatch.elapsedMilliseconds,
       });
       throw ApiFailure(kind, requestId: scope.requestId);
     } finally {

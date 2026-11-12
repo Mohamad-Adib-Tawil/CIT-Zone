@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import '../debug/safe_debug_log.dart';
 import 'api_cancellation_token.dart';
 import 'api_client.dart';
 import 'api_failure.dart';
@@ -47,7 +48,9 @@ class IoApiClient implements ApiClient {
   }) async {
     if (_closed) throw const ApiFailure(ApiFailureKind.configuration);
     final uri = _policy.resolve(request);
+    final stopwatch = Stopwatch()..start();
     if (cancellationToken?.isCanceled == true) {
+      SafeDebugLog.event('API', 'failure', {'kind': 'canceled'});
       throw const ApiFailure(ApiFailureKind.canceled);
     }
     final scope = ApiRequestScope(
@@ -55,6 +58,15 @@ class IoApiClient implements ApiClient {
       requestId: ApiTransportPolicy.newRequestId(),
       cancellationToken: cancellationToken,
     );
+    SafeDebugLog.event('API', 'request', {
+      'request_id': scope.requestId,
+      'method': request.method,
+      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
+      'headers': request.headers,
+      'body': request.jsonBody is Map
+          ? request.jsonBody! as Map
+          : {'payload_type': request.jsonBody?.runtimeType.toString()},
+    });
     _active.add(scope);
     HttpClientRequest? outgoing;
     try {
@@ -82,12 +94,38 @@ class IoApiClient implements ApiClient {
           response,
           _policy.maxResponseBytes,
         );
-        return _policy.decode(response.statusCode, bytes, responseId);
+        final decoded = _policy.decode(response.statusCode, bytes, responseId);
+        SafeDebugLog.event('API', 'response', {
+          'status': decoded.statusCode,
+          'request_id': scope.requestId,
+          'response_request_id': decoded.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
+          'body': decoded.json,
+        });
+        return decoded;
       });
     } catch (error) {
       outgoing?.abort();
-      scope.throwIfStopped();
-      if (error is ApiFailure) rethrow;
+      try {
+        scope.throwIfStopped();
+      } on ApiFailure catch (failure) {
+        SafeDebugLog.event('API', 'failure', {
+          'kind': failure.kind.name,
+          'request_id': failure.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
+        });
+        rethrow;
+      }
+      if (error is ApiFailure) {
+        SafeDebugLog.event('API', 'failure', {
+          'kind': error.kind.name,
+          'status': error.statusCode,
+          'code': error.code,
+          'request_id': error.requestId,
+          'duration_ms': stopwatch.elapsedMilliseconds,
+        });
+        rethrow;
+      }
       final kind = switch (error) {
         SocketException() ||
         HandshakeException() ||
@@ -95,6 +133,11 @@ class IoApiClient implements ApiClient {
         FormatException() => ApiFailureKind.invalidResponse,
         _ => ApiFailureKind.unexpected,
       };
+      SafeDebugLog.event('API', 'failure', {
+        'kind': kind.name,
+        'request_id': scope.requestId,
+        'duration_ms': stopwatch.elapsedMilliseconds,
+      });
       throw ApiFailure(kind, requestId: scope.requestId);
     } finally {
       _active.remove(scope);
