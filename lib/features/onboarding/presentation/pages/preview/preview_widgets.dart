@@ -34,11 +34,13 @@ class PreviewScaffold extends StatelessWidget {
     this.gap = 14,
     this.topPadding = 16,
     this.bottomPadding = 24,
+    this.bottomNavigation,
   });
   final String? title;
   final PreviewActions actions;
   final List<Widget> children;
   final bool navigation;
+  final Widget? bottomNavigation;
   final Widget? header;
   final Widget? backgroundLayer;
   final double gap;
@@ -51,7 +53,9 @@ class PreviewScaffold extends StatelessWidget {
     onBack: actions.back,
     header: header,
     backgroundLayer: backgroundLayer,
-    bottomNavigation: navigation ? PreviewNavigation(actions: actions) : null,
+    bottomNavigation:
+        bottomNavigation ??
+        (navigation ? PreviewNavigation(actions: actions) : null),
     child: Padding(
       padding: EdgeInsets.fromLTRB(24, topPadding, 24, bottomPadding),
       child: Column(
@@ -68,8 +72,13 @@ class PreviewScaffold extends StatelessWidget {
 }
 
 class PreviewNavigation extends StatelessWidget {
-  const PreviewNavigation({super.key, required this.actions});
+  const PreviewNavigation({
+    super.key,
+    required this.actions,
+    this.hiddenDestinations = const {},
+  });
   final PreviewActions actions;
+  final Set<String> hiddenDestinations;
   static const destinations = {
     'الرئيسية': 'C-01',
     'المواد': 'C-02',
@@ -97,37 +106,38 @@ class PreviewNavigation extends StatelessWidget {
               textDirection: TextDirection.ltr,
               children: [
                 for (final item in entries)
-                  Expanded(
-                    child: Semantics(
-                      button: true,
-                      child: InkWell(
-                        onTap: () => actions.open(destinations[item.$1]!),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            HasobjySvg(item.$2, width: 24, height: 24),
-                            const SizedBox(height: 4),
-                            Text(
-                              item.$1,
-                              style: context.design.badge.copyWith(
-                                color:
-                                    destinations[item.$1] ==
-                                        (switch (context
-                                            .designFrame
-                                            ?.baseName) {
-                                          'C-03' => 'C-02',
-                                          'H-01' => 'C-01',
-                                          final name => name,
-                                        })
-                                    ? context.design.brand
-                                    : context.design.textMuted,
+                  if (!hiddenDestinations.contains(destinations[item.$1]))
+                    Expanded(
+                      child: Semantics(
+                        button: true,
+                        child: InkWell(
+                          onTap: () => actions.open(destinations[item.$1]!),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              HasobjySvg(item.$2, width: 24, height: 24),
+                              const SizedBox(height: 4),
+                              Text(
+                                item.$1,
+                                style: context.design.badge.copyWith(
+                                  color:
+                                      destinations[item.$1] ==
+                                          (switch (context
+                                              .designFrame
+                                              ?.baseName) {
+                                            'C-03' => 'C-02',
+                                            'H-01' => 'C-01',
+                                            final name => name,
+                                          })
+                                      ? context.design.brand
+                                      : context.design.textMuted,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
               ],
             ),
           ),

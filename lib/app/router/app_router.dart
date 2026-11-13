@@ -12,6 +12,12 @@ import '../../features/admin/presentation/admin_figma_frame.dart';
 import '../../features/admin/presentation/admin_figma_preview_page.dart';
 import '../../features/admin/presentation/pages/admin_dashboard_page.dart';
 import '../../features/auth/domain/google_identity.dart';
+import '../../features/auth/domain/student_session_repository.dart';
+import '../../features/auth/presentation/pages/student_session_page.dart';
+import '../../features/onboarding/presentation/pages/student_onboarding_page.dart';
+import '../../features/onboarding/presentation/pages/student_registration_page.dart';
+import '../../features/onboarding/presentation/pages/student_new_term_page.dart';
+import '../../features/onboarding/presentation/pages/student_learning_page.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../../features/auth/presentation/pages/google_identity_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_design_page.dart';
@@ -53,6 +59,53 @@ class AppRouter {
                   : null,
             ),
           ),
+        ),
+        GoRoute(
+          path: AppRoutes.studentSession,
+          builder: (_, _) => const StudentSessionPage(),
+        ),
+        GoRoute(
+          path: AppRoutes.studentUsage,
+          builder: (_, _) => const StudentOnboardingPage(
+            step: StudentNextStep.chooseUsageType,
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.studentBasicInfo,
+          builder: (_, _) => const StudentOnboardingPage(
+            step: StudentNextStep.completeBasicInfo,
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.studentRegistration,
+          builder: (_, _) {
+            final sessions = dependencies.studentSessions;
+            return sessions == null
+                ? const StudentSessionPage()
+                : StudentRegistrationPage(repository: sessions);
+          },
+        ),
+        GoRoute(
+          path: AppRoutes.studentNewTerm,
+          builder: (_, _) {
+            final sessions = dependencies.studentSessions;
+            return sessions == null
+                ? const StudentSessionPage()
+                : StudentNewTermPage(repository: sessions);
+          },
+        ),
+        GoRoute(
+          path: AppRoutes.studentHome,
+          builder: (_, _) {
+            final sessions = dependencies.studentSessions;
+            return sessions == null
+                ? const StudentSessionPage()
+                : StudentLearningPage(
+                    repository: sessions,
+                    themeMode: themeModeController,
+                    onThemeChanged: themeModeController.setMode,
+                  );
+          },
         ),
         GoRoute(
           path: AppRoutes.googleIdentity,
@@ -178,9 +231,29 @@ class AppRouter {
         _ => null,
       };
 
-  String get _identityLocation => _identityOf(_identityCubit.state) == null
-      ? AppRoutes.signIn
-      : AppRoutes.googleIdentity;
+  String get _identityLocation => switch (_identityCubit.state) {
+    GoogleIdentityReady(:final session, :final sessionFailure) =>
+      session != null ||
+              sessionFailure != null ||
+              _identityCubit.requiresStudentSession
+          ? _studentLocation(session)
+          : AppRoutes.googleIdentity,
+    GoogleIdentityWorking(:final identity, :final session)
+        when identity != null =>
+      _identityCubit.requiresStudentSession
+          ? _studentLocation(session)
+          : AppRoutes.googleIdentity,
+    _ => AppRoutes.signIn,
+  };
+
+  String _studentLocation(StudentSession? session) => switch (session?.next) {
+    StudentNextStep.chooseUsageType => AppRoutes.studentUsage,
+    StudentNextStep.completeBasicInfo => AppRoutes.studentBasicInfo,
+    StudentNextStep.completeRegistration => AppRoutes.studentRegistration,
+    StudentNextStep.confirmNewTerm => AppRoutes.studentNewTerm,
+    StudentNextStep.home => AppRoutes.studentHome,
+    _ => AppRoutes.studentSession,
+  };
 
   String get _initialLocation {
     if (!_previewsEnabled) return AppRoutes.signIn;
@@ -191,7 +264,9 @@ class AppRouter {
 
   String? _redirect(GoRouterState state) {
     final path = state.uri.path;
-    if (path == AppRoutes.signIn || path == AppRoutes.googleIdentity) {
+    if (path == AppRoutes.signIn ||
+        path == AppRoutes.googleIdentity ||
+        path.startsWith('/student/')) {
       return path == _identityLocation ? null : _identityLocation;
     }
     if (path.startsWith('/debug/')) {

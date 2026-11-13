@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../auth/domain/student_learning.dart';
 import '../../theme/hasobjy_visual_scope.dart';
 import '../../widgets/hasobjy_figma_components.dart';
 import 'preview_widgets.dart';
@@ -15,8 +16,8 @@ class ProfilePreviewScreen extends StatelessWidget {
   final PreviewActions actions;
   @override
   Widget build(BuildContext context) => switch (frame) {
-    'S-01' => _Settings(actions: actions),
-    'S-02' => _Profile(actions: actions),
+    'S-01' => HasobjySettingsScreen(actions: actions),
+    'S-02' => HasobjyProfileScreen(actions: actions),
     'S-03' => _EditProfile(actions: actions),
     'S-05' => ActivityPreviewScreen(actions: actions),
     _ => _Device(actions: actions),
@@ -24,8 +25,9 @@ class ProfilePreviewScreen extends StatelessWidget {
 }
 
 class _Avatar extends StatelessWidget {
-  const _Avatar({this.size = 88});
+  const _Avatar({this.size = 88, this.initial = 'أ'});
   final double size;
+  final String initial;
   @override
   Widget build(BuildContext context) => ClipPath(
     clipper: _AvatarChamferClipper(cutSize: size == 52 ? 10 : 18),
@@ -36,7 +38,7 @@ class _Avatar extends StatelessWidget {
         color: context.design.selectedSurface,
         child: Center(
           child: PreviewText(
-            'أ',
+            initial,
             style: size == 52 ? context.design.title : context.design.display,
             align: TextAlign.center,
             color: context.design.brand,
@@ -66,13 +68,23 @@ class _AvatarChamferClipper extends CustomClipper<Path> {
       oldClipper.cutSize != cutSize;
 }
 
-class _Settings extends StatelessWidget {
-  const _Settings({required this.actions});
+class HasobjySettingsScreen extends StatelessWidget {
+  const HasobjySettingsScreen({
+    super.key,
+    required this.actions,
+    this.studentName,
+    this.onSignOut,
+    this.navigation,
+  });
   final PreviewActions actions;
+  final String? studentName;
+  final VoidCallback? onSignOut;
+  final Widget? navigation;
   @override
   Widget build(BuildContext context) => PreviewScaffold(
     actions: actions,
-    navigation: true,
+    navigation: studentName == null,
+    bottomNavigation: navigation,
     gap: 10,
     children: [
       PreviewText('الإعدادات', style: context.design.title),
@@ -87,19 +99,23 @@ class _Settings extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     PreviewText(
-                      'أحمد محمد الحلبي',
+                      studentName ?? 'أحمد محمد الحلبي',
                       style: context.design.labelSemiBold,
                     ),
                     const SizedBox(height: 4),
-                    PreviewText(
-                      'برمجيات · السنة الثانية · الفصل الثالث',
-                      style: context.design.bodySmall,
-                    ),
+                    if (studentName == null)
+                      PreviewText(
+                        'برمجيات · السنة الثانية · الفصل الثالث',
+                        style: context.design.bodySmall,
+                      ),
                   ],
                 ),
               ),
               const SizedBox(width: 12),
-              const _Avatar(size: 52),
+              _Avatar(
+                size: 52,
+                initial: studentName?.characters.firstOrNull ?? 'أ',
+              ),
             ],
           ),
         ],
@@ -114,7 +130,7 @@ class _Settings extends StatelessWidget {
           for (final item in [
             ('داكن', 'S-01-DARK'),
             ('فاتح', 'S-01-LIGHT'),
-            ('تلقائي', 'S-01'),
+            ('تلقائي', studentName == null ? 'S-01' : 'S-01-SYSTEM'),
           ]) ...[
             if (item.$1 != 'داكن') const SizedBox(width: 8),
             Expanded(
@@ -161,28 +177,35 @@ class _Settings extends StatelessWidget {
           ],
         ],
       ),
-      PreviewText(
-        'الحساب',
-        style: context.design.label.copyWith(color: context.design.textMuted),
+      if (studentName != null) _row(context, 'ملفي الشخصي', 'S-02'),
+      if (studentName == null) ...[
+        PreviewText(
+          'الحساب',
+          style: context.design.label.copyWith(color: context.design.textMuted),
+        ),
+        Column(
+          children: [
+            _row(context, 'ملفي الشخصي', 'S-02'),
+            _row(context, 'الجهاز المسجّل', 'S-04'),
+            _row(context, 'اشتراكاتي', 'F-07'),
+          ],
+        ),
+        PreviewText(
+          'المساعدة',
+          style: context.design.label.copyWith(color: context.design.textMuted),
+        ),
+        Column(
+          children: [
+            _row(context, 'الدعم والتواصل', 'H-02'),
+            _row(context, 'الشروط وسياسة الخصوصية', 'A-S08'),
+          ],
+        ),
+      ],
+      PreviewButton(
+        'تسجيل الخروج',
+        onTap: onSignOut ?? actions.notice,
+        primary: false,
       ),
-      Column(
-        children: [
-          _row(context, 'ملفي الشخصي', 'S-02'),
-          _row(context, 'الجهاز المسجّل', 'S-04'),
-          _row(context, 'اشتراكاتي', 'F-07'),
-        ],
-      ),
-      PreviewText(
-        'المساعدة',
-        style: context.design.label.copyWith(color: context.design.textMuted),
-      ),
-      Column(
-        children: [
-          _row(context, 'الدعم والتواصل', 'H-02'),
-          _row(context, 'الشروط وسياسة الخصوصية', 'A-S08'),
-        ],
-      ),
-      PreviewButton('تسجيل الخروج', onTap: actions.notice, primary: false),
     ],
   );
   Widget _row(BuildContext context, String title, String destination) =>
@@ -223,9 +246,11 @@ class _Settings extends StatelessWidget {
       );
 }
 
-class _Profile extends StatelessWidget {
-  const _Profile({required this.actions});
+class HasobjyProfileScreen extends StatelessWidget {
+  const HasobjyProfileScreen({super.key, required this.actions, this.profile});
+
   final PreviewActions actions;
+  final StudentProfileData? profile;
   @override
   Widget build(BuildContext context) => PreviewScaffold(
     title: 'ملفي الشخصي',
@@ -234,22 +259,18 @@ class _Profile extends StatelessWidget {
     children: [
       Column(
         children: [
-          const _Avatar(),
+          _Avatar(initial: profile?.name.characters.firstOrNull ?? 'أ'),
           const SizedBox(height: 8),
-          PreviewText('أحمد محمد الحلبي', style: context.design.headingMedium),
+          PreviewText(
+            profile?.name ?? 'أحمد محمد الحلبي',
+            style: context.design.headingMedium,
+          ),
         ],
       ),
       PreviewPanel(
         gap: 12,
         children: [
-          for (final row in const [
-            ('الاسم الرسمي', 'أحمد محمد الحلبي'),
-            ('رقم الهاتف', '0991 234 567'),
-            ('البريد الإلكتروني', 'ahmad@gmail.com'),
-            ('القسم', 'برمجيات'),
-            ('السنة الدراسية', 'الثانية'),
-            ('الفصل الحالي', 'الثالث · 2026/2027'),
-          ]) ...[
+          for (final row in _rows) ...[
             if (row.$1 != 'الاسم الرسمي')
               Container(height: 1, color: context.design.border),
             Column(
@@ -281,14 +302,37 @@ class _Profile extends StatelessWidget {
         ],
       ),
       const Spacer(),
-      PreviewButton(
-        'تعديل البيانات',
-        subtle: true,
-        onTap: () => actions.open('S-03'),
-        primary: false,
-      ),
+      if (profile == null)
+        PreviewButton(
+          'تعديل البيانات',
+          subtle: true,
+          onTap: () => actions.open('S-03'),
+          primary: false,
+        ),
     ],
   );
+
+  List<(String, String)> get _rows {
+    final data = profile;
+    if (data == null) {
+      return const [
+        ('الاسم الرسمي', 'أحمد محمد الحلبي'),
+        ('رقم الهاتف', '0991 234 567'),
+        ('البريد الإلكتروني', 'ahmad@gmail.com'),
+        ('القسم', 'برمجيات'),
+        ('السنة الدراسية', 'الثانية'),
+        ('الفصل الحالي', 'الثالث · 2026/2027'),
+      ];
+    }
+    return [
+      ('الاسم الرسمي', data.name),
+      if (data.phone case final phone?) ('رقم الهاتف', phone),
+      ('البريد الإلكتروني', data.email),
+      if (data.department case final department?) ('القسم', department),
+      if (data.year == 1 || data.year == 2)
+        ('السنة الدراسية', data.year == 1 ? 'الأولى' : 'الثانية'),
+    ];
+  }
 }
 
 class _EditProfile extends StatefulWidget {

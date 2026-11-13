@@ -8,7 +8,7 @@ abstract final class SafeDebugLog {
   static const int _maxEntries = 40;
   static const int _maxStringLength = 1200;
   static final RegExp _sensitiveKey = RegExp(
-    r'(authorization|cookie|token|secret|password|credential|email|phone|full.?name|display.?name|photo|profile|uid|id_google|session|license|student|grade|score|transcript|answer)',
+    r'(authorization|cookie|token|secret|password|credential|email|phone|full.?name|official.?name|display.?name|description|^name$|photo|profile|uid|id_google|session|license|student|grade|score|transcript|answer)',
     caseSensitive: false,
   );
   static final RegExp _email = RegExp(

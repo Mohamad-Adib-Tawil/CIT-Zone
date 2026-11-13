@@ -70,6 +70,8 @@ void main() {
       },
     );
     await tester.pumpWidget(app());
+    // Bootstrap first resolves the persisted theme, while identity stays pending.
+    await tester.pump();
     final cubit = tester
         .element(find.byType(HasobjyDesignPage))
         .read<GoogleIdentityCubit>();

@@ -114,11 +114,17 @@ class HasobjyUsageTypeScreen extends StatefulWidget {
   const HasobjyUsageTypeScreen({
     super.key,
     required this.onContinue,
-    this.onUnsupportedCoursesOnly,
+    this.onContinueCourses,
+    this.working = false,
+    this.error,
+    this.onSignOut,
   });
 
   final VoidCallback onContinue;
-  final VoidCallback? onUnsupportedCoursesOnly;
+  final VoidCallback? onContinueCourses;
+  final bool working;
+  final String? error;
+  final VoidCallback? onSignOut;
 
   @override
   State<HasobjyUsageTypeScreen> createState() => _HasobjyUsageTypeScreenState();
@@ -153,7 +159,9 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
                   .instituteStudentDescription,
               iconAsset: '4d691',
               selected: _institute,
-              onTap: () => setState(() => _institute = true),
+              onTap: () {
+                if (!widget.working) setState(() => _institute = true);
+              },
             ),
             SizedBox(height: 16),
             HasobjySelectionOption(
@@ -161,16 +169,25 @@ class _HasobjyUsageTypeScreenState extends State<HasobjyUsageTypeScreen> {
               subtitle: AppLocalizations.of(context).coursesOnlyDescription,
               iconAsset: 'dbeae',
               selected: !_institute,
-              onTap: () => setState(() => _institute = false),
+              onTap: () {
+                if (!widget.working) setState(() => _institute = false);
+              },
             ),
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
+            _OnboardingFeedback(
+              working: widget.working,
+              error: widget.error,
+              onSignOut: widget.onSignOut,
+            ),
             HasobjyButton(
               label: AppLocalizations.of(context).continueAction,
-              onPressed: _institute
+              onPressed: widget.working
+                  ? null
+                  : _institute
                   ? widget.onContinue
-                  : widget.onUnsupportedCoursesOnly,
+                  : widget.onContinueCourses,
             ),
           ],
         ),
@@ -187,9 +204,17 @@ class HasobjyBasicInfoScreen extends StatefulWidget {
     this.onBack,
     this.showStepper = true,
     this.continueLabel,
+    this.onSave,
+    this.working = false,
+    this.error,
+    this.onSignOut,
   });
 
-  final VoidCallback onContinue;
+  final VoidCallback? onContinue;
+  final void Function(String officialName, String phone)? onSave;
+  final bool working;
+  final String? error;
+  final VoidCallback? onSignOut;
   final GoogleIdentity? identity;
   final VoidCallback? onBack;
   final bool showStepper;
@@ -230,6 +255,7 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
               iconAsset: '0699d',
               helper: AppLocalizations.of(context).officialNameHelper,
               controller: _nameController,
+              enabled: !widget.working,
             ),
             SizedBox(height: 16),
             HasobjyFormField(
@@ -239,6 +265,7 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
               mirrorIcon: true,
               helper: AppLocalizations.of(context).phoneHelper,
               controller: _phoneController,
+              enabled: !widget.working,
               keyboardType: TextInputType.phone,
               textDirection: TextDirection.ltr,
             ),
@@ -254,15 +281,60 @@ class _HasobjyBasicInfoScreenState extends State<HasobjyBasicInfoScreen> {
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
+            _OnboardingFeedback(
+              working: widget.working,
+              error: widget.error,
+              onSignOut: widget.onSignOut,
+            ),
             HasobjyButton(
               label:
                   widget.continueLabel ??
                   AppLocalizations.of(context).continueAction,
-              onPressed: widget.onContinue,
+              onPressed: widget.working
+                  ? null
+                  : widget.onSave == null
+                  ? widget.onContinue
+                  : () => widget.onSave!(
+                      _nameController.text,
+                      _phoneController.text,
+                    ),
             ),
           ],
         ),
       ),
     );
   }
+}
+
+class _OnboardingFeedback extends StatelessWidget {
+  const _OnboardingFeedback({
+    required this.working,
+    this.error,
+    this.onSignOut,
+  });
+
+  final bool working;
+  final String? error;
+  final VoidCallback? onSignOut;
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      if (working) const LinearProgressIndicator(),
+      if (error case final message?)
+        Semantics(
+          liveRegion: true,
+          child: Text(message, style: context.design.label),
+        ),
+      if (onSignOut != null)
+        TextButton(
+          onPressed: working ? null : onSignOut,
+          child: Text(
+            AppLocalizations.of(context).signOut,
+            style: context.design.label,
+          ),
+        ),
+    ],
+  );
 }

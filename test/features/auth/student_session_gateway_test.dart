@@ -1,10 +1,31 @@
+import 'dart:async';
+
+import 'package:cit_zone/app/app_environment.dart';
+import 'package:cit_zone/app/config/app_configuration.dart';
+import 'package:cit_zone/app/di/app_dependencies.dart';
+import 'package:cit_zone/app/router/app_router.dart';
+import 'package:cit_zone/app/router/app_routes.dart';
+import 'package:cit_zone/core/localization/generated/app_localizations.dart';
+import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
+import 'package:cit_zone/core/theme/theme_mode_controller.dart';
+import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
+import 'package:cit_zone/features/auth/domain/google_identity_gateway.dart';
+import 'package:cit_zone/features/auth/presentation/cubit/google_identity_cubit.dart';
+import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_auth_screens.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/network/api_cancellation_token.dart';
 import 'package:cit_zone/core/network/api_client.dart';
 import 'package:cit_zone/core/network/api_failure.dart';
 import 'package:cit_zone/core/network/api_request.dart';
+import 'package:cit_zone/core/network/api_transport_policy.dart';
 import 'package:cit_zone/features/auth/data/firebase_identity_proof.dart';
 import 'package:cit_zone/features/auth/data/student_session_gateway.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
+import 'package:cit_zone/features/auth/domain/student_session_repository.dart';
+import 'package:cit_zone/features/auth/domain/student_registration.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -30,11 +51,32 @@ void main() {
 
   test('exchanges, rotates on restart, and revokes the latest token', () async {
     final api = _Api();
-    expect(await gateway(api).restore(_identity), isFalse);
+    expect(
+      await gateway(api).restore(_identity),
+      isA<Right<StudentSessionFailure, StudentSession?>>().having(
+        (r) => r.value,
+        'session',
+        isNull,
+      ),
+    );
     await gateway(api).start(_identity);
-    expect(await gateway(api).restore(_identity), isTrue);
+    expect(
+      await gateway(api).restore(_identity),
+      isA<Right<StudentSessionFailure, StudentSession?>>().having(
+        (r) => r.value?.next,
+        'next',
+        StudentNextStep.chooseUsageType,
+      ),
+    );
     await gateway(api).end(_identity);
-    expect(await gateway(api).restore(_identity), isFalse);
+    expect(
+      await gateway(api).restore(_identity),
+      isA<Right<StudentSessionFailure, StudentSession?>>().having(
+        (r) => r.value,
+        'session',
+        isNull,
+      ),
+    );
 
     expect(api.requests.map((r) => r.path), [
       'auth/google',
@@ -60,13 +102,294 @@ void main() {
     final api = _Api();
     await gateway(api).start(_identity);
     api.rejectRefresh = true;
-    expect(await gateway(api).restore(_identity), isFalse);
-    expect(await gateway(api).restore(_identity), isFalse);
+    expect(
+      await gateway(api).restore(_identity),
+      isA<Right<StudentSessionFailure, StudentSession?>>().having(
+        (r) => r.value,
+        'session',
+        isNull,
+      ),
+    );
+    expect(
+      await gateway(api).restore(_identity),
+      isA<Right<StudentSessionFailure, StudentSession?>>().having(
+        (r) => r.value,
+        'session',
+        isNull,
+      ),
+    );
     expect(
       api.requests.where((request) => request.path == 'auth/refresh'),
       hasLength(1),
     );
   });
+  for (final type in StudentUsageType.values) {
+    test(
+      'saves ${type.name}, then re-reads the authoritative destination',
+      () async {
+        final api = _Api();
+        final session = gateway(api);
+        await session.start(_identity);
+        final result = await session.setUsageType(_identity, type);
+        expect(
+          result,
+          isA<Right<StudentSessionFailure, StudentSession>>().having(
+            (r) => r.value.next,
+            'next',
+            StudentNextStep.completeBasicInfo,
+          ),
+        );
+        final restarted = await gateway(api).restore(_identity);
+        expect(
+          restarted,
+          isA<Right<StudentSessionFailure, StudentSession?>>().having(
+            (r) => r.value?.usageType,
+            'usageType',
+            type,
+          ),
+        );
+        final saved = await session.setBasicInfo(
+          _identity,
+          officialName: 'اسم تجريبي',
+          phone: '0944000000',
+        );
+        expect(
+          saved,
+          isA<Right<StudentSessionFailure, StudentSession>>().having(
+            (r) => r.value.next,
+            'next',
+            type == StudentUsageType.institute
+                ? StudentNextStep.completeRegistration
+                : StudentNextStep.home,
+          ),
+        );
+        expect(
+          api.requests.where((r) => r.method == 'PUT').map((r) => r.jsonBody),
+          [
+            {'usageType': type.name},
+            {'officialName': 'اسم تجريبي', 'phone': '0944000000'},
+          ],
+        );
+      },
+    );
+  }
+
+  test('rejects a destination outside the known server contract', () async {
+    final api = _Api()..next = 'unknown';
+    expect(
+      await gateway(api).start(_identity),
+      isA<Left<StudentSessionFailure, StudentSession>>().having(
+        (r) => r.value,
+        'failure',
+        StudentSessionFailure.invalidResponse,
+      ),
+    );
+  });
+
+  testWidgets(
+    'Google button routes by session, blocks direct links and deduplicates a pending save',
+    (tester) async {
+      tester.view.physicalSize = const Size(390, 844);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final api = _Api();
+      final cubit = GoogleIdentityCubit(
+        GoogleIdentityRepositoryImpl(_IdentityGateway()),
+        messages: AppLocalizationsAr(),
+        sessions: gateway(api),
+      );
+      final dependencies = AppDependencies(
+        configuration: AppConfiguration.parse(
+          environment: AppEnvironment.parse(
+            stageName: 'production',
+            apiBaseUrl: '',
+          ),
+          debugBuild: false,
+          previewFrameName: '',
+        ),
+      );
+      final theme = ThemeModeController.inMemory();
+      final routes = AppRouter(
+        dependencies: dependencies,
+        identityCubit: cubit,
+        themeModeController: theme,
+        initialLocation: AppRoutes.studentBasicInfo,
+      );
+      addTearDown(() async {
+        await tester.pumpWidget(const SizedBox.shrink());
+        routes.dispose();
+        theme.dispose();
+        await cubit.close();
+        await dependencies.dispose();
+      });
+      await tester.pumpWidget(
+        BlocProvider.value(
+          value: cubit,
+          child: MaterialApp.router(
+            routerConfig: routes.router,
+            locale: const Locale('ar'),
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyWelcomeScreen), findsOneWidget);
+      await tester.tap(find.text(AppLocalizationsAr().continueViaGoogle));
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyUsageTypeScreen), findsOneWidget);
+      routes.router.go(AppRoutes.studentBasicInfo);
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyUsageTypeScreen), findsOneWidget);
+
+      api.pendingUsage = Completer<void>();
+      final next = find.text(AppLocalizationsAr().continueAction);
+      await tester.tap(next);
+      await tester.tap(next);
+      expect(api.requests.where((r) => r.method == 'PUT'), hasLength(1));
+      api.pendingUsage!.complete();
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyBasicInfoScreen), findsOneWidget);
+
+      api.rejectBasicInfo = true;
+      final form = find.byType(HasobjyBasicInfoScreen);
+      final fields = find.descendant(
+        of: form,
+        matching: find.byType(TextField),
+      );
+      await tester.enterText(fields.at(0), 'اسم تجريبي');
+      await tester.enterText(fields.at(1), '123');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(next);
+      await tester.tap(next);
+      await tester.pumpAndSettle();
+      expect(form, findsOneWidget);
+      expect(find.textContaining('رقم موبايل سوري'), findsOneWidget);
+      expect(
+        tester.widget<TextField>(fields.at(0)).controller?.text,
+        'اسم تجريبي',
+      );
+      expect(tester.widget<TextField>(fields.at(1)).controller?.text, '123');
+
+      api.next = 'device_unauthorized';
+      await cubit.revalidateSession();
+      await tester.pumpAndSettle();
+      expect(find.text('هذا الجهاز غير مصرّح له.'), findsOneWidget);
+      routes.router.go(AppRoutes.studentUsage);
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyUsageTypeScreen), findsNothing);
+      api.next = 'suspended';
+      await cubit.revalidateSession();
+      await tester.pumpAndSettle();
+      expect(find.text('الحساب موقوف.'), findsOneWidget);
+
+      await tester.tap(find.text(AppLocalizationsAr().signOut));
+      await tester.pumpAndSettle();
+      expect(find.byType(HasobjyWelcomeScreen), findsOneWidget);
+      expect(api.requests.last.path, 'auth/logout');
+    },
+  );
+
+  test(
+    'registration resumes saved choices and confirms via fresh session state',
+    () async {
+      final api = _Api()
+        ..next = 'complete_registration'
+        ..usageType = 'institute';
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      final departments = (await sessions.departments(_identity))
+          .getRight()
+          .toNullable()!;
+      expect(departments.single.years, [1, 2]);
+      expect(
+        await sessions.registrationSummary(_identity),
+        isA<Right<StudentSessionFailure, StudentRegistrationSummary?>>().having(
+          (result) => result.value,
+          'summary',
+          isNull,
+        ),
+      );
+      final invalid = await sessions.saveAcademicInfo(
+        _identity,
+        departments.single.id,
+        3,
+      );
+      expect(invalid.isLeft(), isTrue);
+      expect(
+        api.requests.where((request) => request.path == 'me/academic-info'),
+        isEmpty,
+      );
+      final draft = await sessions.saveAcademicInfo(
+        _identity,
+        departments.single.id,
+        2,
+      );
+      expect(draft.getRight().toNullable()?.semesterName, isNull);
+      final restarted = gateway(api);
+      await restarted.restore(_identity);
+      final restored = await restarted.registrationSummary(_identity);
+      expect(restored.getRight().toNullable()?.year, 2);
+      final confirmed = await restarted.confirmRegistration(_identity);
+      expect(confirmed.getRight().toNullable()?.next, StudentNextStep.home);
+      expect(api.requests.last.path, 'me/session-state');
+    },
+  );
+
+  test(
+    'term confirmation and learning reads honor the server response',
+    () async {
+      final api = _Api()
+        ..next = 'confirm_new_term'
+        ..usageType = 'institute';
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      final term = await sessions.termRegistration(_identity);
+      expect(term.getRight().toNullable()?.semesterName, 'الفصل الفعلي');
+      final confirmed = await sessions.confirmNewTerm(_identity);
+      expect(confirmed.getRight().toNullable()?.next, StudentNextStep.home);
+      final home = await sessions.home(_identity);
+      expect(home.getRight().toNullable()?.subjects.single.percent, 50);
+      final courses = await sessions.courses(_identity, mine: true, page: 2);
+      expect(
+        courses.getRight().toNullable()?.courses.single.subscribed,
+        isTrue,
+      );
+      expect(courses.getRight().toNullable()?.hasMore, isFalse);
+      expect(api.requests.last.query, {
+        'scope': 'mine',
+        'page': '2',
+        'limit': '20',
+      });
+    },
+  );
+
+  test(
+    'network loss after commit retries the read without resending the choice',
+    () async {
+      final api = _Api();
+      final cubit = GoogleIdentityCubit(
+        GoogleIdentityRepositoryImpl(_IdentityGateway()),
+        messages: AppLocalizationsAr(),
+        sessions: gateway(api),
+      );
+      addTearDown(cubit.close);
+      await cubit.signIn();
+      api.failNextRead = true;
+      await cubit.chooseUsageType(StudentUsageType.courses);
+      final failure = cubit.state as GoogleIdentityReady;
+      expect(failure.session, isNull);
+      expect(failure.sessionFailure, StudentSessionFailure.unavailable);
+      await cubit.retrySession();
+      expect(
+        (cubit.state as GoogleIdentityReady).session?.next,
+        StudentNextStep.completeBasicInfo,
+      );
+      expect(api.requests.where((r) => r.method == 'PUT'), hasLength(1));
+    },
+  );
 }
 
 String _refresh(int index) => 'test-only-refresh-token-$index';
@@ -88,6 +411,12 @@ final class _Api implements ApiClient {
   final requests = <ApiRequest>[];
   bool rejectRefresh = false;
   int exchanges = 0;
+  String next = 'choose_usage_type';
+  String? usageType;
+  Completer<void>? pendingUsage;
+  bool failNextRead = false;
+  bool rejectBasicInfo = false;
+  int? academicYear;
 
   @override
   Future<ApiResponse> send(
@@ -115,12 +444,129 @@ final class _Api implements ApiClient {
             },
           },
         );
-      case 'me/session-state':
+      case 'me/usage-type':
+        await pendingUsage?.future;
+        usageType = (request.jsonBody as Map)['usageType'] as String;
+        next = 'complete_basic_info';
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'me/basic-info':
+        if (rejectBasicInfo) {
+          return ApiTransportPolicy(null).decode(
+            400,
+            '{"error":{"code":"VALIDATION_FAILED"}}'.codeUnits,
+            'test',
+          );
+        }
+        next = usageType == 'institute' ? 'complete_registration' : 'home';
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'academic/departments':
         return const ApiResponse(
           statusCode: 200,
           requestId: 'test',
           json: {
-            'data': {'next': 'choose_usage_type'},
+            'data': [
+              {
+                'id': 'department',
+                'name': 'قسم الاختبار',
+                'years': [1, 2, 3],
+              },
+            ],
+          },
+        );
+      case 'me/academic-info':
+        academicYear = (request.jsonBody as Map)['year'] as int;
+        expect(request.jsonBody, {'departmentId': 'department', 'year': 2});
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'me/registration-summary':
+        if (academicYear == null) {
+          throw const ApiFailure(
+            ApiFailureKind.validation,
+            code: 'INCOMPLETE_REGISTRATION',
+          );
+        }
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'student': {'officialName': 'اسم تجريبي'},
+              'department': {'id': 'department', 'name': 'قسم الاختبار'},
+              'year': academicYear,
+              'semester': null,
+            },
+          },
+        );
+      case 'me/registration/confirm':
+        next = 'home';
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'me/term-reregistration':
+        return const ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'department': {'name': 'القسم الفعلي'},
+              'year': 2,
+              'semester': {
+                'name': 'الفصل الفعلي',
+                'startDate': '2026-11-12',
+                'endDate': '2027-02-01',
+              },
+              'status': 'pending',
+            },
+          },
+        );
+      case 'me/term-reregistration/confirm':
+        next = 'home';
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'home':
+        return const ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'name': 'اسم تجريبي',
+              'subjects': [
+                {
+                  'id': 'subject',
+                  'name': 'مادة',
+                  'progress': {'total': 4, 'completed': 2, 'percent': 50},
+                },
+              ],
+              'courses': [
+                {'id': 'course', 'name': 'كورس'},
+              ],
+            },
+          },
+        );
+      case 'courses':
+        return const ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': [
+              {
+                'id': 'course',
+                'name': 'كورس',
+                'description': null,
+                'priceUsd': '15.00',
+                'durationDays': 30,
+                'subscribed': true,
+              },
+            ],
+            'meta': {'page': 2, 'limit': 20, 'total': 21},
+          },
+        );
+      case 'me/session-state':
+        if (failNextRead) {
+          failNextRead = false;
+          throw const ApiFailure(ApiFailureKind.network);
+        }
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {'next': next, 'usageType': usageType},
           },
         );
       case 'auth/logout':
@@ -132,4 +578,18 @@ final class _Api implements ApiClient {
 
   @override
   void close() {}
+}
+
+final class _IdentityGateway implements GoogleIdentityGateway {
+  @override
+  bool get isConfigured => true;
+
+  @override
+  Future<GoogleIdentity> authenticate() async => _identity;
+
+  @override
+  Future<GoogleIdentity?> restoreIdentity() async => _identity;
+
+  @override
+  Future<void> signOut() async {}
 }

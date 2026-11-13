@@ -206,7 +206,8 @@ class HasobjyDesignPage extends StatelessWidget {
         ? frameId.withLight(Theme.of(context).brightness == Brightness.light)
         : frameId;
     final currentAppearance =
-        selectedAppearance ?? (frameId.isLight ? 'فاتح' : 'داكن');
+        selectedAppearance ??
+        (referenceViewport || !frameId.isLight ? 'داكن' : 'فاتح');
     final actions = PreviewActions(
       selectedAppearance: currentAppearance,
       open: (name) {
@@ -248,7 +249,7 @@ class HasobjyDesignPage extends StatelessWidget {
       ),
       HasobjyFrameId.aS03 => HasobjyUsageTypeScreen(
         onContinue: () => _open(context, HasobjyFrameId.aS04),
-        onUnsupportedCoursesOnly: () => _showPreviewOnly(context),
+        onContinueCourses: () => _showPreviewOnly(context),
       ),
       HasobjyFrameId.aS04 => HasobjyBasicInfoScreen(
         identity: identity,

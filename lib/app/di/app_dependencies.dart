@@ -16,6 +16,7 @@ import '../../features/auth/data/firebase_google_identity_gateway.dart';
 import '../../features/auth/data/student_session_gateway.dart';
 import '../../features/auth/domain/google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_repository.dart';
+import '../../features/auth/domain/student_session_repository.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../config/app_configuration.dart';
 import '../app_environment.dart';
@@ -48,35 +49,40 @@ class AppDependencies {
         ),
       ),
     );
-    _container.registerLazySingleton<GoogleIdentityRepository>(() {
-      final gateway = _container<GoogleIdentityGateway>();
-      final environment = configuration.environment.apiBaseUrl;
-      final platform = switch (defaultTargetPlatform) {
-        TargetPlatform.android => 'android',
-        TargetPlatform.iOS => 'ios',
-        _ => null,
-      };
-      return GoogleIdentityRepositoryImpl(
-        gateway,
-        session:
-            gateway is FirebaseGoogleIdentityGateway &&
-                environment != null &&
-                platform != null &&
-                !kIsWeb
-            ? StudentSessionGateway(
-                api: apiClient,
-                proofSource: gateway,
-                environment: environment,
-                platform: platform,
-              )
-            : null,
-      );
-    });
+    _container.registerLazySingleton<GoogleIdentityRepository>(
+      () => GoogleIdentityRepositoryImpl(_container<GoogleIdentityGateway>()),
+    );
     _container.registerFactory<GoogleIdentityCubit>(
       () => GoogleIdentityCubit(
         _container<GoogleIdentityRepository>(),
         messages: AppLocalizationsAr(),
+        sessions: studentSessions,
       ),
+    );
+  }
+
+  late final StudentSessionRepository? studentSessions =
+      _createStudentSessions();
+
+  StudentSessionRepository? _createStudentSessions() {
+    final gateway = _container<GoogleIdentityGateway>();
+    final environment = configuration.environment.apiBaseUrl;
+    final platform = switch (defaultTargetPlatform) {
+      TargetPlatform.android => 'android',
+      TargetPlatform.iOS => 'ios',
+      _ => null,
+    };
+    if (gateway is! FirebaseGoogleIdentityGateway ||
+        environment == null ||
+        platform == null ||
+        kIsWeb) {
+      return null;
+    }
+    return StudentSessionGateway(
+      api: apiClient,
+      proofSource: gateway,
+      environment: environment,
+      platform: platform,
     );
   }
 

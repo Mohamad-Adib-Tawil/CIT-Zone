@@ -1,17 +1,26 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 
+import '../../../auth/domain/student_registration.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 
 class HasobjyAcademicInfoScreen extends StatefulWidget {
   const HasobjyAcademicInfoScreen({
     super.key,
-    required this.onContinue,
+    this.onContinue,
     this.onBack,
+    this.departments,
+    this.onSave,
+    this.working = false,
+    this.error,
   });
 
-  final VoidCallback onContinue;
+  final VoidCallback? onContinue;
+  final List<StudentDepartment>? departments;
+  final void Function(String departmentId, int year)? onSave;
+  final bool working;
+  final String? error;
   final VoidCallback? onBack;
 
   @override
@@ -22,6 +31,8 @@ class HasobjyAcademicInfoScreen extends StatefulWidget {
 class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
   bool _software = true;
   int _year = 2;
+  StudentDepartment? _department;
+  int? _selectedYear;
 
   @override
   Widget build(BuildContext context) {
@@ -37,46 +48,104 @@ class _HasobjyAcademicInfoScreenState extends State<HasobjyAcademicInfoScreen> {
             SizedBox(height: 16),
             _SectionLabel(AppLocalizations.of(context).department),
             SizedBox(height: 16),
-            HasobjySelectionOption(
-              title: AppLocalizations.of(context).departmentSoftware,
-              subtitle: AppLocalizations.of(context).softwareDescription,
-              iconAsset: 'dbeae',
-              selected: _software,
-              onTap: () => setState(() => _software = true),
-            ),
-            SizedBox(height: 16),
-            HasobjySelectionOption(
-              title: AppLocalizations.of(context).departmentNetworks,
-              subtitle: AppLocalizations.of(context).networksDescription,
-              iconAsset: 'f52de',
-              selected: !_software,
-              onTap: () => setState(() => _software = false),
-            ),
-            SizedBox(height: 16),
-            _SectionLabel(AppLocalizations.of(context).academicYear),
-            SizedBox(height: 16),
-            HasobjySelectionOption(
-              title: AppLocalizations.of(context).firstYear,
-              subtitle: AppLocalizations.of(context).firstYearTerms,
-              iconAsset: '1ee59',
-              selected: _year == 1,
-              onTap: () => setState(() => _year = 1),
-            ),
-            SizedBox(height: 16),
-            HasobjySelectionOption(
-              title: AppLocalizations.of(context).secondYear,
-              subtitle: AppLocalizations.of(context).secondYearTerms,
-              iconAsset: '1ee59',
-              selected: _year == 2,
-              onTap: () => setState(() => _year = 2),
-            ),
+            if (widget.departments case final departments?) ...[
+              for (final department in departments) ...[
+                HasobjySelectionOption(
+                  title: department.name,
+                  subtitle: switch (department.name) {
+                    'برمجيات' => AppLocalizations.of(
+                      context,
+                    ).softwareDescription,
+                    'شبكات' => AppLocalizations.of(context).networksDescription,
+                    _ => '',
+                  },
+                  iconAsset: department.name == 'شبكات' ? 'f52de' : 'dbeae',
+                  selected: _department?.id == department.id,
+                  onTap: () {
+                    if (widget.working) return;
+                    setState(() {
+                      _department = department;
+                      if (!department.years.contains(_selectedYear)) {
+                        _selectedYear = null;
+                      }
+                    });
+                  },
+                ),
+                const SizedBox(height: 16),
+              ],
+              ...[
+                _SectionLabel(AppLocalizations.of(context).academicYear),
+                const SizedBox(height: 16),
+                for (final year
+                    in _department?.years ?? studentProgramYears) ...[
+                  HasobjySelectionOption(
+                    title: _yearLabel(context, year),
+                    subtitle: year == 1
+                        ? AppLocalizations.of(context).firstYearTerms
+                        : AppLocalizations.of(context).secondYearTerms,
+                    iconAsset: '1ee59',
+                    selected: year == _selectedYear,
+                    onTap: () {
+                      if (!widget.working) setState(() => _selectedYear = year);
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ],
+            ] else ...[
+              HasobjySelectionOption(
+                title: AppLocalizations.of(context).departmentSoftware,
+                subtitle: AppLocalizations.of(context).softwareDescription,
+                iconAsset: 'dbeae',
+                selected: _software,
+                onTap: () => setState(() => _software = true),
+              ),
+              SizedBox(height: 16),
+              HasobjySelectionOption(
+                title: AppLocalizations.of(context).departmentNetworks,
+                subtitle: AppLocalizations.of(context).networksDescription,
+                iconAsset: 'f52de',
+                selected: !_software,
+                onTap: () => setState(() => _software = false),
+              ),
+              SizedBox(height: 16),
+              _SectionLabel(AppLocalizations.of(context).academicYear),
+              SizedBox(height: 16),
+              HasobjySelectionOption(
+                title: AppLocalizations.of(context).firstYear,
+                subtitle: AppLocalizations.of(context).firstYearTerms,
+                iconAsset: '1ee59',
+                selected: _year == 1,
+                onTap: () => setState(() => _year = 1),
+              ),
+              SizedBox(height: 16),
+              HasobjySelectionOption(
+                title: AppLocalizations.of(context).secondYear,
+                subtitle: AppLocalizations.of(context).secondYearTerms,
+                iconAsset: '1ee59',
+                selected: _year == 2,
+                onTap: () => setState(() => _year = 2),
+              ),
+            ],
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
+            if (widget.working) const LinearProgressIndicator(),
+            if (widget.error case final error?)
+              Semantics(
+                liveRegion: true,
+                child: Text(error, style: context.design.label),
+              ),
             HasobjyButton(
               label: AppLocalizations.of(context).continueAction,
               light3D: true,
-              onPressed: widget.onContinue,
+              onPressed: widget.working
+                  ? null
+                  : widget.departments == null
+                  ? widget.onContinue
+                  : _department != null && _selectedYear != null
+                  ? () => widget.onSave?.call(_department!.id, _selectedYear!)
+                  : null,
             ),
           ],
         ),
@@ -104,10 +173,14 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
     required this.onConfirm,
     required this.onEdit,
     this.onBack,
+    this.summary,
+    this.working = false,
   });
 
-  final VoidCallback onConfirm;
-  final VoidCallback onEdit;
+  final StudentRegistrationSummary? summary;
+  final bool working;
+  final VoidCallback? onConfirm;
+  final VoidCallback? onEdit;
   final VoidCallback? onBack;
 
   @override
@@ -127,7 +200,7 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             HasobjySurface(
-              height: 158,
+              height: summary == null ? 158 : null,
               padding: EdgeInsets.all(16),
               cornerLine: '8c8a2',
               child: Column(
@@ -136,26 +209,34 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
                 children: [
                   HasobjyKeyValue(
                     AppLocalizations.of(context).officialName,
-                    AppLocalizations.of(context).previewStudentName,
+                    summary?.officialName ??
+                        AppLocalizations.of(context).previewStudentName,
                   ),
                   HasobjyKeyValue(
                     AppLocalizations.of(context).department,
-                    AppLocalizations.of(context).departmentSoftware,
+                    summary?.departmentName ??
+                        AppLocalizations.of(context).departmentSoftware,
                   ),
                   HasobjyKeyValue(
                     AppLocalizations.of(context).academicYear,
-                    AppLocalizations.of(context).secondYear,
+                    summary == null
+                        ? AppLocalizations.of(context).secondYear
+                        : _yearLabel(context, summary!.year),
                   ),
                   HasobjyKeyValue(
                     AppLocalizations.of(context).currentTerm,
-                    AppLocalizations.of(context).previewCurrentTerm,
+                    summary == null
+                        ? AppLocalizations.of(context).previewCurrentTerm
+                        : summary!.semesterName ?? 'لا يوجد فصل مفتوح',
                   ),
                 ],
               ),
             ),
             SizedBox(height: 16),
             Text(
-              AppLocalizations.of(context).enrollmentExplanation,
+              summary != null && summary!.semesterName == null
+                  ? 'يمكنك تأكيد التسجيل الآن. ستُضاف المواد عند فتح الفصل.'
+                  : AppLocalizations.of(context).enrollmentExplanation,
               textAlign: TextAlign.right,
               style: context.design.bodyMedium.copyWith(
                 color: context.design.textMuted,
@@ -164,6 +245,7 @@ class HasobjyRegistrationSummaryScreen extends StatelessWidget {
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
+            if (working) const LinearProgressIndicator(),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmAndStart,
               light3D: true,
@@ -192,10 +274,16 @@ class HasobjyNewTermScreen extends StatelessWidget {
     super.key,
     required this.onConfirm,
     required this.onChangeDetails,
+    this.term,
+    this.working = false,
+    this.error,
   });
 
-  final VoidCallback onConfirm;
-  final VoidCallback onChangeDetails;
+  final VoidCallback? onConfirm;
+  final VoidCallback? onChangeDetails;
+  final StudentTermRegistration? term;
+  final bool working;
+  final String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +303,8 @@ class HasobjyNewTermScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Text(
-              AppLocalizations.of(context).previewNewTermTitle,
+              term?.semesterName ??
+                  AppLocalizations.of(context).previewNewTermTitle,
               textAlign: TextAlign.right,
               style: context.design.titleBold,
             ),
@@ -227,7 +316,7 @@ class HasobjyNewTermScreen extends StatelessWidget {
             ),
             SizedBox(height: 16),
             HasobjySurface(
-              height: 124,
+              height: term == null ? 124 : null,
               padding: EdgeInsets.all(16),
               cornerLine: '8c8a2',
               child: Column(
@@ -236,15 +325,20 @@ class HasobjyNewTermScreen extends StatelessWidget {
                 children: [
                   HasobjyKeyValue(
                     AppLocalizations.of(context).department,
-                    AppLocalizations.of(context).departmentSoftware,
+                    term?.departmentName ??
+                        AppLocalizations.of(context).departmentSoftware,
                   ),
                   HasobjyKeyValue(
                     AppLocalizations.of(context).academicYear,
-                    AppLocalizations.of(context).secondYear,
+                    term == null
+                        ? AppLocalizations.of(context).secondYear
+                        : _yearLabel(context, term!.year),
                   ),
                   HasobjyKeyValue(
                     AppLocalizations.of(context).termDuration,
-                    AppLocalizations.of(context).previewTermDates,
+                    term == null
+                        ? AppLocalizations.of(context).previewTermDates
+                        : '${MaterialLocalizations.of(context).formatCompactDate(term!.startDate)} – ${MaterialLocalizations.of(context).formatCompactDate(term!.endDate)}',
                   ),
                 ],
               ),
@@ -252,6 +346,17 @@ class HasobjyNewTermScreen extends StatelessWidget {
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
+            if (working) const LinearProgressIndicator(),
+            if (error case final message?)
+              Semantics(
+                liveRegion: true,
+                child: Text(message, style: context.design.label),
+              ),
+            if (term?.changePending == true)
+              Text(
+                'طلب تعديل بيانات الفصل قيد المراجعة.',
+                style: context.design.label,
+              ),
             HasobjyButton(
               label: AppLocalizations.of(context).confirmEnrollmentYes,
               light3D: true,
@@ -613,3 +718,9 @@ class _ExamCard extends StatelessWidget {
     );
   }
 }
+
+String _yearLabel(BuildContext context, int year) => switch (year) {
+  1 => AppLocalizations.of(context).firstYear,
+  2 => AppLocalizations.of(context).secondYear,
+  _ => 'السنة $year',
+};

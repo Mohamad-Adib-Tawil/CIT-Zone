@@ -39,48 +39,11 @@ class PaymentPreviewScreen extends StatelessWidget {
         ('أساسيات Python', '8 ساعات · 32 درساً', r'$19'),
         ('Git و GitHub للمبتدئين', '4 ساعات · 16 درساً', r'$9'),
       ])
-        GestureDetector(
+        HasobjyCourseCard(
+          title: row.$1,
+          subtitle: row.$2,
+          price: row.$3,
           onTap: () => actions.open('F-02'),
-          child: PreviewPanel(
-            height: 108,
-            children: [
-              Row(
-                textDirection: TextDirection.ltr,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        PreviewText(
-                          row.$1,
-                          style: context.design.labelSemiBold,
-                        ),
-                        const SizedBox(height: 4),
-                        PreviewText(row.$2, style: context.design.bodySmall),
-                        const SizedBox(height: 4),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            row.$3,
-                            textDirection: TextDirection.ltr,
-                            style: context.design.labelSemiBold.copyWith(
-                              color: context.design.brand,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  PreviewIconTile(
-                    label: row.$1,
-                    size: 56,
-                    fill: context.design.selectedSurface,
-                  ),
-                ],
-              ),
-            ],
-          ),
         ),
     ],
   );
@@ -295,5 +258,65 @@ class _CheckoutState extends State<_Checkout> {
         onTap: () => widget.actions.open(shamCash ? 'F-04' : 'F-05'),
       ),
     ],
+  );
+}
+
+class HasobjyCourseCard extends StatelessWidget {
+  const HasobjyCourseCard({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.price,
+    required this.onTap,
+    this.iconAsset,
+  });
+
+  final String title;
+  final String subtitle;
+  final String price;
+  final VoidCallback onTap;
+  final String? iconAsset;
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+    onTap: onTap,
+    child: PreviewPanel(
+      height: 108,
+      children: [
+        Row(
+          textDirection: TextDirection.ltr,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  PreviewText(title, style: context.design.labelSemiBold),
+                  const SizedBox(height: 4),
+                  PreviewText(subtitle, style: context.design.bodySmall),
+                  const SizedBox(height: 4),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      price,
+                      textDirection: TextDirection.ltr,
+                      style: context.design.labelSemiBold.copyWith(
+                        color: context.design.brand,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            PreviewIconTile(
+              label: title,
+              asset: iconAsset,
+              size: 56,
+              fill: context.design.selectedSurface,
+            ),
+          ],
+        ),
+      ],
+    ),
   );
 }

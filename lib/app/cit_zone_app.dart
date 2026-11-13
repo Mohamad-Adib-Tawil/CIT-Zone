@@ -63,6 +63,9 @@ class _CitZoneAppState extends State<CitZoneApp> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     SafeDebugLog.event('App', 'lifecycle', {'state': state.name});
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_identityCubit.revalidateSession());
+    }
   }
 
   ThemeModeController _createDefaultThemeController() =>
