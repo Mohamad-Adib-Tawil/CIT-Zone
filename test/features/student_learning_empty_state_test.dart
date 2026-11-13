@@ -1,0 +1,194 @@
+import 'dart:async';
+import 'dart:io';
+import 'dart:ui' as ui;
+
+import 'package:cit_zone/core/errors/either.dart';
+import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
+import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
+import 'package:cit_zone/features/auth/domain/google_identity.dart';
+import 'package:cit_zone/features/auth/domain/student_learning.dart';
+import 'package:cit_zone/features/auth/domain/student_session_repository.dart';
+import 'package:cit_zone/features/auth/presentation/cubit/google_identity_cubit.dart';
+import 'package:cit_zone/features/onboarding/presentation/pages/student_learning_page.dart';
+import 'package:cit_zone/features/onboarding/presentation/widgets/hasobjy_learning_empty_state.dart';
+import 'package:cit_zone/features/onboarding/presentation/widgets/hasobjy_figma_components.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import '../support/fake_google_identity_gateway.dart';
+import '../support/hasobjy_test_app.dart';
+
+void main() {
+  setUpAll(loadCairoForTests);
+
+  for (final (size, mode) in [
+    (const Size(320, 568), ThemeMode.dark),
+    (const Size(390, 844), ThemeMode.light),
+    (const Size(390, 844), ThemeMode.dark),
+    (const Size(430, 932), ThemeMode.dark),
+  ]) {
+    testWidgets('renders live empty results at $size in $mode', (tester) async {
+      await tester.binding.setSurfaceSize(size);
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      final repository = _StudentRepository();
+      await _openLearning(tester, repository, mode);
+      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byType(HasobjyLearningEmptyState), findsNothing);
+
+      repository.homeResult.complete(
+        const Right((name: 'طالب اختبار', subjects: [], courses: [])),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('لا يوجد محتوى لعرضه الآن'), findsOneWidget);
+      await _capture(tester, size, mode, 'home');
+
+      await tester.tap(find.text('المواد'));
+      await tester.pumpAndSettle();
+      expect(find.text('لا توجد مواد متاحة'), findsOneWidget);
+      await _capture(tester, size, mode, 'subjects');
+
+      await tester.tap(find.text('الفصول السابقة'));
+      await tester.pumpAndSettle();
+      expect(find.text('لا توجد مواد متاحة'), findsNothing);
+      await tester.tap(find.text('قواعد البيانات'));
+      await tester.pumpAndSettle();
+      expect(find.text('لا توجد دروس منشورة'), findsOneWidget);
+      await _capture(tester, size, mode, 'lessons');
+
+      await tester.tap(find.text('الكورسات'));
+      await tester.pumpAndSettle();
+      expect(find.text('لا توجد كورسات متاحة'), findsOneWidget);
+      await _capture(tester, size, mode, 'courses');
+      await tester.tap(find.text('كورساتي'));
+      await tester.pumpAndSettle();
+      expect(find.text('لا توجد كورسات مشترك بها حالياً'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  testWidgets('a failed read keeps retry and never renders an empty state', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    await _openLearning(tester, repository, ThemeMode.light);
+    repository.homeResult.complete(
+      const Left(StudentSessionFailure.unavailable),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('تعذّر تحميل البيانات.'), findsOneWidget);
+    expect(find.text('إعادة المحاولة'), findsOneWidget);
+    expect(find.byType(HasobjyLearningEmptyState), findsNothing);
+  });
+}
+
+Future<void> _openLearning(
+  WidgetTester tester,
+  _StudentRepository repository,
+  ThemeMode mode,
+) async {
+  final themeMode = ValueNotifier(mode);
+  final cubit = GoogleIdentityCubit(
+    GoogleIdentityRepositoryImpl(FakeGoogleIdentityGateway()),
+    messages: AppLocalizationsAr(),
+    sessions: repository,
+  );
+  addTearDown(themeMode.dispose);
+  addTearDown(cubit.close);
+  await cubit.signIn();
+  await tester.pumpWidget(
+    arabicTestApp(
+      Theme(
+        data: mode == ThemeMode.dark ? ThemeData.dark() : ThemeData.light(),
+        child: BlocProvider.value(
+          value: cubit,
+          child: RepaintBoundary(
+            key: const ValueKey('learning-surface'),
+            child: HasobjyReferenceViewport(
+              child: StudentLearningPage(
+                repository: repository,
+                themeMode: themeMode,
+                onThemeChanged: (mode) async => themeMode.value = mode,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Future<void> _capture(
+  WidgetTester tester,
+  Size size,
+  ThemeMode mode,
+  String screen,
+) async {
+  final output = Platform.environment['HASOBJY_EMPTY_STATE_OUTPUT'];
+  if (output == null || size.width != 390) return;
+  final boundary = tester.renderObject<RenderRepaintBoundary>(
+    find.byKey(const ValueKey('learning-surface')),
+  );
+  await tester.runAsync(() async {
+    final image = await boundary.toImage(pixelRatio: 1);
+    try {
+      final png = await image.toByteData(format: ui.ImageByteFormat.png);
+      Directory(output).createSync(recursive: true);
+      File('$output/$screen-${mode.name}.png')
+          .writeAsBytesSync(png!.buffer.asUint8List());
+    } finally {
+      image.dispose();
+    }
+  });
+}
+
+class _StudentRepository implements StudentSessionRepository {
+  static const _subject = (
+    id: 'databases',
+    name: 'قواعد البيانات',
+    completed: 0,
+    total: 0,
+    percent: 0,
+  );
+
+  final homeResult =
+      Completer<Either<StudentSessionFailure, StudentHomeData>>();
+
+  @override
+  Future<Either<StudentSessionFailure, StudentSession>> start(
+    GoogleIdentity identity,
+  ) async => const Right(
+    StudentSession(
+      next: StudentNextStep.home,
+      usageType: StudentUsageType.institute,
+    ),
+  );
+
+  @override
+  Future<Either<StudentSessionFailure, StudentHomeData>> home(
+    GoogleIdentity identity,
+  ) => homeResult.future;
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
+    GoogleIdentity identity, {
+    required bool previous,
+  }) async => Right(previous ? [_subject] : []);
+
+  @override
+  Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right((subject: _subject, subscribed: false, lessons: []));
+
+  @override
+  Future<Either<StudentSessionFailure, StudentCoursePageData>> courses(
+    GoogleIdentity identity, {
+    required bool mine,
+    required int page,
+  }) async => const Right((courses: [], hasMore: false));
+
+  @override
+  Never noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
+}

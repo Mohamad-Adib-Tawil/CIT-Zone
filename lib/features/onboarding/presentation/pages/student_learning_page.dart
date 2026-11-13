@@ -13,6 +13,7 @@ import '../../../auth/domain/student_session_repository.dart';
 import '../../../auth/presentation/cubit/google_identity_cubit.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
+import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
@@ -135,113 +136,149 @@ class _LearningShellState extends State<_LearningShell> {
             : 'تفاصيل الكورس',
         onBack: detail == null ? null : () => setState(() => _detail = null),
         bottomNavigation: frame == 'F-02' ? null : _navigation(),
+        backgroundLayer: frame == 'F-02'
+            ? null
+            : _LearningBackground(frame: frame, light: light),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: switch ((_tab, detail)) {
             (_LearningTab.settings, _) => const SizedBox.shrink(),
             (_LearningTab.home, _) => _LiveData<StudentHomeData>(
               key: const ValueKey('home'),
               load: () => repository.home(identity),
-              builder: (context, data) => _list([
-                PreviewText('مرحباً ${data.name}', style: context.design.title),
-                if (!widget.coursesOnly) ...[
-                  PreviewText('موادي', style: context.design.label),
-                  ..._subjectCards(data.subjects),
-                ],
-                PreviewText('كورساتي', style: context.design.label),
-                if (data.courses.isEmpty)
-                  const PreviewText('لا توجد كورسات مشترك بها حالياً.'),
-                for (final course in data.courses)
-                  PreviewListCard(
-                    title: course.name,
-                    onTap: () => _openDetail(_LearningTab.courses, course.id),
-                  ),
-              ]),
+              builder: (context, data) {
+                final coursesOnly = widget.coursesOnly;
+                final greeting = PreviewText(
+                  'مرحباً ${data.name}',
+                  style: context.design.title,
+                );
+                if (data.courses.isEmpty &&
+                    (coursesOnly || data.subjects.isEmpty)) {
+                  return _list(
+                    [greeting],
+                    fill: HasobjyLearningEmptyState.home(
+                      coursesOnly: coursesOnly,
+                    ),
+                  );
+                }
+                return _list([
+                  greeting,
+                  if (!coursesOnly) ...[
+                    PreviewText('موادي', style: context.design.label),
+                    ..._subjectCards(data.subjects),
+                  ],
+                  PreviewText('كورساتي', style: context.design.label),
+                  if (data.courses.isEmpty)
+                    const PreviewText('لا توجد كورسات مشترك بها حالياً.'),
+                  for (final course in data.courses)
+                    PreviewListCard(
+                      title: course.name,
+                      onTap: () => _openDetail(_LearningTab.courses, course.id),
+                    ),
+                ]);
+              },
             ),
-            (_LearningTab.subjects, null) => _list([
-              PreviewText('المواد', style: context.design.title),
-              PreviewTabs(
-                labels: const ['الفصول السابقة', 'الفصل الحالي'],
-                selected: _previous ? 0 : 1,
-                onSelected: (index) => setState(() => _previous = index == 0),
-              ),
-              _LiveData<List<StudentSubjectItem>>(
+            (_LearningTab.subjects, null) => _list(
+              [
+                PreviewText('المواد', style: HasobjyPalette(light).title),
+                PreviewTabs(
+                  key: ValueKey(_previous),
+                  labels: const ['الفصول السابقة', 'الفصل الحالي'],
+                  selected: _previous ? 0 : 1,
+                  onSelected: (index) => setState(() => _previous = index == 0),
+                ),
+              ],
+              fill: _LiveData<List<StudentSubjectItem>>(
                 key: ValueKey(_previous),
                 load: () => repository.subjects(identity, previous: _previous),
-                builder: (_, subjects) => _list(_subjectCards(subjects)),
+                builder: (_, subjects) => subjects.isEmpty
+                    ? const HasobjyLearningEmptyState.subjects()
+                    : _list(_subjectCards(subjects)),
               ),
-            ]),
+            ),
             (_LearningTab.subjects, final String id) =>
               _LiveData<StudentSubjectDetails>(
                 key: ValueKey(id),
                 load: () => repository.subject(identity, id),
-                builder: (context, data) => _list([
-                  PreviewText(data.subject.name, style: context.design.title),
-                  PreviewText('تقدّمك في المادة: ${data.subject.percent}٪'),
-                  PreviewProgress(
-                    data.subject.percent / 100,
-                    height: 6,
-                    width: 100,
-                  ),
-                  if (data.lessons.isEmpty)
-                    const PreviewText('لا توجد دروس منشورة.'),
-                  for (final lesson in data.lessons)
-                    PreviewListCard(
-                      title: lesson.title,
-                      subtitle: lesson.locked
-                          ? 'مقفل'
-                          : lesson.completed
-                          ? 'مكتمل'
-                          : null,
+                builder: (context, data) {
+                  final name = PreviewText(
+                    data.subject.name,
+                    style: context.design.title,
+                  );
+                  if (data.lessons.isEmpty) {
+                    return _list([
+                      name,
+                    ], fill: const HasobjyLearningEmptyState.lessons());
+                  }
+                  return _list([
+                    name,
+                    PreviewText('تقدّمك في المادة: ${data.subject.percent}٪'),
+                    PreviewProgress(
+                      data.subject.percent / 100,
+                      height: 6,
+                      width: 100,
                     ),
-                ]),
+                    for (final lesson in data.lessons)
+                      PreviewListCard(
+                        title: lesson.title,
+                        subtitle: lesson.locked
+                            ? 'مقفل'
+                            : lesson.completed
+                            ? 'مكتمل'
+                            : null,
+                      ),
+                  ]);
+                },
               ),
-            (_LearningTab.courses, null) => _list([
-              PreviewText('الكورسات', style: context.design.title),
-              PreviewTabs(
-                labels: const ['كورساتي', 'كل الكورسات'],
-                selected: _mine ? 0 : 1,
-                onSelected: (index) => setState(() {
-                  _mine = index == 0;
-                  _page = 1;
-                }),
-              ),
-              _LiveData<StudentCoursePageData>(
+            (_LearningTab.courses, null) => _list(
+              [
+                PreviewText('الكورسات', style: HasobjyPalette(light).title),
+                PreviewTabs(
+                  key: ValueKey(_mine),
+                  labels: const ['كورساتي', 'كل الكورسات'],
+                  selected: _mine ? 0 : 1,
+                  onSelected: (index) => setState(() {
+                    _mine = index == 0;
+                    _page = 1;
+                  }),
+                ),
+              ],
+              fill: _LiveData<StudentCoursePageData>(
                 key: ValueKey((_mine, _page)),
                 load: () =>
                     repository.courses(identity, mine: _mine, page: _page),
-                builder: (context, data) => _list([
-                  if (data.courses.isEmpty)
-                    const PreviewText('لا توجد كورسات في هذه القائمة.'),
-                  for (final course in data.courses)
-                    HasobjyCourseCard(
-                      title: course.name,
-                      subtitle: '${course.durationDays} يوم',
-                      price: _courseAccess(course),
-                      iconAsset: previewIcon(context, 'تطوير تطبيقات Flutter'),
-                      onTap: () => _openDetail(_LearningTab.courses, course.id),
-                    ),
-                  if (_page > 1 || data.hasMore)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                          onPressed: _page > 1
-                              ? () => setState(() => _page--)
-                              : null,
-                          child: const Text('السابق'),
+                builder: (context, data) {
+                  final pagination = _page > 1 || data.hasMore
+                      ? _coursePagination(hasMore: data.hasMore)
+                      : null;
+                  if (data.courses.isEmpty) {
+                    return _list(
+                      const [],
+                      fill: HasobjyLearningEmptyState.courses(
+                        mine: _mine,
+                        laterPage: _page > 1,
+                      ),
+                      footer: pagination,
+                    );
+                  }
+                  return _list([
+                    for (final course in data.courses)
+                      HasobjyCourseCard(
+                        title: course.name,
+                        subtitle: '${course.durationDays} يوم',
+                        price: _courseAccess(course),
+                        iconAsset: previewIcon(
+                          context,
+                          'تطوير تطبيقات Flutter',
                         ),
-                        TextButton(
-                          onPressed: data.hasMore
-                              ? () => setState(() => _page++)
-                              : null,
-                          child: const Text('التالي'),
-                        ),
-                      ],
-                    ),
-                ]),
+                        onTap: () =>
+                            _openDetail(_LearningTab.courses, course.id),
+                      ),
+                    ?pagination,
+                  ]);
+                },
               ),
-            ]),
+            ),
             (_LearningTab.courses, final String id) =>
               _LiveData<StudentCourseItem>(
                 key: ValueKey(id),
@@ -336,12 +373,71 @@ class _LearningShellState extends State<_LearningShell> {
   String _courseAccess(StudentCourseItem course) =>
       course.subscribed ? 'الاشتراك نشط' : '${course.priceUsd} USD';
 
-  Widget _list(List<Widget> children) => Column(
+  Widget _coursePagination({required bool hasMore}) => Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      TextButton(
+        onPressed: _page > 1 ? () => setState(() => _page--) : null,
+        child: const Text('السابق'),
+      ),
+      TextButton(
+        onPressed: hasMore ? () => setState(() => _page++) : null,
+        child: const Text('التالي'),
+      ),
+    ],
+  );
+
+  Widget _list(List<Widget> children, {Widget? fill, Widget? footer}) => Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
     mainAxisSize: MainAxisSize.min,
     spacing: 12,
-    children: children,
+    children: [
+      ...children,
+      if (fill != null) Expanded(child: fill),
+      ?footer,
+    ],
   );
+}
+
+class _LearningBackground extends StatelessWidget {
+  const _LearningBackground({required this.frame, required this.light});
+
+  final String frame;
+  final bool light;
+
+  @override
+  Widget build(BuildContext context) {
+    final ornaments = switch ((frame, light)) {
+      ('C-02', _) => const [
+        ('a12f7', -26.4, 227.6, 44.8),
+        ('f1409', 368.67, 180.67, 58.667),
+      ],
+      ('C-03', _) || ('F-01', true) => const [
+        ('5df30', 364.0, 118.0, 64.0),
+        ('ae3b3', -21.2, 280.8, 38.4),
+      ],
+      _ => const [
+        ('6f3f1', -43.33, 122.67, 74.667),
+        ('9af13', 381.2, 99.2, 41.6),
+      ],
+    };
+    return IgnorePointer(
+      child: LayoutBuilder(
+        builder: (_, constraints) => Stack(
+          fit: StackFit.expand,
+          children: [
+            HasobjySvg(light ? '624a4' : 'acb67', fit: BoxFit.fill),
+            for (final (asset, x, y, size) in ornaments)
+              Positioned(
+                left: x > 195 ? constraints.maxWidth - (390 - x) : x,
+                top: y,
+                child: HasobjySvg(asset, width: size, height: size),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 typedef _LiveState<T> = ({
