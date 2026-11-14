@@ -8,6 +8,7 @@ import 'package:cit_zone/core/network/api_failure.dart';
 import 'package:cit_zone/core/network/api_request.dart';
 import 'package:cit_zone/core/network/dio_api_client.dart';
 import 'package:cit_zone/core/network/io_api_client.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 typedef ClientFactory = ApiClient Function(Uri?, Duration, int, bool);
@@ -67,6 +68,54 @@ void contract(ClientFactory factory) {
     result.listen(handler);
     return result;
   }
+
+  test(
+    'logs diagnostic JSON for a rejected response with secrets masked',
+    () async {
+      final logs = <String>[];
+      final original = debugPrint;
+      debugPrint = (message, {wrapWidth}) => logs.add(message ?? '');
+      addTearDown(() => debugPrint = original);
+
+      final endpoint = await server((request) {
+        request.response.statusCode = 403;
+        request.response.write(
+          jsonEncode({
+            'error': {
+              'code': 'DEVICE_CONFLICT',
+              'details': {
+                'account': {
+                  'state': {'profileComplete': true, 'deviceAuthorized': false},
+                },
+                'accessToken': 'must-not-appear',
+              },
+            },
+          }),
+        );
+        unawaited(request.response.close());
+      });
+
+      await expectLater(
+        client(endpoint.port)
+            .send(const ApiRequest(method: 'GET', path: 'me/session-state')),
+        throwsA(
+          isA<ApiFailure>().having(
+            (error) => error.kind,
+            'kind',
+            ApiFailureKind.forbidden,
+          ),
+        ),
+      );
+
+      final responseLog = logs.singleWhere(
+        (line) => line.contains(' response '),
+      );
+      expect(responseLog, contains('"profileComplete":true'));
+      expect(responseLog, contains('"deviceAuthorized":false'));
+      expect(responseLog, contains('"accessToken":"[REDACTED]"'));
+      expect(responseLog, isNot(contains('must-not-appear')));
+    },
+  );
 
   test('sends request context without allowing header injection', () async {
     final received = Completer<Map<String, String?>>();

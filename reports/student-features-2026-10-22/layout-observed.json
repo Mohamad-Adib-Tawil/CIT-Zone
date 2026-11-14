@@ -1013,7 +1013,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         158.0,
@@ -1022,7 +1022,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         278.0,
@@ -1031,7 +1031,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         398.0,
@@ -1060,7 +1060,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         158.0,
@@ -1069,7 +1069,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         278.0,
@@ -1078,7 +1078,7 @@
       ]
     },
     {
-      "widget": "GestureDetector",
+      "widget": "HasobjyCourseCard",
       "rect": [
         24.0,
         398.0,

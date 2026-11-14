@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
+import '../debug/safe_debug_log.dart';
 import 'api_failure.dart';
 import 'api_request.dart';
 
@@ -77,7 +78,13 @@ class ApiTransportPolicy {
     return target;
   }
 
-  ApiResponse decode(int status, List<int> bytes, String requestId) {
+  ApiResponse decode(
+    int status,
+    List<int> bytes,
+    String responseId, {
+    String? requestId,
+    Stopwatch? stopwatch,
+  }) {
     Map<String, dynamic> json = const {};
     if (bytes.isNotEmpty) {
       try {
@@ -88,7 +95,7 @@ class ApiTransportPolicy {
         throw ApiFailure(
           ApiFailureKind.invalidResponse,
           statusCode: status,
-          requestId: requestId,
+          requestId: responseId,
         );
       }
     } else if (status >= 200 &&
@@ -97,11 +104,18 @@ class ApiTransportPolicy {
       throw ApiFailure(
         ApiFailureKind.invalidResponse,
         statusCode: status,
-        requestId: requestId,
+        requestId: responseId,
       );
     }
+    SafeDebugLog.event('API', 'response', {
+      'status': status,
+      'request_id': requestId ?? responseId,
+      'response_request_id': responseId,
+      if (stopwatch != null) 'duration_ms': stopwatch.elapsedMilliseconds,
+      'body': json,
+    });
     if (status >= 200 && status < 300) {
-      return ApiResponse(statusCode: status, json: json, requestId: requestId);
+      return ApiResponse(statusCode: status, json: json, requestId: responseId);
     }
     final error = json['error'];
     final rawCode = error is Map<String, dynamic> ? error['code'] : null;
@@ -121,7 +135,7 @@ class ApiTransportPolicy {
       kind,
       statusCode: status,
       code: rawCode is String ? safeIdentifier(rawCode) : null,
-      requestId: requestId,
+      requestId: responseId,
     );
   }
 

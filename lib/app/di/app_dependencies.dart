@@ -1,5 +1,6 @@
 import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../core/network/api_client.dart';
@@ -83,6 +84,11 @@ class AppDependencies {
       proofSource: gateway,
       environment: environment,
       platform: platform,
+      androidDeviceId: platform == 'android'
+          ? () =>
+                const MethodChannel('com.devmind.cit.learn/app')
+                    .invokeMethod<String>('readDeviceBindingId')
+          : null,
     );
   }
 

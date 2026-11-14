@@ -4,11 +4,11 @@ import 'package:flutter/foundation.dart';
 
 /// Bounded, debug-only diagnostics. Never pass raw credentials or user objects.
 abstract final class SafeDebugLog {
-  static const int _maxDepth = 5;
-  static const int _maxEntries = 40;
+  static const int _maxDepth = 16;
+  static const int _maxEntries = 100;
   static const int _maxStringLength = 1200;
   static final RegExp _sensitiveKey = RegExp(
-    r'(authorization|cookie|token|secret|password|credential|email|phone|full.?name|official.?name|display.?name|description|^name$|photo|profile|uid|id_google|session|license|student|grade|score|transcript|answer)',
+    r'(authorization|cookie|token|secret|password|credential|email|phone|full.?name|official.?name|display.?name|description|^name$|photo|profile|uid|id_google|^id$|device.?id|session|license|student|grade|score|transcript|answer|playback.?url|manifest.?url|stream.?url|signed.?url|download.?url)',
     caseSensitive: false,
   );
   static final RegExp _email = RegExp(
@@ -26,6 +26,9 @@ abstract final class SafeDebugLog {
     r'(?<!\w)\+?[0-9][0-9 ()-]{7,}[0-9](?!\w)',
   );
 
+  // Keep chunks below Android logcat's byte limit, including non-ASCII text.
+  static final RegExp _logChunk = RegExp(r'.{1,800}', unicode: true);
+
   static void event(
     String scope,
     String message, [
@@ -33,10 +36,16 @@ abstract final class SafeDebugLog {
   ]) {
     if (!kDebugMode) return;
     try {
-      debugPrint(
-        '[Hasobjy][$scope][${DateTime.now().toIso8601String()}] '
-        '$message ${jsonEncode(_sanitize(fields, 0))}',
-      );
+      final prefix = '[Hasobjy][$scope][${DateTime.now().toIso8601String()}]';
+      final json = jsonEncode(_sanitize(fields, 0));
+      if (json.length <= 800) {
+        debugPrint('$prefix $message $json');
+        return;
+      }
+      var part = 0;
+      for (final chunk in _logChunk.allMatches(json)) {
+        debugPrint('$prefix $message [${++part}] ${chunk.group(0)}');
+      }
     } on Object {
       debugPrint(
         '[Hasobjy][$scope][${DateTime.now().toIso8601String()}] '
@@ -66,7 +75,9 @@ abstract final class SafeDebugLog {
       final entries = value.entries.take(_maxEntries);
       return {
         for (final entry in entries)
-          entry.key.toString(): _sensitiveKey.hasMatch(entry.key.toString())
+          entry.key.toString():
+              _sensitiveKey.hasMatch(entry.key.toString()) &&
+                  !(entry.key == 'profileComplete' && entry.value is bool)
               ? '[REDACTED]'
               : _sanitize(entry.value, depth + 1),
         if (value.length > _maxEntries) 'truncated_entries': true,

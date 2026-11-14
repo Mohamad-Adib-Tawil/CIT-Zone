@@ -46,8 +46,57 @@ void main() {
     proofSource: _Proof(),
     environment: Uri.parse('https://api.example.test/api/v1/'),
     platform: 'android',
+    androidDeviceId: () async => 'android_v1_stable_test_id',
     storage: const FlutterSecureStorage(),
   );
+
+  test('Android reuses its platform ID after local storage is lost', () async {
+    final first = _Api();
+    await gateway(first).start(_identity);
+    FlutterSecureStorage.setMockInitialValues({});
+    final reinstalled = _Api();
+    await gateway(reinstalled).start(_identity);
+
+    for (final api in [first, reinstalled]) {
+      expect((api.requests.first.jsonBody as Map)['device'], {
+        'id': 'android_v1_stable_test_id',
+        'platform': 'android',
+      });
+    }
+  });
+
+  test('Android preserves an existing legacy binding when upgrading', () async {
+    const storage = FlutterSecureStorage();
+    const namespace = 'aHR0cHM6Ly9hcGkuZXhhbXBsZS50ZXN0L2FwaS92MS8=';
+    await storage.write(key: 'device_v1_$namespace', value: 'legacy-id');
+    final api = _Api();
+    await gateway(api).start(_identity);
+    expect((api.requests.first.jsonBody as Map)['device'], {
+      'id': 'legacy-id',
+      'platform': 'android',
+    });
+  });
+
+  test('Android with no identifier cannot create a random binding', () async {
+    final api = _Api();
+    final session = StudentSessionGateway(
+      api: api,
+      proofSource: _Proof(),
+      environment: Uri.parse('https://api.example.test/api/v1/'),
+      platform: 'android',
+      androidDeviceId: () async => null,
+      storage: const FlutterSecureStorage(),
+    );
+    expect(
+      await session.start(_identity),
+      isA<Left<StudentSessionFailure, StudentSession>>().having(
+        (result) => result.value,
+        'failure',
+        StudentSessionFailure.unavailable,
+      ),
+    );
+    expect(api.requests, isEmpty);
+  });
 
   test('exchanges, rotates on restart, and revokes the latest token', () async {
     final api = _Api();

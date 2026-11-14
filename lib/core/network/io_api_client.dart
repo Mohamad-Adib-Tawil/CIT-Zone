@@ -94,15 +94,13 @@ class IoApiClient implements ApiClient {
           response,
           _policy.maxResponseBytes,
         );
-        final decoded = _policy.decode(response.statusCode, bytes, responseId);
-        SafeDebugLog.event('API', 'response', {
-          'status': decoded.statusCode,
-          'request_id': scope.requestId,
-          'response_request_id': decoded.requestId,
-          'duration_ms': stopwatch.elapsedMilliseconds,
-          'body': decoded.json,
-        });
-        return decoded;
+        return _policy.decode(
+          response.statusCode,
+          bytes,
+          responseId,
+          requestId: scope.requestId,
+          stopwatch: stopwatch,
+        );
       });
     } catch (error) {
       outgoing?.abort();

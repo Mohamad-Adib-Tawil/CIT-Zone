@@ -22,14 +22,17 @@ final class StudentSessionGateway implements StudentSessionRepository {
     required this._proofSource,
     required Uri environment,
     required this._platform,
+    Future<String?> Function()? androidDeviceId,
     this._storage = SecureSessionSecretStore.platformStorage,
-  }) : _namespace = base64Url.encode(utf8.encode(environment.toString()));
+  }) : _readAndroidDeviceId = androidDeviceId,
+       _namespace = base64Url.encode(utf8.encode(environment.toString()));
 
   final ApiClient _api;
   final FirebaseIdentityProofSource _proofSource;
   final String _namespace;
   final String _platform;
   final FlutterSecureStorage _storage;
+  final Future<String?> Function()? _readAndroidDeviceId;
 
   String get _deviceKey => 'device_v1_$_namespace';
   String _sessionKey(GoogleIdentity identity) =>
@@ -46,7 +49,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
       return _read(identity);
     }
     if (await _refresh(identity)) return _read(identity);
-    final deviceId = await _installationId();
+    final deviceId = await _deviceBindingId();
     final proof = await _proofSource.prepareForBackend(
       expectedFirebaseUid: identity.firebaseUid,
     );
@@ -652,9 +655,16 @@ final class StudentSessionGateway implements StudentSessionRepository {
     );
   }
 
-  Future<String> _installationId() async {
+  Future<String> _deviceBindingId() async {
     final existing = await _storage.read(key: _deviceKey);
     if (existing != null) return existing;
+    if (_platform == 'android') {
+      final deviceId = await _readAndroidDeviceId?.call();
+      if (deviceId == null || deviceId.isEmpty) {
+        throw const ApiFailure(ApiFailureKind.configuration);
+      }
+      return deviceId;
+    }
     final random = Random.secure();
     final value = base64Url.encode(
       List.generate(24, (_) => random.nextInt(256)),
