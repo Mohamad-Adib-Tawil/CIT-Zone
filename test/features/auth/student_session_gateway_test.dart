@@ -367,6 +367,34 @@ void main() {
   );
 
   test(
+    'profile patch sends only changed fields and leaves no-op saves local',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      final count = api.requests.length;
+      expect((await sessions.updateProfile(_identity)).isRight(), isTrue);
+      expect(api.requests, hasLength(count));
+      expect(
+        (await sessions.updateProfile(
+          _identity,
+          officialName: 'اسم جديد',
+        )).isRight(),
+        isTrue,
+      );
+      final request = api.requests.last;
+      expect(request.method, 'PATCH');
+      expect(request.path, 'me');
+      expect(request.jsonBody, {'officialName': 'اسم جديد'});
+      final rejected = await sessions.updateProfile(
+        _identity,
+        phone: '0944000000',
+      );
+      expect(rejected.getLeft().toNullable(), StudentSessionFailure.phoneTaken);
+    },
+  );
+
+  test(
     'network loss after commit retries the read without resending the choice',
     () async {
       final api = _Api();
@@ -557,6 +585,11 @@ final class _Api implements ApiClient {
             'meta': {'page': 2, 'limit': 20, 'total': 21},
           },
         );
+      case 'me':
+        if ((request.jsonBody as Map).containsKey('phone')) {
+          throw const ApiFailure(ApiFailureKind.conflict, code: 'PHONE_TAKEN');
+        }
+        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
       case 'me/session-state':
         if (failNextRead) {
           failNextRead = false;

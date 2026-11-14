@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/errors/either.dart';
 import '../../../../auth/domain/student_learning.dart';
+import '../../../../auth/domain/student_session_repository.dart';
 import '../../theme/hasobjy_visual_scope.dart';
 import '../../widgets/hasobjy_figma_components.dart';
 import 'preview_widgets.dart';
@@ -18,7 +20,7 @@ class ProfilePreviewScreen extends StatelessWidget {
   Widget build(BuildContext context) => switch (frame) {
     'S-01' => HasobjySettingsScreen(actions: actions),
     'S-02' => HasobjyProfileScreen(actions: actions),
-    'S-03' => _EditProfile(actions: actions),
+    'S-03' => HasobjyEditProfileScreen(actions: actions),
     'S-05' => ActivityPreviewScreen(actions: actions),
     _ => _Device(actions: actions),
   };
@@ -302,13 +304,12 @@ class HasobjyProfileScreen extends StatelessWidget {
         ],
       ),
       const Spacer(),
-      if (profile == null)
-        PreviewButton(
-          'تعديل البيانات',
-          subtle: true,
-          onTap: () => actions.open('S-03'),
-          primary: false,
-        ),
+      PreviewButton(
+        'تعديل البيانات',
+        subtle: true,
+        onTap: () => actions.open('S-03'),
+        primary: false,
+      ),
     ],
   );
 
@@ -335,16 +336,56 @@ class HasobjyProfileScreen extends StatelessWidget {
   }
 }
 
-class _EditProfile extends StatefulWidget {
-  const _EditProfile({required this.actions});
+class HasobjyEditProfileScreen extends StatefulWidget {
+  const HasobjyEditProfileScreen({
+    super.key,
+    required this.actions,
+    this.profile,
+    this.onSave,
+  });
+  final StudentProfileData? profile;
+  final Future<Either<StudentSessionFailure, void>> Function(
+    String? name,
+    String? phone,
+  )?
+  onSave;
   final PreviewActions actions;
   @override
-  State<_EditProfile> createState() => _EditProfileState();
+  State<HasobjyEditProfileScreen> createState() => _EditProfileState();
 }
 
-class _EditProfileState extends State<_EditProfile> {
-  final name = TextEditingController(text: 'أحمد محمد الحلبي');
-  final phone = TextEditingController(text: '0991 234 567');
+class _EditProfileState extends State<HasobjyEditProfileScreen> {
+  late final name = TextEditingController(
+    text: widget.profile?.name ?? 'أحمد محمد الحلبي',
+  );
+  late final phone = TextEditingController(
+    text: widget.profile == null ? '0991 234 567' : widget.profile?.phone,
+  );
+  bool saving = false;
+  StudentSessionFailure? failure;
+
+  Future<void> _save() async {
+    final save = widget.onSave;
+    final profile = widget.profile;
+    if (saving || save == null || profile == null) return;
+    final newName = name.text.trim();
+    final newPhone = phone.text.trim();
+    setState(() {
+      saving = true;
+      failure = null;
+    });
+    final result = await save(
+      newName == profile.name ? null : newName,
+      newPhone == (profile.phone ?? '') ? null : newPhone,
+    );
+    if (!mounted) return;
+    setState(() {
+      saving = false;
+      failure = result.getLeft().toNullable();
+    });
+    if (result.isRight()) widget.actions.back();
+  }
+
   @override
   void dispose() {
     name.dispose();
@@ -355,13 +396,16 @@ class _EditProfileState extends State<_EditProfile> {
   @override
   Widget build(BuildContext context) => PreviewScaffold(
     title: 'تعديل البيانات',
-    actions: widget.actions,
+    actions: saving
+        ? PreviewActions(open: (_) {}, notice: () {}, back: () {})
+        : widget.actions,
     gap: 16,
     children: [
       HasobjyFormField(
         label: 'الاسم الرسمي',
         raised: true,
-        hint: 'أحمد محمد الحلبي',
+        hint: widget.profile == null ? 'أحمد محمد الحلبي' : 'الاسم الرسمي',
+        enabled: !saving,
         iconAsset: '0699d',
         controller: name,
         helper: 'يظهر في كشف علاماتك وشهاداتك',
@@ -369,17 +413,19 @@ class _EditProfileState extends State<_EditProfile> {
       HasobjyFormField(
         label: 'رقم الهاتف',
         raised: true,
-        hint: '0991 234 567',
+        hint: widget.profile == null ? '0991 234 567' : '09xx xxx xxx',
+        enabled: !saving,
+        keyboardType: TextInputType.phone,
         iconAsset: 'bf992',
         mirrorIcon: true,
         controller: phone,
         textDirection: TextDirection.ltr,
         helper: 'للتواصل عند الحاجة فقط',
       ),
-      const HasobjyFormField(
+      HasobjyFormField(
         label: 'البريد الإلكتروني',
         raised: true,
-        hint: 'ahmad@gmail.com',
+        hint: widget.profile?.email ?? 'ahmad@gmail.com',
         iconAsset: '90d15',
         enabled: false,
         dimDisabled: false,
@@ -406,11 +452,32 @@ class _EditProfileState extends State<_EditProfile> {
         ],
       ),
       const Spacer(),
-      PreviewButton(
-        'حفظ التعديلات',
-        onTap: widget.actions.notice,
-        light3D: true,
-      ),
+      if (saving) const LinearProgressIndicator(),
+      if (failure case final error?)
+        Semantics(
+          liveRegion: true,
+          child: PreviewText(switch (error) {
+            StudentSessionFailure.phoneTaken =>
+              'رقم الهاتف مستخدم في حساب آخر.',
+            StudentSessionFailure.invalidBasicInfo =>
+              'تحقّق من الاسم الرسمي ورقم الهاتف السوري.',
+            StudentSessionFailure.expired =>
+              'انتهت الجلسة. سجّل الدخول مجدداً.',
+            _ => 'تعذّر حفظ التعديلات. أعد المحاولة.',
+          }),
+        ),
+      if (widget.onSave == null)
+        PreviewButton(
+          'حفظ التعديلات',
+          onTap: widget.actions.notice,
+          light3D: true,
+        )
+      else
+        HasobjyButton(
+          label: 'حفظ التعديلات',
+          onPressed: saving ? null : _save,
+          light3D: true,
+        ),
     ],
   );
 }

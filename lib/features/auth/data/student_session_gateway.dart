@@ -564,6 +564,17 @@ final class StudentSessionGateway implements StudentSessionRepository {
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });
 
+  @override
+  Future<Either<StudentSessionFailure, void>> updateProfile(
+    GoogleIdentity identity, {
+    String? officialName,
+    String? phone,
+  }) => _capture(() async {
+    final changes = {'officialName': ?officialName, 'phone': ?phone};
+    if (changes.isEmpty) return;
+    await _authorized(identity, 'PATCH', 'me', body: changes);
+  });
+
   Future<Either<StudentSessionFailure, StudentSession>> _save(
     GoogleIdentity identity,
     String path,

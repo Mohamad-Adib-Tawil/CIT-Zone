@@ -102,7 +102,11 @@ class _LearningShellState extends State<_LearningShell> {
     final detail = _detail;
     final frame = switch (_tab) {
       _LearningTab.home => 'C-01',
-      _LearningTab.settings => detail == null ? 'S-01' : 'S-02',
+      _LearningTab.settings => switch (detail) {
+        'edit-profile' => 'S-03',
+        'profile' => 'S-02',
+        _ => 'S-01',
+      },
       _LearningTab.subjects => detail == null ? 'C-02' : 'C-03',
       _LearningTab.courses => detail == null ? 'F-01' : 'F-02',
     };
@@ -112,17 +116,31 @@ class _LearningShellState extends State<_LearningShell> {
         child: _LiveData<StudentProfileData>(
           key: ValueKey(frame),
           load: () => repository.profile(identity),
-          builder: (context, data) => detail == null
-              ? ValueListenableBuilder<ThemeMode>(
-                  valueListenable: widget.themeMode,
-                  builder: (context, mode, _) => HasobjySettingsScreen(
-                    actions: _actions,
-                    studentName: data.name,
-                    onSignOut: context.read<GoogleIdentityCubit>().signOut,
-                    navigation: _navigation(),
-                  ),
-                )
-              : HasobjyProfileScreen(actions: _actions, profile: data),
+          builder: (context, data) => switch (detail) {
+            'edit-profile' => HasobjyEditProfileScreen(
+              actions: PreviewActions(
+                open: _actions.open,
+                notice: _actions.notice,
+                back: () => _openDetail(_LearningTab.settings, 'profile'),
+              ),
+              profile: data,
+              onSave: (name, phone) => repository.updateProfile(
+                identity,
+                officialName: name,
+                phone: phone,
+              ),
+            ),
+            'profile' => HasobjyProfileScreen(actions: _actions, profile: data),
+            _ => ValueListenableBuilder<ThemeMode>(
+              valueListenable: widget.themeMode,
+              builder: (context, mode, _) => HasobjySettingsScreen(
+                actions: _actions,
+                studentName: data.name,
+                onSignOut: context.read<GoogleIdentityCubit>().signOut,
+                navigation: _navigation(),
+              ),
+            ),
+          },
         ),
       );
     }
@@ -335,6 +353,8 @@ class _LearningShellState extends State<_LearningShell> {
           _switchTab(_LearningTab.settings);
         case 'S-02':
           _openDetail(_LearningTab.settings, 'profile');
+        case 'S-03':
+          _openDetail(_LearningTab.settings, 'edit-profile');
         case 'S-01-DARK':
           unawaited(widget.onThemeChanged(ThemeMode.dark));
         case 'S-01-LIGHT':

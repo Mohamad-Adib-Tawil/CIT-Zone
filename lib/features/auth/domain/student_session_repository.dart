@@ -89,5 +89,10 @@ abstract interface class StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   );
+  Future<Either<StudentSessionFailure, void>> updateProfile(
+    GoogleIdentity identity, {
+    String? officialName,
+    String? phone,
+  });
   Future<Either<StudentSessionFailure, void>> end(GoogleIdentity identity);
 }
