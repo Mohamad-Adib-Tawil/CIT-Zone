@@ -17,6 +17,7 @@ enum StudentUsageType { institute, courses }
 
 enum StudentSessionFailure {
   expired,
+  learningDataDenied,
   unavailable,
   invalidResponse,
   invalidBasicInfo,

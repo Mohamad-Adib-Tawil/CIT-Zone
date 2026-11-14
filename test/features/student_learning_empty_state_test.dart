@@ -68,6 +68,40 @@ void main() {
     });
   }
 
+  for (final mode in [ThemeMode.light, ThemeMode.dark]) {
+    testWidgets('shows cached home and real lesson metadata in $mode', (
+      tester,
+    ) async {
+      const size = Size(390, 844);
+      await tester.binding.setSurfaceSize(size);
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      final repository = _StudentRepository(withLessons: true);
+      await _openLearning(tester, repository, mode);
+      repository.homeResult.complete(
+        const Right((name: 'طالب اختبار', subjects: [], courses: [])),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('المواد'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('الفصول السابقة'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('قواعد البيانات'));
+      await tester.pumpAndSettle();
+      expect(find.text('1. مقدمة في قواعد البيانات'), findsOneWidget);
+      expect(find.text('18 دقيقة'), findsOneWidget);
+      expect(find.text('0 من 0 درساً مكتملة'), findsOneWidget);
+      await _capture(tester, size, mode, 'lessons-populated');
+
+      await tester.tap(find.text('الرئيسية'));
+      await tester.pump();
+      expect(find.text('مرحباً طالب اختبار'), findsOneWidget);
+      expect(find.byType(CircularProgressIndicator), findsNothing);
+      expect(repository.homeRequests, 1);
+      expect(tester.takeException(), isNull);
+    });
+  }
+
   testWidgets('a failed read keeps retry and never renders an empty state', (
     tester,
   ) async {
@@ -144,6 +178,10 @@ Future<void> _capture(
 }
 
 class _StudentRepository implements StudentSessionRepository {
+  _StudentRepository({this.withLessons = false});
+
+  final bool withLessons;
+  int homeRequests = 0;
   static const _subject = (
     id: 'databases',
     name: 'قواعد البيانات',
@@ -168,7 +206,10 @@ class _StudentRepository implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentHomeData>> home(
     GoogleIdentity identity,
-  ) => homeResult.future;
+  ) {
+    homeRequests++;
+    return homeResult.future;
+  }
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
@@ -180,7 +221,20 @@ class _StudentRepository implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
     GoogleIdentity identity,
     String id,
-  ) async => const Right((subject: _subject, subscribed: false, lessons: []));
+  ) async => Right((
+    subject: _subject,
+    subscribed: false,
+    lessons: [
+      if (withLessons)
+        (
+          title: 'مقدمة في قواعد البيانات',
+          locked: false,
+          completed: true,
+          position: 1,
+          durationSeconds: 1080,
+        ),
+    ],
+  ));
 
   @override
   Future<Either<StudentSessionFailure, StudentCoursePageData>> courses(

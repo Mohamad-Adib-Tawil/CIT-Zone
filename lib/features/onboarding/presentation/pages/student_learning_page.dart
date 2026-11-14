@@ -11,10 +11,12 @@ import '../../../auth/domain/google_identity.dart';
 import '../../../auth/domain/student_learning.dart';
 import '../../../auth/domain/student_session_repository.dart';
 import '../../../auth/presentation/cubit/google_identity_cubit.dart';
+import '../cubit/student_learning_data_cubit.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
+import 'student_subject_progress.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
 
@@ -78,6 +80,7 @@ class _LearningShell extends StatefulWidget {
 }
 
 class _LearningShellState extends State<_LearningShell> {
+  final _cache = StudentLearningCache();
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
   bool _previous = false;
@@ -95,11 +98,36 @@ class _LearningShellState extends State<_LearningShell> {
   });
 
   @override
+  void dispose() {
+    _cache.clear();
+    super.dispose();
+  }
+
+  Future<Either<StudentSessionFailure, void>> _saveProfile(
+    String? name,
+    String? phone,
+  ) async {
+    final result = await widget.repository.updateProfile(
+      widget.identity,
+      officialName: name,
+      phone: phone,
+    );
+    if (result.isRight()) {
+      _cache.invalidate('profile');
+      _cache.invalidate('home');
+    }
+    return result;
+  }
+
+  @override
   Widget build(BuildContext context) {
     final repository = widget.repository;
     final identity = widget.identity;
     final light = Theme.of(context).brightness == Brightness.light;
     final detail = _detail;
+    final previous = _previous;
+    final mine = _mine;
+    final page = _page;
     final frame = switch (_tab) {
       _LearningTab.home => 'C-01',
       _LearningTab.settings => switch (detail) {
@@ -115,6 +143,8 @@ class _LearningShellState extends State<_LearningShell> {
         frameName: light ? '$frame-LIGHT' : frame,
         child: _LiveData<StudentProfileData>(
           key: ValueKey(frame),
+          cache: _cache,
+          cacheKey: 'profile',
           load: () => repository.profile(identity),
           builder: (context, data) => switch (detail) {
             'edit-profile' => HasobjyEditProfileScreen(
@@ -124,11 +154,7 @@ class _LearningShellState extends State<_LearningShell> {
                 back: () => _openDetail(_LearningTab.settings, 'profile'),
               ),
               profile: data,
-              onSave: (name, phone) => repository.updateProfile(
-                identity,
-                officialName: name,
-                phone: phone,
-              ),
+              onSave: _saveProfile,
             ),
             'profile' => HasobjyProfileScreen(actions: _actions, profile: data),
             _ => ValueListenableBuilder<ThemeMode>(
@@ -163,6 +189,8 @@ class _LearningShellState extends State<_LearningShell> {
             (_LearningTab.settings, _) => const SizedBox.shrink(),
             (_LearningTab.home, _) => _LiveData<StudentHomeData>(
               key: const ValueKey('home'),
+              cache: _cache,
+              cacheKey: 'home',
               load: () => repository.home(identity),
               builder: (context, data) {
                 final coursesOnly = widget.coursesOnly;
@@ -208,7 +236,9 @@ class _LearningShellState extends State<_LearningShell> {
               ],
               fill: _LiveData<List<StudentSubjectItem>>(
                 key: ValueKey(_previous),
-                load: () => repository.subjects(identity, previous: _previous),
+                cache: _cache,
+                cacheKey: ('subjects', previous),
+                load: () => repository.subjects(identity, previous: previous),
                 builder: (_, subjects) => subjects.isEmpty
                     ? const HasobjyLearningEmptyState.subjects()
                     : _list(_subjectCards(subjects)),
@@ -217,6 +247,8 @@ class _LearningShellState extends State<_LearningShell> {
             (_LearningTab.subjects, final String id) =>
               _LiveData<StudentSubjectDetails>(
                 key: ValueKey(id),
+                cache: _cache,
+                cacheKey: ('subject', id),
                 load: () => repository.subject(identity, id),
                 builder: (context, data) {
                   final name = PreviewText(
@@ -230,21 +262,9 @@ class _LearningShellState extends State<_LearningShell> {
                   }
                   return _list([
                     name,
-                    PreviewText('تقدّمك في المادة: ${data.subject.percent}٪'),
-                    PreviewProgress(
-                      data.subject.percent / 100,
-                      height: 6,
-                      width: 100,
-                    ),
+                    StudentSubjectProgress(subject: data.subject),
                     for (final lesson in data.lessons)
-                      PreviewListCard(
-                        title: lesson.title,
-                        subtitle: lesson.locked
-                            ? 'مقفل'
-                            : lesson.completed
-                            ? 'مكتمل'
-                            : null,
-                      ),
+                      StudentLessonCard(lesson: lesson),
                   ]);
                 },
               ),
@@ -263,8 +283,10 @@ class _LearningShellState extends State<_LearningShell> {
               ],
               fill: _LiveData<StudentCoursePageData>(
                 key: ValueKey((_mine, _page)),
+                cache: _cache,
+                cacheKey: ('courses', mine, page),
                 load: () =>
-                    repository.courses(identity, mine: _mine, page: _page),
+                    repository.courses(identity, mine: mine, page: page),
                 builder: (context, data) {
                   final pagination = _page > 1 || data.hasMore
                       ? _coursePagination(hasMore: data.hasMore)
@@ -300,6 +322,8 @@ class _LearningShellState extends State<_LearningShell> {
             (_LearningTab.courses, final String id) =>
               _LiveData<StudentCourseItem>(
                 key: ValueKey(id),
+                cache: _cache,
+                cacheKey: ('course', id),
                 load: () => repository.course(identity, id),
                 builder: (context, course) => _list([
                   Container(
@@ -460,58 +484,45 @@ class _LearningBackground extends StatelessWidget {
   }
 }
 
-typedef _LiveState<T> = ({
-  T? data,
-  bool working,
-  StudentSessionFailure? failure,
-});
+class _LiveData<T extends Object> extends StatelessWidget {
+  const _LiveData({
+    super.key,
+    required this.cache,
+    required this.cacheKey,
+    required this.load,
+    required this.builder,
+  });
 
-class _LiveDataCubit<T> extends Cubit<_LiveState<T>> {
-  _LiveDataCubit(this.request)
-    : super((data: null, working: false, failure: null));
-
-  final Future<Either<StudentSessionFailure, T>> Function() request;
-
-  Future<void> load() async {
-    if (isClosed || state.working) return;
-    emit((data: null, working: true, failure: null));
-    final result = await request();
-    if (isClosed) return;
-    emit((
-      data: result.getRight().toNullable(),
-      working: false,
-      failure: result.getLeft().toNullable(),
-    ));
-  }
-}
-
-class _LiveData<T> extends StatelessWidget {
-  const _LiveData({super.key, required this.load, required this.builder});
+  final StudentLearningCache cache;
+  final Object cacheKey;
 
   final Future<Either<StudentSessionFailure, T>> Function() load;
   final Widget Function(BuildContext, T) builder;
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (_) => _LiveDataCubit<T>(load)..load(),
-    child: BlocBuilder<_LiveDataCubit<T>, _LiveState<T>>(
-      builder: (context, state) {
-        if (state.working) {
-          return const Center(child: CircularProgressIndicator());
-        }
-        if (state.data case final data?) return builder(context, data);
-        return Column(
-          children: [
-            const PreviewText('تعذّر تحميل البيانات.'),
-            TextButton(
-              onPressed: state.failure == StudentSessionFailure.expired
-                  ? context.read<GoogleIdentityCubit>().revalidateSession
-                  : context.read<_LiveDataCubit<T>>().load,
-              child: Text(AppLocalizations.of(context).appStatusRetry),
-            ),
-          ],
-        );
-      },
-    ),
+    create: (_) => StudentLearningDataCubit<T>(cache, cacheKey, load)..load(),
+    child:
+        BlocBuilder<StudentLearningDataCubit<T>, StudentLearningDataState<T>>(
+          builder: (context, state) {
+            if (state.data case final data?) return builder(context, data);
+            if (state.working) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            return Column(
+              children: [
+                const PreviewText('تعذّر تحميل البيانات.'),
+                TextButton(
+                  onPressed: state.failure == StudentSessionFailure.expired
+                      ? context.read<GoogleIdentityCubit>().revalidateSession
+                      : () => context.read<StudentLearningDataCubit<T>>().load(
+                          force: true,
+                        ),
+                  child: Text(AppLocalizations.of(context).appStatusRetry),
+                ),
+              ],
+            );
+          },
+        ),
   );
 }

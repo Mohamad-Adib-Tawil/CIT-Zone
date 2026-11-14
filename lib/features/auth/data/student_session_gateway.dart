@@ -380,7 +380,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentHomeData>> home(
     GoogleIdentity identity,
-  ) => _capture(() async {
+  ) => _captureLearning(() async {
     final response = await _authorized(identity, 'GET', 'home');
     if (response.json['data'] case {
       'name': String name,
@@ -409,7 +409,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
     GoogleIdentity identity, {
     required bool previous,
-  }) => _capture(() async {
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
@@ -452,7 +452,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
     GoogleIdentity identity, {
     required bool mine,
     required int page,
-  }) => _capture(() async {
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
@@ -475,7 +475,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentCourseItem>> course(
     GoogleIdentity identity,
     String id,
-  ) => _capture(() async {
+  ) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
@@ -511,7 +511,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
     GoogleIdentity identity,
     String id,
-  ) => _capture(() async {
+  ) => _captureLearning(() async {
     final path = 'subjects/${Uri.encodeComponent(id)}';
     final details = await _authorized(identity, 'GET', path);
     final lessons = await _authorized(identity, 'GET', '$path/lessons');
@@ -521,19 +521,30 @@ final class StudentSessionGateway implements StudentSessionRepository {
         return (
           subject: _subjectItem(details.json['data']),
           subscribed: subscribed,
-          lessons:
-              List<({String title, bool locked, bool completed})>.unmodifiable(
-                rows.map((row) {
-                  if (row case {
-                    'title': String title,
-                    'locked': bool locked,
-                    'completed': bool completed,
-                  }) {
-                    return (title: title, locked: locked, completed: completed);
-                  }
-                  throw const ApiFailure(ApiFailureKind.invalidResponse);
-                }),
-              ),
+          lessons: List<StudentLessonSummary>.unmodifiable(
+            rows.map((row) {
+              if (row case {
+                'title': String title,
+                'locked': bool locked,
+                'completed': bool completed,
+              }) {
+                return (
+                  title: title,
+                  locked: locked,
+                  completed: completed,
+                  position: switch (row['position']) {
+                    int value when value > 0 => value,
+                    _ => null,
+                  },
+                  durationSeconds: switch (row['durationSeconds']) {
+                    int value when value > 0 => value,
+                    _ => null,
+                  },
+                );
+              }
+              throw const ApiFailure(ApiFailureKind.invalidResponse);
+            }),
+          ),
         );
       }
     }
@@ -543,7 +554,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
-  ) => _capture(() async {
+  ) => _captureLearning(() async {
     final response = await _authorized(identity, 'GET', 'me');
     if (response.json['data'] case {
       'displayName': String displayName,
@@ -619,13 +630,21 @@ final class StudentSessionGateway implements StudentSessionRepository {
     );
   }
 
-  Future<Either<StudentSessionFailure, T>> _capture<T>(
+  Future<Either<StudentSessionFailure, T>> _captureLearning<T>(
     Future<T> Function() operation,
-  ) async {
+  ) => _capture(operation, classifyLearningDenials: true);
+
+  Future<Either<StudentSessionFailure, T>> _capture<T>(
+    Future<T> Function() operation, {
+    bool classifyLearningDenials = false,
+  }) async {
     try {
       return Right(await operation());
     } on ApiFailure catch (failure) {
       return Left(switch (failure) {
+        ApiFailure(kind: ApiFailureKind.forbidden || ApiFailureKind.notFound)
+            when classifyLearningDenials =>
+          StudentSessionFailure.learningDataDenied,
         ApiFailure(code: 'PHONE_TAKEN') => StudentSessionFailure.phoneTaken,
         ApiFailure(kind: ApiFailureKind.unauthenticated) =>
           StudentSessionFailure.expired,

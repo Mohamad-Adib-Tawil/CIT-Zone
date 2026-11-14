@@ -26,10 +26,18 @@ typedef StudentHomeData = ({
   List<({String id, String name})> courses,
 });
 
+typedef StudentLessonSummary = ({
+  String title,
+  bool locked,
+  bool completed,
+  int? position,
+  int? durationSeconds,
+});
+
 typedef StudentSubjectDetails = ({
   StudentSubjectItem subject,
   bool subscribed,
-  List<({String title, bool locked, bool completed})> lessons,
+  List<StudentLessonSummary> lessons,
 });
 
 typedef StudentProfileData = ({
