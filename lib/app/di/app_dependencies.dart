@@ -29,6 +29,7 @@ class AppDependencies {
     GoogleIdentityGateway Function()? googleIdentityGatewayFactory,
     ApiClient Function()? apiClientFactory,
     MobileAppGateway? mobileAppGateway,
+    this.sessionRepository,
   }) {
     _container.registerLazySingleton<ApiClient>(
       apiClientFactory ??
@@ -62,8 +63,9 @@ class AppDependencies {
     );
   }
 
+  final StudentSessionRepository? sessionRepository;
   late final StudentSessionRepository? studentSessions =
-      _createStudentSessions();
+      sessionRepository ?? _createStudentSessions();
 
   StudentSessionRepository? _createStudentSessions() {
     final gateway = _container<GoogleIdentityGateway>();

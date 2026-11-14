@@ -18,6 +18,7 @@ enum StudentUsageType { institute, courses }
 enum StudentSessionFailure {
   expired,
   learningDataDenied,
+  supportTicketClosed,
   unavailable,
   invalidResponse,
   invalidBasicInfo,
@@ -100,6 +101,26 @@ abstract interface class StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   );
+  Future<Either<StudentSessionFailure, StudentAttempt>> submitExercise(
+    GoogleIdentity identity,
+    String id,
+    String key, {
+    String? code,
+    String? language,
+    String? choiceId,
+  });
+  Future<Either<StudentSessionFailure, StudentAttempt?>> latestExerciseAttempt(
+    GoogleIdentity identity,
+    String exerciseId,
+  );
+  Future<Either<StudentSessionFailure, StudentAttempt>> exerciseAttempt(
+    GoogleIdentity identity,
+    String id,
+  );
+  Future<Either<StudentSessionFailure, StudentExercisePrompt>> exercise(
+    GoogleIdentity identity,
+    String id,
+  );
   Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
   subjectExercises(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, List<StudentSubscription>>>
@@ -112,9 +133,30 @@ abstract interface class StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   );
+  Future<Either<StudentSessionFailure, StudentTicket>> createSupportTicket(
+    GoogleIdentity identity,
+    String subject,
+    String body,
+  );
+  Future<Either<StudentSessionFailure, StudentTicketReply>>
+  replyToSupportTicket(
+    GoogleIdentity identity,
+    String id,
+    String body,
+    String idempotencyKey,
+  );
+  Future<Either<StudentSessionFailure, String?>> currentDeviceRequest(
+    GoogleIdentity identity,
+  );
+  Future<Either<StudentSessionFailure, String>> requestDeviceChange(
+    GoogleIdentity identity,
+    String reason,
+  );
   Future<Either<StudentSessionFailure, StudentDeviceData>> device(
     GoogleIdentity identity,
   );
+  Future<Either<StudentSessionFailure, List<StudentLessonSummary>>>
+  subjectLessons(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   );

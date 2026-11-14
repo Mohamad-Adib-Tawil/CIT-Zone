@@ -237,6 +237,106 @@ void main() {
     expect(find.text('كل الكورسات'), findsOneWidget);
   });
 
+  testWidgets('settings opens the support conversation', (tester) async {
+    final repository = _StudentRepository();
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('الدعم والتواصل'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الدعم والتواصل'));
+    await tester.pumpAndSettle();
+    expect(find.text('مشكلة في الدرس'), findsOneWidget);
+    await tester.tap(find.text('مشكلة في الدرس'));
+    await tester.pumpAndSettle();
+    expect(find.text('رد فريق الدعم'), findsOneWidget);
+    await tester.enterText(find.byType(TextField), 'رسالة الطالب');
+    await tester.tap(find.text('إرسال الرد'));
+    await tester.pumpAndSettle();
+    expect(find.text('تعذّر تأكيد إرسال الرد. أعد المحاولة.'), findsOneWidget);
+    expect(find.text('رسالة الطالب'), findsOneWidget);
+    await tester.tap(find.text('إرسال الرد'));
+    await tester.pumpAndSettle();
+    expect(find.text('رسالة الطالب'), findsOneWidget);
+    expect(repository.replyKeys, hasLength(2));
+    expect(repository.replyKeys.first, repository.replyKeys.last);
+  });
+
+  testWidgets('creates a support ticket and opens its conversation', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('الدعم والتواصل'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الدعم والتواصل'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('تذكرة جديدة'));
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField).first, ' عنوان جديد ');
+    await tester.enterText(find.byType(TextField).last, ' تفاصيل جديدة ');
+    await tester.ensureVisible(find.text('إرسال التذكرة'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('إرسال التذكرة'));
+    await tester.pumpAndSettle();
+    expect(repository.createdTicket, ('عنوان جديد', 'تفاصيل جديدة'));
+    expect(find.text('عنوان جديد'), findsOneWidget);
+    expect(find.text('رد فريق الدعم'), findsOneWidget);
+  });
+
+  testWidgets('opens the academic exercise from the subject tab', (
+    tester,
+  ) async {
+    final repository = _StudentRepository(withLessons: true)
+      ..showExercise = true;
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('المواد'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الفصول السابقة'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('قواعد البيانات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('التمارين'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('تمرين SQL'));
+    await tester.pumpAndSettle();
+    expect(find.text('اكتب استعلاماً'), findsOneWidget);
+    expect(find.text('SELECT *'), findsOneWidget);
+    await tester.ensureVisible(find.text('إرسال للتصحيح'));
+    await tester.tap(find.text('إرسال للتصحيح'));
+    await tester.pumpAndSettle();
+    expect(find.text('85/100'), findsOneWidget);
+    expect(find.text('استعلام صحيح'), findsOneWidget);
+    await tester.ensureVisible(find.text('العودة إلى التمارين'));
+    await tester.tap(find.text('العودة إلى التمارين'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('تمرين SQL'));
+    await tester.pumpAndSettle();
+    expect(find.text('85/100'), findsOneWidget);
+    expect(repository.exerciseSubmissions, 1);
+  });
+
+  testWidgets('files open while the lesson request remains pending', (
+    tester,
+  ) async {
+    final repository = _StudentRepository()..pendingLessons = Completer();
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('المواد'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الفصول السابقة'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('قواعد البيانات'));
+    await tester.pump();
+    await tester.pump();
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    await tester.tap(find.text('الملفات'));
+    await tester.pumpAndSettle();
+    expect(find.text('ملف المادة'), findsOneWidget);
+    repository.pendingLessons!.complete(const Right([]));
+  });
+
   testWidgets('a failed read keeps retry and never renders an empty state', (
     tester,
   ) async {
@@ -356,10 +456,16 @@ class _StudentRepository implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
     GoogleIdentity identity,
     String id,
-  ) async => Right((
-    subject: _subject,
-    subscribed: false,
-    lessons: [
+  ) async => const Right((subject: _subject, subscribed: false));
+
+  Completer<Either<StudentSessionFailure, List<StudentLessonSummary>>>?
+  pendingLessons;
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentLessonSummary>>>
+  subjectLessons(GoogleIdentity identity, String id) async {
+    if (pendingLessons case final pending?) return pending.future;
+    return Right([
       if (withLessons)
         (
           id: 'lesson',
@@ -369,8 +475,8 @@ class _StudentRepository implements StudentSessionRepository {
           position: 1,
           durationSeconds: 1080,
         ),
-    ],
-  ));
+    ]);
+  }
 
   @override
   Future<Either<StudentSessionFailure, StudentCoursePageData>> courses(
@@ -416,7 +522,25 @@ class _StudentRepository implements StudentSessionRepository {
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
-  subjectExercises(GoogleIdentity identity, String id) async => const Right([]);
+  subjectExercises(GoogleIdentity identity, String id) async => Right([
+    if (showExercise)
+      (
+        id: 'exercise',
+        title: 'تمرين SQL',
+        state: StudentExerciseState.notAttempted,
+        bestScore: null,
+      ),
+  ]);
+
+  bool showExercise = false;
+
+  @override
+  Future<Either<StudentSessionFailure, StudentExercisePrompt>> exercise(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right(
+    StudentCodingPrompt('تمرين SQL', 'اكتب استعلاماً', 'SQL', 'SELECT *'),
+  );
 
   @override
   Future<Either<StudentSessionFailure, StudentLessonDetail>> lesson(
@@ -442,6 +566,122 @@ class _StudentRepository implements StudentSessionRepository {
       daysLeft: 3,
     ),
   ]);
+
+  static final StudentTicket _testTicket = (
+    id: 'ticket',
+    subject: 'مشكلة في الدرس',
+    status: 'open',
+    updatedAt: DateTime.utc(2026, 11, 14),
+  );
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicketPage>> supportTickets(
+    GoogleIdentity identity,
+    int page,
+  ) async => Right((tickets: [_testTicket], hasMore: false));
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicketThread>> supportTicket(
+    GoogleIdentity identity,
+    String id,
+  ) async => Right((
+    ticket: _testTicket,
+    messages: [
+      (fromSupport: true, body: 'رد فريق الدعم', sentAt: _testTicket.updatedAt),
+    ],
+  ));
+
+  final replyKeys = <String>[];
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicketReply>>
+  replyToSupportTicket(
+    GoogleIdentity identity,
+    String id,
+    String body,
+    String idempotencyKey,
+  ) async {
+    replyKeys.add(idempotencyKey);
+    if (replyKeys.length == 1) {
+      return const Left(StudentSessionFailure.unavailable);
+    }
+    return Right((
+      ticket: _testTicket,
+      message: (fromSupport: false, body: body, sentAt: _testTicket.updatedAt),
+    ));
+  }
+
+  (String, String)? createdTicket;
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicket>> createSupportTicket(
+    GoogleIdentity identity,
+    String subject,
+    String body,
+  ) async {
+    createdTicket = (subject, body);
+    return Right((
+      id: _testTicket.id,
+      subject: subject,
+      status: _testTicket.status,
+      updatedAt: _testTicket.updatedAt,
+    ));
+  }
+
+  int exerciseSubmissions = 0;
+
+  @override
+  Future<Either<StudentSessionFailure, StudentAttempt?>> latestExerciseAttempt(
+    GoogleIdentity identity,
+    String exerciseId,
+  ) async => Right(
+    exerciseSubmissions == 0
+        ? null
+        : (
+            id: 'attempt',
+            status: StudentAttemptStatus.grading,
+            score: null,
+            passed: null,
+            explanation: null,
+            suggestedFix: null,
+          ),
+  );
+
+  @override
+  Future<Either<StudentSessionFailure, StudentAttempt>> submitExercise(
+    GoogleIdentity identity,
+    String id,
+    String key, {
+    String? code,
+    String? language,
+    String? choiceId,
+  }) async {
+    exerciseSubmissions++;
+    expect(code, 'SELECT *');
+    expect(language, 'SQL');
+    expect(key, isNotEmpty);
+    return const Right((
+      id: 'attempt',
+      status: StudentAttemptStatus.grading,
+      score: null,
+      passed: null,
+      explanation: null,
+      suggestedFix: null,
+    ));
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, StudentAttempt>> exerciseAttempt(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right((
+    id: 'attempt',
+    status: StudentAttemptStatus.graded,
+    score: 85,
+    passed: true,
+    explanation: 'استعلام صحيح',
+    suggestedFix: null,
+  ));
 
   @override
   Never noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

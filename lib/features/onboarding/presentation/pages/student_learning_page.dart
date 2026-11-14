@@ -23,6 +23,8 @@ import 'student_resume_card.dart';
 import 'student_file_view_page.dart';
 import 'student_subscriptions.dart';
 import 'student_support.dart';
+import 'student_new_ticket.dart';
+import 'student_exercise_prompt.dart';
 import 'preview/student_update_scaffold.dart';
 import 'student_registered_device.dart';
 import 'preview/profile_preview_screens.dart';
@@ -92,6 +94,7 @@ class _LearningShellState extends State<_LearningShell> {
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
   String? _lessonId;
+  StudentSubjectExercise? _exercise;
   StudentSubjectFile? _file;
   String? _downloadingFileId;
   int _subjectTab = 2;
@@ -100,6 +103,7 @@ class _LearningShellState extends State<_LearningShell> {
   int _page = 1;
   int _supportPage = 1;
   StudentTicket? _ticket;
+  bool _creatingTicket = false;
 
   void _switchTab(_LearningTab tab) => setState(() {
     _tab = tab;
@@ -175,6 +179,29 @@ class _LearningShellState extends State<_LearningShell> {
   );
 
   Widget _support(bool light) {
+    if (_creatingTicket) {
+      return HasobjyVisualScope(
+        frameName: light ? 'H-03-LIGHT' : 'H-03',
+        child: StudentNewTicket(
+          onBack: () => setState(() {
+            _creatingTicket = false;
+            _supportPage = 1;
+            _cache.invalidate(('support', 1));
+          }),
+          onCreate: (subject, body) => widget.repository.createSupportTicket(
+            widget.identity,
+            subject,
+            body,
+          ),
+          onCreated: (ticket) => setState(() {
+            _creatingTicket = false;
+            _supportPage = 1;
+            _cache.invalidate(('support', 1));
+            _ticket = ticket;
+          }),
+        ),
+      );
+    }
     final ticket = _ticket;
     final page = _supportPage;
     final frame = ticket == null ? 'H-02' : 'H-04';
@@ -193,6 +220,12 @@ class _LearningShellState extends State<_LearningShell> {
               title: 'الدعم والتواصل',
               actions: actions,
               children: [
+                PreviewButton(
+                  'تذكرة جديدة',
+                  onTap: () => setState(() => _creatingTicket = true),
+                  light3D: true,
+                  iconAsset: light ? 'cf7cc' : null,
+                ),
                 _LiveData<StudentTicketPage>(
                   key: ValueKey(page),
                   cache: _cache,
@@ -223,7 +256,22 @@ class _LearningShellState extends State<_LearningShell> {
                     widget.identity,
                     ticket.id,
                   ),
-                  builder: (_, data) => StudentSupportThread(data: data),
+                  builder: (_, data) => StudentSupportThread(
+                    data: data,
+                    onReply: (body, key) async {
+                      final result = await widget.repository
+                          .replyToSupportTicket(
+                            widget.identity,
+                            ticket.id,
+                            body,
+                            key,
+                          );
+                      if (result.isRight()) {
+                        _cache.invalidate(('support', page));
+                      }
+                      return result;
+                    },
+                  ),
                 ),
               ],
             ),
@@ -235,6 +283,54 @@ class _LearningShellState extends State<_LearningShell> {
     final repository = widget.repository;
     final identity = widget.identity;
     final light = Theme.of(context).brightness == Brightness.light;
+    if (_exercise case final exercise?) {
+      final subjectId = _detail;
+      return HasobjyVisualScope(
+        frameName: light ? 'C-07-LIGHT' : 'C-07',
+        child: PreviewScaffold(
+          title: exercise.title,
+          actions: PreviewActions(
+            back: () => setState(() => _exercise = null),
+            open: (_) {},
+            notice: () {},
+          ),
+          children: [
+            _LiveData<StudentExercisePrompt>(
+              cache: _cache,
+              cacheKey: ('exercise', exercise.id),
+              load: () => repository.exercise(identity, exercise.id),
+              builder: (_, prompt) => StudentExercisePromptView(
+                prompt: prompt,
+                latestAttempt: () =>
+                    repository.latestExerciseAttempt(identity, exercise.id),
+                onBack: () => setState(() => _exercise = null),
+                submit: (key, {code, language, choiceId}) async {
+                  final result = await repository.submitExercise(
+                    identity,
+                    exercise.id,
+                    key,
+                    code: code,
+                    language: language,
+                    choiceId: choiceId,
+                  );
+                  if (result.isRight()) {
+                    _cache.invalidate(('subject-exercises', subjectId));
+                  }
+                  return result;
+                },
+                readAttempt: (id) async {
+                  final result = await repository.exerciseAttempt(identity, id);
+                  if (result.isRight()) {
+                    _cache.invalidate(('subject-exercises', subjectId));
+                  }
+                  return result;
+                },
+              ),
+            ),
+          ],
+        ),
+      );
+    }
     if (_file case final file?) {
       return HasobjyVisualScope(
         frameName: light ? 'C-05-LIGHT' : 'C-05',
@@ -251,8 +347,9 @@ class _LearningShellState extends State<_LearningShell> {
     }
     if (_lessonId case final lessonId?) return _lessonPage(lessonId, light);
     final detail = _detail;
-    if (_tab == _LearningTab.settings && detail == 'support')
+    if (_tab == _LearningTab.settings && detail == 'support') {
       return _support(light);
+    }
     final previous = _previous;
     final mine = _mine;
     final page = _page;
@@ -446,7 +543,7 @@ class _LearningShellState extends State<_LearningShell> {
                     selected: _subjectTab,
                     onSelected: (index) => setState(() => _subjectTab = index),
                   ),
-                ], fill: _subjectContent(id, data)),
+                ], fill: _subjectContent(id)),
               ),
             (_LearningTab.courses, null) => _list(
               [
@@ -584,81 +681,85 @@ class _LearningShellState extends State<_LearningShell> {
     }
   }
 
-  Widget _subjectContent(String id, StudentSubjectDetails data) =>
-      switch (_subjectTab) {
-        0 => _LiveData<List<StudentSubjectExercise>>(
-          cache: _cache,
-          cacheKey: ('subject-exercises', id),
-          load: () => widget.repository.subjectExercises(widget.identity, id),
-          builder: (context, exercises) => exercises.isEmpty
-              ? const Center(child: PreviewText('لا توجد تمارين منشورة.'))
-              : _list([
-                  for (final exercise in exercises)
-                    PreviewListCard(
-                      title: exercise.title,
-                      asset: '5c3d1',
-                      badge: switch (exercise.state) {
-                        StudentExerciseState.solved => previewBadge(
-                          context,
-                          exercise.bestScore == null
-                              ? 'تم الحل'
-                              : 'تم الحل · ${exercise.bestScore}/100',
-                          tone: 'success',
-                        ),
-                        StudentExerciseState.grading => previewBadge(
-                          context,
-                          'قيد التصحيح',
-                          tone: 'warning',
-                        ),
-                        StudentExerciseState.attempted => previewBadge(
-                          context,
-                          'تمت المحاولة',
-                        ),
-                        StudentExerciseState.notAttempted => previewBadge(
-                          context,
-                          'لم يُحلّ',
-                        ),
-                      },
+  Widget _subjectContent(String id) => switch (_subjectTab) {
+    0 => _LiveData<List<StudentSubjectExercise>>(
+      cache: _cache,
+      cacheKey: ('subject-exercises', id),
+      load: () => widget.repository.subjectExercises(widget.identity, id),
+      builder: (context, exercises) => exercises.isEmpty
+          ? const Center(child: PreviewText('لا توجد تمارين منشورة.'))
+          : _list([
+              for (final exercise in exercises)
+                PreviewListCard(
+                  title: exercise.title,
+                  onTap: () => setState(() => _exercise = exercise),
+                  asset: '5c3d1',
+                  badge: switch (exercise.state) {
+                    StudentExerciseState.solved => previewBadge(
+                      context,
+                      exercise.bestScore == null
+                          ? 'تم الحل'
+                          : 'تم الحل · ${exercise.bestScore}/100',
+                      tone: 'success',
                     ),
-                ]),
-        ),
-        1 => _LiveData<List<StudentSubjectFile>>(
-          cache: _cache,
-          cacheKey: ('subject-files', id),
-          load: () => widget.repository.subjectFiles(widget.identity, id),
-          builder: (_, files) => files.isEmpty
-              ? const Center(child: PreviewText('لا توجد ملفات منشورة.'))
-              : _list([
-                  for (final file in files)
-                    PreviewListCard(
-                      title: file.title,
-                      onTap: file.downloadable
-                          ? (_downloadingFileId == null
-                                ? () => _downloadFile(id, file)
-                                : null)
-                          : () => setState(() => _file = file),
-                      subtitle: _downloadingFileId == file.id
-                          ? 'جارٍ تجهيز رابط التنزيل…'
-                          : [
-                              if (file.pages case final pages?) '$pages صفحة',
-                              if (file.downloadable) 'قابل للتنزيل',
-                            ].join(' · '),
+                    StudentExerciseState.grading => previewBadge(
+                      context,
+                      'قيد التصحيح',
+                      tone: 'warning',
                     ),
-                ]),
-        ),
-        _ =>
-          data.lessons.isEmpty
-              ? const HasobjyLearningEmptyState.lessons()
-              : _list([
-                  for (final lesson in data.lessons)
-                    StudentLessonCard(
-                      lesson: lesson,
-                      onTap: lesson.id == null
-                          ? null
-                          : () => setState(() => _lessonId = lesson.id),
+                    StudentExerciseState.attempted => previewBadge(
+                      context,
+                      'تمت المحاولة',
                     ),
-                ]),
-      };
+                    StudentExerciseState.notAttempted => previewBadge(
+                      context,
+                      'لم يُحلّ',
+                    ),
+                  },
+                ),
+            ]),
+    ),
+    1 => _LiveData<List<StudentSubjectFile>>(
+      cache: _cache,
+      cacheKey: ('subject-files', id),
+      load: () => widget.repository.subjectFiles(widget.identity, id),
+      builder: (_, files) => files.isEmpty
+          ? const Center(child: PreviewText('لا توجد ملفات منشورة.'))
+          : _list([
+              for (final file in files)
+                PreviewListCard(
+                  title: file.title,
+                  onTap: file.downloadable
+                      ? (_downloadingFileId == null
+                            ? () => _downloadFile(id, file)
+                            : null)
+                      : () => setState(() => _file = file),
+                  subtitle: _downloadingFileId == file.id
+                      ? 'جارٍ تجهيز رابط التنزيل…'
+                      : [
+                          if (file.pages case final pages?) '$pages صفحة',
+                          if (file.downloadable) 'قابل للتنزيل',
+                        ].join(' · '),
+                ),
+            ]),
+    ),
+    _ => _LiveData<List<StudentLessonSummary>>(
+      cache: _cache,
+      cacheKey: ('subject-lessons', id),
+      load: () => widget.repository.subjectLessons(widget.identity, id),
+      builder: (_, lessons) => lessons.isEmpty
+          ? const HasobjyLearningEmptyState.lessons()
+          : _list([
+              for (final lesson in lessons)
+                StudentLessonCard(
+                  lesson: lesson,
+                  onTap: lesson.id == null
+                      ? null
+                      : () => setState(() => _lessonId = lesson.id),
+                ),
+            ]),
+    ),
+  };
 
   PreviewActions _profileActions(String? detail) => PreviewActions(
     open: _actions.open,

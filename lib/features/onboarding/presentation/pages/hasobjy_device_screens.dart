@@ -65,10 +65,18 @@ class HasobjyDeviceTransferScreen extends StatefulWidget {
     super.key,
     required this.onSubmit,
     this.onBack,
+    this.deviceName,
+    this.enabled = true,
+    this.message,
+    this.onSubmitReason,
   });
 
   final VoidCallback onSubmit;
   final VoidCallback? onBack;
+  final String? deviceName;
+  final bool enabled;
+  final String? message;
+  final ValueChanged<String>? onSubmitReason;
 
   @override
   State<HasobjyDeviceTransferScreen> createState() =>
@@ -98,6 +106,7 @@ class _HasobjyDeviceTransferScreenState
             _DeviceSummaryCard(
               label: AppLocalizations.of(context).newDevice,
               emphasized: true,
+              deviceName: widget.deviceName,
             ),
             SizedBox(height: 16),
             HasobjyFormField(
@@ -106,13 +115,25 @@ class _HasobjyDeviceTransferScreenState
               iconAsset: '4ece2',
               helper: AppLocalizations.of(context).transferReviewHelper,
               controller: _reasonController,
+              enabled: widget.enabled,
             ),
             SizedBox(height: 16),
+            if (widget.message case final message?)
+              Semantics(liveRegion: true, child: Text(message)),
             Spacer(),
             SizedBox(height: 16),
             HasobjyButton(
               label: AppLocalizations.of(context).submitRequest,
-              onPressed: widget.onSubmit,
+              onPressed: !widget.enabled
+                  ? null
+                  : () {
+                      final onSubmitReason = widget.onSubmitReason;
+                      if (onSubmitReason == null) {
+                        widget.onSubmit();
+                      } else {
+                        onSubmitReason(_reasonController.text.trim());
+                      }
+                    },
             ),
           ],
         ),
@@ -213,9 +234,14 @@ class HasobjyTransferStatusScreen extends StatelessWidget {
 }
 
 class _DeviceSummaryCard extends StatelessWidget {
-  const _DeviceSummaryCard({required this.label, this.emphasized = false});
+  const _DeviceSummaryCard({
+    required this.label,
+    this.emphasized = false,
+    this.deviceName,
+  });
   final String label;
   final bool emphasized;
+  final String? deviceName;
   @override
   Widget build(BuildContext context) => HasobjySurface(
     height: emphasized ? 86 : 88,
@@ -231,7 +257,7 @@ class _DeviceSummaryCard extends StatelessWidget {
         ),
         SizedBox(height: 8),
         Text(
-          _previewDeviceName,
+          deviceName ?? _previewDeviceName,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.right,
           style: emphasized

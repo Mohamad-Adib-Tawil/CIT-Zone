@@ -325,12 +325,14 @@ void main() {
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       final api = _Api();
+      final sessions = gateway(api);
       final cubit = GoogleIdentityCubit(
         GoogleIdentityRepositoryImpl(_IdentityGateway()),
         messages: AppLocalizationsAr(),
-        sessions: gateway(api),
+        sessions: sessions,
       );
       final dependencies = AppDependencies(
+        sessionRepository: sessions,
         configuration: AppConfiguration.parse(
           environment: AppEnvironment.parse(
             stageName: 'production',
@@ -407,7 +409,16 @@ void main() {
       api.next = 'device_unauthorized';
       await cubit.revalidateSession();
       await tester.pumpAndSettle();
-      expect(find.text('هذا الجهاز غير مصرّح له.'), findsOneWidget);
+      expect(find.text('هذا الحساب مرتبط بجهاز آخر'), findsOneWidget);
+      await tester.ensureVisible(find.text('طلب تغيير الجهاز'));
+      await tester.tap(find.text('طلب تغيير الجهاز'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'هاتفي السابق تالف');
+      await tester.ensureVisible(find.text('إرسال الطلب'));
+      await tester.tap(find.text('إرسال الطلب'));
+      await tester.pumpAndSettle();
+      expect(find.text('طلبك قيد مراجعة الإدارة.'), findsOneWidget);
+      expect(api.requests.last.jsonBody, {'reason': 'هاتفي السابق تالف'});
       routes.router.go(AppRoutes.studentUsage);
       await tester.pumpAndSettle();
       expect(find.byType(HasobjyUsageTypeScreen), findsNothing);
@@ -783,6 +794,20 @@ final class _Api implements ApiClient {
                 'daysLeft': 0,
               },
             ],
+          },
+        );
+      case 'me/device-change-requests/current':
+        return const ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {'data': null},
+        );
+      case 'me/device-change-requests':
+        return const ApiResponse(
+          statusCode: 201,
+          requestId: 'test',
+          json: {
+            'data': {'status': 'pending'},
           },
         );
       case 'me/device':

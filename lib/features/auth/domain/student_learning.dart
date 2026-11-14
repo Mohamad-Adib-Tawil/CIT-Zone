@@ -47,11 +47,7 @@ typedef StudentLessonSummary = ({
   int? durationSeconds,
 });
 
-typedef StudentSubjectDetails = ({
-  StudentSubjectItem subject,
-  bool subscribed,
-  List<StudentLessonSummary> lessons,
-});
+typedef StudentSubjectDetails = ({StudentSubjectItem subject, bool subscribed});
 
 typedef StudentProfileData = ({
   String name,
@@ -131,4 +127,42 @@ typedef StudentTicketMessage = ({
 typedef StudentTicketThread = ({
   StudentTicket ticket,
   List<StudentTicketMessage> messages,
+});
+
+typedef StudentTicketReply = ({
+  StudentTicket ticket,
+  StudentTicketMessage message,
+});
+
+sealed class StudentExercisePrompt {
+  const StudentExercisePrompt(this.title, this.statement);
+  final String title;
+  final String statement;
+}
+
+final class StudentCodingPrompt extends StudentExercisePrompt {
+  const StudentCodingPrompt(
+    super.title,
+    super.statement,
+    this.language,
+    this.starterCode,
+  );
+  final String language;
+  final String starterCode;
+}
+
+final class StudentChoicePrompt extends StudentExercisePrompt {
+  const StudentChoicePrompt(super.title, super.statement, this.choices);
+  final List<({String id, String text})> choices;
+}
+
+enum StudentAttemptStatus { grading, graded, failed }
+
+typedef StudentAttempt = ({
+  String id,
+  StudentAttemptStatus status,
+  num? score,
+  bool? passed,
+  String? explanation,
+  String? suggestedFix,
 });

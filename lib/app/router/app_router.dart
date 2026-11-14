@@ -18,6 +18,7 @@ import '../../features/onboarding/presentation/pages/student_onboarding_page.dar
 import '../../features/onboarding/presentation/pages/student_registration_page.dart';
 import '../../features/onboarding/presentation/pages/student_new_term_page.dart';
 import '../../features/onboarding/presentation/pages/student_learning_page.dart';
+import '../../features/onboarding/presentation/pages/student_device_request_page.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../../features/auth/presentation/pages/google_identity_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_design_page.dart';
@@ -62,7 +63,29 @@ class AppRouter {
         ),
         GoRoute(
           path: AppRoutes.studentSession,
-          builder: (_, _) => const StudentSessionPage(),
+          builder: (_, _) =>
+              BlocBuilder<GoogleIdentityCubit, GoogleIdentityState>(
+                builder: (context, state) {
+                  final sessions = dependencies.studentSessions;
+                  if ((sessions, state) case (
+                    final StudentSessionRepository sessions,
+                    GoogleIdentityReady(
+                      :final identity,
+                      session: StudentSession(
+                        next: StudentNextStep.deviceUnauthorized,
+                      ),
+                    ),
+                  )) {
+                    return StudentDeviceRequestPage(
+                      key: ValueKey(identity.firebaseUid),
+                      identity: identity,
+                      repository: sessions,
+                      onSignOut: identityCubit.signOut,
+                    );
+                  }
+                  return const StudentSessionPage();
+                },
+              ),
         ),
         GoRoute(
           path: AppRoutes.studentUsage,
