@@ -31,9 +31,10 @@ class StudentSubjectProgress extends StatelessWidget {
 }
 
 class StudentLessonCard extends StatelessWidget {
-  const StudentLessonCard({super.key, required this.lesson});
+  const StudentLessonCard({super.key, required this.lesson, this.onTap});
 
   final StudentLessonSummary lesson;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -47,39 +48,42 @@ class StudentLessonCard extends StatelessWidget {
     final seconds = lesson.durationSeconds;
     return Semantics(
       label: status,
-      child: PreviewPanel(
-        height: 100,
-        center: true,
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    PreviewText(
-                      position == null
-                          ? lesson.title
-                          : '$position. ${lesson.title}',
-                      style: context.design.bodyMedium,
-                      muted: lesson.locked,
-                    ),
-                    if (seconds != null)
+      child: InkWell(
+        onTap: onTap,
+        child: PreviewPanel(
+          height: 100,
+          center: true,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                       PreviewText(
-                        seconds < 60
-                            ? '$seconds ثانية'
-                            : '${(seconds / 60).ceil()} دقيقة',
-                        style: context.design.bodySmall,
-                        muted: true,
+                        position == null
+                            ? lesson.title
+                            : '$position. ${lesson.title}',
+                        style: context.design.bodyMedium,
+                        muted: lesson.locked,
                       ),
-                  ],
+                      if (seconds != null)
+                        PreviewText(
+                          seconds < 60
+                              ? '$seconds ثانية'
+                              : '${(seconds / 60).ceil()} دقيقة',
+                          style: context.design.bodySmall,
+                          muted: true,
+                        ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              HasobjySvg(icon, width: 24, height: 24),
-            ],
-          ),
-        ],
+                const SizedBox(width: 12),
+                HasobjySvg(icon, width: 24, height: 24),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

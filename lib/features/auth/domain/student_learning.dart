@@ -37,6 +37,7 @@ typedef StudentHomeData = ({
 });
 
 typedef StudentLessonSummary = ({
+  String? id,
   String title,
   bool locked,
   bool completed,
@@ -81,4 +82,12 @@ typedef StudentSubjectExercise = ({
   String title,
   StudentExerciseState state,
   num? bestScore,
+});
+
+typedef StudentLessonDetail = ({
+  String title,
+  String? description,
+  bool locked,
+  bool videoReady,
+  String? nextId,
 });

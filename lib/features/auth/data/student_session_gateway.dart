@@ -558,6 +558,10 @@ final class StudentSessionGateway implements StudentSessionRepository {
                 'completed': bool completed,
               }) {
                 return (
+                  id: switch (row['id']) {
+                    String id when id.isNotEmpty => id,
+                    _ => null,
+                  },
                   title: title,
                   locked: locked,
                   completed: completed,
@@ -576,6 +580,37 @@ final class StudentSessionGateway implements StudentSessionRepository {
           ),
         );
       }
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, StudentLessonDetail>> lesson(
+    GoogleIdentity identity,
+    String id,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'lessons/${Uri.encodeComponent(id)}',
+    );
+    if (response.json['data'] case {
+      'title': String title,
+      'description': String? description,
+      'locked': bool locked,
+      'videoReady': bool videoReady,
+      'next': final next,
+    }) {
+      return (
+        title: title,
+        description: description,
+        locked: locked,
+        videoReady: videoReady,
+        nextId: switch (next) {
+          {'id': String id} when id.isNotEmpty => id,
+          _ => null,
+        },
+      );
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });

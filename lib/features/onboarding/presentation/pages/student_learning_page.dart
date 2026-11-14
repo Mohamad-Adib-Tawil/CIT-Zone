@@ -85,6 +85,7 @@ class _LearningShellState extends State<_LearningShell> {
   final _cache = StudentLearningCache();
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
+  String? _lessonId;
   int _subjectTab = 2;
   bool _previous = false;
   bool _mine = false;
@@ -123,11 +124,52 @@ class _LearningShellState extends State<_LearningShell> {
     return result;
   }
 
+  Widget _lessonPage(String id, bool light) => HasobjyVisualScope(
+    frameName: light ? 'C-04-LIGHT' : 'C-04',
+    child: HasobjyFigmaFrame(
+      appBarTitle: 'الدرس',
+      onBack: () => setState(() => _lessonId = null),
+      backgroundLayer: _LearningBackground(frame: 'C-04', light: light),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: _LiveData<StudentLessonDetail>(
+          key: ValueKey(id),
+          cache: _cache,
+          cacheKey: ('lesson', id),
+          load: () => widget.repository.lesson(widget.identity, id),
+          builder: (context, data) => _list([
+            PreviewText(data.title, style: context.design.headingMedium),
+            if (data.description case final description?
+                when description.isNotEmpty)
+              PreviewText(description),
+            PreviewPanel(
+              children: [
+                PreviewText(
+                  data.locked
+                      ? 'هذا الدرس يتطلب اشتراكاً سارياً.'
+                      : data.videoReady
+                      ? 'تشغيل الفيديو غير متاح في هذه النسخة.'
+                      : 'الفيديو قيد المعالجة.',
+                ),
+              ],
+            ),
+            if (data.nextId case final next?)
+              PreviewButton(
+                'الدرس التالي',
+                onTap: () => setState(() => _lessonId = next),
+              ),
+          ]),
+        ),
+      ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     final repository = widget.repository;
     final identity = widget.identity;
     final light = Theme.of(context).brightness == Brightness.light;
+    if (_lessonId case final lessonId?) return _lessonPage(lessonId, light);
     final detail = _detail;
     final previous = _previous;
     final mine = _mine;
@@ -240,7 +282,11 @@ class _LearningShellState extends State<_LearningShell> {
                   ),
                   if (resumeLesson != null) ...[
                     PreviewText('متابعة المشاهدة', style: context.design.label),
-                    StudentResumeCard(lesson: resumeLesson),
+                    StudentResumeCard(
+                      lesson: resumeLesson,
+                      onTap: () =>
+                          setState(() => _lessonId = resumeLesson.lessonId),
+                    ),
                   ],
                   if (!coursesOnly) ...[
                     PreviewText('موادي', style: context.design.label),
@@ -449,7 +495,12 @@ class _LearningShellState extends State<_LearningShell> {
               ? const HasobjyLearningEmptyState.lessons()
               : _list([
                   for (final lesson in data.lessons)
-                    StudentLessonCard(lesson: lesson),
+                    StudentLessonCard(
+                      lesson: lesson,
+                      onTap: lesson.id == null
+                          ? null
+                          : () => setState(() => _lessonId = lesson.id),
+                    ),
                 ]),
       };
 
