@@ -17,6 +17,7 @@ import '../widgets/hasobjy_figma_components.dart';
 import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
 import 'student_subject_progress.dart';
+import 'student_registered_device.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
 
@@ -133,11 +134,29 @@ class _LearningShellState extends State<_LearningShell> {
       _LearningTab.settings => switch (detail) {
         'edit-profile' => 'S-03',
         'profile' => 'S-02',
+        'device' => 'S-04',
         _ => 'S-01',
       },
       _LearningTab.subjects => detail == null ? 'C-02' : 'C-03',
       _LearningTab.courses => detail == null ? 'F-01' : 'F-02',
     };
+    if (detail == 'device' && _tab == _LearningTab.settings) {
+      return HasobjyVisualScope(
+        frameName: light ? '$frame-LIGHT' : frame,
+        child: PreviewScaffold(
+          actions: _actions,
+          title: 'الجهاز المسجّل',
+          children: [
+            _LiveData<StudentDeviceData>(
+              cache: _cache,
+              cacheKey: 'device',
+              load: () => repository.device(identity),
+              builder: (context, data) => StudentRegisteredDevice(device: data),
+            ),
+          ],
+        ),
+      );
+    }
     if (_tab == _LearningTab.settings) {
       return HasobjyVisualScope(
         frameName: light ? '$frame-LIGHT' : frame,
@@ -146,26 +165,21 @@ class _LearningShellState extends State<_LearningShell> {
           cache: _cache,
           cacheKey: 'profile',
           load: () => repository.profile(identity),
+          fallback: (context, placeholder) => detail == null
+              ? _settings(context)
+              : PreviewScaffold(
+                  title: detail == 'profile' ? 'ملفي الشخصي' : 'تعديل البيانات',
+                  actions: _profileActions(detail),
+                  children: [placeholder],
+                ),
           builder: (context, data) => switch (detail) {
             'edit-profile' => HasobjyEditProfileScreen(
-              actions: PreviewActions(
-                open: _actions.open,
-                notice: _actions.notice,
-                back: () => _openDetail(_LearningTab.settings, 'profile'),
-              ),
+              actions: _profileActions(detail),
               profile: data,
               onSave: _saveProfile,
             ),
             'profile' => HasobjyProfileScreen(actions: _actions, profile: data),
-            _ => ValueListenableBuilder<ThemeMode>(
-              valueListenable: widget.themeMode,
-              builder: (context, mode, _) => HasobjySettingsScreen(
-                actions: _actions,
-                studentName: data.name,
-                onSignOut: context.read<GoogleIdentityCubit>().signOut,
-                navigation: _navigation(),
-              ),
-            ),
+            _ => _settings(context, profile: data),
           },
         ),
       );
@@ -364,6 +378,38 @@ class _LearningShellState extends State<_LearningShell> {
     );
   }
 
+  PreviewActions _profileActions(String? detail) => PreviewActions(
+    open: _actions.open,
+    notice: _actions.notice,
+    back: detail == 'edit-profile'
+        ? () => _openDetail(_LearningTab.settings, 'profile')
+        : () => _switchTab(_LearningTab.settings),
+  );
+
+  Widget _settings(BuildContext context, {StudentProfileData? profile}) =>
+      ValueListenableBuilder<ThemeMode>(
+        valueListenable: widget.themeMode,
+        builder: (context, mode, _) => HasobjySettingsScreen(
+          actions: _actions,
+          studentName:
+              profile?.name ??
+              _cache.read<StudentHomeData>('home')?.name ??
+              widget.identity.displayName ??
+              'حساب الطالب',
+          academicSummary: [
+            ?profile?.department,
+            if (profile?.year == 1) 'السنة الأولى',
+            if (profile?.year == 2) 'السنة الثانية',
+          ].join(' · '),
+          onSignOut: context.read<GoogleIdentityCubit>().signOut,
+          navigation: _navigation(),
+          backgroundLayer: _LearningBackground(
+            frame: 'S-01',
+            light: Theme.of(context).brightness == Brightness.light,
+          ),
+        ),
+      );
+
   PreviewActions get _actions => PreviewActions(
     open: (destination) {
       switch (destination) {
@@ -377,6 +423,8 @@ class _LearningShellState extends State<_LearningShell> {
           _switchTab(_LearningTab.settings);
         case 'S-02':
           _openDetail(_LearningTab.settings, 'profile');
+        case 'S-04':
+          _openDetail(_LearningTab.settings, 'device');
         case 'S-03':
           _openDetail(_LearningTab.settings, 'edit-profile');
         case 'S-01-DARK':
@@ -491,6 +539,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
     required this.cacheKey,
     required this.load,
     required this.builder,
+    this.fallback,
   });
 
   final StudentLearningCache cache;
@@ -498,6 +547,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
 
   final Future<Either<StudentSessionFailure, T>> Function() load;
   final Widget Function(BuildContext, T) builder;
+  final Widget Function(BuildContext, Widget)? fallback;
 
   @override
   Widget build(BuildContext context) => BlocProvider(
@@ -506,22 +556,27 @@ class _LiveData<T extends Object> extends StatelessWidget {
         BlocBuilder<StudentLearningDataCubit<T>, StudentLearningDataState<T>>(
           builder: (context, state) {
             if (state.data case final data?) return builder(context, data);
-            if (state.working) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            return Column(
-              children: [
-                const PreviewText('تعذّر تحميل البيانات.'),
-                TextButton(
-                  onPressed: state.failure == StudentSessionFailure.expired
-                      ? context.read<GoogleIdentityCubit>().revalidateSession
-                      : () => context.read<StudentLearningDataCubit<T>>().load(
-                          force: true,
+            final placeholder = state.working
+                ? const Center(child: CircularProgressIndicator())
+                : Column(
+                    children: [
+                      const PreviewText('تعذّر تحميل البيانات.'),
+                      TextButton(
+                        onPressed:
+                            state.failure == StudentSessionFailure.expired
+                            ? context
+                                  .read<GoogleIdentityCubit>()
+                                  .revalidateSession
+                            : () => context
+                                  .read<StudentLearningDataCubit<T>>()
+                                  .load(force: true),
+                        child: Text(
+                          AppLocalizations.of(context).appStatusRetry,
                         ),
-                  child: Text(AppLocalizations.of(context).appStatusRetry),
-                ),
-              ],
-            );
+                      ),
+                    ],
+                  );
+            return fallback?.call(context, placeholder) ?? placeholder;
           },
         ),
   );

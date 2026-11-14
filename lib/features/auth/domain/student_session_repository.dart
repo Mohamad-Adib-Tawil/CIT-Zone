@@ -87,6 +87,9 @@ abstract interface class StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   );
+  Future<Either<StudentSessionFailure, StudentDeviceData>> device(
+    GoogleIdentity identity,
+  );
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   );

@@ -102,6 +102,51 @@ void main() {
     });
   }
 
+  for (final mode in [ThemeMode.light, ThemeMode.dark]) {
+    testWidgets(
+      'settings works while the profile request is pending or fails in $mode',
+      (tester) async {
+        const size = Size(390, 844);
+        await tester.binding.setSurfaceSize(size);
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        final repository = _StudentRepository();
+        await _openLearning(tester, repository, mode);
+        await tester.tap(find.text('الإعدادات'));
+        await tester.pumpAndSettle();
+
+        expect(find.text('طالب اختبار'), findsOneWidget);
+        expect(find.text('المظهر'), findsOneWidget);
+        expect(find.text('تسجيل الخروج'), findsOneWidget);
+        expect(find.byType(CircularProgressIndicator), findsNothing);
+        expect(repository.profileRequests, 1);
+        await _capture(tester, size, mode, 'settings');
+
+        await tester.tap(find.text('ملفي الشخصي'));
+        await tester.pump();
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(repository.profileRequests, 1);
+        repository.profileResult.complete(
+          const Left(StudentSessionFailure.unavailable),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('تعذّر تحميل البيانات.'), findsOneWidget);
+        await tester.tap(
+          find.descendant(
+            of: find.byType(HasobjyAppBar),
+            matching: find.byType(IconButton),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('تسجيل الخروج'), findsOneWidget);
+        await tester.tap(find.text('الجهاز المسجّل'));
+        await tester.pumpAndSettle();
+        expect(find.text('جهاز الاختبار'), findsOneWidget);
+        expect(find.text('Android'), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
+
   testWidgets('a failed read keeps retry and never renders an empty state', (
     tester,
   ) async {
@@ -242,6 +287,28 @@ class _StudentRepository implements StudentSessionRepository {
     required bool mine,
     required int page,
   }) async => const Right((courses: [], hasMore: false));
+
+  int profileRequests = 0;
+  final profileResult =
+      Completer<Either<StudentSessionFailure, StudentProfileData>>();
+
+  @override
+  Future<Either<StudentSessionFailure, StudentProfileData>> profile(
+    GoogleIdentity identity,
+  ) {
+    profileRequests++;
+    return profileResult.future;
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, StudentDeviceData>> device(
+    GoogleIdentity identity,
+  ) async => const Right((
+    status: StudentDeviceStatus.authorized,
+    name: 'جهاز الاختبار',
+    platform: 'android',
+    registeredAt: null,
+  ));
 
   @override
   Never noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

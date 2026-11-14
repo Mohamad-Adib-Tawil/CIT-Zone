@@ -75,19 +75,24 @@ class HasobjySettingsScreen extends StatelessWidget {
     super.key,
     required this.actions,
     this.studentName,
+    this.academicSummary,
     this.onSignOut,
     this.navigation,
+    this.backgroundLayer,
   });
   final PreviewActions actions;
   final String? studentName;
+  final String? academicSummary;
   final VoidCallback? onSignOut;
   final Widget? navigation;
+  final Widget? backgroundLayer;
   @override
   Widget build(BuildContext context) => PreviewScaffold(
     actions: actions,
     navigation: studentName == null,
     bottomNavigation: navigation,
-    gap: 10,
+    backgroundLayer: backgroundLayer,
+    gap: 6,
     children: [
       PreviewText('الإعدادات', style: context.design.title),
       PreviewPanel(
@@ -105,9 +110,12 @@ class HasobjySettingsScreen extends StatelessWidget {
                       style: context.design.labelSemiBold,
                     ),
                     const SizedBox(height: 4),
-                    if (studentName == null)
+                    if (studentName == null ||
+                        academicSummary?.isNotEmpty == true)
                       PreviewText(
-                        'برمجيات · السنة الثانية · الفصل الثالث',
+                        studentName == null
+                            ? 'برمجيات · السنة الثانية · الفصل الثالث'
+                            : academicSummary!,
                         style: context.design.bodySmall,
                       ),
                   ],
@@ -179,30 +187,32 @@ class HasobjySettingsScreen extends StatelessWidget {
           ],
         ],
       ),
-      if (studentName != null) _row(context, 'ملفي الشخصي', 'S-02'),
-      if (studentName == null) ...[
-        PreviewText(
-          'الحساب',
-          style: context.design.label.copyWith(color: context.design.textMuted),
-        ),
-        Column(
-          children: [
-            _row(context, 'ملفي الشخصي', 'S-02'),
-            _row(context, 'الجهاز المسجّل', 'S-04'),
-            _row(context, 'اشتراكاتي', 'F-07'),
-          ],
-        ),
-        PreviewText(
-          'المساعدة',
-          style: context.design.label.copyWith(color: context.design.textMuted),
-        ),
-        Column(
-          children: [
-            _row(context, 'الدعم والتواصل', 'H-02'),
-            _row(context, 'الشروط وسياسة الخصوصية', 'A-S08'),
-          ],
-        ),
-      ],
+      PreviewText(
+        'الحساب',
+        style: context.design.label.copyWith(color: context.design.textMuted),
+      ),
+      Column(
+        children: [
+          _row(context, 'ملفي الشخصي', 'S-02'),
+          _row(context, 'الجهاز المسجّل', 'S-04'),
+          _row(context, 'اشتراكاتي', 'F-07', enabled: studentName == null),
+        ],
+      ),
+      PreviewText(
+        'المساعدة',
+        style: context.design.label.copyWith(color: context.design.textMuted),
+      ),
+      Column(
+        children: [
+          _row(context, 'الدعم والتواصل', 'H-02', enabled: studentName == null),
+          _row(
+            context,
+            'الشروط وسياسة الخصوصية',
+            'A-S08',
+            enabled: studentName == null,
+          ),
+        ],
+      ),
       PreviewButton(
         'تسجيل الخروج',
         onTap: onSignOut ?? actions.notice,
@@ -210,42 +220,52 @@ class HasobjySettingsScreen extends StatelessWidget {
       ),
     ],
   );
-  Widget _row(BuildContext context, String title, String destination) =>
-      GestureDetector(
-        onTap: () => actions.open(destination),
-        child: Container(
-          height: 58,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: BoxDecoration(
-            color: context.design.surface,
-            border: Border.all(color: context.design.border),
-          ),
-          child: Row(
-            textDirection: TextDirection.ltr,
-            children: [
-              HasobjySvg('287fc', width: 24, height: 24),
-              const SizedBox(width: 12),
-              Expanded(
-                child: PreviewText(
-                  title,
-                  style: context.design.bodyMedium.copyWith(
-                    height: 20 / 14,
-                    color: context.design.textPrimary,
-                  ),
+  Widget _row(
+    BuildContext context,
+    String title,
+    String destination, {
+    bool enabled = true,
+  }) => Semantics(
+    button: true,
+    enabled: enabled,
+    child: GestureDetector(
+      onTap: enabled ? () => actions.open(destination) : null,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 58),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          color: context.design.surface,
+          border: Border.all(color: context.design.border),
+        ),
+        child: Row(
+          textDirection: TextDirection.ltr,
+          children: [
+            HasobjySvg('287fc', width: 24, height: 24),
+            const SizedBox(width: 12),
+            Expanded(
+              child: PreviewText(
+                title,
+                style: context.design.bodyMedium.copyWith(
+                  height: 20 / 14,
+                  color: enabled
+                      ? context.design.textPrimary
+                      : context.design.textMuted,
                 ),
               ),
-              const SizedBox(width: 12),
-              PreviewIconTile(
-                label: title,
-                size: 40,
-                asset: title == 'اشتراكاتي'
-                    ? (context.design.isLight ? '36fd3' : '0583d')
-                    : null,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(width: 12),
+            PreviewIconTile(
+              label: title,
+              size: 40,
+              asset: title == 'اشتراكاتي'
+                  ? (context.design.isLight ? '45232' : '0583d')
+                  : null,
+            ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
 
 class HasobjyProfileScreen extends StatelessWidget {

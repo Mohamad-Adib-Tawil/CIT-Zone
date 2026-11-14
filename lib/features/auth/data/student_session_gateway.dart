@@ -552,6 +552,47 @@ final class StudentSessionGateway implements StudentSessionRepository {
   });
 
   @override
+  Future<Either<StudentSessionFailure, StudentDeviceData>> device(
+    GoogleIdentity identity,
+  ) => _captureLearning(() async {
+    final response = await _authorized(identity, 'GET', 'me/device');
+    return switch (response.json) {
+      {'data': null} => (
+        status: StudentDeviceStatus.notApplicable,
+        name: null,
+        platform: null,
+        registeredAt: null,
+      ),
+      {'data': {'status': 'unregistered', 'device': null}} => (
+        status: StudentDeviceStatus.unregistered,
+        name: null,
+        platform: null,
+        registeredAt: null,
+      ),
+      {
+        'data': {
+          'status': final String status,
+          'device': {
+            'name': String? name,
+            'platform': String platform,
+            'registeredAt': String date,
+          },
+        },
+      }
+          when status == 'authorized' || status == 'unauthorized' =>
+        (
+          status: status == 'authorized'
+              ? StudentDeviceStatus.authorized
+              : StudentDeviceStatus.unauthorized,
+          name: name,
+          platform: platform,
+          registeredAt: DateTime.tryParse(date),
+        ),
+      _ => throw const ApiFailure(ApiFailureKind.invalidResponse),
+    };
+  });
+
+  @override
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   ) => _captureLearning(() async {

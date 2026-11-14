@@ -50,6 +50,31 @@ void main() {
     storage: const FlutterSecureStorage(),
   );
 
+  test('reads the registered device and accepts an exempt account', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    api.deviceResponse = {
+      'status': 'authorized',
+      'device': {
+        'id': 'private-id',
+        'name': 'اسم الجهاز',
+        'platform': 'android',
+        'registeredAt': '2026-11-14T12:00:00Z',
+      },
+    };
+    final device = (await sessions.device(_identity)).getRight().toNullable();
+    expect(device?.name, 'اسم الجهاز');
+    expect(device?.status.name, 'authorized');
+    expect(device?.registeredAt, DateTime.utc(2026, 11, 14, 12));
+    expect(api.requests.last.method, 'GET');
+
+    api.deviceResponse = null;
+    final exempt = (await sessions.device(_identity)).getRight().toNullable();
+    expect(exempt?.status.name, 'notApplicable');
+    expect(exempt?.name, isNull);
+  });
+
   test('Android reuses its platform ID after local storage is lost', () async {
     final first = _Api();
     await gateway(first).start(_identity);
@@ -494,6 +519,7 @@ final class _Api implements ApiClient {
   bool failNextRead = false;
   bool rejectBasicInfo = false;
   int? academicYear;
+  Object? deviceResponse;
 
   @override
   Future<ApiResponse> send(
@@ -633,6 +659,12 @@ final class _Api implements ApiClient {
             ],
             'meta': {'page': 2, 'limit': 20, 'total': 21},
           },
+        );
+      case 'me/device':
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {'data': deviceResponse},
         );
       case 'me':
         if ((request.jsonBody as Map).containsKey('phone')) {

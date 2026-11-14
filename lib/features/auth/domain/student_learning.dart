@@ -47,3 +47,17 @@ typedef StudentProfileData = ({
   String? department,
   int? year,
 });
+
+enum StudentDeviceStatus {
+  notApplicable,
+  unregistered,
+  authorized,
+  unauthorized,
+}
+
+typedef StudentDeviceData = ({
+  StudentDeviceStatus status,
+  String? name,
+  String? platform,
+  DateTime? registeredAt,
+});
