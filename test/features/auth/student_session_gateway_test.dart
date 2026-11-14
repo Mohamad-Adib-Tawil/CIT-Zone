@@ -426,6 +426,8 @@ void main() {
       expect(confirmed.getRight().toNullable()?.next, StudentNextStep.home);
       final home = await sessions.home(_identity);
       expect(home.getRight().toNullable()?.subjects.single.percent, 50);
+      expect(home.getRight().toNullable()?.resumeLesson?.lessonId, 'lesson');
+      expect(home.getRight().toNullable()?.resumeLesson?.positionSeconds, 180);
       final courses = await sessions.courses(_identity, mine: true, page: 2);
       expect(
         courses.getRight().toNullable()?.courses.single.subscribed,
@@ -629,6 +631,16 @@ final class _Api implements ApiClient {
           json: {
             'data': {
               'name': 'اسم تجريبي',
+              'continueWatching': [
+                {
+                  'lessonId': 'lesson',
+                  'lessonTitle': 'درس',
+                  'subjectId': 'subject',
+                  'subjectName': 'مادة',
+                  'positionSeconds': 180,
+                  'durationSeconds': 900,
+                },
+              ],
               'subjects': [
                 {
                   'id': 'subject',

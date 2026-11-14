@@ -382,13 +382,15 @@ final class StudentSessionGateway implements StudentSessionRepository {
     GoogleIdentity identity,
   ) => _captureLearning(() async {
     final response = await _authorized(identity, 'GET', 'home');
-    if (response.json['data'] case {
+    final data = response.json['data'];
+    if (data case {
       'name': String name,
       'subjects': List subjects,
       'courses': List courses,
     }) {
       return (
         name: name,
+        resumeLesson: _resumeLesson(data['continueWatching']),
         subjects: List<StudentSubjectItem>.unmodifiable(
           subjects.map(_subjectItem),
         ),
@@ -404,6 +406,33 @@ final class StudentSessionGateway implements StudentSessionRepository {
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });
+
+  StudentResumeLesson? _resumeLesson(Object? items) {
+    if (items is! List) return null;
+    for (final item in items) {
+      if (item
+          case {
+            'lessonId': String lessonId,
+            'lessonTitle': String lessonTitle,
+            'subjectId': String subjectId,
+            'subjectName': String subjectName,
+            'positionSeconds': int positionSeconds,
+            'durationSeconds': int? durationSeconds,
+          }
+          when positionSeconds >= 0 &&
+              (durationSeconds == null || durationSeconds > 0)) {
+        return (
+          lessonId: lessonId,
+          lessonTitle: lessonTitle,
+          subjectId: subjectId,
+          subjectName: subjectName,
+          positionSeconds: positionSeconds,
+          durationSeconds: durationSeconds,
+        );
+      }
+    }
+    return null;
+  }
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
@@ -547,6 +576,64 @@ final class StudentSessionGateway implements StudentSessionRepository {
           ),
         );
       }
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
+    GoogleIdentity identity,
+    String id,
+  ) => _loadSubjectList(identity, id, 'files', (row) {
+    if (row case {
+      'id': String id,
+      'title': String title,
+      'pages': int? pages,
+    }) {
+      return (id: id, title: title, pages: pages);
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
+  subjectExercises(GoogleIdentity identity, String id) =>
+      _loadSubjectList(identity, id, 'exercises', (row) {
+        if (row case {
+          'id': String id,
+          'title': String title,
+          'state': String state,
+          'bestScore': num? bestScore,
+        }) {
+          return (
+            id: id,
+            title: title,
+            state: switch (state) {
+              'not_attempted' => StudentExerciseState.notAttempted,
+              'attempted' => StudentExerciseState.attempted,
+              'grading' => StudentExerciseState.grading,
+              'solved' => StudentExerciseState.solved,
+              _ => throw const ApiFailure(ApiFailureKind.invalidResponse),
+            },
+            bestScore: bestScore,
+          );
+        }
+        throw const ApiFailure(ApiFailureKind.invalidResponse);
+      });
+
+  Future<Either<StudentSessionFailure, List<T>>> _loadSubjectList<T>(
+    GoogleIdentity identity,
+    String id,
+    String resource,
+    T Function(Object?) decode,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'subjects/${Uri.encodeComponent(id)}/$resource',
+    );
+    if (response.json['data'] case final List rows) {
+      return List<T>.unmodifiable(rows.map(decode));
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });

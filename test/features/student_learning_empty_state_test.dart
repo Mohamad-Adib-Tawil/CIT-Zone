@@ -38,7 +38,12 @@ void main() {
       expect(find.byType(HasobjyLearningEmptyState), findsNothing);
 
       repository.homeResult.complete(
-        const Right((name: 'طالب اختبار', subjects: [], courses: [])),
+        const Right((
+          name: 'طالب اختبار',
+          resumeLesson: null,
+          subjects: [],
+          courses: [],
+        )),
       );
       await tester.pumpAndSettle();
       expect(find.text('لا يوجد محتوى لعرضه الآن'), findsOneWidget);
@@ -78,7 +83,12 @@ void main() {
       final repository = _StudentRepository(withLessons: true);
       await _openLearning(tester, repository, mode);
       repository.homeResult.complete(
-        const Right((name: 'طالب اختبار', subjects: [], courses: [])),
+        const Right((
+          name: 'طالب اختبار',
+          resumeLesson: null,
+          subjects: [],
+          courses: [],
+        )),
       );
       await tester.pumpAndSettle();
 
@@ -146,6 +156,58 @@ void main() {
       },
     );
   }
+
+  testWidgets('subject tabs load separately and reuse the cached files', (
+    tester,
+  ) async {
+    final repository = _StudentRepository(withLessons: true);
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('المواد'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('الفصول السابقة'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('قواعد البيانات'));
+    await tester.pumpAndSettle();
+
+    expect(repository.fileRequests, 0);
+    await tester.tap(find.text('الملفات'));
+    await tester.pumpAndSettle();
+    expect(find.text('ملف المادة'), findsOneWidget);
+    await tester.tap(find.text('التمارين'));
+    await tester.pumpAndSettle();
+    expect(find.text('لا توجد تمارين منشورة.'), findsOneWidget);
+    await tester.tap(find.text('الملفات'));
+    await tester.pumpAndSettle();
+    expect(find.text('ملف المادة'), findsOneWidget);
+    expect(repository.fileRequests, 1);
+  });
+
+  testWidgets('shows real resume data even without current materials', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    await _openLearning(tester, repository, ThemeMode.dark);
+    repository.homeResult.complete(
+      const Right((
+        name: 'طالب اختبار',
+        resumeLesson: (
+          lessonId: 'lesson',
+          lessonTitle: 'العلاقات بين الجداول',
+          subjectId: 'databases',
+          subjectName: 'قواعد البيانات',
+          positionSeconds: 180,
+          durationSeconds: 900,
+        ),
+        subjects: [],
+        courses: [],
+      )),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('متابعة المشاهدة'), findsOneWidget);
+    expect(find.text('العلاقات بين الجداول'), findsOneWidget);
+    expect(find.text('قواعد البيانات · متبقٍ 12 دقيقة'), findsOneWidget);
+    expect(find.byType(HasobjyLearningEmptyState), findsNothing);
+  });
 
   testWidgets('a failed read keeps retry and never renders an empty state', (
     tester,
@@ -309,6 +371,21 @@ class _StudentRepository implements StudentSessionRepository {
     platform: 'android',
     registeredAt: null,
   ));
+
+  int fileRequests = 0;
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
+    GoogleIdentity identity,
+    String id,
+  ) async {
+    fileRequests++;
+    return const Right([(id: 'file', title: 'ملف المادة', pages: 12)]);
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
+  subjectExercises(GoogleIdentity identity, String id) async => const Right([]);
 
   @override
   Never noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

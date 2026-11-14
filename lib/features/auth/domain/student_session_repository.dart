@@ -87,6 +87,12 @@ abstract interface class StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   );
+  Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
+    GoogleIdentity identity,
+    String id,
+  );
+  Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
+  subjectExercises(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, StudentDeviceData>> device(
     GoogleIdentity identity,
   );

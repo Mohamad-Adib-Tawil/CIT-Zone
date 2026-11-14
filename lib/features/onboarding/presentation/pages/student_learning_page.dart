@@ -17,6 +17,7 @@ import '../widgets/hasobjy_figma_components.dart';
 import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
 import 'student_subject_progress.dart';
+import 'student_resume_card.dart';
 import 'student_registered_device.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
@@ -84,6 +85,7 @@ class _LearningShellState extends State<_LearningShell> {
   final _cache = StudentLearningCache();
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
+  int _subjectTab = 2;
   bool _previous = false;
   bool _mine = false;
   int _page = 1;
@@ -96,6 +98,7 @@ class _LearningShellState extends State<_LearningShell> {
   void _openDetail(_LearningTab tab, String id) => setState(() {
     _tab = tab;
     _detail = id;
+    _subjectTab = 2;
   });
 
   @override
@@ -212,7 +215,9 @@ class _LearningShellState extends State<_LearningShell> {
                   'مرحباً ${data.name}',
                   style: context.design.title,
                 );
-                if (data.courses.isEmpty &&
+                final resumeLesson = data.resumeLesson;
+                if (resumeLesson == null &&
+                    data.courses.isEmpty &&
                     (coursesOnly || data.subjects.isEmpty)) {
                   return _list(
                     [greeting],
@@ -222,7 +227,21 @@ class _LearningShellState extends State<_LearningShell> {
                   );
                 }
                 return _list([
-                  greeting,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    spacing: 2,
+                    children: [
+                      greeting,
+                      PreviewText(
+                        'تابع تعلّمك من حيث توقفت',
+                        style: context.design.bodySmall,
+                      ),
+                    ],
+                  ),
+                  if (resumeLesson != null) ...[
+                    PreviewText('متابعة المشاهدة', style: context.design.label),
+                    StudentResumeCard(lesson: resumeLesson),
+                  ],
                   if (!coursesOnly) ...[
                     PreviewText('موادي', style: context.design.label),
                     ..._subjectCards(data.subjects),
@@ -264,23 +283,16 @@ class _LearningShellState extends State<_LearningShell> {
                 cache: _cache,
                 cacheKey: ('subject', id),
                 load: () => repository.subject(identity, id),
-                builder: (context, data) {
-                  final name = PreviewText(
-                    data.subject.name,
-                    style: context.design.title,
-                  );
-                  if (data.lessons.isEmpty) {
-                    return _list([
-                      name,
-                    ], fill: const HasobjyLearningEmptyState.lessons());
-                  }
-                  return _list([
-                    name,
-                    StudentSubjectProgress(subject: data.subject),
-                    for (final lesson in data.lessons)
-                      StudentLessonCard(lesson: lesson),
-                  ]);
-                },
+                builder: (context, data) => _list([
+                  PreviewText(data.subject.name, style: context.design.title),
+                  StudentSubjectProgress(subject: data.subject),
+                  PreviewTabs(
+                    key: ValueKey(_subjectTab),
+                    labels: const ['التمارين', 'الملفات', 'الدروس'],
+                    selected: _subjectTab,
+                    onSelected: (index) => setState(() => _subjectTab = index),
+                  ),
+                ], fill: _subjectContent(id, data)),
               ),
             (_LearningTab.courses, null) => _list(
               [
@@ -377,6 +389,69 @@ class _LearningShellState extends State<_LearningShell> {
       ),
     );
   }
+
+  Widget _subjectContent(String id, StudentSubjectDetails data) =>
+      switch (_subjectTab) {
+        0 => _LiveData<List<StudentSubjectExercise>>(
+          cache: _cache,
+          cacheKey: ('subject-exercises', id),
+          load: () => widget.repository.subjectExercises(widget.identity, id),
+          builder: (context, exercises) => exercises.isEmpty
+              ? const Center(child: PreviewText('لا توجد تمارين منشورة.'))
+              : _list([
+                  for (final exercise in exercises)
+                    PreviewListCard(
+                      title: exercise.title,
+                      asset: '5c3d1',
+                      badge: switch (exercise.state) {
+                        StudentExerciseState.solved => previewBadge(
+                          context,
+                          exercise.bestScore == null
+                              ? 'تم الحل'
+                              : 'تم الحل · ${exercise.bestScore}/100',
+                          tone: 'success',
+                        ),
+                        StudentExerciseState.grading => previewBadge(
+                          context,
+                          'قيد التصحيح',
+                          tone: 'warning',
+                        ),
+                        StudentExerciseState.attempted => previewBadge(
+                          context,
+                          'تمت المحاولة',
+                        ),
+                        StudentExerciseState.notAttempted => previewBadge(
+                          context,
+                          'لم يُحلّ',
+                        ),
+                      },
+                    ),
+                ]),
+        ),
+        1 => _LiveData<List<StudentSubjectFile>>(
+          cache: _cache,
+          cacheKey: ('subject-files', id),
+          load: () => widget.repository.subjectFiles(widget.identity, id),
+          builder: (_, files) => files.isEmpty
+              ? const Center(child: PreviewText('لا توجد ملفات منشورة.'))
+              : _list([
+                  for (final file in files)
+                    PreviewListCard(
+                      title: file.title,
+                      subtitle: file.pages == null
+                          ? null
+                          : '${file.pages} صفحة',
+                    ),
+                ]),
+        ),
+        _ =>
+          data.lessons.isEmpty
+              ? const HasobjyLearningEmptyState.lessons()
+              : _list([
+                  for (final lesson in data.lessons)
+                    StudentLessonCard(lesson: lesson),
+                ]),
+      };
 
   PreviewActions _profileActions(String? detail) => PreviewActions(
     open: _actions.open,

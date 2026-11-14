@@ -20,7 +20,17 @@ typedef StudentCoursePageData = ({
   bool hasMore,
 });
 
+typedef StudentResumeLesson = ({
+  String lessonId,
+  String lessonTitle,
+  String subjectId,
+  String subjectName,
+  int positionSeconds,
+  int? durationSeconds,
+});
+
 typedef StudentHomeData = ({
+  StudentResumeLesson? resumeLesson,
   String name,
   List<StudentSubjectItem> subjects,
   List<({String id, String name})> courses,
@@ -60,4 +70,15 @@ typedef StudentDeviceData = ({
   String? name,
   String? platform,
   DateTime? registeredAt,
+});
+
+typedef StudentSubjectFile = ({String id, String title, int? pages});
+
+enum StudentExerciseState { notAttempted, attempted, grading, solved }
+
+typedef StudentSubjectExercise = ({
+  String id,
+  String title,
+  StudentExerciseState state,
+  num? bestScore,
 });
