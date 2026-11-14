@@ -195,7 +195,7 @@ class HasobjySettingsScreen extends StatelessWidget {
         children: [
           _row(context, 'ملفي الشخصي', 'S-02'),
           _row(context, 'الجهاز المسجّل', 'S-04'),
-          _row(context, 'اشتراكاتي', 'F-07', enabled: studentName == null),
+          _row(context, 'اشتراكاتي', 'F-07'),
         ],
       ),
       PreviewText(
@@ -204,7 +204,7 @@ class HasobjySettingsScreen extends StatelessWidget {
       ),
       Column(
         children: [
-          _row(context, 'الدعم والتواصل', 'H-02', enabled: studentName == null),
+          _row(context, 'الدعم والتواصل', 'H-02'),
           _row(
             context,
             'الشروط وسياسة الخصوصية',

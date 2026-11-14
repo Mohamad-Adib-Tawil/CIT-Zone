@@ -6,6 +6,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../core/debug/safe_debug_log.dart';
 import '../../../core/errors/either.dart';
 import '../../../core/network/api_client.dart';
+import '../../../core/network/api_cancellation_token.dart';
 import '../../../core/network/api_failure.dart';
 import '../../../core/network/api_request.dart';
 import '../../../core/security/secure_session_secret_store.dart';
@@ -616,6 +617,46 @@ final class StudentSessionGateway implements StudentSessionRepository {
   });
 
   @override
+  Future<Either<StudentSessionFailure, Uri>> academicFileDownload(
+    GoogleIdentity identity,
+    String id,
+  ) => _captureLearning(() async {
+    final access = _access;
+    final response = await _authorized(
+      identity,
+      'GET',
+      'files/${Uri.encodeComponent(id)}/download',
+    );
+    if (_owner != identity.firebaseUid || _access != access) {
+      throw const ApiFailure(ApiFailureKind.unauthenticated);
+    }
+    if (response.json['data'] case {
+      'url': String url,
+      'expiresAt': String expiry,
+    }) {
+      final uri = Uri.tryParse(url);
+      final expiresAt = DateTime.tryParse(expiry);
+      if (uri != null &&
+          uri.scheme == 'https' &&
+          uri.host.isNotEmpty &&
+          uri.userInfo.isEmpty &&
+          !uri.hasFragment &&
+          expiresAt?.isAfter(DateTime.now()) == true) {
+        return uri;
+      }
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  StudentFileViewer fileViewer(GoogleIdentity identity, String id) =>
+      _StudentFileViewer(
+        api: _api,
+        path: 'files/${Uri.encodeComponent(id)}',
+        access: () => _owner == identity.firebaseUid ? _access : null,
+      );
+
+  @override
   Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
     GoogleIdentity identity,
     String id,
@@ -624,8 +665,9 @@ final class StudentSessionGateway implements StudentSessionRepository {
       'id': String id,
       'title': String title,
       'pages': int? pages,
+      'downloadable': bool downloadable,
     }) {
-      return (id: id, title: title, pages: pages);
+      return (id: id, title: title, pages: pages, downloadable: downloadable);
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });
@@ -669,6 +711,125 @@ final class StudentSessionGateway implements StudentSessionRepository {
     );
     if (response.json['data'] case final List rows) {
       return List<T>.unmodifiable(rows.map(decode));
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubscription>>>
+  subscriptions(GoogleIdentity identity) => _captureLearning(() async {
+    final response = await _authorized(identity, 'GET', 'me/subscriptions');
+    if (response.json['data'] case final List rows) {
+      return List<StudentSubscription>.unmodifiable(rows.map(_subscription));
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  StudentSubscription _subscription(Object? row) {
+    if (row case {
+      'scopeName': String? name,
+      'scopeType': String scope,
+      'state': String state,
+      'startsAt': String start,
+      'expiresAt': String expiry,
+      'daysLeft': int daysLeft,
+    }) {
+      final startsAt = DateTime.tryParse(start);
+      final expiresAt = DateTime.tryParse(expiry);
+      if (startsAt != null && expiresAt != null && daysLeft >= 0) {
+        final status = switch (state) {
+          'active' => StudentSubscriptionState.active,
+          'upcoming' => StudentSubscriptionState.upcoming,
+          'expired' => StudentSubscriptionState.expired,
+          'revoked' => StudentSubscriptionState.revoked,
+          _ => throw const ApiFailure(ApiFailureKind.invalidResponse),
+        };
+        return (
+          name: name,
+          scope: scope,
+          state: status,
+          startsAt: startsAt,
+          expiresAt: expiresAt,
+          daysLeft: daysLeft,
+        );
+      }
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicketPage>> supportTickets(
+    GoogleIdentity identity,
+    int page,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'support/tickets',
+      query: {'page': '$page', 'limit': '20'},
+    );
+    if (response.json case {
+      'data': List rows,
+      'meta': {'page': int page, 'limit': int limit, 'total': int total},
+    }) {
+      return (
+        tickets: List<StudentTicket>.unmodifiable(rows.map(_supportTicket)),
+        hasMore: page * limit < total,
+      );
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  StudentTicket _supportTicket(Object? row) {
+    if (row case {
+      'id': String id,
+      'subject': String subject,
+      'status': String status,
+      'lastMessageAt': String? last,
+      'createdAt': String created,
+    }) {
+      final updatedAt = DateTime.tryParse(last ?? created);
+      if (updatedAt != null) {
+        return (id: id, subject: subject, status: status, updatedAt: updatedAt);
+      }
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, StudentTicketThread>> supportTicket(
+    GoogleIdentity identity,
+    String id,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'support/tickets/${Uri.encodeComponent(id)}',
+    );
+    final data = response.json['data'];
+    if (data case {'messages': List messages}) {
+      return (
+        ticket: _supportTicket(data),
+        messages: List<StudentTicketMessage>.unmodifiable(
+          messages.map((row) {
+            if (row case {
+              'from': String from,
+              'body': String body,
+              'createdAt': String date,
+            }) {
+              final sentAt = DateTime.tryParse(date);
+              if (sentAt != null && (from == 'support' || from == 'student')) {
+                return (
+                  fromSupport: from == 'support',
+                  body: body,
+                  sentAt: sentAt,
+                );
+              }
+            }
+            throw const ApiFailure(ApiFailureKind.invalidResponse);
+          }),
+        ),
+      );
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });
@@ -853,5 +1014,83 @@ final class StudentSessionGateway implements StudentSessionRepository {
     );
     await _storage.write(key: _deviceKey, value: value);
     return value;
+  }
+}
+
+final class _StudentFileViewer implements StudentFileViewer {
+  _StudentFileViewer({
+    required this.api,
+    required this.path,
+    required this.access,
+  });
+
+  final ApiClient api;
+  final String path;
+  final String? Function() access;
+  final _cancellation = ApiCancellationToken();
+  String? _token;
+  int? _pageCount;
+  DateTime? _expiresAt;
+  bool _loading = false;
+
+  @override
+  Future<StudentFilePage?> page(int number) async {
+    final bearer = access();
+    if (bearer == null || _loading || _cancellation.isCanceled || number < 1) {
+      return null;
+    }
+    _loading = true;
+    try {
+      if (_token == null || _expiresAt?.isAfter(DateTime.now()) != true) {
+        final response = await api.send(
+          ApiRequest(
+            method: 'POST',
+            path: '$path/view-session',
+            headers: {'Authorization': 'Bearer $bearer'},
+          ),
+          cancellationToken: _cancellation,
+        );
+        if (_cancellation.isCanceled || access() != bearer) return null;
+        if (response.json['data'] case {
+          'token': String token,
+          'expiresAt': String expiry,
+          'pages': int? pages,
+        }) {
+          final expiresAt = DateTime.tryParse(expiry);
+          if (token.isEmpty || expiresAt == null) return null;
+          _token = token;
+          _expiresAt = expiresAt;
+          _pageCount = pages;
+        } else {
+          return null;
+        }
+      }
+      if (_cancellation.isCanceled || access() != bearer) return null;
+      final response = await api.send(
+        ApiRequest(
+          method: 'GET',
+          path: '$path/pages/$number',
+          headers: {'X-View-Token': _token!},
+          acceptImage: true,
+        ),
+        cancellationToken: _cancellation,
+      );
+      if (_cancellation.isCanceled || access() != bearer) return null;
+      final bytes = response.imageBytes;
+      return bytes == null
+          ? null
+          : (bytes: bytes, totalPages: response.totalPages ?? _pageCount);
+    } on ApiFailure catch (failure) {
+      if (failure.kind == ApiFailureKind.unauthenticated) _token = null;
+      return null;
+    } finally {
+      _loading = false;
+    }
+  }
+
+  @override
+  void close() {
+    _token = null;
+    _cancellation.cancel();
   }
 }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 
 import 'package:cit_zone/app/app_environment.dart';
 import 'package:cit_zone/app/config/app_configuration.dart';
@@ -49,6 +50,62 @@ void main() {
     androidDeviceId: () async => 'android_v1_stable_test_id',
     storage: const FlutterSecureStorage(),
   );
+
+  test('subscriptions use the server state and dates', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    final result = await sessions.subscriptions(_identity);
+    final subscription = result.getRight().toNullable()?.single;
+    expect(subscription?.scope, 'course');
+    expect(subscription?.state.name, 'expired');
+    expect(subscription?.expiresAt, DateTime.utc(2026, 11, 10));
+    expect(api.requests.last.path, 'me/subscriptions');
+  });
+
+  test(
+    'academic download accepts only a fresh HTTPS link and maps denial',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      final valid = await sessions.academicFileDownload(_identity, 'file');
+      expect(valid.getRight().toNullable()?.host, 'storage.example.test');
+      api.downloadUrl = 'http://storage.example.test/file.pdf';
+      final insecure = await sessions.academicFileDownload(_identity, 'file');
+      expect(
+        insecure.getLeft().toNullable(),
+        StudentSessionFailure.invalidResponse,
+      );
+      api.downloadUrl = null;
+      final denied = await sessions.academicFileDownload(_identity, 'file');
+      expect(
+        denied.getLeft().toNullable(),
+        StudentSessionFailure.learningDataDenied,
+      );
+    },
+  );
+
+  test('file viewer reuses the view session and closes it locally', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    final viewer = sessions.fileViewer(_identity, 'file');
+    expect((await viewer.page(1))?.totalPages, 3);
+    expect((await viewer.page(2))?.bytes, [1, 2, 3]);
+    final calls = api.requests
+        .where((request) => request.path.startsWith('files/'))
+        .toList();
+    expect(calls.map((request) => request.path), [
+      'files/file/view-session',
+      'files/file/pages/1',
+      'files/file/pages/2',
+    ]);
+    expect(calls.last.headers, {'X-View-Token': 'test-view-token'});
+    viewer.close();
+    expect(await viewer.page(3), isNull);
+    expect(api.requests.last.path, 'files/file/pages/2');
+  });
 
   test('reads the registered device and accepts an exempt account', () async {
     final api = _Api();
@@ -522,6 +579,7 @@ final class _Api implements ApiClient {
   bool rejectBasicInfo = false;
   int? academicYear;
   Object? deviceResponse;
+  String? downloadUrl = 'https://storage.example.test/file.pdf';
 
   @override
   Future<ApiResponse> send(
@@ -670,6 +728,61 @@ final class _Api implements ApiClient {
               },
             ],
             'meta': {'page': 2, 'limit': 20, 'total': 21},
+          },
+        );
+      case 'files/file/download':
+        final url = downloadUrl;
+        if (url == null) throw const ApiFailure(ApiFailureKind.forbidden);
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'url': url,
+              'expiresAt': DateTime.now()
+                  .add(const Duration(minutes: 2))
+                  .toIso8601String(),
+            },
+          },
+        );
+      case 'files/file/view-session':
+        return ApiResponse(
+          statusCode: 201,
+          requestId: 'test',
+          json: {
+            'data': {
+              'token': 'test-view-token',
+              'expiresAt': DateTime.now()
+                  .add(const Duration(minutes: 2))
+                  .toIso8601String(),
+              'pages': 3,
+            },
+          },
+        );
+      case 'files/file/pages/1':
+      case 'files/file/pages/2':
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: const {},
+          imageBytes: Uint8List.fromList([1, 2, 3]),
+          totalPages: 3,
+        );
+      case 'me/subscriptions':
+        return const ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': [
+              {
+                'scopeName': 'كورس',
+                'scopeType': 'course',
+                'state': 'expired',
+                'startsAt': '2026-10-10T00:00:00Z',
+                'expiresAt': '2026-11-10T00:00:00Z',
+                'daysLeft': 0,
+              },
+            ],
           },
         );
       case 'me/device':

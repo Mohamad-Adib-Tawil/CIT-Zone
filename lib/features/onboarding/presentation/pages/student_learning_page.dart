@@ -4,7 +4,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/errors/either.dart';
 import '../../../auth/domain/google_identity.dart';
@@ -18,6 +20,10 @@ import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
 import 'student_subject_progress.dart';
 import 'student_resume_card.dart';
+import 'student_file_view_page.dart';
+import 'student_subscriptions.dart';
+import 'student_support.dart';
+import 'preview/student_update_scaffold.dart';
 import 'student_registered_device.dart';
 import 'preview/profile_preview_screens.dart';
 import 'preview/payment_preview_screens.dart';
@@ -86,10 +92,14 @@ class _LearningShellState extends State<_LearningShell> {
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
   String? _lessonId;
+  StudentSubjectFile? _file;
+  String? _downloadingFileId;
   int _subjectTab = 2;
   bool _previous = false;
   bool _mine = false;
   int _page = 1;
+  int _supportPage = 1;
+  StudentTicket? _ticket;
 
   void _switchTab(_LearningTab tab) => setState(() {
     _tab = tab;
@@ -164,13 +174,85 @@ class _LearningShellState extends State<_LearningShell> {
     ),
   );
 
+  Widget _support(bool light) {
+    final ticket = _ticket;
+    final page = _supportPage;
+    final frame = ticket == null ? 'H-02' : 'H-04';
+    final actions = PreviewActions(
+      open: (_) {},
+      notice: () {},
+      back: ticket == null
+          ? () => _switchTab(_LearningTab.settings)
+          : () => setState(() => _ticket = null),
+    );
+    final threadCache = StudentLearningCache();
+    return HasobjyVisualScope(
+      frameName: light ? '$frame-LIGHT' : frame,
+      child: ticket == null
+          ? PreviewScaffold(
+              title: 'الدعم والتواصل',
+              actions: actions,
+              children: [
+                _LiveData<StudentTicketPage>(
+                  key: ValueKey(page),
+                  cache: _cache,
+                  cacheKey: ('support', page),
+                  load: () =>
+                      widget.repository.supportTickets(widget.identity, page),
+                  builder: (_, data) => StudentSupportList(
+                    data: data,
+                    onOpen: (ticket) => setState(() => _ticket = ticket),
+                    onPrevious: page > 1
+                        ? () => setState(() => _supportPage--)
+                        : null,
+                    onNext: data.hasMore
+                        ? () => setState(() => _supportPage++)
+                        : null,
+                  ),
+                ),
+              ],
+            )
+          : PreviewScaffold(
+              title: ticket.subject,
+              actions: actions,
+              children: [
+                _LiveData<StudentTicketThread>(
+                  cache: threadCache,
+                  cacheKey: ticket.id,
+                  load: () => widget.repository.supportTicket(
+                    widget.identity,
+                    ticket.id,
+                  ),
+                  builder: (_, data) => StudentSupportThread(data: data),
+                ),
+              ],
+            ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final repository = widget.repository;
     final identity = widget.identity;
     final light = Theme.of(context).brightness == Brightness.light;
+    if (_file case final file?) {
+      return HasobjyVisualScope(
+        frameName: light ? 'C-05-LIGHT' : 'C-05',
+        child: StudentFileViewPage(
+          file: file,
+          open: () => repository.fileViewer(identity, file.id),
+          actions: PreviewActions(
+            open: (_) {},
+            notice: () {},
+            back: () => setState(() => _file = null),
+          ),
+        ),
+      );
+    }
     if (_lessonId case final lessonId?) return _lessonPage(lessonId, light);
     final detail = _detail;
+    if (_tab == _LearningTab.settings && detail == 'support')
+      return _support(light);
     final previous = _previous;
     final mine = _mine;
     final page = _page;
@@ -180,11 +262,37 @@ class _LearningShellState extends State<_LearningShell> {
         'edit-profile' => 'S-03',
         'profile' => 'S-02',
         'device' => 'S-04',
+        'subscriptions' => 'F-07',
         _ => 'S-01',
       },
       _LearningTab.subjects => detail == null ? 'C-02' : 'C-03',
       _LearningTab.courses => detail == null ? 'F-01' : 'F-02',
     };
+    if (_tab == _LearningTab.settings && detail == 'subscriptions') {
+      return HasobjyVisualScope(
+        frameName: light ? '$frame-LIGHT' : frame,
+        child: _LiveData<List<StudentSubscription>>(
+          cache: _cache,
+          cacheKey: 'subscriptions',
+          load: () => repository.subscriptions(identity),
+          fallback: (_, placeholder) => StudentUpdateScaffold(
+            title: 'اشتراكاتي',
+            actions: _actions,
+            children: [placeholder],
+          ),
+          builder: (_, rows) => StudentSubscriptions(
+            actions: _actions,
+            subscriptions: rows,
+            onBrowseCourses: () => setState(() {
+              _tab = _LearningTab.courses;
+              _detail = null;
+              _mine = false;
+              _page = 1;
+            }),
+          ),
+        ),
+      );
+    }
     if (detail == 'device' && _tab == _LearningTab.settings) {
       return HasobjyVisualScope(
         frameName: light ? '$frame-LIGHT' : frame,
@@ -436,6 +544,46 @@ class _LearningShellState extends State<_LearningShell> {
     );
   }
 
+  Future<void> _downloadFile(String subjectId, StudentSubjectFile file) async {
+    if (_downloadingFileId != null) return;
+    setState(() => _downloadingFileId = file.id);
+    try {
+      final result = await widget.repository.academicFileDownload(
+        widget.identity,
+        file.id,
+      );
+      if (!mounted ||
+          _tab != _LearningTab.subjects ||
+          _detail != subjectId ||
+          _subjectTab != 1 ||
+          _file != null) {
+        return;
+      }
+      if (result case Right(:final value)) {
+        try {
+          if (await launchUrl(value, mode: LaunchMode.externalApplication)) {
+            return;
+          }
+        } on PlatformException {
+          // The platform may have no browser available.
+        }
+      }
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            result.getLeft().toNullable() ==
+                    StudentSessionFailure.learningDataDenied
+                ? 'تنزيل هذا الملف غير مسموح.'
+                : 'تعذّر فتح رابط التنزيل. أعد المحاولة.',
+          ),
+        ),
+      );
+    } finally {
+      if (mounted) setState(() => _downloadingFileId = null);
+    }
+  }
+
   Widget _subjectContent(String id, StudentSubjectDetails data) =>
       switch (_subjectTab) {
         0 => _LiveData<List<StudentSubjectExercise>>(
@@ -484,9 +632,17 @@ class _LearningShellState extends State<_LearningShell> {
                   for (final file in files)
                     PreviewListCard(
                       title: file.title,
-                      subtitle: file.pages == null
-                          ? null
-                          : '${file.pages} صفحة',
+                      onTap: file.downloadable
+                          ? (_downloadingFileId == null
+                                ? () => _downloadFile(id, file)
+                                : null)
+                          : () => setState(() => _file = file),
+                      subtitle: _downloadingFileId == file.id
+                          ? 'جارٍ تجهيز رابط التنزيل…'
+                          : [
+                              if (file.pages case final pages?) '$pages صفحة',
+                              if (file.downloadable) 'قابل للتنزيل',
+                            ].join(' · '),
                     ),
                 ]),
         ),
@@ -549,6 +705,12 @@ class _LearningShellState extends State<_LearningShell> {
           _switchTab(_LearningTab.settings);
         case 'S-02':
           _openDetail(_LearningTab.settings, 'profile');
+        case 'H-02':
+          _supportPage = 1;
+          _ticket = null;
+          _openDetail(_LearningTab.settings, 'support');
+        case 'F-07':
+          _openDetail(_LearningTab.settings, 'subscriptions');
         case 'S-04':
           _openDetail(_LearningTab.settings, 'device');
         case 'S-03':

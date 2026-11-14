@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'dart:typed_data';
 
 import '../debug/safe_debug_log.dart';
 import 'api_failure.dart';
@@ -84,7 +85,23 @@ class ApiTransportPolicy {
     String responseId, {
     String? requestId,
     Stopwatch? stopwatch,
+    bool acceptImage = false,
+    String? contentType,
+    String? totalPages,
   }) {
+    if (acceptImage && status >= 200 && status < 300) {
+      final type = contentType?.split(';').first.trim().toLowerCase();
+      if ((type != 'image/png' && type != 'image/jpeg') || bytes.isEmpty) {
+        throw ApiFailure(ApiFailureKind.invalidResponse, requestId: responseId);
+      }
+      return ApiResponse(
+        statusCode: status,
+        json: const {},
+        requestId: responseId,
+        imageBytes: bytes is Uint8List ? bytes : Uint8List.fromList(bytes),
+        totalPages: int.tryParse(totalPages ?? ''),
+      );
+    }
     Map<String, dynamic> json = const {};
     if (bytes.isNotEmpty) {
       try {

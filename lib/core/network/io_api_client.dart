@@ -77,7 +77,10 @@ class IoApiClient implements ApiClient {
         scope.throwIfStopped();
         outgoing!.followRedirects = false;
         request.headers.forEach(outgoing!.headers.set);
-        outgoing!.headers.set(HttpHeaders.acceptHeader, 'application/json');
+        outgoing!.headers.set(
+          HttpHeaders.acceptHeader,
+          request.acceptImage ? 'image/png, image/jpeg' : 'application/json',
+        );
         outgoing!.headers.set('X-Request-ID', scope.requestId);
         if (request.jsonBody != null) {
           outgoing!.headers.contentType = ContentType.json;
@@ -100,6 +103,13 @@ class IoApiClient implements ApiClient {
           responseId,
           requestId: scope.requestId,
           stopwatch: stopwatch,
+          acceptImage: request.acceptImage,
+          contentType: request.acceptImage
+              ? response.headers.value('content-type')
+              : null,
+          totalPages: request.acceptImage
+              ? response.headers.value('x-total-pages')
+              : null,
         );
       });
     } catch (error) {

@@ -69,6 +69,29 @@ void contract(ClientFactory factory) {
     return result;
   }
 
+  test('returns authorized image bytes only for an image request', () async {
+    final host = await server((request) {
+      request.response.headers.contentType = ContentType('image', 'png');
+      request.response.headers.set('x-total-pages', '12');
+      request.response.add([137, 80, 78, 71]);
+      unawaited(request.response.close());
+    });
+    final api = client(host.port);
+    final page = await api.send(
+      const ApiRequest(
+        method: 'GET',
+        path: 'files/file/pages/1',
+        acceptImage: true,
+      ),
+    );
+    expect(page.imageBytes, [137, 80, 78, 71]);
+    expect(page.totalPages, 12);
+    await expectLater(
+      api.send(const ApiRequest(method: 'GET', path: 'files/file/pages/1')),
+      throwsA(isA<ApiFailure>()),
+    );
+  });
+
   test(
     'logs diagnostic JSON for a rejected response with secrets masked',
     () async {

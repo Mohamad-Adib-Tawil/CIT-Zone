@@ -91,12 +91,27 @@ abstract interface class StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   );
+  Future<Either<StudentSessionFailure, Uri>> academicFileDownload(
+    GoogleIdentity identity,
+    String id,
+  );
+  StudentFileViewer fileViewer(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
     GoogleIdentity identity,
     String id,
   );
   Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
   subjectExercises(GoogleIdentity identity, String id);
+  Future<Either<StudentSessionFailure, List<StudentSubscription>>>
+  subscriptions(GoogleIdentity identity);
+  Future<Either<StudentSessionFailure, StudentTicketPage>> supportTickets(
+    GoogleIdentity identity,
+    int page,
+  );
+  Future<Either<StudentSessionFailure, StudentTicketThread>> supportTicket(
+    GoogleIdentity identity,
+    String id,
+  );
   Future<Either<StudentSessionFailure, StudentDeviceData>> device(
     GoogleIdentity identity,
   );

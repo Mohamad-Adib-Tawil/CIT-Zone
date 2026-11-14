@@ -93,7 +93,9 @@ class DioApiClient implements ApiClient {
                 : Headers.jsonContentType,
             headers: {
               ...request.headers,
-              'Accept': 'application/json',
+              'Accept': request.acceptImage
+                  ? 'image/png, image/jpeg'
+                  : 'application/json',
               'X-Request-ID': scope.requestId,
             },
           ),
@@ -121,6 +123,13 @@ class DioApiClient implements ApiClient {
           responseId,
           requestId: scope.requestId,
           stopwatch: stopwatch,
+          acceptImage: request.acceptImage,
+          contentType: request.acceptImage
+              ? response.headers.value('content-type')
+              : null,
+          totalPages: request.acceptImage
+              ? response.headers.value('x-total-pages')
+              : null,
         );
       });
     } catch (error) {

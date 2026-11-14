@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 typedef StudentSubjectItem = ({
   String id,
   String name,
@@ -73,7 +75,18 @@ typedef StudentDeviceData = ({
   DateTime? registeredAt,
 });
 
-typedef StudentSubjectFile = ({String id, String title, int? pages});
+typedef StudentSubjectFile = ({
+  String id,
+  String title,
+  int? pages,
+  bool downloadable,
+});
+typedef StudentFilePage = ({Uint8List bytes, int? totalPages});
+
+abstract interface class StudentFileViewer {
+  Future<StudentFilePage?> page(int number);
+  void close();
+}
 
 enum StudentExerciseState { notAttempted, attempted, grading, solved }
 
@@ -90,4 +103,32 @@ typedef StudentLessonDetail = ({
   bool locked,
   bool videoReady,
   String? nextId,
+});
+
+enum StudentSubscriptionState { active, upcoming, expired, revoked }
+
+typedef StudentSubscription = ({
+  String? name,
+  String scope,
+  StudentSubscriptionState state,
+  DateTime startsAt,
+  DateTime expiresAt,
+  int daysLeft,
+});
+
+typedef StudentTicket = ({
+  String id,
+  String subject,
+  String status,
+  DateTime updatedAt,
+});
+typedef StudentTicketPage = ({List<StudentTicket> tickets, bool hasMore});
+typedef StudentTicketMessage = ({
+  bool fromSupport,
+  String body,
+  DateTime sentAt,
+});
+typedef StudentTicketThread = ({
+  StudentTicket ticket,
+  List<StudentTicketMessage> messages,
 });

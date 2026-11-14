@@ -207,6 +207,34 @@ void main() {
     expect(find.text('العلاقات بين الجداول'), findsOneWidget);
     expect(find.text('قواعد البيانات · متبقٍ 12 دقيقة'), findsOneWidget);
     expect(find.byType(HasobjyLearningEmptyState), findsNothing);
+    await tester.tap(find.text('العلاقات بين الجداول'));
+    await tester.pumpAndSettle();
+    expect(find.text('تفاصيل العلاقات بين الجداول'), findsOneWidget);
+    await tester.tap(
+      find.descendant(
+        of: find.byType(HasobjyAppBar),
+        matching: find.byType(IconButton),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('متابعة المشاهدة'), findsOneWidget);
+    expect(repository.homeRequests, 1);
+  });
+
+  testWidgets('settings opens subscriptions and browses available courses', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('اشتراكاتي'));
+    await tester.pumpAndSettle();
+    expect(find.text('كورس الاختبار'), findsOneWidget);
+    expect(find.text('ينتهي قريباً'), findsOneWidget);
+    await tester.tap(find.text('تصفّح الكورسات'));
+    await tester.pumpAndSettle();
+    expect(find.text('كل الكورسات'), findsOneWidget);
   });
 
   testWidgets('a failed read keeps retry and never renders an empty state', (
@@ -334,6 +362,7 @@ class _StudentRepository implements StudentSessionRepository {
     lessons: [
       if (withLessons)
         (
+          id: 'lesson',
           title: 'مقدمة في قواعد البيانات',
           locked: false,
           completed: true,
@@ -380,12 +409,39 @@ class _StudentRepository implements StudentSessionRepository {
     String id,
   ) async {
     fileRequests++;
-    return const Right([(id: 'file', title: 'ملف المادة', pages: 12)]);
+    return const Right([
+      (id: 'file', title: 'ملف المادة', pages: 12, downloadable: false),
+    ]);
   }
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectExercise>>>
   subjectExercises(GoogleIdentity identity, String id) async => const Right([]);
+
+  @override
+  Future<Either<StudentSessionFailure, StudentLessonDetail>> lesson(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right((
+    title: 'تفاصيل العلاقات بين الجداول',
+    description: 'وصف الدرس',
+    locked: false,
+    videoReady: true,
+    nextId: null,
+  ));
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentSubscription>>>
+  subscriptions(GoogleIdentity identity) async => Right([
+    (
+      name: 'كورس الاختبار',
+      scope: 'course',
+      state: StudentSubscriptionState.active,
+      startsAt: DateTime.utc(2026, 10),
+      expiresAt: DateTime.utc(2026, 11, 17),
+      daysLeft: 3,
+    ),
+  ]);
 
   @override
   Never noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

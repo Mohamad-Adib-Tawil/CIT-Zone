@@ -15,7 +15,7 @@ class SubscriptionsPreviewScreen extends StatelessWidget {
     gap: 12,
     children: [
       PreviewText('المواد الدراسية', style: context.design.labelSemiBold),
-      _group(context, const [
+      SubscriptionRows(const [
         (
           'اشتراك الفصل الثالث الكامل',
           '4 مواد · حتى 30 يونيو 2027',
@@ -30,7 +30,7 @@ class SubscriptionsPreviewScreen extends StatelessWidget {
         ),
       ]),
       PreviewText('الكورسات', style: context.design.labelSemiBold),
-      _group(context, const [
+      SubscriptionRows(const [
         (
           'تطوير تطبيقات Flutter',
           'ينتهي الوصول في 15 أكتوبر 2027',
@@ -57,11 +57,15 @@ class SubscriptionsPreviewScreen extends StatelessWidget {
       ),
     ],
   );
+}
 
-  Widget _group(
-    BuildContext context,
-    List<(String, String, String, String)> rows,
-  ) => Container(
+class SubscriptionRows extends StatelessWidget {
+  const SubscriptionRows(this.rows, {super.key});
+
+  final List<(String, String, String, String)> rows;
+
+  @override
+  Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
     decoration: BoxDecoration(
       color: context.design.surface,
