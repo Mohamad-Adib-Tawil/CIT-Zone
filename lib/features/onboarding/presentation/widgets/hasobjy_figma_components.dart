@@ -29,9 +29,11 @@ class HasobjyFigmaFrame extends StatelessWidget {
     this.bottomNavigation,
     this.header,
     this.backgroundLayer,
+    this.scrollKey,
   });
 
   final Widget child;
+  final Key? scrollKey;
   final Widget? bottomNavigation;
   final Widget? header;
   final Widget? backgroundLayer;
@@ -49,6 +51,7 @@ class HasobjyFigmaFrame extends StatelessWidget {
         ?header,
         Expanded(
           child: CustomScrollView(
+            key: scrollKey,
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
             slivers: [SliverFillRemaining(hasScrollBody: false, child: child)],
           ),

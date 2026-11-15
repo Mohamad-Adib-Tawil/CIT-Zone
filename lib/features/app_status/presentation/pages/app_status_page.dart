@@ -15,10 +15,12 @@ class AppStatusPage extends StatelessWidget {
     required this.state,
     required this.onRetry,
     required this.onUpdate,
+    this.storeOpenFailed = false,
   });
   final AppAvailabilityState state;
   final VoidCallback onRetry;
   final VoidCallback onUpdate;
+  final bool storeOpenFailed;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +100,10 @@ class AppStatusPage extends StatelessWidget {
                   current.availability.message.isNotEmpty
               ? current.availability.message
               : fallback;
+          final canOpenStore =
+              !storeOpenFailed &&
+              current is AppAvailabilityLoaded &&
+              current.availability.storeUrl != null;
           return PopScope(
             canPop: false,
             child: HasobjyFigmaFrame(
@@ -139,13 +145,15 @@ class AppStatusPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if (frame == 'I-04')
+                    if (frame == 'I-04' && canOpenStore)
                       Hasobjy3DButton(
                         label: l10n.appStatusUpdate,
                         onPressed: onUpdate,
                         icon: const HasobjySvg('93298', width: 24, height: 24),
                       ),
-                    if (frame == 'I-02' || frame == 'I-05')
+                    if (frame == 'I-02' ||
+                        frame == 'I-05' ||
+                        (frame == 'I-04' && !canOpenStore))
                       Hasobjy3DButton(
                         label: l10n.appStatusRetry,
                         onPressed: onRetry,

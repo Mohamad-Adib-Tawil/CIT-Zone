@@ -19,10 +19,13 @@ import '../widgets/hasobjy_figma_components.dart';
 import '../widgets/hasobjy_learning_empty_state.dart';
 import 'preview/preview_widgets.dart';
 import 'student_subject_progress.dart';
+import '../../../lesson_ratings/presentation/widgets/student_lesson_rating.dart';
 import 'student_resume_card.dart';
 import 'student_file_view_page.dart';
 import 'student_subscriptions.dart';
 import 'student_support.dart';
+import 'student_grades.dart';
+import 'student_study_time.dart';
 import 'student_new_ticket.dart';
 import 'student_exercise_prompt.dart';
 import 'preview/student_update_scaffold.dart';
@@ -48,20 +51,25 @@ class StudentLearningPage extends StatelessWidget {
   Widget build(BuildContext context) =>
       BlocBuilder<GoogleIdentityCubit, GoogleIdentityState>(
         builder: (context, state) {
-          if (state case GoogleIdentityReady(
-            session: StudentSession(
-              next: StudentNextStep.home,
-              :final usageType,
+          final (identity, session) = switch (state) {
+            GoogleIdentityReady(:final identity, :final session) => (
+              identity,
+              session,
             ),
-            :final identity,
-          )) {
+            GoogleIdentityWorking(:final identity, :final session) => (
+              identity,
+              session,
+            ),
+            _ => (null, null),
+          };
+          if (identity != null && session?.next == StudentNextStep.home) {
             return _LearningShell(
               key: ValueKey(identity.firebaseUid),
               identity: identity,
               repository: repository,
               themeMode: themeMode,
               onThemeChanged: onThemeChanged,
-              coursesOnly: usageType == StudentUsageType.courses,
+              coursesOnly: session?.usageType == StudentUsageType.courses,
             );
           }
           return const SizedBox.shrink();
@@ -90,13 +98,21 @@ class _LearningShell extends StatefulWidget {
 }
 
 class _LearningShellState extends State<_LearningShell> {
-  final _cache = StudentLearningCache();
+  late final _cache = StudentLearningCache(
+    onSessionRestricted: (failure) {
+      if (mounted)
+        context.read<GoogleIdentityCubit>().restrictLearningSession(failure);
+    },
+  );
   _LearningTab _tab = _LearningTab.home;
   String? _detail;
   String? _lessonId;
+  List<StudentCourseContent>? _lessonCourseContent;
   StudentSubjectExercise? _exercise;
+  StudentGrade? _selectedGrade;
   StudentSubjectFile? _file;
   String? _downloadingFileId;
+  final _listPositions = PageStorageBucket();
   int _subjectTab = 2;
   bool _previous = false;
   bool _mine = false;
@@ -138,11 +154,30 @@ class _LearningShellState extends State<_LearningShell> {
     return result;
   }
 
+  String? _nextLesson(String id, StudentLessonDetail detail) {
+    final content = _lessonCourseContent;
+    if (content == null) return detail.nextId;
+    final index = content.indexWhere(
+      (item) => item.type == StudentCourseContentType.lesson && item.id == id,
+    );
+    if (index < 0) return null;
+    for (var next = index + 1; next < content.length; next++) {
+      final item = content[next];
+      if (item.type == StudentCourseContentType.lesson) {
+        return item.locked ? null : item.id;
+      }
+    }
+    return null;
+  }
+
   Widget _lessonPage(String id, bool light) => HasobjyVisualScope(
     frameName: light ? 'C-04-LIGHT' : 'C-04',
     child: HasobjyFigmaFrame(
       appBarTitle: 'الدرس',
-      onBack: () => setState(() => _lessonId = null),
+      onBack: () => setState(() {
+        _lessonId = null;
+        _lessonCourseContent = null;
+      }),
       backgroundLayer: _LearningBackground(frame: 'C-04', light: light),
       child: Padding(
         padding: const EdgeInsets.all(24),
@@ -167,7 +202,22 @@ class _LearningShellState extends State<_LearningShell> {
                 ),
               ],
             ),
-            if (data.nextId case final next?)
+            if (!data.locked)
+              StudentLessonRating(
+                key: ValueKey(id),
+                title: data.title,
+                initial: data.myRating,
+                onRate: (stars) async {
+                  final result = await widget.repository.rateLesson(
+                    widget.identity,
+                    id,
+                    stars,
+                  );
+                  if (result.isRight()) _cache.invalidate(('lesson', id));
+                  return result;
+                },
+              ),
+            if (_nextLesson(id, data) case final next?)
               PreviewButton(
                 'الدرس التالي',
                 onTap: () => setState(() => _lessonId = next),
@@ -279,7 +329,10 @@ class _LearningShellState extends State<_LearningShell> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) =>
+      PageStorage(bucket: _listPositions, child: _buildContent(context));
+
+  Widget _buildContent(BuildContext context) {
     final repository = widget.repository;
     final identity = widget.identity;
     final light = Theme.of(context).brightness == Brightness.light;
@@ -365,6 +418,61 @@ class _LearningShellState extends State<_LearningShell> {
       _LearningTab.subjects => detail == null ? 'C-02' : 'C-03',
       _LearningTab.courses => detail == null ? 'F-01' : 'F-02',
     };
+    if (_tab == _LearningTab.settings && detail == 'study-time') {
+      return HasobjyVisualScope(
+        frameName: light ? 'S-05-LIGHT' : 'S-05',
+        child: StudentUpdateScaffold(
+          title: 'وقتي في التطبيق',
+          actions: _profileActions('study-time'),
+          children: [
+            _LiveData<StudentStudyTime>(
+              cache: _cache,
+              cacheKey: 'study-time',
+              load: () => repository.studyTime(identity),
+              builder: (_, data) => StudentStudyTimeView(data: data),
+            ),
+          ],
+        ),
+      );
+    }
+    if (_tab == _LearningTab.settings && detail == 'grades') {
+      final grade = _selectedGrade;
+      final gradeFrame = grade == null ? 'G-01' : 'G-02';
+      return HasobjyVisualScope(
+        frameName: light ? '$gradeFrame-LIGHT' : gradeFrame,
+        child: PreviewScaffold(
+          title: grade?.name ?? 'كشف العلامات',
+          actions: PreviewActions(
+            open: (_) {},
+            notice: () {},
+            back: grade == null
+                ? () => _openDetail(_LearningTab.settings, 'profile')
+                : () => setState(() => _selectedGrade = null),
+          ),
+          backgroundLayer: _LearningBackground(frame: 'C-03', light: light),
+          children: [
+            if (grade == null)
+              _LiveData<StudentGrades>(
+                cache: _cache,
+                cacheKey: 'grades',
+                load: () => repository.grades(identity),
+                builder: (_, data) => StudentGradesView(
+                  grades: data,
+                  onOpen: (grade) => setState(() => _selectedGrade = grade),
+                ),
+              )
+            else
+              _LiveData<StudentGradeDetail>(
+                key: ValueKey(grade.id),
+                cache: _cache,
+                cacheKey: ('subject-grade', grade.id),
+                load: () => repository.subjectGrades(identity, grade.id),
+                builder: (_, data) => StudentGradeDetailView(detail: data),
+              ),
+          ],
+        ),
+      );
+    }
     if (_tab == _LearningTab.settings && detail == 'subscriptions') {
       return HasobjyVisualScope(
         frameName: light ? '$frame-LIGHT' : frame,
@@ -428,15 +536,33 @@ class _LearningShellState extends State<_LearningShell> {
               profile: data,
               onSave: _saveProfile,
             ),
-            'profile' => HasobjyProfileScreen(actions: _actions, profile: data),
+            'profile' => HasobjyProfileScreen(
+              actions: _actions,
+              profile: data,
+              onStudyTime: () =>
+                  _openDetail(_LearningTab.settings, 'study-time'),
+              onGrades: widget.coursesOnly
+                  ? null
+                  : () => _openDetail(_LearningTab.settings, 'grades'),
+            ),
             _ => _settings(context, profile: data),
           },
         ),
       );
     }
+    final scrollKey = switch ((_tab, detail)) {
+      (_LearningTab.home, null) => const PageStorageKey('home'),
+      (_LearningTab.subjects, null) => PageStorageKey(('subjects', previous)),
+      (_LearningTab.courses, null) when page == 1 => PageStorageKey((
+        'courses',
+        mine,
+      )),
+      _ => ValueKey((_tab, detail, page)),
+    };
     return HasobjyVisualScope(
       frameName: light ? '$frame-LIGHT' : frame,
       child: HasobjyFigmaFrame(
+        scrollKey: scrollKey,
         appBarTitle: detail == null
             ? null
             : _tab == _LearningTab.subjects
@@ -633,11 +759,61 @@ class _LearningShellState extends State<_LearningShell> {
                       if (course.subscribed) const PreviewText('الاشتراك نشط'),
                     ],
                   ),
+                  PreviewText('محتوى الكورس', style: context.design.label),
+                  _LiveData<List<StudentCourseContent>>(
+                    key: ValueKey(('course-content', id)),
+                    cache: _cache,
+                    cacheKey: ('course-content', id),
+                    load: () => repository.courseContent(identity, id),
+                    builder: (_, items) => items.isEmpty
+                        ? const PreviewText('لا يوجد محتوى منشور لهذا الكورس.')
+                        : _list([
+                            for (final item in items)
+                              _courseContentCard(item, items),
+                          ]),
+                  ),
                 ]),
               ),
           },
         ),
       ),
+    );
+  }
+
+  Widget _courseContentCard(
+    StudentCourseContent item,
+    List<StudentCourseContent> content,
+  ) {
+    final kind = switch (item.type) {
+      StudentCourseContentType.lesson => 'درس',
+      StudentCourseContentType.file => 'ملف للعرض فقط',
+      StudentCourseContentType.exercise => 'تمرين',
+    };
+    final access = item.locked
+        ? 'يتطلب اشتراكاً'
+        : item.isFree
+        ? 'معاينة'
+        : null;
+    return PreviewListCard(
+      title: item.title,
+      subtitle: [kind, ?access].join(' · '),
+      onTap: item.locked
+          ? null
+          : switch (item.type) {
+              StudentCourseContentType.lesson => () => setState(() {
+                _lessonCourseContent = content;
+                _lessonId = item.id;
+              }),
+              StudentCourseContentType.file => () => setState(
+                () => _file = (
+                  id: item.id,
+                  title: item.title,
+                  pages: null,
+                  downloadable: false,
+                ),
+              ),
+              StudentCourseContentType.exercise => null,
+            },
     );
   }
 
@@ -764,7 +940,7 @@ class _LearningShellState extends State<_LearningShell> {
   PreviewActions _profileActions(String? detail) => PreviewActions(
     open: _actions.open,
     notice: _actions.notice,
-    back: detail == 'edit-profile'
+    back: detail == 'edit-profile' || detail == 'study-time'
         ? () => _openDetail(_LearningTab.settings, 'profile')
         : () => _switchTab(_LearningTab.settings),
   );

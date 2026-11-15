@@ -61,11 +61,6 @@ class IoApiClient implements ApiClient {
     SafeDebugLog.event('API', 'request', {
       'request_id': scope.requestId,
       'method': request.method,
-      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
-      'headers': request.headers,
-      'body': request.jsonBody is Map
-          ? request.jsonBody! as Map
-          : {'payload_type': request.jsonBody?.runtimeType.toString()},
     });
     _active.add(scope);
     HttpClientRequest? outgoing;

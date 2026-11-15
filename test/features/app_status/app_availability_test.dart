@@ -107,6 +107,14 @@ void main() {
       config(storeUrl: 'https://evil.example/install'),
       config(storeUrl: 'https://play.google.com@evil.example/install'),
       config(storeUrl: 'javascript:alert(1)'),
+      config(storeUrl: 'https://apps.apple.com/app/id123'),
+      config(
+        storeUrl: 'https://play.google.com/store/apps/details?id=other.app',
+      ),
+      config(
+        storeUrl: 'https://play.google.com/store/apps/details?id=com.devmind.cit.learn&id=other.app',
+      ),
+      config(storeUrl: 'https://play.google.com/store/search?q=hasobjy'),
     ];
     for (final fixture in fixtures) {
       expect(() => decodeAppAvailability(fixture, info), throwsFormatException);
@@ -120,7 +128,9 @@ void main() {
   test('store URLs must be HTTPS and use a known host', () {
     expect(
       isAppStoreUrl(
-        Uri.parse('https://play.google.com/store/apps/details?id=app'),
+        Uri.parse(
+          'https://play.google.com/store/apps/details?id=com.devmind.cit.learn',
+        ),
       ),
       isTrue,
     );
@@ -156,7 +166,11 @@ void main() {
     expect(await gateway.openStore(Uri.parse('https://evil.example')), isFalse);
     expect(methods, ['appInfo']);
     expect(
-      await gateway.openStore(Uri.parse('https://play.google.com/store')),
+      await gateway.openStore(
+        Uri.parse(
+          'https://play.google.com/store/apps/details?id=com.devmind.cit.learn',
+        ),
+      ),
       isTrue,
     );
   });
@@ -185,7 +199,8 @@ void main() {
     final repository = _Repository();
     final cubit = AppAvailabilityCubit(repository);
     final first = cubit.check();
-    await cubit.check();
+    final duplicate = cubit.check();
+    expect(identical(first, duplicate), isTrue);
     expect(repository.calls, 1);
     await cubit.close();
     expect(repository.canceled, isTrue);
@@ -201,11 +216,15 @@ void main() {
     (tester) async {
       final repository = _Repository();
       final cubit = AppAvailabilityCubit(repository);
+      var restores = 0;
       addTearDown(cubit.close);
       await tester.pumpWidget(
         arabicTestApp(
           AppAvailabilityGate(
             cubit: cubit,
+            onFirstAvailable: () async {
+              restores++;
+            },
             child: const Text('verified entry'),
           ),
         ),
@@ -215,6 +234,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('verified entry'), findsNothing);
       expect(find.text('إعادة المحاولة'), findsOneWidget);
+      expect(restores, 0);
       repository.pending = Completer();
       await tester.tap(find.text('إعادة المحاولة'));
       await tester.pump();
@@ -224,8 +244,89 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('verified entry'), findsOneWidget);
+      expect(restores, 1);
     },
   );
+
+  testWidgets('store launch failure offers a fresh policy check', (
+    tester,
+  ) async {
+    final repository = _Repository()..canOpenStore = false;
+    final cubit = AppAvailabilityCubit(repository);
+    addTearDown(cubit.close);
+    await tester.pumpWidget(
+      arabicTestApp(
+        AppAvailabilityGate(cubit: cubit, child: const Text('verified entry')),
+      ),
+    );
+    repository.pending.complete(
+      Right(
+        AppAvailability(
+          AppAvailabilityKind.updateRequired,
+          storeUrl: Uri.parse(
+            'https://play.google.com/store/apps/details?id=com.devmind.cit.learn',
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('تحديث الآن'));
+    await tester.pumpAndSettle();
+    expect(repository.storeCalls, 1);
+    expect(find.text('إعادة المحاولة'), findsOneWidget);
+    expect(find.text('verified entry'), findsNothing);
+  });
+
+  testWidgets('resume keeps the active screen until the server blocks it', (
+    tester,
+  ) async {
+    final repository = _Repository();
+    final cubit = AppAvailabilityCubit(repository);
+    var sessionChecks = 0;
+    addTearDown(cubit.close);
+    await tester.pumpWidget(
+      arabicTestApp(
+        AppAvailabilityGate(
+          cubit: cubit,
+          onAvailableAfterResume: () async {
+            sessionChecks++;
+          },
+          child: const Scaffold(body: TextField()),
+        ),
+      ),
+    );
+    repository.pending.complete(
+      const Right(AppAvailability(AppAvailabilityKind.available)),
+    );
+    await tester.pumpAndSettle();
+    await tester.enterText(find.byType(TextField), 'مسودة الطالب');
+
+    repository.pending = Completer();
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump();
+    expect(repository.calls, 2);
+    expect(sessionChecks, 0);
+    expect(find.text('مسودة الطالب'), findsOneWidget);
+
+    repository.pending.complete(
+      const Right(AppAvailability(AppAvailabilityKind.available)),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('مسودة الطالب'), findsOneWidget);
+
+    repository.pending = Completer();
+    expect(sessionChecks, 1);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump();
+    repository.pending.complete(
+      const Right(AppAvailability(AppAvailabilityKind.maintenance)),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(TextField), findsNothing);
+    expect(sessionChecks, 1);
+  });
 
   for (final kind in [
     AppAvailabilityKind.maintenance,
@@ -247,10 +348,18 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('verified entry'), findsNothing);
       if (kind == AppAvailabilityKind.updateRequired) {
-        await tester.tap(find.text('تحديث الآن'));
+        expect(find.text('تحديث الآن'), findsNothing);
+        repository.pending = Completer();
+        await tester.tap(find.text('إعادة المحاولة'));
         await tester.pump();
         expect(repository.storeCalls, 0);
+        expect(repository.calls, 2);
         expect(find.text('verified entry'), findsNothing);
+        repository.pending.complete(
+          const Right(AppAvailability(AppAvailabilityKind.available)),
+        );
+        await tester.pumpAndSettle();
+        expect(find.text('verified entry'), findsOneWidget);
       }
     });
   }
@@ -285,6 +394,7 @@ class _Repository implements AppAvailabilityRepository {
   int calls = 0;
   int storeCalls = 0;
   bool canceled = false;
+  bool canOpenStore = true;
   @override
   void cancel() => canceled = true;
   @override
@@ -296,6 +406,6 @@ class _Repository implements AppAvailabilityRepository {
   @override
   Future<bool> openStore(Uri url) async {
     storeCalls++;
-    return true;
+    return canOpenStore;
   }
 }

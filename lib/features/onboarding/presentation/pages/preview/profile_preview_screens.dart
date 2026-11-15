@@ -269,10 +269,18 @@ class HasobjySettingsScreen extends StatelessWidget {
 }
 
 class HasobjyProfileScreen extends StatelessWidget {
-  const HasobjyProfileScreen({super.key, required this.actions, this.profile});
+  const HasobjyProfileScreen({
+    super.key,
+    required this.actions,
+    this.profile,
+    this.onGrades,
+    this.onStudyTime,
+  });
 
   final PreviewActions actions;
   final StudentProfileData? profile;
+  final VoidCallback? onGrades;
+  final VoidCallback? onStudyTime;
   @override
   Widget build(BuildContext context) => PreviewScaffold(
     title: 'ملفي الشخصي',
@@ -323,6 +331,10 @@ class HasobjyProfileScreen extends StatelessWidget {
           ],
         ],
       ),
+      if (onStudyTime case final open?)
+        PreviewListCard(title: 'وقتي في التطبيق', onTap: open),
+      if (onGrades case final open?)
+        PreviewButton('كشف العلامات', primary: false, onTap: open),
       const Spacer(),
       PreviewButton(
         'تعديل البيانات',

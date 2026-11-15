@@ -32,7 +32,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="168" height="185"/>
+        <image name="LaunchImage" width="108" height="108"/>
         <namedColor name="SplashBackground">
             <color name="SplashBackground" catalog="SplashBackground"/>
         </namedColor>

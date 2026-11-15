@@ -18,6 +18,9 @@ enum StudentUsageType { institute, courses }
 enum StudentSessionFailure {
   expired,
   learningDataDenied,
+  accountSuspended,
+  deviceUnauthorized,
+  lessonNotWatched,
   supportTicketClosed,
   unavailable,
   invalidResponse,
@@ -80,6 +83,8 @@ abstract interface class StudentSessionRepository {
     required bool mine,
     required int page,
   });
+  Future<Either<StudentSessionFailure, List<StudentCourseContent>>>
+  courseContent(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, StudentCourseItem>> course(
     GoogleIdentity identity,
     String id,
@@ -87,6 +92,11 @@ abstract interface class StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
     GoogleIdentity identity,
     String id,
+  );
+  Future<Either<StudentSessionFailure, int>> rateLesson(
+    GoogleIdentity identity,
+    String id,
+    int stars,
   );
   Future<Either<StudentSessionFailure, StudentLessonDetail>> lesson(
     GoogleIdentity identity,
@@ -157,6 +167,16 @@ abstract interface class StudentSessionRepository {
   );
   Future<Either<StudentSessionFailure, List<StudentLessonSummary>>>
   subjectLessons(GoogleIdentity identity, String id);
+  Future<Either<StudentSessionFailure, StudentStudyTime>> studyTime(
+    GoogleIdentity identity,
+  );
+  Future<Either<StudentSessionFailure, StudentGradeDetail>> subjectGrades(
+    GoogleIdentity identity,
+    String id,
+  );
+  Future<Either<StudentSessionFailure, StudentGrades>> grades(
+    GoogleIdentity identity,
+  );
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   );

@@ -155,36 +155,37 @@ void main() {
     );
   });
 
-  test(
-    'invalid store links and platform exceptions are contained by repository',
-    () async {
-      var calls = 0;
-      final repository = _repository(
-        _Client((_, _) async => _response),
-        _Gateway(
-          store: (_) async {
-            calls++;
-            throw StateError('native-details');
-          },
+  test('invalid store links and platform exceptions are contained by repository', () async {
+    var calls = 0;
+    final repository = _repository(
+      _Client((_, _) async => _response),
+      _Gateway(
+        store: (_) async {
+          calls++;
+          throw StateError('native-details');
+        },
+      ),
+    );
+    expect(
+      await repository.openStore(Uri.parse('https://evil.example')),
+      isFalse,
+    );
+    expect(calls, 0);
+    expect(
+      await repository.openStore(
+        Uri.parse(
+          'https://play.google.com/store/apps/details?id=com.devmind.cit.learn',
         ),
-      );
-      expect(
-        await repository.openStore(Uri.parse('https://evil.example')),
-        isFalse,
-      );
-      expect(calls, 0);
-      expect(
-        await repository.openStore(Uri.parse('https://play.google.com/store')),
-        isFalse,
-      );
-      expect(calls, 1);
-      final cubit = AppAvailabilityCubit(repository);
-      await cubit.close();
-      await cubit.check();
-      expect(await cubit.openStore(), isFalse);
-      expect(calls, 1);
-    },
-  );
+      ),
+      isFalse,
+    );
+    expect(calls, 1);
+    final cubit = AppAvailabilityCubit(repository);
+    await cubit.close();
+    await cubit.check();
+    expect(await cubit.openStore(), isFalse);
+    expect(calls, 1);
+  });
 }
 
 ApiAppAvailabilityRepository _repository(_Client client, [_Gateway? gateway]) =>

@@ -52,10 +52,24 @@ final class AppAvailability {
 
 enum AppAvailabilityFailure { network, unavailable, invalidResponse }
 
-/// Only known HTTPS app stores may be opened from remotely supplied config.
-bool isAppStoreUrl(Uri url) =>
-    url.scheme == 'https' &&
-    url.userInfo.isEmpty &&
-    !url.hasFragment &&
-    (!url.hasPort || url.port == 443) &&
-    const {'play.google.com', 'apps.apple.com'}.contains(url.host);
+/// Store listing URLs only. A server policy cannot redirect to another platform.
+bool isAppStoreUrl(Uri url, {MobilePlatform? platform}) {
+  if (url.scheme != 'https' ||
+      url.userInfo.isNotEmpty ||
+      url.hasFragment ||
+      (url.hasPort && url.port != 443)) {
+    return false;
+  }
+  return switch (url.host) {
+    'play.google.com' =>
+      platform != MobilePlatform.ios &&
+          url.path == '/store/apps/details' &&
+          url.queryParametersAll['id']?.length == 1 &&
+          url.queryParameters['id'] == 'com.devmind.cit.learn',
+    'apps.apple.com' =>
+      platform != MobilePlatform.android &&
+          RegExp(r'^/(?:[a-z]{2}/)?app/(?:[^/]+/)?id[0-9]+/?$')
+              .hasMatch(url.path),
+    _ => false,
+  };
+}

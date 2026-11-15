@@ -11,7 +11,10 @@ typedef StudentLearningDataState<T> = ({
 
 /// Owned by one authenticated learning shell and discarded with that shell.
 final class StudentLearningCache {
-  StudentLearningCache({DateTime Function()? now}) : _now = now ?? DateTime.now;
+  StudentLearningCache({DateTime Function()? now, this.onSessionRestricted})
+    : _now = now ?? DateTime.now;
+
+  final void Function(StudentSessionFailure)? onSessionRestricted;
 
   static const _freshness = Duration(seconds: 20);
   static const _lifetime = Duration(minutes: 5);
@@ -70,6 +73,11 @@ final class StudentLearningCache {
                 if (_entries.length > _capacity) {
                   _entries.remove(_entries.keys.first);
                 }
+              case Left(:final value)
+                  when value == StudentSessionFailure.accountSuspended ||
+                      value == StudentSessionFailure.deviceUnauthorized:
+                clear();
+                onSessionRestricted?.call(value);
               case Left(value: StudentSessionFailure.expired):
                 clear();
               case Left(value: StudentSessionFailure.learningDataDenied):

@@ -13,7 +13,16 @@ void main() {
     SafeDebugLog.error('Flutter', details.exception, details.stack, {
       'library': details.library,
     });
-    previousFlutterErrorHandler?.call(details);
+    previousFlutterErrorHandler?.call(
+      FlutterErrorDetails(
+        exception: ErrorSummary(
+          'Unhandled Flutter error (${details.exception.runtimeType})',
+        ),
+        stack: details.stack,
+        library: details.library,
+        silent: details.silent,
+      ),
+    );
   };
 
   final previousPlatformErrorHandler = PlatformDispatcher.instance.onError;

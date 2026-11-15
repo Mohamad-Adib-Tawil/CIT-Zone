@@ -26,22 +26,29 @@ class AppAvailabilityCubit extends Cubit<AppAvailabilityState> {
   AppAvailabilityCubit(this._repository)
     : super(const AppAvailabilityLoading());
   final AppAvailabilityRepository _repository;
-  bool _checking = false;
+  Future<void>? _checking;
 
-  Future<void> check() async {
-    if (_checking || isClosed) return;
-    _checking = true;
-    emit(const AppAvailabilityLoading());
-    try {
-      final result = await _repository.check();
-      if (!isClosed) {
-        emit(switch (result) {
-          Right(:final value) => AppAvailabilityLoaded(value),
-          Left(value: final failure) => AppAvailabilityError(failure),
-        });
-      }
-    } finally {
-      _checking = false;
+  Future<void> check({bool background = false}) {
+    if (isClosed) return Future<void>.value();
+    return _checking ??= _check(background)
+        .whenComplete(() => _checking = null);
+  }
+
+  Future<void> _check(bool background) async {
+    final available = switch (state) {
+      AppAvailabilityLoaded(
+        availability: AppAvailability(kind: AppAvailabilityKind.available),
+      ) =>
+        true,
+      _ => false,
+    };
+    if (!background || !available) emit(const AppAvailabilityLoading());
+    final result = await _repository.check();
+    if (!isClosed) {
+      emit(switch (result) {
+        Right(:final value) => AppAvailabilityLoaded(value),
+        Left(value: final failure) => AppAvailabilityError(failure),
+      });
     }
   }
 

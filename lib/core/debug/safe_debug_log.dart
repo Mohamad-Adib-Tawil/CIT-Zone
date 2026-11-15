@@ -64,7 +64,6 @@ abstract final class SafeDebugLog {
     event(scope, 'error', {
       ...fields,
       'error_type': error.runtimeType.toString(),
-      'error': error.toString(),
       if (stackTrace != null) 'stack': stackTrace.toString(),
     });
   }

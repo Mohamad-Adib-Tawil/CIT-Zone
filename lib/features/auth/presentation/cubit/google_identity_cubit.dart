@@ -124,12 +124,52 @@ class GoogleIdentityCubit extends Cubit<GoogleIdentityState> {
     final sessions = _sessions;
     if (isClosed || sessions == null) return;
     if (previous is GoogleIdentityWorking && previous.session != null) {
-      _recheckOnCompletion = true;
+      if (previous.session?.next != StudentNextStep.home) {
+        _recheckOnCompletion = true;
+      }
       return;
     }
     if (previous is! GoogleIdentityReady || previous.session == null) return;
-    emit(GoogleIdentityWorking(identity: previous.identity));
-    _emitSession(previous.identity, await sessions.read(previous.identity));
+    final checking = GoogleIdentityWorking(
+      identity: previous.identity,
+      session: previous.session?.next == StudentNextStep.home
+          ? previous.session
+          : null,
+    );
+    emit(checking);
+    final result = await sessions.read(previous.identity);
+    if (identical(state, checking)) _emitSession(previous.identity, result);
+  }
+
+  void restrictLearningSession(StudentSessionFailure failure) {
+    final next = switch (failure) {
+      StudentSessionFailure.accountSuspended => StudentNextStep.suspended,
+      StudentSessionFailure.deviceUnauthorized =>
+        StudentNextStep.deviceUnauthorized,
+      _ => null,
+    };
+    final (identity, session) = switch (state) {
+      GoogleIdentityReady(:final identity, :final session) => (
+        identity,
+        session,
+      ),
+      GoogleIdentityWorking(:final identity, :final session) => (
+        identity,
+        session,
+      ),
+      _ => (null, null),
+    };
+    if (isClosed ||
+        next == null ||
+        identity == null ||
+        session?.next != StudentNextStep.home)
+      return;
+    emit(
+      GoogleIdentityReady(
+        identity,
+        session: StudentSession(next: next, usageType: session?.usageType),
+      ),
+    );
   }
 
   Future<void> chooseUsageType(StudentUsageType value) => _submit(

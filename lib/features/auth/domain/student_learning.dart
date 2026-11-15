@@ -98,6 +98,7 @@ typedef StudentLessonDetail = ({
   String? description,
   bool locked,
   bool videoReady,
+  int? myRating,
   String? nextId,
 });
 
@@ -166,3 +167,40 @@ typedef StudentAttempt = ({
   String? explanation,
   String? suggestedFix,
 });
+
+enum StudentCourseContentType { lesson, file, exercise }
+
+typedef StudentCourseContent = ({
+  String id,
+  String title,
+  StudentCourseContentType type,
+  bool locked,
+  bool isFree,
+});
+
+typedef StudentGrade = ({
+  String id,
+  String name,
+  num? theory,
+  num? practical,
+  num? total,
+  String? result,
+});
+typedef StudentGradeTerm = ({String name, List<StudentGrade> subjects});
+typedef StudentGrades = ({num? average, List<StudentGradeTerm> terms});
+
+typedef StudentGradeAttempt = ({
+  String term,
+  String session,
+  num? theory,
+  num? practical,
+  num? total,
+  String? result,
+});
+typedef StudentGradeDetail = ({
+  num? passMark,
+  List<StudentGradeAttempt> attempts,
+});
+
+typedef StudentStudyDay = ({DateTime date, int seconds});
+typedef StudentStudyTime = ({int totalSeconds, List<StudentStudyDay> days});

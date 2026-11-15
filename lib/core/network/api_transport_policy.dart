@@ -129,7 +129,6 @@ class ApiTransportPolicy {
       'request_id': requestId ?? responseId,
       'response_request_id': responseId,
       if (stopwatch != null) 'duration_ms': stopwatch.elapsedMilliseconds,
-      'body': json,
     });
     if (status >= 200 && status < 300) {
       return ApiResponse(statusCode: status, json: json, requestId: responseId);

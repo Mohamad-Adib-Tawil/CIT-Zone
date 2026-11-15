@@ -67,11 +67,6 @@ class DioApiClient implements ApiClient {
     SafeDebugLog.event('API', 'request', {
       'request_id': scope.requestId,
       'method': request.method,
-      'path': '${uri.path}${uri.hasQuery ? '?[QUERY]' : ''}',
-      'headers': request.headers,
-      'body': request.jsonBody is Map<String, Object?>
-          ? request.jsonBody! as Map<String, Object?>
-          : {'payload': request.jsonBody?.runtimeType.toString()},
     });
     final cancel = CancelToken();
     scope.onAbort(() => cancel.cancel());

@@ -93,7 +93,7 @@ void contract(ClientFactory factory) {
   });
 
   test(
-    'logs diagnostic JSON for a rejected response with secrets masked',
+    'logs transport metadata without private request or response content',
     () async {
       final logs = <String>[];
       final original = debugPrint;
@@ -111,6 +111,8 @@ void contract(ClientFactory factory) {
                   'state': {'profileComplete': true, 'deviceAuthorized': false},
                 },
                 'accessToken': 'must-not-appear',
+                'message': 'private student support reply',
+                'url': 'https://example.test/private-signed-file',
               },
             },
           }),
@@ -119,8 +121,14 @@ void contract(ClientFactory factory) {
       });
 
       await expectLater(
-        client(endpoint.port)
-            .send(const ApiRequest(method: 'GET', path: 'me/session-state')),
+        client(endpoint.port).send(
+          const ApiRequest(
+            method: 'POST',
+            path: 'support/tickets/private-ticket-id/messages',
+            headers: {'Authorization': 'Bearer private-bearer'},
+            jsonBody: {'body': 'private student draft'},
+          ),
+        ),
         throwsA(
           isA<ApiFailure>().having(
             (error) => error.kind,
@@ -133,10 +141,19 @@ void contract(ClientFactory factory) {
       final responseLog = logs.singleWhere(
         (line) => line.contains(' response '),
       );
-      expect(responseLog, contains('"profileComplete":true'));
-      expect(responseLog, contains('"deviceAuthorized":false'));
-      expect(responseLog, contains('"accessToken":"[REDACTED]"'));
-      expect(responseLog, isNot(contains('must-not-appear')));
+      expect(responseLog, contains('"status":403'));
+      expect(responseLog, contains('"request_id":'));
+      expect(logs.join(), contains('DEVICE_CONFLICT'));
+      for (final secret in [
+        'must-not-appear',
+        'private student support reply',
+        'private-signed-file',
+        'private-ticket-id',
+        'private-bearer',
+        'private student draft',
+      ]) {
+        expect(logs.join(), isNot(contains(secret)));
+      }
     },
   );
 

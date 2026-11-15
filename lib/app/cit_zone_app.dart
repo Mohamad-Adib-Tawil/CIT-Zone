@@ -57,13 +57,13 @@ class _CitZoneAppState extends State<CitZoneApp> with WidgetsBindingObserver {
       initialLocation: widget.initialLocation,
       themeModeController: _themeModeController,
     );
-    unawaited(_identityCubit.restore());
+    if (_availabilityCubit == null) unawaited(_identityCubit.restore());
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     SafeDebugLog.event('App', 'lifecycle', {'state': state.name});
-    if (state == AppLifecycleState.resumed) {
+    if (state == AppLifecycleState.resumed && _availabilityCubit == null) {
       unawaited(_identityCubit.revalidateSession());
     }
   }
@@ -80,7 +80,12 @@ class _CitZoneAppState extends State<CitZoneApp> with WidgetsBindingObserver {
         routerConfig: _router.router,
         builder: (context, child) => _availabilityCubit == null
             ? child!
-            : AppAvailabilityGate(cubit: _availabilityCubit!, child: child!),
+            : AppAvailabilityGate(
+                cubit: _availabilityCubit!,
+                onFirstAvailable: _identityCubit.restore,
+                onAvailableAfterResume: _identityCubit.revalidateSession,
+                child: child!,
+              ),
         onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
         debugShowCheckedModeBanner: false,
         locale: const Locale('ar'),

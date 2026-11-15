@@ -29,7 +29,8 @@ AppAvailability decodeAppAvailability(
     throw const FormatException('Invalid store URL');
   }
   final url = rawUrl is String ? Uri.tryParse(rawUrl) : null;
-  if (rawUrl != null && (url == null || !isAppStoreUrl(url))) {
+  if (rawUrl != null &&
+      (url == null || !isAppStoreUrl(url, platform: info.platform))) {
     throw const FormatException('Invalid store URL');
   }
   if (maintenance['enabled'] == true) {

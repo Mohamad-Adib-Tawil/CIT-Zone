@@ -210,6 +210,16 @@ void main() {
     await tester.tap(find.text('العلاقات بين الجداول'));
     await tester.pumpAndSettle();
     expect(find.text('تفاصيل العلاقات بين الجداول'), findsOneWidget);
+    await tester.tap(find.text('قيّم هذا الدرس'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.bySemanticsLabel('4 من 5'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('إرسال التقييم'));
+    await tester.pumpAndSettle();
+    expect(find.text('شاهد الدرس أولاً قبل تقييمه.'), findsOneWidget);
+    await tester.tap(find.text('إرسال التقييم'));
+    await tester.pumpAndSettle();
+    expect(find.text('تقييمك: 4 من 5'), findsOneWidget);
     await tester.tap(
       find.descendant(
         of: find.byType(HasobjyAppBar),
@@ -337,6 +347,134 @@ void main() {
     repository.pendingLessons!.complete(const Right([]));
   });
 
+  testWidgets(
+    'session revalidation retains the active student tab until rejection',
+    (tester) async {
+      final repository = _StudentRepository();
+      final cubit = await _openLearning(tester, repository, ThemeMode.dark);
+      await tester.tap(find.text('المواد'));
+      await tester.pumpAndSettle();
+      final check = cubit.revalidateSession();
+      await tester.pump();
+      expect(find.text('الفصل الحالي'), findsOneWidget);
+      repository.sessionCheck.complete(
+        const Right(
+          StudentSession(
+            next: StudentNextStep.deviceUnauthorized,
+            usageType: StudentUsageType.institute,
+          ),
+        ),
+      );
+      await check;
+      await tester.pumpAndSettle();
+      expect(find.text('الفصل الحالي'), findsNothing);
+    },
+  );
+
+  testWidgets('returning to the subjects tab restores its scroll position', (
+    tester,
+  ) async {
+    final repository = _StudentRepository()..manySubjects = true;
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('المواد'));
+    await tester.pumpAndSettle();
+    final scrollable = find.byType(Scrollable);
+    await tester.drag(scrollable, const Offset(0, -400));
+    await tester.pumpAndSettle();
+    final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+    expect(offset, greaterThan(0));
+
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('المواد'));
+    await tester.pumpAndSettle();
+    expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+  });
+
+  testWidgets('course content opens previews and keeps locked lessons closed', (
+    tester,
+  ) async {
+    final repository = _StudentRepository()..showCourse = true;
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الكورسات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('كورس قواعد البيانات'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('درس مقفل'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('درس مقفل'));
+    await tester.pumpAndSettle();
+    expect(find.text('محتوى الكورس'), findsOneWidget);
+    await tester.ensureVisible(find.text('درس المعاينة'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('درس المعاينة'));
+    await tester.pumpAndSettle();
+    expect(find.text('تفاصيل العلاقات بين الجداول'), findsOneWidget);
+    await tester.tap(find.text('الدرس التالي'));
+    await tester.pumpAndSettle();
+    expect(repository.lessonRequests, ['preview', 'course-next']);
+    expect(find.text('الدرس التالي'), findsNothing);
+  });
+
+  testWidgets(
+    'profile opens published grades without turning pending marks into zero',
+    (tester) async {
+      final repository = _StudentRepository();
+      repository.profileResult.complete(
+        const Right((
+          name: 'طالب اختبار',
+          email: 'student@example.test',
+          phone: null,
+          department: 'برمجيات',
+          year: 2,
+        )),
+      );
+      await _openLearning(tester, repository, ThemeMode.dark);
+      await tester.tap(find.text('الإعدادات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('ملفي الشخصي'));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('كشف العلامات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('كشف العلامات'));
+      await tester.pumpAndSettle();
+      expect(find.text('78.5'), findsOneWidget);
+      expect(find.text('85'), findsOneWidget);
+      expect(find.text('قيد الإعلان'), findsOneWidget);
+      expect(find.text('—'), findsOneWidget);
+      await tester.tap(find.text('قواعد البيانات'));
+      await tester.pumpAndSettle();
+      expect(find.text('85/100'), findsOneWidget);
+      expect(find.text('ناجح · حد النجاح 60'), findsOneWidget);
+      expect(find.text('الفصل الثالث · الدورة العادية'), findsOneWidget);
+    },
+  );
+
+  testWidgets('profile opens server-reported weekly study time', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    repository.profileResult.complete(
+      const Right((
+        name: 'طالب اختبار',
+        email: 'student@example.test',
+        phone: null,
+        department: 'برمجيات',
+        year: 2,
+      )),
+    );
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('ملفي الشخصي'));
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('وقتي في التطبيق'));
+    await tester.tap(find.text('وقتي في التطبيق'));
+    await tester.pumpAndSettle();
+    expect(find.text('1 س 15 د'), findsOneWidget);
+    expect(find.text('نشاطك اليومي'), findsOneWidget);
+  });
+
   testWidgets('a failed read keeps retry and never renders an empty state', (
     tester,
   ) async {
@@ -352,7 +490,7 @@ void main() {
   });
 }
 
-Future<void> _openLearning(
+Future<GoogleIdentityCubit> _openLearning(
   WidgetTester tester,
   _StudentRepository repository,
   ThemeMode mode,
@@ -386,6 +524,7 @@ Future<void> _openLearning(
       ),
     ),
   );
+  return cubit;
 }
 
 Future<void> _capture(
@@ -416,6 +555,7 @@ class _StudentRepository implements StudentSessionRepository {
   _StudentRepository({this.withLessons = false});
 
   final bool withLessons;
+  bool manySubjects = false;
   int homeRequests = 0;
   static const _subject = (
     id: 'databases',
@@ -438,6 +578,14 @@ class _StudentRepository implements StudentSessionRepository {
     ),
   );
 
+  final sessionCheck =
+      Completer<Either<StudentSessionFailure, StudentSession>>();
+
+  @override
+  Future<Either<StudentSessionFailure, StudentSession>> read(
+    GoogleIdentity identity,
+  ) => sessionCheck.future;
+
   @override
   Future<Either<StudentSessionFailure, StudentHomeData>> home(
     GoogleIdentity identity,
@@ -450,7 +598,13 @@ class _StudentRepository implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
     GoogleIdentity identity, {
     required bool previous,
-  }) async => Right(previous ? [_subject] : []);
+  }) async => Right(
+    manySubjects
+        ? List.generate(20, (_) => _subject)
+        : previous
+        ? [_subject]
+        : [],
+  );
 
   @override
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
@@ -483,7 +637,49 @@ class _StudentRepository implements StudentSessionRepository {
     GoogleIdentity identity, {
     required bool mine,
     required int page,
-  }) async => const Right((courses: [], hasMore: false));
+  }) async => Right((courses: showCourse ? [_testCourse] : [], hasMore: false));
+
+  bool showCourse = false;
+  static const StudentCourseItem _testCourse = (
+    id: 'course',
+    name: 'كورس قواعد البيانات',
+    description: null,
+    priceUsd: '29',
+    durationDays: 365,
+    subscribed: false,
+  );
+
+  @override
+  Future<Either<StudentSessionFailure, StudentCourseItem>> course(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right(_testCourse);
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentCourseContent>>>
+  courseContent(GoogleIdentity identity, String id) async => const Right([
+    (
+      id: 'preview',
+      title: 'درس المعاينة',
+      type: StudentCourseContentType.lesson,
+      locked: false,
+      isFree: true,
+    ),
+    (
+      id: 'course-next',
+      title: 'درس آخر متاح',
+      type: StudentCourseContentType.lesson,
+      locked: false,
+      isFree: false,
+    ),
+    (
+      id: 'locked',
+      title: 'درس مقفل',
+      type: StudentCourseContentType.lesson,
+      locked: true,
+      isFree: false,
+    ),
+  ]);
 
   int profileRequests = 0;
   final profileResult =
@@ -542,17 +738,23 @@ class _StudentRepository implements StudentSessionRepository {
     StudentCodingPrompt('تمرين SQL', 'اكتب استعلاماً', 'SQL', 'SELECT *'),
   );
 
+  final lessonRequests = <String>[];
+
   @override
   Future<Either<StudentSessionFailure, StudentLessonDetail>> lesson(
     GoogleIdentity identity,
     String id,
-  ) async => const Right((
-    title: 'تفاصيل العلاقات بين الجداول',
-    description: 'وصف الدرس',
-    locked: false,
-    videoReady: true,
-    nextId: null,
-  ));
+  ) async {
+    lessonRequests.add(id);
+    return Right((
+      title: 'تفاصيل العلاقات بين الجداول',
+      description: 'وصف الدرس',
+      locked: false,
+      videoReady: true,
+      myRating: null,
+      nextId: showCourse ? 'unrelated-subject-lesson' : null,
+    ));
+  }
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubscription>>>
@@ -681,6 +883,83 @@ class _StudentRepository implements StudentSessionRepository {
     passed: true,
     explanation: 'استعلام صحيح',
     suggestedFix: null,
+  ));
+
+  int ratingRequests = 0;
+
+  @override
+  Future<Either<StudentSessionFailure, int>> rateLesson(
+    GoogleIdentity identity,
+    String id,
+    int stars,
+  ) async {
+    ratingRequests++;
+    if (ratingRequests == 1) {
+      return const Left(StudentSessionFailure.lessonNotWatched);
+    }
+    return Right(stars);
+  }
+
+  @override
+  Future<Either<StudentSessionFailure, StudentGrades>> grades(
+    GoogleIdentity identity,
+  ) async => const Right((
+    average: 78.5,
+    terms: [
+      (
+        name: 'الفصل الثالث',
+        subjects: [
+          (
+            id: 'databases',
+            name: 'قواعد البيانات',
+            theory: 50,
+            practical: 35,
+            total: 85,
+            result: 'passed',
+          ),
+          (
+            id: 'web',
+            name: 'تطوير الويب',
+            theory: null,
+            practical: null,
+            total: null,
+            result: null,
+          ),
+        ],
+      ),
+    ],
+  ));
+
+  @override
+  Future<Either<StudentSessionFailure, StudentGradeDetail>> subjectGrades(
+    GoogleIdentity identity,
+    String id,
+  ) async => const Right((
+    passMark: 60,
+    attempts: [
+      (
+        term: 'الفصل الثالث',
+        session: 'regular',
+        theory: 50,
+        practical: 35,
+        total: 85,
+        result: 'passed',
+      ),
+    ],
+  ));
+
+  @override
+  Future<Either<StudentSessionFailure, StudentStudyTime>> studyTime(
+    GoogleIdentity identity,
+  ) async => Right((
+    totalSeconds: 4500,
+    days: [
+      for (var index = 0; index < 7; index++)
+        (
+          date: DateTime.utc(2026, 11, 9 + index),
+          seconds: index == 0 ? 4500 : 0,
+        ),
+    ],
   ));
 
   @override

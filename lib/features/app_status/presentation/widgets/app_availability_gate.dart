@@ -14,9 +14,13 @@ class AppAvailabilityGate extends StatefulWidget {
     super.key,
     required this.cubit,
     required this.child,
+    this.onFirstAvailable,
+    this.onAvailableAfterResume,
   });
   final AppAvailabilityCubit cubit;
   final Widget child;
+  final Future<void> Function()? onFirstAvailable;
+  final Future<void> Function()? onAvailableAfterResume;
 
   @override
   State<AppAvailabilityGate> createState() => _AppAvailabilityGateState();
@@ -24,21 +28,54 @@ class AppAvailabilityGate extends StatefulWidget {
 
 class _AppAvailabilityGateState extends State<AppAvailabilityGate>
     with WidgetsBindingObserver {
+  bool _storeOpenFailed = false;
+  bool _openingStore = false;
+  bool _checking = false;
+  bool _wasAvailable = false;
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    unawaited(widget.cubit.check());
+    unawaited(_retry());
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) unawaited(widget.cubit.check());
+    if (state == AppLifecycleState.resumed) {
+      unawaited(_retry(background: true));
+    }
+  }
+
+  Future<void> _retry({bool background = false}) async {
+    if (_checking) return;
+    _checking = true;
+    if (_storeOpenFailed) setState(() => _storeOpenFailed = false);
+    try {
+      await widget.cubit.check(background: background);
+    } finally {
+      _checking = false;
+    }
+    if (!mounted) return;
+    if (widget.cubit.state case AppAvailabilityLoaded(
+      availability: AppAvailability(kind: AppAvailabilityKind.available),
+    )) {
+      final callback = _wasAvailable
+          ? widget.onAvailableAfterResume
+          : widget.onFirstAvailable;
+      _wasAvailable = true;
+      await callback?.call();
+    }
   }
 
   Future<void> _update() async {
-    final opened = await widget.cubit.openStore();
-    if (!opened && mounted) {
+    if (_openingStore) return;
+    _openingStore = true;
+    final state = widget.cubit.state;
+    final opened = await widget.cubit.openStore().whenComplete(() {
+      _openingStore = false;
+    });
+    if (!opened && mounted && identical(state, widget.cubit.state)) {
+      setState(() => _storeOpenFailed = true);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context).appStatusStoreUnavailable),
@@ -57,7 +94,8 @@ class _AppAvailabilityGateState extends State<AppAvailabilityGate>
             ? widget.child
             : AppStatusPage(
                 state: state,
-                onRetry: widget.cubit.check,
+                onRetry: () => _retry(),
+                storeOpenFailed: _storeOpenFailed,
                 onUpdate: _update,
               ),
       );
