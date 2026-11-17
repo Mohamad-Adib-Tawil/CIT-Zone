@@ -10,6 +10,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get loadingContent => 'جارٍ تحميل المحتوى';
+
+  @override
   String get appTitle => 'Hasobjy | حاسوبجي';
 
   @override

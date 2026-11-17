@@ -3,7 +3,6 @@ import 'package:cit_zone/features/admin/presentation/cubit/admin_dashboard_cubit
 import 'package:cit_zone/features/admin/presentation/pages/admin_dashboard_page.dart';
 import 'package:cit_zone/features/auth/presentation/pages/welcome_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'support/hasobjy_test_app.dart';
@@ -30,9 +29,10 @@ void main() {
     await tester.pumpWidget(
       BlocProvider(
         create: (_) => AdminDashboardCubit(DemoAdminRepository())..load(),
-        child: const MaterialApp(home: AdminDashboardPage()),
+        child: arabicTestApp(const AdminDashboardPage()),
       ),
     );
+    await tester.pump(const Duration(milliseconds: 250));
     await tester.pumpAndSettle();
 
     await expectLater(tester, meetsGuideline(androidTapTargetGuideline));

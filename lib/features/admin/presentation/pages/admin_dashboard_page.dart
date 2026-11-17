@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../cubit/admin_dashboard_cubit.dart';
 import '../widgets/admin_shell.dart';
+import '../widgets/admin_dashboard_skeleton.dart';
 
 class AdminDashboardPage extends StatelessWidget {
   const AdminDashboardPage({super.key});
@@ -12,9 +13,7 @@ class AdminDashboardPage extends StatelessWidget {
     return BlocBuilder<AdminDashboardCubit, AdminDashboardState>(
       builder: (context, state) {
         return switch (state) {
-          AdminDashboardLoading() => const Scaffold(
-            body: Center(child: CircularProgressIndicator()),
-          ),
+          AdminDashboardLoading() => const AdminDashboardSkeleton(),
           AdminDashboardFailure() => Scaffold(
             body: Center(
               child: Column(

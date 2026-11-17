@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:cit_zone/core/errors/either.dart';
+import 'package:cit_zone/core/widgets/app_skeleton.dart';
 import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
 import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
@@ -41,8 +42,9 @@ void main() {
       addTearDown(() => tester.binding.setSurfaceSize(null));
       final repository = _StudentRepository();
       await _openLearning(tester, repository, mode);
-      expect(find.byType(CircularProgressIndicator), findsOneWidget);
+      expect(find.byType(AppSkeleton), findsOneWidget);
       expect(find.byType(HasobjyLearningEmptyState), findsNothing);
+      await _capture(tester, size, mode, 'home-loading');
 
       repository.homeResult.complete(
         const Right((
@@ -156,7 +158,7 @@ void main() {
       await tester.tap(find.text('الرئيسية'));
       await tester.pump();
       expect(find.text('مرحباً طالب اختبار'), findsOneWidget);
-      expect(find.byType(CircularProgressIndicator), findsNothing);
+      expect(find.byType(AppSkeleton), findsNothing);
       expect(repository.homeRequests, 1);
       expect(tester.takeException(), isNull);
     });
@@ -177,13 +179,13 @@ void main() {
         expect(find.text('طالب اختبار'), findsOneWidget);
         expect(find.text('المظهر'), findsOneWidget);
         expect(find.text('تسجيل الخروج'), findsOneWidget);
-        expect(find.byType(CircularProgressIndicator), findsNothing);
+        expect(find.byType(AppSkeleton), findsNothing);
         expect(repository.profileRequests, 1);
         await _capture(tester, size, mode, 'settings');
 
         await tester.tap(find.text('ملفي الشخصي'));
         await tester.pump();
-        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(find.byType(AppSkeleton), findsOneWidget);
         expect(repository.profileRequests, 1);
         repository.profileResult.complete(
           const Left(StudentSessionFailure.unavailable),
@@ -296,7 +298,10 @@ void main() {
   ) async {
     final pending =
         Completer<Either<StudentFileViewFailure, StudentFilePage>>();
-    final viewer = _FileViewer()..nextPage = () => pending.future;
+    final firstPage = Completer<void>();
+    final viewer = _FileViewer()
+      ..firstPageGate = firstPage.future
+      ..nextPage = () => pending.future;
     await _openLearning(
       tester,
       _StudentRepository(withLessons: true)..viewer = viewer,
@@ -311,6 +316,13 @@ void main() {
     await tester.tap(find.text('الملفات'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('ملف المادة'));
+    await tester.pump();
+    expect(find.byType(AppSkeleton), findsOneWidget);
+    expect(find.byType(CircularProgressIndicator), findsNothing);
+
+    firstPage.complete();
+    await tester.pump();
+    expect(find.byType(AppSkeleton), findsNothing);
     await tester.pumpAndSettle();
 
     final next = find.text('التالية');
@@ -696,7 +708,7 @@ void main() {
     await tester.tap(find.text('قواعد البيانات'));
     await tester.pump();
     await tester.pump();
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(AppSkeleton), findsOneWidget);
     await tester.tap(find.text('الملفات'));
     await tester.pumpAndSettle();
     expect(find.text('ملف المادة'), findsOneWidget);
@@ -821,7 +833,7 @@ void main() {
       expect(repository.deviceRequests, 2);
       expect(repository.profileRequests, 1);
       expect(find.text('جهاز الاختبار'), findsOneWidget);
-      expect(find.byType(CircularProgressIndicator), findsNothing);
+      expect(find.byType(AppSkeleton), findsNothing);
 
       repository.pendingDevice!.complete(
         const Right((
@@ -2197,6 +2209,7 @@ class _StudentRepository implements StudentSessionRepository {
 
 class _FileViewer implements StudentFileViewer {
   bool closed = false;
+  Future<void>? firstPageGate;
   Future<Either<StudentFileViewFailure, StudentFilePage>> Function()? nextPage;
 
   @override
@@ -2207,6 +2220,7 @@ class _FileViewer implements StudentFileViewer {
       if (nextPage case final load?) return load();
       return const Left(StudentFileViewFailure.deviceUnauthorized);
     }
+    if (firstPageGate case final gate?) await gate;
     return Right((
       bytes: base64Decode(
         'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNQ8Cn4DwADSAHcl734WwAAAABJRU5ErkJggg==',

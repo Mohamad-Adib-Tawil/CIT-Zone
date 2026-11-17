@@ -94,6 +94,12 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('ar')];
 
+  /// No description provided for @loadingContent.
+  ///
+  /// In ar, this message translates to:
+  /// **'جارٍ تحميل المحتوى'**
+  String get loadingContent;
+
   /// Existing Arabic copy, preserved during foundation extraction.
   ///
   /// In ar, this message translates to:

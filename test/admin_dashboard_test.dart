@@ -1,3 +1,4 @@
+import 'package:cit_zone/core/widgets/app_skeleton.dart';
 import 'package:cit_zone/features/admin/data/demo_admin_repository.dart';
 import 'package:cit_zone/features/admin/presentation/pages/admin_dashboard_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,9 @@ void main() {
         ),
       ),
     );
-    await tester.pumpAndSettle();
+    expect(find.byType(AppSkeleton), findsOneWidget);
+    await tester.pump(const Duration(milliseconds: 250));
+    expect(find.byType(AppSkeleton), findsNothing);
 
     expect(find.textContaining('عرض تجريبي للتصميم'), findsOneWidget);
     expect(find.text('الدورات المنشورة'), findsOneWidget);
@@ -57,6 +60,7 @@ void main() {
         ),
       ),
     );
+    await tester.pump(const Duration(milliseconds: 250));
     await tester.pumpAndSettle();
     await tester.tap(
       find.descendant(
@@ -96,6 +100,7 @@ void main() {
         ),
       ),
     );
+    await tester.pump(const Duration(milliseconds: 250));
     await tester.pumpAndSettle();
 
     expect(find.byType(NavigationRail), findsOneWidget);

@@ -2,6 +2,7 @@ import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../widgets/student_content_skeleton.dart';
 import '../../../auth/domain/google_identity.dart';
 import '../../../auth/domain/student_registration.dart';
 import '../../../auth/domain/student_session_repository.dart';
@@ -72,7 +73,12 @@ class StudentNewTermPage extends StatelessWidget {
                   return Scaffold(
                     body: Center(
                       child: working
-                          ? const CircularProgressIndicator()
+                          ? const SingleChildScrollView(
+                              padding: EdgeInsets.all(24),
+                              child: StudentContentSkeleton(
+                                layout: StudentLoadingLayout.details,
+                              ),
+                            )
                           : Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [

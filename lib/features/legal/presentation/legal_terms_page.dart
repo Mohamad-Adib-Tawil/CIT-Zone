@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../core/errors/either.dart';
+import '../../../core/widgets/app_skeleton.dart';
 import '../../onboarding/presentation/pages/preview/preview_widgets.dart';
 import '../../onboarding/presentation/theme/hasobjy_visual_scope.dart';
 import '../domain/legal_terms_repository.dart';
@@ -122,7 +123,20 @@ class _LegalTermsPageState extends State<LegalTermsPage> {
     return PreviewPanel(
       gap: 14,
       children: snapshot.connectionState == ConnectionState.waiting
-          ? [const Center(child: CircularProgressIndicator())]
+          ? const [
+              AppSkeleton(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 12,
+                  children: [
+                    SkeletonBlock(width: double.infinity, height: 14),
+                    SkeletonBlock(width: double.infinity, height: 14),
+                    SkeletonBlock(width: 176, height: 14),
+                    SkeletonBlock(width: 96, height: 10),
+                  ],
+                ),
+              ),
+            ]
           : switch (snapshot.data) {
               Right(value: final terms?) => [
                 SelectableText(

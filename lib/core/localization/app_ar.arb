@@ -1,5 +1,6 @@
 {
   "@@locale": "ar",
+  "loadingContent": "جارٍ تحميل المحتوى",
   "appTitle": "Hasobjy | حاسوبجي",
   "@appTitle": {
     "description": "Existing Arabic copy, preserved during foundation extraction."

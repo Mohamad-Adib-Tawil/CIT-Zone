@@ -17,6 +17,7 @@ import '../cubit/student_learning_data_cubit.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
 import '../widgets/hasobjy_learning_empty_state.dart';
+import '../widgets/student_content_skeleton.dart';
 import 'preview/preview_widgets.dart';
 import 'student_subject_progress.dart';
 import '../../../lesson_ratings/presentation/widgets/student_lesson_rating.dart';
@@ -308,6 +309,7 @@ class _LearningShellState extends State<_LearningShell> {
       child: Padding(
         padding: const EdgeInsets.all(24),
         child: _LiveData<StudentLessonDetail>(
+          loadingLayout: StudentLoadingLayout.media,
           key: ValueKey(id),
           cache: _cache,
           cacheKey: ('lesson', id),
@@ -390,6 +392,9 @@ class _LearningShellState extends State<_LearningShell> {
                   iconAsset: light ? 'cf7cc' : null,
                 ),
                 _LiveData<StudentTicketPage>(
+                  loadingLayout: page == 1
+                      ? StudentLoadingLayout.list
+                      : StudentLoadingLayout.nextPage,
                   key: ValueKey(page),
                   cache: _cache,
                   cacheKey: ('support', page),
@@ -413,6 +418,7 @@ class _LearningShellState extends State<_LearningShell> {
               actions: actions,
               children: [
                 _LiveData<StudentTicketThread>(
+                  loadingLayout: StudentLoadingLayout.details,
                   cache: threadCache,
                   cacheKey: ticket.id,
                   load: () => widget.repository.supportTicket(
@@ -592,6 +598,9 @@ class _LearningShellState extends State<_LearningShell> {
             SliverPadding(
               padding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
               sliver: _LiveData<StudentNotificationPage>(
+                loadingLayout: cursor == null
+                    ? StudentLoadingLayout.list
+                    : StudentLoadingLayout.nextPage,
                 key: ValueKey(cursor),
                 cache: _cache,
                 cacheKey: ('notifications', cursor),
@@ -633,6 +642,7 @@ class _LearningShellState extends State<_LearningShell> {
           actions: PreviewActions(back: _back!, open: (_) {}, notice: () {}),
           children: [
             _LiveData<StudentExercisePrompt>(
+              loadingLayout: StudentLoadingLayout.form,
               cache: _cache,
               cacheKey: ('exercise', exercise.id),
               load: () => repository.exercise(identity, exercise.id),
@@ -739,6 +749,7 @@ class _LearningShellState extends State<_LearningShell> {
         child: switch (_notificationDestination) {
           StudentExamNotificationDestination(:final id) =>
             _LiveData<({StudentExamSession? session})>(
+              loadingLayout: StudentLoadingLayout.schedule,
               key: ValueKey(id),
               cache: _cache,
               cacheKey: ('exam-destination', id),
@@ -766,6 +777,7 @@ class _LearningShellState extends State<_LearningShell> {
           actions: _profileActions('study-time'),
           children: [
             _LiveData<StudentStudyTime>(
+              loadingLayout: StudentLoadingLayout.details,
               cache: _cache,
               cacheKey: 'study-time',
               load: () => repository.studyTime(identity),
@@ -791,6 +803,7 @@ class _LearningShellState extends State<_LearningShell> {
           children: [
             if (grade == null)
               _LiveData<StudentGrades>(
+                loadingLayout: StudentLoadingLayout.list,
                 cache: _cache,
                 cacheKey: ('grades', termId),
                 load: () => repository.grades(identity, termId: termId),
@@ -801,6 +814,7 @@ class _LearningShellState extends State<_LearningShell> {
               )
             else
               _LiveData<StudentGradeDetail>(
+                loadingLayout: StudentLoadingLayout.details,
                 key: ValueKey(grade.id),
                 cache: _cache,
                 cacheKey: ('subject-grade', grade.id),
@@ -815,6 +829,7 @@ class _LearningShellState extends State<_LearningShell> {
       return HasobjyVisualScope(
         frameName: light ? '$frame-LIGHT' : frame,
         child: _LiveData<List<StudentSubscription>>(
+          loadingLayout: StudentLoadingLayout.list,
           cache: _cache,
           cacheKey: 'subscriptions',
           load: () => repository.subscriptions(identity),
@@ -850,6 +865,7 @@ class _LearningShellState extends State<_LearningShell> {
           title: 'الجهاز المسجّل',
           children: [
             _LiveData<StudentDeviceData>(
+              loadingLayout: StudentLoadingLayout.details,
               cache: _cache,
               cacheKey: 'device',
               load: () => repository.device(identity),
@@ -863,6 +879,9 @@ class _LearningShellState extends State<_LearningShell> {
       return HasobjyVisualScope(
         frameName: light ? '$frame-LIGHT' : frame,
         child: _LiveData<StudentProfileData>(
+          loadingLayout: detail == 'edit-profile'
+              ? StudentLoadingLayout.form
+              : StudentLoadingLayout.profile,
           key: ValueKey(frame),
           cache: _cache,
           cacheKey: 'profile',
@@ -914,6 +933,7 @@ class _LearningShellState extends State<_LearningShell> {
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           child: switch ((_tab, detail)) {
             (_LearningTab.home, _) => _LiveData<StudentHomeData>(
+              loadingLayout: StudentLoadingLayout.home,
               key: const ValueKey('home'),
               cache: _cache,
               cacheKey: 'home',
@@ -925,6 +945,7 @@ class _LearningShellState extends State<_LearningShell> {
                   style: context.design.title,
                 );
                 final notifications = _LiveData<int>(
+                  loadingLayout: null,
                   cache: _cache,
                   cacheKey: _unreadNotificationsKey,
                   load: () => repository.unreadNotificationCount(identity),
@@ -996,6 +1017,7 @@ class _LearningShellState extends State<_LearningShell> {
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           sliver: _LiveData<StudentCourseItem>(
+            loadingLayout: StudentLoadingLayout.media,
             key: ValueKey(id),
             cache: _cache,
             cacheKey: ('course', id),
@@ -1038,6 +1060,7 @@ class _LearningShellState extends State<_LearningShell> {
               Widget fill(Widget child) =>
                   _paddedSliverBox(_list([...header, child]));
               return _LiveData<List<StudentCourseContent>>(
+                loadingLayout: StudentLoadingLayout.list,
                 key: ValueKey(('course-content', id)),
                 cache: _cache,
                 cacheKey: ('course-content', id),
@@ -1108,6 +1131,7 @@ class _LearningShellState extends State<_LearningShell> {
     onBack: _back!,
     onSelect: (value) => setState(() => _examSession = value),
     content: _LiveData<List<StudentExamRow>>(
+      loadingLayout: StudentLoadingLayout.schedule,
       key: ValueKey(session),
       cache: _cache,
       cacheKey: ('exam-schedule', session),
@@ -1247,6 +1271,7 @@ class _LearningShellState extends State<_LearningShell> {
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           sliver: _LiveData<StudentSubjectDetails>(
+            loadingLayout: StudentLoadingLayout.details,
             key: ValueKey(id),
             cache: _cache,
             cacheKey: ('subject', id),
@@ -1282,6 +1307,7 @@ class _LearningShellState extends State<_LearningShell> {
         _paddedSliverBox(_list(header, fill: content));
 
     return _LiveData<List<T>>(
+      loadingLayout: StudentLoadingLayout.list,
       key: ValueKey(cacheKey),
       cache: _cache,
       cacheKey: cacheKey,
@@ -1439,6 +1465,7 @@ class _LearningShellState extends State<_LearningShell> {
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           sliver: _LiveData<List<StudentSubjectItem>>(
+            loadingLayout: StudentLoadingLayout.list,
             key: ValueKey(previous),
             cache: _cache,
             cacheKey: ('subjects', previous),
@@ -1511,6 +1538,9 @@ class _LearningShellState extends State<_LearningShell> {
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           sliver: _LiveData<StudentCoursePageData>(
+            loadingLayout: page == 1
+                ? StudentLoadingLayout.list
+                : StudentLoadingLayout.nextPage,
             key: ValueKey((mine, page)),
             cache: _cache,
             cacheKey: ('courses', mine, page),
@@ -1664,6 +1694,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
     required this.cache,
     required this.cacheKey,
     required this.load,
+    required this.loadingLayout,
     required this.builder,
     this.fallback,
   });
@@ -1672,6 +1703,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
   final Object cacheKey;
 
   final Future<Either<StudentSessionFailure, T>> Function() load;
+  final StudentLoadingLayout? loadingLayout;
   final Widget Function(BuildContext, T) builder;
   final Widget Function(BuildContext, Widget)? fallback;
 
@@ -1695,8 +1727,11 @@ class _LiveData<T extends Object> extends StatelessWidget {
                 current.data == null || !identical(previous.data, current.data),
             builder: (context, state) {
               if (state.data case final data?) return builder(context, data);
+              final layout = loadingLayout;
               final placeholder = state.working
-                  ? const Center(child: CircularProgressIndicator())
+                  ? (layout == null
+                        ? const SizedBox.shrink()
+                        : StudentContentSkeleton(layout: layout))
                   : Column(
                       children: [
                         const PreviewText('تعذّر تحميل البيانات.'),

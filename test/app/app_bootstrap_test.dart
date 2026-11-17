@@ -157,6 +157,7 @@ void main() {
       await tester.pumpAndSettle();
       switch (frame) {
         case 'ADMIN_PREVIEW':
+          await tester.pump(const Duration(milliseconds: 250));
           expect(find.byType(AdminDashboardPage), findsOneWidget);
         default:
           expect(

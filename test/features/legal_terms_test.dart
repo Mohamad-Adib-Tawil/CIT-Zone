@@ -6,6 +6,7 @@ import 'package:cit_zone/core/network/api_cancellation_token.dart';
 import 'package:cit_zone/core/network/api_client.dart';
 import 'package:cit_zone/core/network/api_failure.dart';
 import 'package:cit_zone/core/network/api_request.dart';
+import 'package:cit_zone/core/widgets/app_skeleton.dart';
 import 'package:cit_zone/features/legal/data/api_legal_terms_repository.dart';
 import 'package:cit_zone/features/legal/domain/legal_terms_repository.dart';
 import 'package:cit_zone/features/legal/presentation/legal_terms_page.dart';
@@ -141,7 +142,10 @@ void main() {
       (tester) async {
         await tester.binding.setSurfaceSize(size);
         addTearDown(() => tester.binding.setSurfaceSize(null));
-        final api = _LegalApi()..offline = true;
+        final response = Completer<void>();
+        final api = _LegalApi()
+          ..offline = true
+          ..responseGate = response.future;
         var closed = false;
         await tester.pumpWidget(
           arabicTestApp(
@@ -160,7 +164,13 @@ void main() {
         expect(api.requests, isEmpty);
 
         await tester.tap(find.text('الشروط والأحكام'));
-        await tester.pumpAndSettle();
+        await tester.pump();
+        expect(find.byType(AppSkeleton), findsOneWidget);
+        expect(api.requests, hasLength(1));
+
+        response.complete();
+        await tester.pump();
+        expect(find.byType(AppSkeleton), findsNothing);
         expect(find.text('تعذّر تحميل الشروط والأحكام.'), findsOneWidget);
         api.offline = false;
         await tester.tap(find.text('إعادة المحاولة'));
@@ -191,6 +201,7 @@ class _LegalApi implements ApiClient {
   final requests = <ApiRequest>[];
   Object? payload = const {'version': 0, 'body': '', 'publishedAt': null};
   bool offline = false;
+  Future<void>? responseGate;
 
   @override
   Future<ApiResponse> send(
@@ -201,6 +212,7 @@ class _LegalApi implements ApiClient {
     expect(request.path, 'legal/terms');
     expect(request.headers, isEmpty);
     requests.add(request);
+    if (responseGate case final gate?) await gate;
     if (offline) throw const ApiFailure(ApiFailureKind.network);
     return ApiResponse(
       statusCode: 200,

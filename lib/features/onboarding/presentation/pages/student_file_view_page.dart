@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/widgets/app_skeleton.dart';
 import '../../../../core/errors/either.dart';
 import '../../../auth/domain/student_learning.dart';
 import '../theme/hasobjy_visual_scope.dart';
@@ -56,7 +57,14 @@ class StudentFileViewPage extends StatelessWidget {
                   policy: ResizeImagePolicy.fit,
                 ),
               ),
-            if (loading)
+            if (loading && state.image == null)
+              const AppSkeleton(
+                child: AspectRatio(
+                  aspectRatio: 0.707,
+                  child: SkeletonBlock(height: double.infinity),
+                ),
+              )
+            else if (loading)
               const Center(child: CircularProgressIndicator())
             else if (state.retry case final target?) ...[
               const PreviewText('تعذّر عرض الصفحة.'),

@@ -1,4 +1,5 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
+import 'package:cit_zone/core/widgets/app_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +38,16 @@ class StudentSessionPage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (state is GoogleIdentityWorking)
-                        const CircularProgressIndicator()
+                        const AppSkeleton(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            spacing: 12,
+                            children: [
+                              SkeletonBlock(width: 220, height: 18),
+                              SkeletonBlock(width: 144, height: 14),
+                            ],
+                          ),
+                        )
                       else if (ready != null) ...[
                         Text(message, textAlign: TextAlign.center),
                         if (ready.sessionFailure != null && ready.error == null)
