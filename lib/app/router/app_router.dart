@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/debug/diagnostic_route_observer.dart';
 import '../../core/theme/theme_mode_controller.dart';
@@ -23,6 +24,7 @@ import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
 import '../../features/auth/presentation/pages/google_identity_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import '../../features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
+import '../../features/legal/presentation/legal_terms_page.dart';
 import '../di/app_dependencies.dart';
 import 'app_routes.dart';
 import 'preview_route_policy.dart';
@@ -51,6 +53,9 @@ class AppRouter {
             (context, identityState) => HasobjyDesignPage(
               frameId: HasobjyFrameId.aS01,
               followSystemTheme: true,
+              onOpenLegal: (privacy) => context.push(
+                privacy ? '${AppRoutes.legal}?tab=privacy' : AppRoutes.legal,
+              ),
               onGoogleSignIn: identityCubit.isConfigured
                   ? identityCubit.signIn
                   : null,
@@ -59,6 +64,28 @@ class AppRouter {
                   ? identityState.message
                   : null,
             ),
+          ),
+        ),
+        GoRoute(
+          path: AppRoutes.legal,
+          builder: (context, state) => LegalTermsPage(
+            repository: dependencies.legalTerms,
+            initialPrivacy: state.uri.queryParameters['tab'] == 'privacy',
+            onOpenPrivacy:
+                switch (dependencies.configuration.privacyPolicyUrl) {
+                  final url? => () => launchUrl(
+                    url,
+                    mode: LaunchMode.externalApplication,
+                  ),
+                  null => null,
+                },
+            onBack: () {
+              if (context.canPop()) {
+                context.pop();
+              } else {
+                context.go(_identityLocation);
+              }
+            },
           ),
         ),
         GoRoute(
@@ -119,7 +146,7 @@ class AppRouter {
         ),
         GoRoute(
           path: AppRoutes.studentHome,
-          builder: (_, _) {
+          builder: (context, _) {
             final sessions = dependencies.studentSessions;
             return sessions == null
                 ? const StudentSessionPage()
@@ -127,6 +154,7 @@ class AppRouter {
                     repository: sessions,
                     themeMode: themeModeController,
                     onThemeChanged: themeModeController.setMode,
+                    onOpenLegal: () => context.push(AppRoutes.legal),
                   );
           },
         ),

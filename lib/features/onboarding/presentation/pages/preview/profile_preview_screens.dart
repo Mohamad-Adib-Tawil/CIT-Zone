@@ -77,6 +77,7 @@ class HasobjySettingsScreen extends StatelessWidget {
     this.studentName,
     this.academicSummary,
     this.onSignOut,
+    this.onOpenLegal,
     this.navigation,
     this.backgroundLayer,
   });
@@ -84,6 +85,7 @@ class HasobjySettingsScreen extends StatelessWidget {
   final String? studentName;
   final String? academicSummary;
   final VoidCallback? onSignOut;
+  final VoidCallback? onOpenLegal;
   final Widget? navigation;
   final Widget? backgroundLayer;
   @override
@@ -209,7 +211,8 @@ class HasobjySettingsScreen extends StatelessWidget {
             context,
             'الشروط وسياسة الخصوصية',
             'A-S08',
-            enabled: studentName == null,
+            enabled: studentName == null || onOpenLegal != null,
+            onTap: onOpenLegal,
           ),
         ],
       ),
@@ -225,11 +228,12 @@ class HasobjySettingsScreen extends StatelessWidget {
     String title,
     String destination, {
     bool enabled = true,
+    VoidCallback? onTap,
   }) => Semantics(
     button: true,
     enabled: enabled,
     child: GestureDetector(
-      onTap: enabled ? () => actions.open(destination) : null,
+      onTap: enabled ? onTap ?? () => actions.open(destination) : null,
       child: Container(
         constraints: const BoxConstraints(minHeight: 58),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -396,20 +400,43 @@ class _EditProfileState extends State<HasobjyEditProfileScreen> {
   bool saving = false;
   StudentSessionFailure? failure;
 
+  @override
+  void didUpdateWidget(covariant HasobjyEditProfileScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final previous = oldWidget.profile;
+    final updated = widget.profile;
+    if (previous == null || updated == null || previous == updated) return;
+    _updateUntouchedField(name, previous.name, updated.name);
+    _updateUntouchedField(phone, previous.phone ?? '', updated.phone ?? '');
+  }
+
+  void _updateUntouchedField(
+    TextEditingController controller,
+    String previous,
+    String updated,
+  ) {
+    if (previous != updated && controller.text == previous) {
+      controller.text = updated;
+    }
+  }
+
   Future<void> _save() async {
     final save = widget.onSave;
     final profile = widget.profile;
     if (saving || save == null || profile == null) return;
     final newName = name.text.trim();
     final newPhone = phone.text.trim();
+    final changedName = newName == profile.name ? null : newName;
+    final changedPhone = newPhone == (profile.phone ?? '') ? null : newPhone;
+    if (changedName == null && changedPhone == null) {
+      widget.actions.back();
+      return;
+    }
     setState(() {
       saving = true;
       failure = null;
     });
-    final result = await save(
-      newName == profile.name ? null : newName,
-      newPhone == (profile.phone ?? '') ? null : newPhone,
-    );
+    final result = await save(changedName, changedPhone);
     if (!mounted) return;
     setState(() {
       saving = false;

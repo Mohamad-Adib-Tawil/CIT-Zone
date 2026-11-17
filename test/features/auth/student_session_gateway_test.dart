@@ -25,6 +25,7 @@ import 'package:cit_zone/core/network/api_transport_policy.dart';
 import 'package:cit_zone/features/auth/data/firebase_identity_proof.dart';
 import 'package:cit_zone/features/auth/data/student_session_gateway.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
+import 'package:cit_zone/features/auth/domain/student_learning.dart';
 import 'package:cit_zone/features/auth/domain/student_session_repository.dart';
 import 'package:cit_zone/features/auth/domain/student_registration.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -50,6 +51,84 @@ void main() {
     androidDeviceId: () async => 'android_v1_stable_test_id',
     storage: const FlutterSecureStorage(),
   );
+
+  test(
+    'lesson detail validates the server duration and saved position',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+
+      final lesson = (await sessions.lesson(
+        _identity,
+        'lesson',
+      )).getRight().toNullable();
+      expect(lesson?.durationSeconds, 1620);
+      expect(lesson?.positionSeconds, 760);
+
+      api.lessonDuration = null;
+      final withUnknownDuration = await sessions.lesson(_identity, 'lesson');
+      expect(withUnknownDuration.isRight(), isTrue);
+      expect(
+        withUnknownDuration.getRight().toNullable()?.durationSeconds,
+        isNull,
+      );
+
+      api.lessonPosition = -1;
+      final invalid = await sessions.lesson(_identity, 'lesson');
+      expect(
+        invalid.getLeft().toNullable(),
+        StudentSessionFailure.invalidResponse,
+      );
+    },
+  );
+
+  test(
+    'unread notifications accept zero and reject malformed counts',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      expect(
+        (await sessions.unreadNotificationCount(_identity))
+            .getRight()
+            .toNullable(),
+        0,
+      );
+      expect(api.requests.last.path, 'me/notifications/unread-count');
+      for (final count in [-1, '5', null]) {
+        api.unreadCount = count;
+        final result = await sessions.unreadNotificationCount(_identity);
+        expect(
+          result.getLeft().toNullable(),
+          StudentSessionFailure.invalidResponse,
+        );
+      }
+    },
+  );
+
+  test('leaving a support thread cancels its authorized request', () async {
+    final api = _Api()
+      ..ticketReadStarted = Completer<ApiCancellationToken?>()
+      ..pendingTicketRead = Completer<void>();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    final ended = Completer<void>();
+    final pending = sessions.supportTicket(
+      _identity,
+      'ticket',
+      whenCanceled: ended.future,
+    );
+    final token = await api.ticketReadStarted!.future;
+    expect(token?.isCanceled, isFalse);
+    ended.complete();
+    await token!.whenCanceled;
+    api.pendingTicketRead!.complete();
+    expect(
+      (await pending).getLeft().toNullable(),
+      StudentSessionFailure.unavailable,
+    );
+  });
 
   test('subscriptions use the server state and dates', () async {
     final api = _Api();
@@ -86,13 +165,103 @@ void main() {
     },
   );
 
+  test(
+    'an academic download keeps the result of a successful access renewal',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      api.rejectedAccess = 'Bearer access-1';
+
+      final result = await sessions.academicFileDownload(_identity, 'file');
+
+      expect(result.getRight().toNullable()?.host, 'storage.example.test');
+      expect(
+        api.requests.where((request) => request.path == 'auth/refresh'),
+        hasLength(1),
+      );
+      expect(
+        api.requests.where((request) => request.path == 'files/file/download'),
+        hasLength(2),
+      );
+    },
+  );
+
+  test('opening a restricted viewer preserves the session denial', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    for (final (code, failure) in [
+      ('ACCOUNT_SUSPENDED', StudentFileViewFailure.accountSuspended),
+      ('DEVICE_NOT_AUTHORIZED', StudentFileViewFailure.deviceUnauthorized),
+    ]) {
+      api.viewerDenial = code;
+      final viewer = sessions.fileViewer(_identity, 'file');
+      expect((await viewer.page(1)).getLeft().toNullable(), failure);
+      viewer.close();
+    }
+    expect(api.requests.any((request) => request.acceptImage), isFalse);
+  });
+
+  test('closing the viewer discards a late image response', () async {
+    final api = _Api()
+      ..pageStarted = Completer<void>()
+      ..pendingPage = Completer<void>();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    final viewer = sessions.fileViewer(_identity, 'file');
+    final pending = viewer.page(1);
+    await api.pageStarted!.future;
+    viewer.close();
+    api.pendingPage!.complete();
+    expect((await pending).isLeft(), isTrue);
+  });
+
+  for (final signOut in [false, true]) {
+    test(
+      'a pending image respects the viewer session after signOut=$signOut',
+      () async {
+        final api = _Api()
+          ..pageStarted = Completer<void>()
+          ..pendingPage = Completer<void>();
+        final sessions = gateway(api);
+        await sessions.start(_identity);
+        final viewer = sessions.fileViewer(_identity, 'file');
+        addTearDown(viewer.close);
+        final pending = viewer.page(1);
+        await api.pageStarted!.future;
+
+        if (signOut) {
+          expect((await sessions.end(_identity)).isRight(), isTrue);
+          expect((await sessions.start(_identity)).isRight(), isTrue);
+        } else {
+          api.rejectedAccess = 'Bearer access-1';
+          expect((await sessions.read(_identity)).isRight(), isTrue);
+          expect(
+            api.requests.where((request) => request.path == 'auth/refresh'),
+            hasLength(1),
+          );
+        }
+
+        api.pendingPage!.complete();
+        final result = await pending;
+        if (signOut) {
+          expect(result.isLeft(), isTrue);
+          expect((await viewer.page(2)).isLeft(), isTrue);
+        } else {
+          expect(result.getRight().toNullable()?.bytes, [1, 2, 3]);
+        }
+      },
+    );
+  }
+
   test('file viewer reuses the view session and closes it locally', () async {
     final api = _Api();
     final sessions = gateway(api);
     await sessions.start(_identity);
     final viewer = sessions.fileViewer(_identity, 'file');
-    expect((await viewer.page(1))?.totalPages, 3);
-    expect((await viewer.page(2))?.bytes, [1, 2, 3]);
+    expect((await viewer.page(1)).getRight().toNullable()?.totalPages, 3);
+    expect((await viewer.page(2)).getRight().toNullable()?.bytes, [1, 2, 3]);
     final calls = api.requests
         .where((request) => request.path.startsWith('files/'))
         .toList();
@@ -103,7 +272,7 @@ void main() {
     ]);
     expect(calls.last.headers, {'X-View-Token': 'test-view-token'});
     viewer.close();
-    expect(await viewer.page(3), isNull);
+    expect((await viewer.page(3)).isLeft(), isTrue);
     expect(api.requests.last.path, 'files/file/pages/2');
   });
 
@@ -228,6 +397,117 @@ void main() {
     await gateway(api).start(_identity);
     expect((api.requests[5].jsonBody as Map)['device'], device);
   });
+
+  test('concurrent expired reads share one rotation and retry once', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    api.rejectedAccess = 'Bearer access-1';
+    final results = await Future.wait([
+      sessions.subscriptions(_identity),
+      sessions.subscriptions(_identity),
+    ]);
+    expect(results.every((result) => result.isRight()), isTrue);
+    expect(api.requests.where((r) => r.path == 'auth/refresh'), hasLength(1));
+    expect(
+      api.requests
+          .where((r) => r.path == 'me/subscriptions')
+          .map((r) => r.headers['Authorization']),
+      [
+        'Bearer access-1',
+        'Bearer access-1',
+        'Bearer access-2',
+        'Bearer access-2',
+      ],
+    );
+  });
+
+  test(
+    'a read rejected during local rotation waits for the new session',
+    () async {
+      final api = _Api()
+        ..refreshStarted = Completer<void>()
+        ..pendingRefresh = Completer<void>();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      api.rejectedAccess = 'Bearer access-1';
+      final first = sessions.subscriptions(_identity);
+      await api.refreshStarted!.future;
+      api.accessFailure = 'SESSION_REVOKED';
+      final second = sessions.subscriptions(_identity);
+      api.pendingRefresh!.complete();
+
+      expect((await first).isRight(), isTrue);
+      expect((await second).isRight(), isTrue);
+      expect(api.requests.where((r) => r.path == 'auth/refresh'), hasLength(1));
+    },
+  );
+
+  test('a rejected rotation returns expiry to all pending reads', () async {
+    final api = _Api()..rejectRefresh = true;
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    api.rejectedAccess = 'Bearer access-1';
+
+    final results = await Future.wait([
+      sessions.subscriptions(_identity),
+      sessions.subscriptions(_identity),
+    ]);
+    for (final result in results) {
+      expect(result.getLeft().toNullable(), StudentSessionFailure.expired);
+    }
+    expect(api.requests.where((r) => r.path == 'auth/refresh'), hasLength(1));
+    expect((await sessions.restore(_identity)).getRight().toNullable(), isNull);
+  });
+
+  test('an expired write and a revoked read do not retry', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    api.rejectedAccess = 'Bearer access-1';
+    final write = await sessions.updateProfile(
+      _identity,
+      officialName: 'اسم جديد',
+    );
+    expect(write.getLeft().toNullable(), StudentSessionFailure.expired);
+    expect(api.requests.where((r) => r.method == 'PATCH'), hasLength(1));
+    api.accessFailure = 'SESSION_REVOKED';
+    final read = await sessions.subscriptions(_identity);
+    expect(read.getLeft().toNullable(), StudentSessionFailure.expired);
+    expect(api.requests.where((r) => r.path == 'auth/refresh'), isEmpty);
+  });
+
+  test(
+    'logout during rotation revokes the new token without retrying the read',
+    () async {
+      final api = _Api()
+        ..refreshStarted = Completer<void>()
+        ..pendingRefresh = Completer<void>();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      api.rejectedAccess = 'Bearer access-1';
+      final read = sessions.subscriptions(_identity);
+      await api.refreshStarted!.future;
+      final logout = sessions.end(_identity);
+      api.pendingRefresh!.complete();
+
+      expect(
+        (await read).getLeft().toNullable(),
+        StudentSessionFailure.expired,
+      );
+      expect((await logout).isRight(), isTrue);
+      expect(api.requests.last.path, 'auth/logout');
+      expect(api.requests.last.jsonBody, {'refreshToken': _refresh(2)});
+      expect(
+        api.requests.where((r) => r.path == 'me/subscriptions'),
+        hasLength(1),
+      );
+      expect(
+        (await sessions.restore(_identity)).getRight().toNullable(),
+        isNull,
+      );
+    },
+  );
 
   test('clears a rejected refresh without retrying the write', () async {
     final api = _Api();
@@ -519,13 +799,12 @@ void main() {
       final count = api.requests.length;
       expect((await sessions.updateProfile(_identity)).isRight(), isTrue);
       expect(api.requests, hasLength(count));
-      expect(
-        (await sessions.updateProfile(
-          _identity,
-          officialName: 'اسم جديد',
-        )).isRight(),
-        isTrue,
+      final saved = await sessions.updateProfile(
+        _identity,
+        officialName: 'اسم جديد',
       );
+      expect(saved.getRight().toNullable()?.name, 'اسم جديد');
+      expect(saved.getRight().toNullable()?.phone, '+963955000002');
       final request = api.requests.last;
       expect(request.method, 'PATCH');
       expect(request.path, 'me');
@@ -537,6 +816,57 @@ void main() {
       expect(rejected.getLeft().toNullable(), StudentSessionFailure.phoneTaken);
     },
   );
+
+  test(
+    'profile patch distinguishes session restrictions from field errors',
+    () async {
+      final api = _Api();
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      for (final (code, expected) in [
+        ('ACCOUNT_SUSPENDED', StudentSessionFailure.accountSuspended),
+        ('DEVICE_NOT_AUTHORIZED', StudentSessionFailure.deviceUnauthorized),
+      ]) {
+        api.profileDenial = code;
+        final result = await sessions.updateProfile(
+          _identity,
+          officialName: 'اسم جديد',
+        );
+        expect(result.getLeft().toNullable(), expected);
+      }
+    },
+  );
+
+  for (final (code, next) in [
+    ('ACCOUNT_SUSPENDED', StudentNextStep.suspended),
+    ('DEVICE_NOT_AUTHORIZED', StudentNextStep.deviceUnauthorized),
+    ('UNKNOWN_DENIAL', null),
+  ]) {
+    test('revalidating a session handles $code', () async {
+      final api = _Api()..next = 'home';
+      final cubit = GoogleIdentityCubit(
+        GoogleIdentityRepositoryImpl(_IdentityGateway()),
+        messages: AppLocalizationsAr(),
+        sessions: gateway(api),
+      );
+      addTearDown(cubit.close);
+      await cubit.signIn();
+      expect(
+        (cubit.state as GoogleIdentityReady).session?.next,
+        StudentNextStep.home,
+      );
+
+      api.sessionDenial = code;
+      await cubit.revalidateSession();
+
+      final verified = cubit.state as GoogleIdentityReady;
+      expect(verified.session?.next, next);
+      expect(
+        verified.sessionFailure,
+        next == null ? StudentSessionFailure.unavailable : null,
+      );
+    });
+  }
 
   test(
     'network loss after commit retries the read without resending the choice',
@@ -582,14 +912,28 @@ final class _Proof implements FirebaseIdentityProofSource {
 final class _Api implements ApiClient {
   final requests = <ApiRequest>[];
   bool rejectRefresh = false;
+  String? rejectedAccess;
+  String accessFailure = 'TOKEN_EXPIRED';
+  Completer<void>? refreshStarted;
+  Completer<void>? pendingRefresh;
   int exchanges = 0;
   String next = 'choose_usage_type';
   String? usageType;
   Completer<void>? pendingUsage;
   bool failNextRead = false;
+  String? sessionDenial;
   bool rejectBasicInfo = false;
   int? academicYear;
   Object? deviceResponse;
+  String? profileDenial;
+  Completer<ApiCancellationToken?>? ticketReadStarted;
+  Completer<void>? pendingTicketRead;
+  Object? unreadCount = 0;
+  String? viewerDenial;
+  int? lessonDuration = 1620;
+  int lessonPosition = 760;
+  Completer<void>? pageStarted;
+  Completer<void>? pendingPage;
   String? downloadUrl = 'https://storage.example.test/file.pdf';
 
   @override
@@ -598,9 +942,17 @@ final class _Api implements ApiClient {
     ApiCancellationToken? cancellationToken,
   }) async {
     requests.add(request);
+    if (rejectedAccess != null &&
+        request.headers['Authorization'] == rejectedAccess) {
+      throw ApiFailure(ApiFailureKind.unauthenticated, code: accessFailure);
+    }
     switch (request.path) {
       case 'auth/google':
       case 'auth/refresh':
+        if (request.path == 'auth/refresh') {
+          refreshStarted?.complete();
+          await pendingRefresh?.future;
+        }
         if (request.path == 'auth/refresh' && rejectRefresh) {
           throw const ApiFailure(
             ApiFailureKind.unauthenticated,
@@ -741,6 +1093,22 @@ final class _Api implements ApiClient {
             'meta': {'page': 2, 'limit': 20, 'total': 21},
           },
         );
+      case 'lessons/lesson':
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'title': 'درس الاختبار',
+              'description': null,
+              'locked': false,
+              'videoReady': true,
+              'durationSeconds': lessonDuration,
+              'positionSeconds': lessonPosition,
+              'next': null,
+            },
+          },
+        );
       case 'files/file/download':
         final url = downloadUrl;
         if (url == null) throw const ApiFailure(ApiFailureKind.forbidden);
@@ -757,6 +1125,9 @@ final class _Api implements ApiClient {
           },
         );
       case 'files/file/view-session':
+        if (viewerDenial case final code?) {
+          throw ApiFailure(ApiFailureKind.forbidden, code: code);
+        }
         return ApiResponse(
           statusCode: 201,
           requestId: 'test',
@@ -772,6 +1143,8 @@ final class _Api implements ApiClient {
         );
       case 'files/file/pages/1':
       case 'files/file/pages/2':
+        pageStarted?.complete();
+        await pendingPage?.future;
         return ApiResponse(
           statusCode: 200,
           requestId: 'test',
@@ -779,6 +1152,18 @@ final class _Api implements ApiClient {
           imageBytes: Uint8List.fromList([1, 2, 3]),
           totalPages: 3,
         );
+      case 'me/notifications/unread-count':
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {'count': unreadCount},
+          },
+        );
+      case 'support/tickets/ticket':
+        ticketReadStarted?.complete(cancellationToken);
+        await pendingTicketRead?.future;
+        return const ApiResponse(statusCode: 200, json: {}, requestId: 'test');
       case 'me/subscriptions':
         return const ApiResponse(
           statusCode: 200,
@@ -817,11 +1202,31 @@ final class _Api implements ApiClient {
           json: {'data': deviceResponse},
         );
       case 'me':
-        if ((request.jsonBody as Map).containsKey('phone')) {
+        if (profileDenial case final code?) {
+          throw ApiFailure(ApiFailureKind.forbidden, code: code);
+        }
+        final changes = request.jsonBody as Map;
+        if (changes.containsKey('phone')) {
           throw const ApiFailure(ApiFailureKind.conflict, code: 'PHONE_TAKEN');
         }
-        return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': {
+              'displayName': 'طالب اختبار',
+              'officialName': changes['officialName'],
+              'email': 'student@example.test',
+              'phone': '+963955000002',
+              'department': null,
+              'year': null,
+            },
+          },
+        );
       case 'me/session-state':
+        if (sessionDenial case final code?) {
+          throw ApiFailure(ApiFailureKind.forbidden, code: code);
+        }
         if (failNextRead) {
           failNextRead = false;
           throw const ApiFailure(ApiFailureKind.network);

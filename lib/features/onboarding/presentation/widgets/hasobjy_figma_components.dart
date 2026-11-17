@@ -23,16 +23,18 @@ class HasobjyReferenceViewport extends InheritedWidget {
 class HasobjyFigmaFrame extends StatelessWidget {
   const HasobjyFigmaFrame({
     super.key,
-    required this.child,
+    this.child,
+    this.slivers,
     this.appBarTitle,
     this.onBack,
     this.bottomNavigation,
     this.header,
     this.backgroundLayer,
     this.scrollKey,
-  });
+  }) : assert((child == null) != (slivers == null));
 
-  final Widget child;
+  final Widget? child;
+  final List<Widget>? slivers;
   final Key? scrollKey;
   final Widget? bottomNavigation;
   final Widget? header;
@@ -53,14 +55,16 @@ class HasobjyFigmaFrame extends StatelessWidget {
           child: CustomScrollView(
             key: scrollKey,
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            slivers: [SliverFillRemaining(hasScrollBody: false, child: child)],
+            slivers:
+                slivers ??
+                [SliverFillRemaining(hasScrollBody: false, child: child)],
           ),
         ),
         ?bottomNavigation,
       ],
     );
     final background = context.designFrame?.assets['img3DBackground'];
-    final visualBackground = backgroundLayer ?? _lightBackground(context);
+    final visualBackground = backgroundLayer ?? _frameBackground(context);
     final backgroundLayerWidget =
         visualBackground ??
         (background == null
@@ -113,13 +117,17 @@ class HasobjyFigmaFrame extends StatelessWidget {
     );
   }
 
-  Widget? _lightBackground(BuildContext context) {
+  Widget? _frameBackground(BuildContext context) {
     final ornaments = switch (context.designFrame?.frameName) {
       'F-05-LIGHT' || 'B-S03-LIGHT' || 'S-03-LIGHT' => const [
         ('5df30', 364.0, 118.0, 64.0),
         ('ae3b3', -21.2, 280.8, 38.4),
       ],
-      'H-02-LIGHT' || 'B-S01-LIGHT' => const [
+      'H-02-LIGHT' ||
+      'B-S01-LIGHT' ||
+      'B-S06-LIGHT' ||
+      'A-S08' ||
+      'A-S08-LIGHT' => const [
         ('a12f7', -26.4, 227.6, 44.8),
         ('f1409', 368.67, 180.67, 58.667),
       ],
@@ -127,7 +135,7 @@ class HasobjyFigmaFrame extends StatelessWidget {
         ('ff7c9', 380.8, 240.8, 38.4),
         ('5a19f', -42.67, 155.33, 69.333),
       ],
-      'I-02-LIGHT' => const [
+      'I-02-LIGHT' || 'B-S06' => const [
         ('6f3f1', -43.33, 122.67, 74.667),
         ('9af13', 381.2, 99.2, 41.6),
       ],
@@ -139,7 +147,10 @@ class HasobjyFigmaFrame extends StatelessWidget {
         builder: (_, constraints) => Stack(
           fit: StackFit.expand,
           children: [
-            const HasobjySvg('624a4', fit: BoxFit.fill),
+            HasobjySvg(
+              context.design.isLight ? '624a4' : 'acb67',
+              fit: BoxFit.fill,
+            ),
             for (final (asset, x, y, size) in ornaments)
               Positioned(
                 left: x > 195 ? constraints.maxWidth - (390 - x) : x,
@@ -577,11 +588,13 @@ class HasobjyBadge extends StatelessWidget {
     this.background,
     this.foreground,
     this.onTap,
+    this.textDirection = TextDirection.rtl,
   });
   final String label;
   final Color? background;
   final Color? foreground;
   final VoidCallback? onTap;
+  final TextDirection textDirection;
   @override
   Widget build(BuildContext context) => GestureDetector(
     onTap: onTap,
@@ -593,7 +606,7 @@ class HasobjyBadge extends StatelessWidget {
       ),
       child: Text(
         label,
-        textDirection: TextDirection.rtl,
+        textDirection: textDirection,
         style: context.design.badge.copyWith(
           color: foreground ?? context.design.textSecondary,
         ),

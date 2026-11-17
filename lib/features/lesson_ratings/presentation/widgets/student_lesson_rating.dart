@@ -6,6 +6,7 @@ import '../../../../core/errors/either.dart';
 import '../../../auth/domain/student_session_repository.dart';
 import '../../../onboarding/presentation/pages/preview/preview_widgets.dart';
 import '../../../onboarding/presentation/theme/hasobjy_visual_scope.dart';
+import '../../../onboarding/presentation/widgets/hasobjy_figma_components.dart';
 import '../cubit/rating_selection_cubit.dart';
 import 'lesson_rating_sheet.dart';
 
@@ -61,13 +62,54 @@ class _StudentLessonRatingState extends State<StudentLessonRating> {
   }
 
   @override
-  Widget build(BuildContext context) => PreviewListCard(
-    title: 'قيّم هذا الدرس',
-    subtitle: switch (_saved ?? widget.initial) {
-      final stars? => 'تقييمك: $stars من 5',
-      null => 'اختر تقييمك',
-    },
-    onTap: _open,
+  Widget build(BuildContext context) => Semantics(
+    button: true,
+    child: InkWell(
+      onTap: _open,
+      child: PreviewPanel(
+        height: 70,
+        children: [
+          Row(
+            textDirection: TextDirection.ltr,
+            spacing: 12,
+            children: [
+              Expanded(
+                child: FittedBox(
+                  alignment: Alignment.centerLeft,
+                  fit: BoxFit.scaleDown,
+                  child: Row(
+                    children: List.generate(
+                      5,
+                      (_) => HasobjySvg(
+                        context.design.isLight ? '65432' : 'b8cdb',
+                        width: 26,
+                        height: 26,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    PreviewText('قيّم هذا الدرس', style: context.design.label),
+                    PreviewText(
+                      switch (_saved ?? widget.initial) {
+                        final stars? => 'تقييمك: $stars من 5',
+                        null => 'اضغط على النجوم',
+                      },
+                      muted: true,
+                      style: context.design.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
   );
 }
 
@@ -105,9 +147,17 @@ class _RatingDialogState extends State<_RatingDialog> {
       Navigator.of(context).pop();
       return;
     }
+    final failure = result.getLeft().toNullable();
+    if (failure == StudentSessionFailure.accountSuspended ||
+        failure == StudentSessionFailure.deviceUnauthorized) {
+      if (ModalRoute.of(context)?.isCurrent == true) {
+        Navigator.of(context).pop();
+      }
+      return;
+    }
     setState(() {
       _busy = false;
-      _error = switch (result.getLeft().toNullable()) {
+      _error = switch (failure) {
         StudentSessionFailure.lessonNotWatched =>
           'شاهد الدرس أولاً قبل تقييمه.',
         StudentSessionFailure.learningDataDenied => 'لا يمكنك تقييم هذا الدرس.',

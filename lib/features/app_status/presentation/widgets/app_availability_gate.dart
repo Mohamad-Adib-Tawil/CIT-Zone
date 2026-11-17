@@ -32,6 +32,7 @@ class _AppAvailabilityGateState extends State<AppAvailabilityGate>
   bool _openingStore = false;
   bool _checking = false;
   bool _wasAvailable = false;
+  bool _retainChild = false;
   @override
   void initState() {
     super.initState();
@@ -84,20 +85,43 @@ class _AppAvailabilityGateState extends State<AppAvailabilityGate>
     }
   }
 
+  bool _isAvailable(AppAvailabilityState state) =>
+      state is AppAvailabilityLoaded &&
+      state.availability.kind == AppAvailabilityKind.available;
+
   @override
   Widget build(BuildContext context) =>
-      BlocBuilder<AppAvailabilityCubit, AppAvailabilityState>(
+      BlocConsumer<AppAvailabilityCubit, AppAvailabilityState>(
         bloc: widget.cubit,
-        builder: (context, state) =>
-            state is AppAvailabilityLoaded &&
-                state.availability.kind == AppAvailabilityKind.available
-            ? widget.child
-            : AppStatusPage(
-                state: state,
-                onRetry: () => _retry(),
-                storeOpenFailed: _storeOpenFailed,
-                onUpdate: _update,
-              ),
+        listener: (_, state) {
+          if (state is AppAvailabilityLoading ||
+              state is AppAvailabilityError &&
+                  state.failure == AppAvailabilityFailure.network) {
+            return;
+          }
+          _retainChild = _isAvailable(state);
+        },
+        builder: (context, state) {
+          final available = _isAvailable(state);
+          return Stack(
+            fit: StackFit.expand,
+            children: [
+              if (available || _retainChild)
+                Visibility(
+                  visible: available,
+                  maintainState: true,
+                  child: widget.child,
+                ),
+              if (!available)
+                AppStatusPage(
+                  state: state,
+                  onRetry: () => _retry(),
+                  storeOpenFailed: _storeOpenFailed,
+                  onUpdate: _update,
+                ),
+            ],
+          );
+        },
       );
 
   @override

@@ -22,6 +22,33 @@ void main() {
     }
   }
 
+  test('privacy policy accepts only a credential-free HTTPS URL', () {
+    final environment = AppEnvironment.parse(
+      stageName: 'production',
+      apiBaseUrl: '',
+    );
+    Uri? policy(String value) => AppConfiguration.parse(
+      environment: environment,
+      debugBuild: false,
+      privacyPolicyUrl: value,
+    ).privacyPolicyUrl;
+
+    expect(
+      policy(' https://example.org/privacy '),
+      Uri.parse('https://example.org/privacy'),
+    );
+    for (final invalid in [
+      '',
+      '/privacy',
+      'http://example.org',
+      'https://user@example.org/privacy',
+      'javascript:alert(1)',
+      'https:///privacy',
+    ]) {
+      expect(policy(invalid), isNull, reason: invalid);
+    }
+  });
+
   test('build configuration uses the validated environment', () {
     final configuration = AppConfiguration.fromBuild();
     expect(configuration.environment.stage, AppStage.development);

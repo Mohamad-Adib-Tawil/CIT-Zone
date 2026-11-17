@@ -11,6 +11,7 @@ import 'package:cit_zone/features/admin/presentation/admin_figma_preview_page.da
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_design_page.dart';
 import 'package:cit_zone/features/onboarding/presentation/pages/hasobjy_frame_gallery_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 
@@ -39,6 +40,44 @@ GoRouter routerOf(WidgetTester tester) =>
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   setUpAll(loadCairoForTests);
+
+  testWidgets('welcome opens the public privacy tab and returns to sign-in', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(390, 844));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    final deps = dependencies();
+    addTearDown(deps.dispose);
+    await tester.pumpWidget(CitZoneApp(dependencies: deps));
+    await tester.pumpAndSettle();
+
+    const label = 'سياسة الخصوصية';
+    final notice = find.byWidgetPredicate(
+      (widget) =>
+          widget is Text &&
+          widget.textSpan?.toPlainText().contains(label) == true,
+    );
+    await tester.ensureVisible(notice);
+    final paragraph = tester.renderObject<RenderParagraph>(notice);
+    final start = paragraph.text.toPlainText().indexOf(label);
+    final box = paragraph
+        .getBoxesForSelection(
+          TextSelection(baseOffset: start, extentOffset: start + label.length),
+        )
+        .first;
+    await tester.tapAt(paragraph.localToGlobal(box.toRect().center));
+    await tester.pumpAndSettle();
+
+    expect(find.text('سياسة الخصوصية غير متاحة حالياً.'), findsOneWidget);
+    await tester.tap(find.text('فهمت'));
+    await tester.pumpAndSettle();
+    expect(find.byType(HasobjyDesignPage), findsOneWidget);
+    expect(find.text('سياسة الخصوصية غير متاحة حالياً.'), findsNothing);
+    expect(
+      routerOf(tester).routeInformationProvider.value.uri.path,
+      AppRoutes.signIn,
+    );
+  });
 
   testWidgets(
     'production cannot skip availability when API configuration is missing',

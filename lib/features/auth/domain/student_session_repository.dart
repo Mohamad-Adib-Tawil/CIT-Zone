@@ -121,12 +121,14 @@ abstract interface class StudentSessionRepository {
   });
   Future<Either<StudentSessionFailure, StudentAttempt?>> latestExerciseAttempt(
     GoogleIdentity identity,
-    String exerciseId,
-  );
+    String exerciseId, {
+    Future<void>? whenCanceled,
+  });
   Future<Either<StudentSessionFailure, StudentAttempt>> exerciseAttempt(
     GoogleIdentity identity,
-    String id,
-  );
+    String id, {
+    Future<void>? whenCanceled,
+  });
   Future<Either<StudentSessionFailure, StudentExercisePrompt>> exercise(
     GoogleIdentity identity,
     String id,
@@ -141,8 +143,9 @@ abstract interface class StudentSessionRepository {
   );
   Future<Either<StudentSessionFailure, StudentTicketThread>> supportTicket(
     GoogleIdentity identity,
-    String id,
-  );
+    String id, {
+    Future<void>? whenCanceled,
+  });
   Future<Either<StudentSessionFailure, StudentTicket>> createSupportTicket(
     GoogleIdentity identity,
     String subject,
@@ -167,6 +170,21 @@ abstract interface class StudentSessionRepository {
   );
   Future<Either<StudentSessionFailure, List<StudentLessonSummary>>>
   subjectLessons(GoogleIdentity identity, String id);
+  Future<Either<StudentSessionFailure, StudentNotificationPage>> notifications(
+    GoogleIdentity identity,
+    String? cursor,
+  );
+  Future<Either<StudentSessionFailure, int>> unreadNotificationCount(
+    GoogleIdentity identity,
+  );
+  Future<Either<StudentSessionFailure, void>> markNotificationRead(
+    GoogleIdentity identity,
+    String id,
+  );
+  Future<Either<StudentSessionFailure, List<StudentExam>>> examSchedule(
+    GoogleIdentity identity,
+    StudentExamSession session,
+  );
   Future<Either<StudentSessionFailure, StudentStudyTime>> studyTime(
     GoogleIdentity identity,
   );
@@ -175,12 +193,13 @@ abstract interface class StudentSessionRepository {
     String id,
   );
   Future<Either<StudentSessionFailure, StudentGrades>> grades(
-    GoogleIdentity identity,
-  );
+    GoogleIdentity identity, {
+    String? termId,
+  });
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   );
-  Future<Either<StudentSessionFailure, void>> updateProfile(
+  Future<Either<StudentSessionFailure, StudentProfileData?>> updateProfile(
     GoogleIdentity identity, {
     String? officialName,
     String? phone,

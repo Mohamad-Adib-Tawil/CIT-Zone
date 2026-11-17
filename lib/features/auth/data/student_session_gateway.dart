@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
@@ -41,32 +42,66 @@ final class StudentSessionGateway implements StudentSessionRepository {
 
   String? _access;
   String? _owner;
+  Future<void> _sessionOperations = Future.value();
+  int _sessionEpoch = 0;
+  Object _viewerSession = Object();
+  ({int epoch, String access, Future<bool> result})? _readRecovery;
+
+  // The refresh token is single-use. Serialize its storage and rotation
+  // together with login and logout for this gateway.
+  Future<T> _changeSession<T>(Future<T> Function() operation) {
+    final pending = _sessionOperations.then((_) => operation());
+    _sessionOperations = pending.then<void>((_) {}, onError: (Object _) {});
+    return pending;
+  }
+
+  Future<bool> _renewRead(GoogleIdentity identity, String access, int epoch) {
+    final current = _readRecovery;
+    if (current != null && current.epoch == epoch && current.access == access) {
+      return current.result;
+    }
+    final owner = identity.firebaseUid;
+    final result =
+        _changeSession(() async {
+          if (_sessionEpoch != epoch || _owner != owner) return false;
+          return _access != access || await _refresh(identity);
+        }).whenComplete(() {
+          if (_readRecovery?.epoch == epoch &&
+              _readRecovery?.access == access) {
+            _readRecovery = null;
+          }
+        });
+    _readRecovery = (epoch: epoch, access: access, result: result);
+    return result;
+  }
 
   @override
   Future<Either<StudentSessionFailure, StudentSession>> start(
     GoogleIdentity identity,
   ) => _capture(() async {
-    if (_owner == identity.firebaseUid && _access != null) {
-      return _read(identity);
-    }
-    if (await _refresh(identity)) return _read(identity);
-    final deviceId = await _deviceBindingId();
-    final proof = await _proofSource.prepareForBackend(
-      expectedFirebaseUid: identity.firebaseUid,
-    );
-    await _accept(
-      identity,
-      await _api.send(
-        ApiRequest(
-          method: 'POST',
-          path: 'auth/google',
-          jsonBody: {
-            'idToken': proof.idToken,
-            'device': {'id': deviceId, 'platform': _platform},
-          },
+    final epoch = _sessionEpoch;
+    await _changeSession(() async {
+      if (_owner == identity.firebaseUid && _access != null) return;
+      if (await _refresh(identity)) return;
+      final deviceId = await _deviceBindingId();
+      final proof = await _proofSource.prepareForBackend(
+        expectedFirebaseUid: identity.firebaseUid,
+      );
+      await _accept(
+        identity,
+        await _api.send(
+          ApiRequest(
+            method: 'POST',
+            path: 'auth/google',
+            jsonBody: {
+              'idToken': proof.idToken,
+              'device': {'id': deviceId, 'platform': _platform},
+            },
+          ),
         ),
-      ),
-    );
+      );
+    });
+    _ensureSessionEpoch(epoch);
     return _read(identity);
   });
 
@@ -74,16 +109,21 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentSession?>> restore(
     GoogleIdentity identity,
   ) => _capture(() async {
-    if (_owner == identity.firebaseUid && _access != null ||
-        await _refresh(identity)) {
-      return _read(identity);
-    }
-    return null;
+    final epoch = _sessionEpoch;
+    final restored = await _changeSession(
+      () async =>
+          (_owner == identity.firebaseUid && _access != null) ||
+          await _refresh(identity),
+    );
+    _ensureSessionEpoch(epoch);
+    return restored ? await _read(identity) : null;
   });
 
   Future<bool> _refresh(GoogleIdentity identity) async {
-    _access = null;
-    _owner = null;
+    if (_owner != identity.firebaseUid) {
+      _access = null;
+      _owner = null;
+    }
     final key = _sessionKey(identity);
     final refresh = await _storage.read(key: key);
     if (refresh == null) return false;
@@ -104,16 +144,28 @@ final class StudentSessionGateway implements StudentSessionRepository {
           failure.code != 'SESSION_REVOKED') {
         rethrow;
       }
+      if (_owner == identity.firebaseUid) {
+        _access = null;
+        _owner = null;
+      }
       await _storage.delete(key: key);
       return false;
     }
   }
 
   @override
-  Future<Either<StudentSessionFailure, void>> end(GoogleIdentity identity) =>
-      _capture(() async {
-        _access = null;
-        _owner = null;
+  Future<Either<StudentSessionFailure, void>> end(GoogleIdentity identity) {
+    _sessionEpoch++;
+    if (_owner == identity.firebaseUid) {
+      _access = null;
+      _owner = null;
+    }
+    return _capture(
+      () => _changeSession(() async {
+        if (_owner == identity.firebaseUid) {
+          _access = null;
+          _owner = null;
+        }
         final key = _sessionKey(identity);
         final refresh = await _storage.read(key: key);
         await _storage.delete(key: key);
@@ -125,7 +177,9 @@ final class StudentSessionGateway implements StudentSessionRepository {
             'kind': failure.kind.name,
           });
         }
-      });
+      }),
+    );
+  }
 
   Future<void> _accept(GoogleIdentity identity, ApiResponse response) async {
     final data = response.json['data'];
@@ -144,6 +198,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
       await _revoke(refresh);
       rethrow;
     }
+    if (_owner != identity.firebaseUid) _viewerSession = Object();
     _owner = identity.firebaseUid;
     _access = access;
   }
@@ -154,15 +209,30 @@ final class StudentSessionGateway implements StudentSessionRepository {
   ) => _capture(() => _read(identity));
 
   Future<StudentSession> _read(GoogleIdentity identity) async {
-    ApiResponse response;
+    final ApiResponse response;
     try {
       response = await _authorized(identity, 'GET', 'me/session-state');
     } on ApiFailure catch (failure) {
-      if (failure.kind != ApiFailureKind.unauthenticated ||
-          !await _refresh(identity)) {
-        rethrow;
+      switch (failure) {
+        case ApiFailure(
+          kind: ApiFailureKind.forbidden,
+          code: 'ACCOUNT_SUSPENDED',
+        ):
+          return const StudentSession(
+            next: StudentNextStep.suspended,
+            usageType: null,
+          );
+        case ApiFailure(
+          kind: ApiFailureKind.forbidden,
+          code: 'DEVICE_NOT_AUTHORIZED',
+        ):
+          return const StudentSession(
+            next: StudentNextStep.deviceUnauthorized,
+            usageType: null,
+          );
+        default:
+          rethrow;
       }
-      response = await _authorized(identity, 'GET', 'me/session-state');
     }
     final data = response.json['data'];
     if (data is! Map) throw const ApiFailure(ApiFailureKind.invalidResponse);
@@ -654,18 +724,24 @@ final class StudentSessionGateway implements StudentSessionRepository {
       'GET',
       'lessons/${Uri.encodeComponent(id)}',
     );
-    if (response.json['data'] case {
-      'title': String title,
-      'description': String? description,
-      'locked': bool locked,
-      'videoReady': bool videoReady,
-      'next': final next,
-    }) {
+    if (response.json['data']
+        case {
+          'title': String title,
+          'description': String? description,
+          'locked': bool locked,
+          'videoReady': bool videoReady,
+          'durationSeconds': int? duration,
+          'positionSeconds': int position,
+          'next': final next,
+        }
+        when position >= 0 && (duration == null || duration >= 0)) {
       return (
         title: title,
         description: description,
         locked: locked,
         videoReady: videoReady,
+        durationSeconds: duration,
+        positionSeconds: position,
         myRating: switch ((response.json['data'] as Map)['rating']) {
           {'mine': int stars} when stars >= 1 && stars <= 5 => stars,
           _ => null,
@@ -684,15 +760,11 @@ final class StudentSessionGateway implements StudentSessionRepository {
     GoogleIdentity identity,
     String id,
   ) => _captureLearning(() async {
-    final access = _access;
     final response = await _authorized(
       identity,
       'GET',
       'files/${Uri.encodeComponent(id)}/download',
     );
-    if (_owner != identity.firebaseUid || _access != access) {
-      throw const ApiFailure(ApiFailureKind.unauthenticated);
-    }
     if (response.json['data'] case {
       'url': String url,
       'expiresAt': String expiry,
@@ -712,12 +784,20 @@ final class StudentSessionGateway implements StudentSessionRepository {
   });
 
   @override
-  StudentFileViewer fileViewer(GoogleIdentity identity, String id) =>
-      _StudentFileViewer(
-        api: _api,
-        path: 'files/${Uri.encodeComponent(id)}',
-        access: () => _owner == identity.firebaseUid ? _access : null,
-      );
+  StudentFileViewer fileViewer(GoogleIdentity identity, String id) {
+    final session = _viewerSession;
+    final epoch = _sessionEpoch;
+    return _StudentFileViewer(
+      api: _api,
+      path: 'files/${Uri.encodeComponent(id)}',
+      access: () =>
+          identical(_viewerSession, session) &&
+              _sessionEpoch == epoch &&
+              _owner == identity.firebaseUid
+          ? _access
+          : null,
+    );
+  }
 
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
@@ -757,13 +837,15 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentAttempt?>> latestExerciseAttempt(
     GoogleIdentity identity,
-    String exerciseId,
-  ) => _captureLearning(() async {
+    String exerciseId, {
+    Future<void>? whenCanceled,
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
       'exercises/${Uri.encodeComponent(exerciseId)}/submissions',
       query: const {'page': '1', 'limit': '1'},
+      cancellationToken: _readCancellation(whenCanceled),
     );
     if (response.json['data'] case final List attempts) {
       return attempts.isEmpty ? null : _attempt(attempts.first);
@@ -774,12 +856,14 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentAttempt>> exerciseAttempt(
     GoogleIdentity identity,
-    String id,
-  ) => _captureLearning(() async {
+    String id, {
+    Future<void>? whenCanceled,
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
       'submissions/${Uri.encodeComponent(id)}',
+      cancellationToken: _readCancellation(whenCanceled),
     );
     return _attempt(response.json['data']);
   });
@@ -981,12 +1065,14 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, StudentTicketThread>> supportTicket(
     GoogleIdentity identity,
-    String id,
-  ) => _captureLearning(() async {
+    String id, {
+    Future<void>? whenCanceled,
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
       'support/tickets/${Uri.encodeComponent(id)}',
+      cancellationToken: _readCancellation(whenCanceled),
     );
     final data = response.json['data'];
     if (data case {'messages': List messages}) {
@@ -1130,6 +1216,127 @@ final class StudentSessionGateway implements StudentSessionRepository {
   });
 
   @override
+  Future<Either<StudentSessionFailure, StudentNotificationPage>> notifications(
+    GoogleIdentity identity,
+    String? cursor,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'me/notifications',
+      query: {'limit': '20', 'cursor': ?cursor},
+    );
+    if (response.json case {
+      'data': List rows,
+      'meta': {'nextCursor': String? nextCursor},
+    }) {
+      return (
+        nextCursor: nextCursor,
+        items: List<StudentNotification>.unmodifiable(
+          rows.map((row) {
+            if (row case {
+              'id': String id,
+              'title': String title,
+              'body': String body,
+              'createdAt': String created,
+              'read': bool read,
+            }) {
+              final date = DateTime.tryParse(created);
+              if (date != null) {
+                return (
+                  id: id,
+                  title: title,
+                  body: body,
+                  createdAt: date,
+                  read: read,
+                  destination: StudentNotificationDestination.parse(
+                    switch (row['deepLink']) {
+                      String link => link,
+                      _ => null,
+                    },
+                  ),
+                );
+              }
+            }
+            throw const ApiFailure(ApiFailureKind.invalidResponse);
+          }),
+        ),
+      );
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, int>> unreadNotificationCount(
+    GoogleIdentity identity,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'me/notifications/unread-count',
+    );
+    if (response.json['data'] case {'count': int count} when count >= 0) {
+      return count;
+    }
+    throw const ApiFailure(ApiFailureKind.invalidResponse);
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, void>> markNotificationRead(
+    GoogleIdentity identity,
+    String id,
+  ) => _captureLearning(() async {
+    await _authorized(
+      identity,
+      'POST',
+      'me/notifications/${Uri.encodeComponent(id)}/read',
+    );
+  });
+
+  @override
+  Future<Either<StudentSessionFailure, List<StudentExam>>> examSchedule(
+    GoogleIdentity identity,
+    StudentExamSession session,
+  ) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'exam-schedule',
+      query: {'session': session.name},
+    );
+    final data = response.json['data'];
+    if (data is! List) throw const ApiFailure(ApiFailureKind.invalidResponse);
+    return List<StudentExam>.unmodifiable(
+      data.map((item) {
+        if (item
+            case {
+              'id': String id,
+              'subjectId': String subjectId,
+              'type': final String type,
+              'session': final String examSession,
+              'startsAt': String timestamp,
+              'room': final room,
+            }
+            when (type == 'theory' || type == 'practical') &&
+                examSession == session.name &&
+                (room == null || room is String)) {
+          final startsAt = DateTime.tryParse(timestamp);
+          if (startsAt != null && startsAt.isUtc) {
+            return (
+              id: id,
+              subjectId: subjectId,
+              practical: type == 'practical',
+              startsAt: startsAt,
+              room: room as String?,
+            );
+          }
+        }
+        throw const ApiFailure(ApiFailureKind.invalidResponse);
+      }),
+    );
+  });
+
+  @override
   Future<Either<StudentSessionFailure, StudentStudyTime>> studyTime(
     GoogleIdentity identity,
   ) => _captureLearning(() async {
@@ -1204,9 +1411,15 @@ final class StudentSessionGateway implements StudentSessionRepository {
 
   @override
   Future<Either<StudentSessionFailure, StudentGrades>> grades(
-    GoogleIdentity identity,
-  ) => _captureLearning(() async {
-    final response = await _authorized(identity, 'GET', 'me/grades');
+    GoogleIdentity identity, {
+    String? termId,
+  }) => _captureLearning(() async {
+    final response = await _authorized(
+      identity,
+      'GET',
+      'me/grades',
+      query: {'termId': ?termId},
+    );
     if (response.json['data'] case {
       'average': num? average,
       'terms': List terms,
@@ -1268,7 +1481,11 @@ final class StudentSessionGateway implements StudentSessionRepository {
     GoogleIdentity identity,
   ) => _captureLearning(() async {
     final response = await _authorized(identity, 'GET', 'me');
-    if (response.json['data'] case {
+    return _profileData(response.json['data']);
+  });
+
+  StudentProfileData _profileData(Object? data) {
+    if (data case {
       'displayName': String displayName,
       'officialName': String? officialName,
       'email': String email,
@@ -1288,17 +1505,18 @@ final class StudentSessionGateway implements StudentSessionRepository {
       );
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
-  });
+  }
 
   @override
-  Future<Either<StudentSessionFailure, void>> updateProfile(
+  Future<Either<StudentSessionFailure, StudentProfileData?>> updateProfile(
     GoogleIdentity identity, {
     String? officialName,
     String? phone,
-  }) => _capture(() async {
+  }) => _captureLearning(() async {
     final changes = {'officialName': ?officialName, 'phone': ?phone};
-    if (changes.isEmpty) return;
-    await _authorized(identity, 'PATCH', 'me', body: changes);
+    if (changes.isEmpty) return null;
+    final response = await _authorized(identity, 'PATCH', 'me', body: changes);
+    return _profileData(response.json['data']);
   });
 
   Future<Either<StudentSessionFailure, StudentSession>> _save(
@@ -1320,6 +1538,19 @@ final class StudentSessionGateway implements StudentSessionRepository {
     return _read(identity);
   });
 
+  ApiCancellationToken? _readCancellation(Future<void>? whenCanceled) {
+    if (whenCanceled == null) return null;
+    final token = ApiCancellationToken();
+    unawaited(whenCanceled.then((_) => token.cancel()));
+    return token;
+  }
+
+  void _ensureSessionEpoch(int epoch) {
+    if (_sessionEpoch != epoch) {
+      throw const ApiFailure(ApiFailureKind.unauthenticated);
+    }
+  }
+
   Future<ApiResponse> _authorized(
     GoogleIdentity identity,
     String method,
@@ -1327,20 +1558,71 @@ final class StudentSessionGateway implements StudentSessionRepository {
     Map<String, Object>? body,
     Map<String, String> query = const {},
     Map<String, String> headers = const {},
+    ApiCancellationToken? cancellationToken,
   }) async {
     final access = _access;
-    if (access == null || _owner != identity.firebaseUid) {
+    final owner = identity.firebaseUid;
+    final epoch = _sessionEpoch;
+    if (access == null || _owner != owner) {
       throw const ApiFailure(ApiFailureKind.unauthenticated);
     }
-    return _api.send(
-      ApiRequest(
-        method: method,
-        path: path,
-        query: query,
-        headers: {...headers, 'Authorization': 'Bearer $access'},
-        jsonBody: body,
-      ),
-    );
+    void ensureActive() {
+      if (cancellationToken?.isCanceled == true) {
+        throw const ApiFailure(ApiFailureKind.canceled);
+      }
+    }
+
+    Future<ApiResponse> send(String token) async {
+      ensureActive();
+      final response = await _api.send(
+        ApiRequest(
+          method: method,
+          path: path,
+          query: query,
+          headers: {...headers, 'Authorization': 'Bearer $token'},
+          jsonBody: body,
+        ),
+        cancellationToken: cancellationToken,
+      );
+      ensureActive();
+      _ensureSessionEpoch(epoch);
+      if (_owner != owner) {
+        throw const ApiFailure(ApiFailureKind.unauthenticated);
+      }
+      return response;
+    }
+
+    try {
+      return await send(access);
+    } on ApiFailure catch (failure) {
+      ensureActive();
+      if (method != 'GET' || failure.kind != ApiFailureKind.unauthenticated) {
+        rethrow;
+      }
+      _ensureSessionEpoch(epoch);
+      if (_owner != owner) rethrow;
+      final pending = _readRecovery;
+      final renewed = switch (failure.code) {
+        'TOKEN_EXPIRED' => await _renewRead(identity, access, epoch),
+        // Rotation revokes the previous server session. Only recover this
+        // denial when a rotation for the same local session is already known.
+        'SESSION_REVOKED' when _access != access => true,
+        'SESSION_REVOKED'
+            when pending != null &&
+                pending.access == access &&
+                pending.epoch == epoch =>
+          await pending.result,
+        _ => false,
+      };
+      final next = _access;
+      if (!renewed ||
+          next == null ||
+          _sessionEpoch != epoch ||
+          _owner != owner) {
+        rethrow;
+      }
+      return send(next);
+    }
   }
 
   Future<Either<StudentSessionFailure, T>> _captureLearning<T>(
@@ -1431,11 +1713,17 @@ final class _StudentFileViewer implements StudentFileViewer {
   DateTime? _expiresAt;
   bool _loading = false;
 
+  static const _unavailable = Left<StudentFileViewFailure, StudentFilePage>(
+    StudentFileViewFailure.unavailable,
+  );
+
   @override
-  Future<StudentFilePage?> page(int number) async {
+  Future<Either<StudentFileViewFailure, StudentFilePage>> page(
+    int number,
+  ) async {
     final bearer = access();
     if (bearer == null || _loading || _cancellation.isCanceled || number < 1) {
-      return null;
+      return _unavailable;
     }
     _loading = true;
     try {
@@ -1448,22 +1736,27 @@ final class _StudentFileViewer implements StudentFileViewer {
           ),
           cancellationToken: _cancellation,
         );
-        if (_cancellation.isCanceled || access() != bearer) return null;
+        if (_cancellation.isCanceled || access() == null) return _unavailable;
         if (response.json['data'] case {
           'token': String token,
           'expiresAt': String expiry,
           'pages': int? pages,
         }) {
           final expiresAt = DateTime.tryParse(expiry);
-          if (token.isEmpty || expiresAt == null) return null;
+          if (token.isEmpty ||
+              expiresAt == null ||
+              !expiresAt.isAfter(DateTime.now()) ||
+              (pages != null && pages < 1)) {
+            return _unavailable;
+          }
           _token = token;
           _expiresAt = expiresAt;
           _pageCount = pages;
         } else {
-          return null;
+          return _unavailable;
         }
       }
-      if (_cancellation.isCanceled || access() != bearer) return null;
+      if (_cancellation.isCanceled || access() == null) return _unavailable;
       final response = await api.send(
         ApiRequest(
           method: 'GET',
@@ -1473,14 +1766,27 @@ final class _StudentFileViewer implements StudentFileViewer {
         ),
         cancellationToken: _cancellation,
       );
-      if (_cancellation.isCanceled || access() != bearer) return null;
+      if (_cancellation.isCanceled || access() == null) return _unavailable;
       final bytes = response.imageBytes;
-      return bytes == null
-          ? null
-          : (bytes: bytes, totalPages: response.totalPages ?? _pageCount);
+      final total = response.totalPages ?? _pageCount;
+      if (bytes == null || bytes.isEmpty || (total != null && total < number)) {
+        return _unavailable;
+      }
+      return Right((bytes: bytes, totalPages: total));
     } on ApiFailure catch (failure) {
+      if (_cancellation.isCanceled || access() == null) return _unavailable;
       if (failure.kind == ApiFailureKind.unauthenticated) _token = null;
-      return null;
+      return switch (failure) {
+        ApiFailure(code: 'ACCOUNT_SUSPENDED') => const Left(
+          StudentFileViewFailure.accountSuspended,
+        ),
+        ApiFailure(code: 'DEVICE_NOT_AUTHORIZED') => const Left(
+          StudentFileViewFailure.deviceUnauthorized,
+        ),
+        ApiFailure(kind: ApiFailureKind.network || ApiFailureKind.timeout) =>
+          const Left(StudentFileViewFailure.network),
+        _ => _unavailable,
+      };
     } finally {
       _loading = false;
     }

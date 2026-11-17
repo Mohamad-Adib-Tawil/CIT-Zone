@@ -1,5 +1,6 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../auth/domain/google_identity.dart';
@@ -12,11 +13,13 @@ class HasobjyWelcomeScreen extends StatelessWidget {
     required this.onGoogleSignIn,
     required this.working,
     this.error,
+    this.onOpenLegal,
   });
 
   final VoidCallback? onGoogleSignIn;
   final bool working;
   final String? error;
+  final ValueChanged<bool>? onOpenLegal;
 
   @override
   Widget build(BuildContext context) {
@@ -69,30 +72,7 @@ class HasobjyWelcomeScreen extends StatelessWidget {
               cornerLine: '84987',
             ),
             SizedBox(height: 16),
-            Text.rich(
-              TextSpan(
-                children: [
-                  const TextSpan(text: 'بالمتابعة فأنت توافق على '),
-                  TextSpan(
-                    text: 'الشروط والأحكام',
-                    style: TextStyle(
-                      color: context.design.brand,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                  const TextSpan(text: ' و'),
-                  TextSpan(
-                    text: 'سياسة الخصوصية',
-                    style: TextStyle(
-                      color: context.design.brand,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.center,
-              style: context.design.bodySmall,
-            ),
+            _WelcomeLegalNotice(onOpenLegal: onOpenLegal),
             if (error != null) ...[
               SizedBox(height: 4),
               Text(
@@ -106,6 +86,57 @@ class HasobjyWelcomeScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _WelcomeLegalNotice extends StatefulWidget {
+  const _WelcomeLegalNotice({this.onOpenLegal});
+
+  final ValueChanged<bool>? onOpenLegal;
+
+  @override
+  State<_WelcomeLegalNotice> createState() => _WelcomeLegalNoticeState();
+}
+
+class _WelcomeLegalNoticeState extends State<_WelcomeLegalNotice> {
+  late final _terms = TapGestureRecognizer()
+    ..onTap = () => widget.onOpenLegal?.call(false);
+  late final _privacy = TapGestureRecognizer()
+    ..onTap = () => widget.onOpenLegal?.call(true);
+
+  @override
+  void dispose() {
+    _terms.dispose();
+    _privacy.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final linkStyle = TextStyle(
+      color: context.design.brand,
+      decoration: TextDecoration.underline,
+    );
+    return Text.rich(
+      TextSpan(
+        children: [
+          const TextSpan(text: 'بالمتابعة فأنت توافق على '),
+          TextSpan(
+            text: 'الشروط والأحكام',
+            style: linkStyle,
+            recognizer: widget.onOpenLegal == null ? null : _terms,
+          ),
+          const TextSpan(text: ' و'),
+          TextSpan(
+            text: 'سياسة الخصوصية',
+            style: linkStyle,
+            recognizer: widget.onOpenLegal == null ? null : _privacy,
+          ),
+        ],
+      ),
+      textAlign: TextAlign.center,
+      style: context.design.bodySmall,
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import '../../../core/errors/either.dart';
+
 typedef StudentSubjectItem = ({
   String id,
   String name,
@@ -79,8 +81,15 @@ typedef StudentSubjectFile = ({
 });
 typedef StudentFilePage = ({Uint8List bytes, int? totalPages});
 
+enum StudentFileViewFailure {
+  network,
+  unavailable,
+  accountSuspended,
+  deviceUnauthorized,
+}
+
 abstract interface class StudentFileViewer {
-  Future<StudentFilePage?> page(int number);
+  Future<Either<StudentFileViewFailure, StudentFilePage>> page(int number);
   void close();
 }
 
@@ -98,6 +107,8 @@ typedef StudentLessonDetail = ({
   String? description,
   bool locked,
   bool videoReady,
+  int? durationSeconds,
+  int positionSeconds,
   int? myRating,
   String? nextId,
 });
@@ -202,5 +213,84 @@ typedef StudentGradeDetail = ({
   List<StudentGradeAttempt> attempts,
 });
 
+enum StudentExamSession { regular, supplementary }
+
+typedef StudentExam = ({
+  String id,
+  String subjectId,
+  bool practical,
+  DateTime startsAt,
+  String? room,
+});
+
 typedef StudentStudyDay = ({DateTime date, int seconds});
 typedef StudentStudyTime = ({int totalSeconds, List<StudentStudyDay> days});
+
+sealed class StudentNotificationDestination {
+  const StudentNotificationDestination();
+
+  static StudentNotificationDestination? parse(String? raw) {
+    final uri = raw == null ? null : Uri.tryParse(raw);
+    if (uri == null || uri.hasScheme || uri.hasAuthority || uri.hasFragment) {
+      return null;
+    }
+    if (uri.path == 'me/device' && !uri.hasQuery) {
+      return const StudentDeviceNotificationDestination();
+    }
+    if (uri.path.startsWith('exams/') && !uri.hasQuery) {
+      final id = uri.path.substring('exams/'.length);
+      return _notificationUuid.hasMatch(id)
+          ? StudentExamNotificationDestination(id)
+          : null;
+    }
+    if (uri.path != 'grades') return null;
+    final Map<String, List<String>> query;
+    try {
+      query = uri.queryParametersAll;
+    } on FormatException {
+      return null;
+    }
+    if (query.length != 1) return null;
+    final ids = query['termId'];
+    if (ids == null ||
+        ids.length != 1 ||
+        !_notificationUuid.hasMatch(ids.single)) {
+      return null;
+    }
+    return StudentGradesNotificationDestination(ids.single);
+  }
+}
+
+final _notificationUuid = RegExp(
+  r'^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$',
+);
+
+final class StudentExamNotificationDestination
+    extends StudentNotificationDestination {
+  const StudentExamNotificationDestination(this.id);
+  final String id;
+}
+
+final class StudentDeviceNotificationDestination
+    extends StudentNotificationDestination {
+  const StudentDeviceNotificationDestination();
+}
+
+final class StudentGradesNotificationDestination
+    extends StudentNotificationDestination {
+  const StudentGradesNotificationDestination(this.termId);
+  final String termId;
+}
+
+typedef StudentNotification = ({
+  String id,
+  String title,
+  String body,
+  DateTime createdAt,
+  bool read,
+  StudentNotificationDestination? destination,
+});
+typedef StudentNotificationPage = ({
+  List<StudentNotification> items,
+  String? nextCursor,
+});

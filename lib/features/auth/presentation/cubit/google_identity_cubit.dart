@@ -162,8 +162,9 @@ class GoogleIdentityCubit extends Cubit<GoogleIdentityState> {
     if (isClosed ||
         next == null ||
         identity == null ||
-        session?.next != StudentNextStep.home)
+        session?.next != StudentNextStep.home) {
       return;
+    }
     emit(
       GoogleIdentityReady(
         identity,

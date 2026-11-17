@@ -19,6 +19,8 @@ import '../../features/auth/domain/google_identity_gateway.dart';
 import '../../features/auth/domain/google_identity_repository.dart';
 import '../../features/auth/domain/student_session_repository.dart';
 import '../../features/auth/presentation/cubit/google_identity_cubit.dart';
+import '../../features/legal/data/api_legal_terms_repository.dart';
+import '../../features/legal/domain/legal_terms_repository.dart';
 import '../config/app_configuration.dart';
 import '../app_environment.dart';
 
@@ -62,6 +64,10 @@ class AppDependencies {
       ),
     );
   }
+
+  late final LegalTermsRepository legalTerms = ApiLegalTermsRepository(
+    apiClient,
+  );
 
   final StudentSessionRepository? sessionRepository;
   late final StudentSessionRepository? studentSessions =

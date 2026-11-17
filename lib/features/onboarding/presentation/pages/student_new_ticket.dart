@@ -106,32 +106,36 @@ class _StudentNewTicketState extends State<StudentNewTicket> {
     super.dispose();
   }
 
+  void _back() {
+    if (!_sending) widget.onBack();
+  }
+
   @override
-  Widget build(BuildContext context) => PreviewScaffold(
-    title: 'تذكرة جديدة',
-    actions: PreviewActions(
-      back: () {
-        if (!_sending) widget.onBack();
-      },
-      open: (_) {},
-      notice: () {},
+  Widget build(BuildContext context) => PopScope<Object?>(
+    canPop: false,
+    onPopInvokedWithResult: (didPop, _) {
+      if (!didPop) _back();
+    },
+    child: PreviewScaffold(
+      title: 'تذكرة جديدة',
+      actions: PreviewActions(back: _back, open: (_) {}, notice: () {}),
+      children: [
+        _field('الموضوع', 'عنوان مختصر لمشكلتك', _subject, maxLength: 200),
+        _field(
+          'التفاصيل',
+          'اشرح المشكلة بالتفصيل',
+          _body,
+          maxLength: 5000,
+          maxLines: 5,
+        ),
+        if (_error case final error?)
+          Semantics(liveRegion: true, child: PreviewText(error)),
+        const Spacer(),
+        if (_sending)
+          const LinearProgressIndicator()
+        else
+          PreviewButton('إرسال التذكرة', onTap: _submit, light3D: true),
+      ],
     ),
-    children: [
-      _field('الموضوع', 'عنوان مختصر لمشكلتك', _subject, maxLength: 200),
-      _field(
-        'التفاصيل',
-        'اشرح المشكلة بالتفصيل',
-        _body,
-        maxLength: 5000,
-        maxLines: 5,
-      ),
-      if (_error case final error?)
-        Semantics(liveRegion: true, child: PreviewText(error)),
-      const Spacer(),
-      if (_sending)
-        const LinearProgressIndicator()
-      else
-        PreviewButton('إرسال التذكرة', onTap: _submit, light3D: true),
-    ],
   );
 }

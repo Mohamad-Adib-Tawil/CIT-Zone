@@ -139,6 +139,7 @@ class HasobjyDesignPage extends StatelessWidget {
     required this.frameId,
     this.identity,
     this.onGoogleSignIn,
+    this.onOpenLegal,
     this.onSignOut,
     this.working = false,
     this.error,
@@ -154,6 +155,7 @@ class HasobjyDesignPage extends StatelessWidget {
   final String? selectedAppearance;
   final GoogleIdentity? identity;
   final VoidCallback? onGoogleSignIn;
+  final ValueChanged<bool>? onOpenLegal;
   final VoidCallback? onSignOut;
   final bool working;
   final String? error;
@@ -244,6 +246,7 @@ class HasobjyDesignPage extends StatelessWidget {
       HasobjyFrameId.c09 => RatingPreviewScreen(actions: actions),
       HasobjyFrameId.aS01 => HasobjyWelcomeScreen(
         onGoogleSignIn: onGoogleSignIn,
+        onOpenLegal: onOpenLegal,
         working: working,
         error: error,
       ),

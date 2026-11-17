@@ -177,23 +177,106 @@ void main() {
 
   test('repository sends platform/version, decodes envelope, and maps network failures', () async {
     final client = _Client();
+    final gateway = _Gateway();
     final repository = ApiAppAvailabilityRepository(
       AppConfigRemoteDataSource(client),
-      _Gateway(),
+      gateway,
     );
     final result = await repository.check();
     expect(result, isA<Right<AppAvailabilityFailure, AppAvailability>>());
     expect(client.request!.path, 'app/config');
     expect(client.request!.headers, {
-      'X-Platform': 'android',
+      'X-App-Platform': 'android',
       'X-App-Version': '1.0.0',
     });
+    expect(client.request!.query, {'platform': 'android', 'version': '1.0.0'});
     client.failure = const ApiFailure(ApiFailureKind.timeout);
     final failure =
         await repository.check()
             as Left<AppAvailabilityFailure, AppAvailability>;
     expect(failure.value, AppAvailabilityFailure.network);
+    expect(gateway.reads, 1);
+    expect(client.calls, 2);
   });
+
+  test(
+    'invalid native version can be retried without a network request',
+    () async {
+      final client = _Client();
+      final gateway = _Gateway()
+        ..appInfo = const MobileAppInfo(
+          platform: MobilePlatform.android,
+          version: 'unknown',
+        );
+      final repository = ApiAppAvailabilityRepository(
+        AppConfigRemoteDataSource(client),
+        gateway,
+      );
+
+      expect(
+        (await repository.check()).getLeft().toNullable(),
+        AppAvailabilityFailure.invalidResponse,
+      );
+      expect(client.calls, 0);
+
+      gateway.appInfo = info;
+      expect((await repository.check()).isRight(), isTrue);
+      expect(gateway.reads, 2);
+      expect(client.calls, 1);
+    },
+  );
+
+  test(
+    'an early connection failure retries and obeys the returned policy',
+    () async {
+      final client = _Client()
+        ..firstFailure = const ApiFailure(ApiFailureKind.network)
+        ..response = config(minimum: '1.0.1');
+      final repository = ApiAppAvailabilityRepository(
+        AppConfigRemoteDataSource(client),
+        _Gateway(),
+      );
+      final result = await repository.check();
+      expect(client.calls, 2);
+      expect(
+        result.getRight().toNullable()?.kind,
+        AppAvailabilityKind.updateRequired,
+      );
+    },
+  );
+
+  test('a persistent connection failure does not keep retrying', () async {
+    final client = _Client()
+      ..failure = const ApiFailure(ApiFailureKind.network);
+    final repository = ApiAppAvailabilityRepository(
+      AppConfigRemoteDataSource(client),
+      _Gateway(),
+    );
+    final result = await repository.check();
+    expect(client.calls, 2);
+    expect(result.getLeft().toNullable(), AppAvailabilityFailure.network);
+  });
+
+  test(
+    'canceling the gate during retry delay prevents the second read',
+    () async {
+      final client = _Client()
+        ..firstFailure = const ApiFailure(ApiFailureKind.network);
+      final repository = ApiAppAvailabilityRepository(
+        AppConfigRemoteDataSource(client),
+        _Gateway(),
+      );
+      final result = repository.check();
+      await Future<void>.delayed(Duration.zero);
+      expect(client.calls, 1);
+      repository.cancel();
+      expect(
+        (await result).getLeft().toNullable(),
+        AppAvailabilityFailure.unavailable,
+      );
+      expect(client.calls, 1);
+    },
+  );
 
   test('cubit deduplicates requests and cancels on close', () async {
     final repository = _Repository();
@@ -309,6 +392,16 @@ void main() {
     expect(sessionChecks, 0);
     expect(find.text('مسودة الطالب'), findsOneWidget);
 
+    repository.pending.complete(const Left(AppAvailabilityFailure.network));
+    await tester.pumpAndSettle();
+    expect(find.byType(TextField), findsNothing);
+    expect(find.byType(TextField, skipOffstage: false), findsOneWidget);
+    expect(sessionChecks, 0);
+
+    repository.pending = Completer();
+    await tester.tap(find.text('إعادة المحاولة'));
+    await tester.pump();
+    expect(find.byType(TextField), findsNothing);
     repository.pending.complete(
       const Right(AppAvailability(AppAvailabilityKind.available)),
     );
@@ -324,7 +417,7 @@ void main() {
       const Right(AppAvailability(AppAvailabilityKind.maintenance)),
     );
     await tester.pumpAndSettle();
-    expect(find.byType(TextField), findsNothing);
+    expect(find.byType(TextField, skipOffstage: false), findsNothing);
     expect(sessionChecks, 1);
   });
 
@@ -366,15 +459,25 @@ void main() {
 }
 
 class _Gateway implements MobileAppGateway {
+  MobileAppInfo appInfo = info;
+  int reads = 0;
+
   @override
-  Future<MobileAppInfo> readInfo() async => info;
+  Future<MobileAppInfo> readInfo() async {
+    reads++;
+    return appInfo;
+  }
+
   @override
   Future<bool> openStore(Uri url) async => true;
 }
 
 class _Client implements ApiClient {
+  int calls = 0;
   ApiRequest? request;
   ApiFailure? failure;
+  ApiFailure? firstFailure;
+  Map<String, dynamic> response = config();
   @override
   void close() {}
   @override
@@ -382,9 +485,11 @@ class _Client implements ApiClient {
     ApiRequest value, {
     ApiCancellationToken? cancellationToken,
   }) async {
+    calls++;
     request = value;
+    if (calls == 1 && firstFailure != null) throw firstFailure!;
     if (failure != null) throw failure!;
-    return ApiResponse(statusCode: 200, json: config(), requestId: 'test');
+    return ApiResponse(statusCode: 200, json: response, requestId: 'test');
   }
 }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/errors/either.dart';
 import '../../../auth/domain/student_learning.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import 'preview/preview_widgets.dart';
@@ -11,19 +12,22 @@ class StudentFileViewPage extends StatelessWidget {
     required this.file,
     required this.open,
     required this.actions,
+    required this.onRestriction,
   });
 
   final StudentSubjectFile file;
   final StudentFileViewer Function() open;
   final PreviewActions actions;
+  final ValueChanged<StudentFileViewFailure> onRestriction;
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-    create: (_) => _FilePagesCubit(open())..load(1),
+    create: (_) => _FilePagesCubit(open(), onRestriction)..load(1),
     child: BlocBuilder<_FilePagesCubit, _PageState>(
       builder: (context, state) {
         final total = state.image?.totalPages ?? file.pages;
         final cubit = context.read<_FilePagesCubit>();
+        final loading = state.pending != null;
         return PreviewScaffold(
           title: file.title,
           actions: actions,
@@ -40,25 +44,24 @@ class StudentFileViewPage extends StatelessWidget {
                 previewBadge(context, 'عرض فقط'),
               ],
             ),
-            if (state.loading)
+            if (state.image case final image?)
+              _EphemeralPageImage(
+                onRetry: loading || state.retry != null
+                    ? null
+                    : () => cubit.load(state.number),
+                provider: ResizeImage(
+                  MemoryImage(image.bytes),
+                  width: _decodeWidth(context),
+                  height: 1920,
+                  policy: ResizeImagePolicy.fit,
+                ),
+              ),
+            if (loading)
               const Center(child: CircularProgressIndicator())
-            else if (state.image case final image?)
-              LayoutBuilder(
-                builder: (context, size) {
-                  final provider = ResizeImage(
-                    MemoryImage(image.bytes),
-                    width:
-                        (size.maxWidth * MediaQuery.devicePixelRatioOf(context))
-                            .round()
-                            .clamp(1, 1280),
-                  );
-                  return _EphemeralPageImage(provider: provider);
-                },
-              )
-            else ...[
+            else if (state.retry case final target?) ...[
               const PreviewText('تعذّر عرض الصفحة.'),
               OutlinedButton(
-                onPressed: () => cubit.load(state.number),
+                onPressed: () => cubit.load(target),
                 child: const Text('إعادة المحاولة'),
               ),
             ],
@@ -67,7 +70,7 @@ class StudentFileViewPage extends StatelessWidget {
                 Expanded(
                   child: FilledButton(
                     onPressed:
-                        !state.loading &&
+                        !loading &&
                             state.image != null &&
                             total != null &&
                             state.number < total
@@ -79,7 +82,7 @@ class StudentFileViewPage extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: OutlinedButton(
-                    onPressed: !state.loading && state.number > 1
+                    onPressed: !loading && state.number > 1
                         ? () => cubit.load(state.number - 1)
                         : null,
                     child: const Text('السابقة'),
@@ -92,11 +95,22 @@ class StudentFileViewPage extends StatelessWidget {
       },
     ),
   );
+
+  int _decodeWidth(BuildContext context) {
+    final width =
+        MediaQuery.sizeOf(context).width -
+        MediaQuery.paddingOf(context).horizontal;
+    final contentWidth = width.clamp(48, 390) - 48;
+    return (contentWidth * MediaQuery.devicePixelRatioOf(context))
+        .round()
+        .clamp(1, 1280);
+  }
 }
 
 class _EphemeralPageImage extends StatefulWidget {
-  const _EphemeralPageImage({required this.provider});
+  const _EphemeralPageImage({required this.provider, required this.onRetry});
   final ImageProvider provider;
+  final VoidCallback? onRetry;
 
   @override
   State<_EphemeralPageImage> createState() => _EphemeralPageImageState();
@@ -117,26 +131,65 @@ class _EphemeralPageImageState extends State<_EphemeralPageImage> {
 
   @override
   Widget build(BuildContext context) => Image(
+    key: ValueKey(widget.provider),
     image: widget.provider,
     fit: BoxFit.contain,
     semanticLabel: 'صورة صفحة المستند',
-    errorBuilder: (_, _, _) => const PreviewText('تعذّر عرض صورة الصفحة.'),
+    errorBuilder: (_, _, _) => Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      spacing: 14,
+      children: [
+        const PreviewText('تعذّر عرض صورة الصفحة.'),
+        if (widget.onRetry case final retry?)
+          OutlinedButton(onPressed: retry, child: const Text('إعادة المحاولة')),
+      ],
+    ),
   );
 }
 
-typedef _PageState = ({int number, bool loading, StudentFilePage? image});
+typedef _PageState = ({
+  int number,
+  int? pending,
+  int? retry,
+  StudentFilePage? image,
+});
 
 class _FilePagesCubit extends Cubit<_PageState> {
-  _FilePagesCubit(this._viewer)
-    : super((number: 1, loading: false, image: null));
+  _FilePagesCubit(this._viewer, this._onRestriction)
+    : super((number: 1, pending: null, retry: null, image: null));
 
   final StudentFileViewer _viewer;
+  final ValueChanged<StudentFileViewFailure> _onRestriction;
 
   Future<void> load(int number) async {
-    if (isClosed || state.loading) return;
-    emit((number: number, loading: true, image: null));
+    if (isClosed || state.pending != null) return;
+    final previous = state;
+    emit((
+      number: previous.image == null ? number : previous.number,
+      pending: number,
+      retry: null,
+      image: previous.image,
+    ));
     final result = await _viewer.page(number);
-    if (!isClosed) emit((number: number, loading: false, image: result));
+    if (isClosed) return;
+    switch (result) {
+      case Right(:final value):
+        emit((number: number, pending: null, retry: null, image: value));
+      case Left(value: StudentFileViewFailure.network):
+        emit((
+          number: state.number,
+          pending: null,
+          retry: number,
+          image: state.image,
+        ));
+      case Left(:final value):
+        emit((number: number, pending: null, retry: number, image: null));
+        if (value == StudentFileViewFailure.accountSuspended ||
+            value == StudentFileViewFailure.deviceUnauthorized) {
+          _onRestriction(value);
+        }
+    }
   }
 
   @override

@@ -10,6 +10,7 @@ final class ApiAppAvailabilityRepository implements AppAvailabilityRepository {
   final AppConfigRemoteDataSource _source;
   final MobileAppGateway _gateway;
   ApiCancellationToken? _request;
+  MobileAppInfo? _appInfo;
 
   @override
   Future<Either<AppAvailabilityFailure, AppAvailability>> check() async {
@@ -17,9 +18,13 @@ final class ApiAppAvailabilityRepository implements AppAvailabilityRepository {
     final request = ApiCancellationToken();
     _request = request;
     try {
-      final info = await _gateway.readInfo();
+      final info = _appInfo ?? await _gateway.readInfo();
       if (request.isCanceled) {
         return const Left(AppAvailabilityFailure.unavailable);
+      }
+      if (_appInfo == null) {
+        AppVersion.parse(info.version);
+        _appInfo = info;
       }
       return Right(await _source.fetch(info, cancellationToken: request));
     } on ApiFailure catch (error) {

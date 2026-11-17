@@ -14,6 +14,18 @@ void main() {
     cache = StudentLearningCache(now: () => now);
   });
 
+  test('a confirmed update takes precedence over a pending read', () async {
+    final pending = Completer<Either<StudentSessionFailure, String>>();
+    final read = cache.refresh('profile', () => pending.future);
+
+    cache.replace('profile', 'confirmed');
+    pending.complete(const Right('old profile'));
+
+    expect((await read).isLeft(), isTrue);
+    expect(cache.read<String>('profile'), 'confirmed');
+    expect(cache.isFresh('profile'), isTrue);
+  });
+
   test(
     'returning shows fresh data immediately without a second request',
     () async {
@@ -68,6 +80,59 @@ void main() {
     },
   );
 
+  test('rapid reentry uses stale data until the refresh delay ends', () async {
+    await cache.refresh('home', () async => const Right('cached'));
+    now = now.add(const Duration(seconds: 21));
+    var requests = 0;
+    var connected = false;
+    Future<Either<StudentSessionFailure, String>> request() async {
+      requests++;
+      return connected
+          ? const Right('updated')
+          : const Left(StudentSessionFailure.unavailable);
+    }
+
+    final first = StudentLearningDataCubit(cache, 'home', request);
+    await first.load();
+    await first.close();
+    expect(requests, 1);
+
+    connected = true;
+    final reopened = StudentLearningDataCubit(cache, 'home', request);
+    addTearDown(reopened.close);
+    await reopened.load();
+    expect(reopened.state.data, 'cached');
+    expect(requests, 1);
+
+    now = now.add(const Duration(seconds: 5));
+    await reopened.load();
+    expect(reopened.state.data, 'updated');
+    expect(requests, 2);
+  });
+
+  test(
+    'manual retries and expired snapshots bypass the refresh delay',
+    () async {
+      await cache.refresh('home', () async => const Right('cached'));
+      now = now.add(const Duration(minutes: 4, seconds: 58));
+      var requests = 0;
+      final cubit = StudentLearningDataCubit<String>(cache, 'home', () async {
+        requests++;
+        return const Left(StudentSessionFailure.unavailable);
+      });
+      addTearDown(cubit.close);
+      await cubit.load();
+      expect(cubit.state.data, 'cached');
+      await cubit.load(force: true);
+      expect(requests, 2);
+
+      now = now.add(const Duration(seconds: 2));
+      await cubit.load();
+      expect(requests, 3);
+      expect(cubit.state.data, isNull);
+    },
+  );
+
   test(
     'denial drops the snapshot and expiration clears the session cache',
     () async {
@@ -113,6 +178,65 @@ void main() {
       expect(cache.read<String>('profile'), 'updated');
     },
   );
+
+  test(
+    'session restriction discards other cached and in-flight results',
+    () async {
+      final restrictions = <StudentSessionFailure>[];
+      final restrictedCache = StudentLearningCache(
+        now: () => now,
+        onSessionRestricted: restrictions.add,
+      );
+      await restrictedCache.refresh(
+        'home',
+        () async => const Right<StudentSessionFailure, String>('cached'),
+      );
+      final late = Completer<Either<StudentSessionFailure, String>>();
+      final loading = restrictedCache.refresh('grades', () => late.future);
+      await restrictedCache.refresh(
+        'lesson',
+        () async => const Left<StudentSessionFailure, String>(
+          StudentSessionFailure.accountSuspended,
+        ),
+      );
+      late.complete(const Right('private result'));
+      expect((await loading).isLeft(), isTrue);
+      expect(restrictedCache.read<String>('home'), isNull);
+      expect(restrictedCache.read<String>('grades'), isNull);
+      expect(restrictions, [StudentSessionFailure.accountSuspended]);
+    },
+  );
+
+  test('an invalidated read can still report a session restriction', () async {
+    final restrictions = <StudentSessionFailure>[];
+    final cache = StudentLearningCache(onSessionRestricted: restrictions.add);
+    final pending = Completer<Either<StudentSessionFailure, String>>();
+    final reading = cache.refresh('profile', () => pending.future);
+    cache.replace('profile', 'updated');
+    pending.complete(const Left(StudentSessionFailure.accountSuspended));
+
+    expect(
+      (await reading).match((failure) => failure, (_) => null),
+      StudentSessionFailure.accountSuspended,
+    );
+
+    expect(restrictions, [StudentSessionFailure.accountSuspended]);
+    expect(cache.read<String>('profile'), isNull);
+  });
+
+  test('clearing the cache ignores restrictions from old reads', () async {
+    final restrictions = <StudentSessionFailure>[];
+    final cache = StudentLearningCache(onSessionRestricted: restrictions.add);
+    final pending = Completer<Either<StudentSessionFailure, String>>();
+    final reading = cache.refresh('profile', () => pending.future);
+    cache.clear();
+    cache.replace('profile', 'current');
+    pending.complete(const Left(StudentSessionFailure.deviceUnauthorized));
+
+    expect((await reading).isLeft(), isTrue);
+    expect(restrictions, isEmpty);
+    expect(cache.read<String>('profile'), 'current');
+  });
 
   test(
     'page keys and cache instances are isolated and entries expire',

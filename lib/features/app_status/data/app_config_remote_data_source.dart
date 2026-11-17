@@ -16,17 +16,36 @@ final class AppConfigRemoteDataSource {
     required ApiCancellationToken cancellationToken,
   }) async {
     _ensureActive(cancellationToken);
-    final response = await _client.send(
-      ApiRequest(
-        method: 'GET',
-        path: 'app/config',
-        headers: {
-          'X-Platform': info.platform.name,
-          'X-App-Version': info.version,
-        },
-      ),
-      cancellationToken: cancellationToken,
+    final request = ApiRequest(
+      method: 'GET',
+      path: 'app/config',
+      // The public CDN cache varies by URL, while the API reads headers.
+      query: {'platform': info.platform.name, 'version': info.version},
+      headers: {
+        'X-App-Platform': info.platform.name,
+        'X-App-Version': info.version,
+      },
     );
+    final elapsed = Stopwatch()..start();
+    ApiResponse response;
+    try {
+      response = await _client.send(
+        request,
+        cancellationToken: cancellationToken,
+      );
+    } on ApiFailure catch (failure) {
+      if (failure.kind != ApiFailureKind.network ||
+          elapsed.elapsed >= const Duration(seconds: 2)) {
+        rethrow;
+      }
+      _ensureActive(cancellationToken);
+      await Future<void>.delayed(const Duration(milliseconds: 350));
+      _ensureActive(cancellationToken);
+      response = await _client.send(
+        request,
+        cancellationToken: cancellationToken,
+      );
+    }
     // A custom transport may finish after cancellation. Never accept its result.
     _ensureActive(cancellationToken);
     return decodeAppAvailability(response.json, info);

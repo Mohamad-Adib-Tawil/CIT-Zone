@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -26,9 +27,14 @@ class StudentExercisePromptView extends StatefulWidget {
     String? choiceId,
   })
   submit;
-  final Future<Either<StudentSessionFailure, StudentAttempt>> Function(String)
+  final Future<Either<StudentSessionFailure, StudentAttempt>> Function(
+    String,
+    Future<void>,
+  )
   readAttempt;
-  final Future<Either<StudentSessionFailure, StudentAttempt?>> Function()
+  final Future<Either<StudentSessionFailure, StudentAttempt?>> Function(
+    Future<void>,
+  )
   latestAttempt;
   final VoidCallback onBack;
 
@@ -52,6 +58,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
   String? _error;
 
   bool _historyLoaded = false;
+  final _readsEnded = Completer<void>();
 
   @override
   void initState() {
@@ -65,7 +72,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
       _working = true;
       _error = null;
     });
-    final result = await widget.latestAttempt();
+    final result = await widget.latestAttempt(_readsEnded.future);
     if (!mounted) return;
     setState(() {
       _working = false;
@@ -73,7 +80,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
       _attempt = result.getRight().toNullable();
       if (!_historyLoaded) _error = 'تعذّر تحميل آخر محاولة.';
     });
-    if (_attempt != null) await _refresh();
+    if (_attempt?.status == StudentAttemptStatus.grading) await _refresh();
   }
 
   Future<void> _send() async {
@@ -107,7 +114,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
     );
     if (!mounted) return;
     _apply(result);
-    if (_attempt != null) await _refresh();
+    if (_attempt?.status == StudentAttemptStatus.grading) await _refresh();
   }
 
   Future<void> _refresh() async {
@@ -117,7 +124,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
       _working = true;
       _error = null;
     });
-    final result = await widget.readAttempt(id);
+    final result = await widget.readAttempt(id, _readsEnded.future);
     if (mounted) _apply(result);
   }
 
@@ -136,6 +143,7 @@ class _StudentExercisePromptViewState extends State<StudentExercisePromptView> {
 
   @override
   void dispose() {
+    _readsEnded.complete();
     _code.dispose();
     super.dispose();
   }
