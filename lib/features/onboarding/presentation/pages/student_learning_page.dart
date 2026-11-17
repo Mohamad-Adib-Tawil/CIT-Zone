@@ -1341,6 +1341,7 @@ class _LearningShellState extends State<_LearningShell> {
         valueListenable: widget.themeMode,
         builder: (context, mode, _) => HasobjySettingsScreen(
           actions: _actions,
+          onOpenProfile: () => _openDetail(_LearningTab.settings, 'profile'),
           studentName:
               profile?.name ??
               _cache.read<StudentHomeData>('home')?.name ??

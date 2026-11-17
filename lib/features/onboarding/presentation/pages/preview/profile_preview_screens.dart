@@ -76,6 +76,7 @@ class HasobjySettingsScreen extends StatelessWidget {
     required this.actions,
     this.studentName,
     this.academicSummary,
+    this.onOpenProfile,
     this.onSignOut,
     this.onOpenLegal,
     this.navigation,
@@ -84,6 +85,7 @@ class HasobjySettingsScreen extends StatelessWidget {
   final PreviewActions actions;
   final String? studentName;
   final String? academicSummary;
+  final VoidCallback? onOpenProfile;
   final VoidCallback? onSignOut;
   final VoidCallback? onOpenLegal;
   final Widget? navigation;
@@ -97,40 +99,49 @@ class HasobjySettingsScreen extends StatelessWidget {
     gap: 6,
     children: [
       PreviewText('الإعدادات', style: context.design.title),
-      PreviewPanel(
-        height: 86,
-        children: [
-          Row(
-            textDirection: TextDirection.ltr,
+      Semantics(
+        button: onOpenProfile != null,
+        label: onOpenProfile == null ? null : 'فتح الملف الشخصي',
+        onTap: onOpenProfile,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onOpenProfile,
+          child: PreviewPanel(
+            height: 86,
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    PreviewText(
-                      studentName ?? 'أحمد محمد الحلبي',
-                      style: context.design.labelSemiBold,
+              Row(
+                textDirection: TextDirection.ltr,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        PreviewText(
+                          studentName ?? 'أحمد محمد الحلبي',
+                          style: context.design.labelSemiBold,
+                        ),
+                        const SizedBox(height: 4),
+                        if (studentName == null ||
+                            academicSummary?.isNotEmpty == true)
+                          PreviewText(
+                            studentName == null
+                                ? 'برمجيات · السنة الثانية · الفصل الثالث'
+                                : academicSummary!,
+                            style: context.design.bodySmall,
+                          ),
+                      ],
                     ),
-                    const SizedBox(height: 4),
-                    if (studentName == null ||
-                        academicSummary?.isNotEmpty == true)
-                      PreviewText(
-                        studentName == null
-                            ? 'برمجيات · السنة الثانية · الفصل الثالث'
-                            : academicSummary!,
-                        style: context.design.bodySmall,
-                      ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 12),
-              _Avatar(
-                size: 52,
-                initial: studentName?.characters.firstOrNull ?? 'أ',
+                  ),
+                  const SizedBox(width: 12),
+                  _Avatar(
+                    size: 52,
+                    initial: studentName?.characters.firstOrNull ?? 'أ',
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
       PreviewText(
         'المظهر',
