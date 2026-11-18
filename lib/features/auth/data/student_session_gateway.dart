@@ -19,6 +19,8 @@ import 'firebase_identity_proof.dart';
 import 'secure_student_profile_cache.dart';
 import 'secure_student_home_cache.dart';
 import 'secure_student_subjects_cache.dart';
+import 'secure_student_courses_cache.dart';
+import '../domain/student_courses_snapshot.dart';
 import '../domain/student_subjects_snapshot.dart';
 import '../domain/student_home_snapshot.dart';
 import '../domain/student_profile_snapshot.dart';
@@ -29,7 +31,8 @@ final class StudentSessionGateway
         StudentSessionRepository,
         StudentProfileSnapshotSource,
         StudentHomeSnapshotSource,
-        StudentSubjectsSnapshotSource {
+        StudentSubjectsSnapshotSource,
+        StudentCoursesSnapshotSource {
   StudentSessionGateway({
     required this._api,
     required this._proofSource,
@@ -62,6 +65,35 @@ final class StudentSessionGateway
     _namespace,
     _subjectItem,
   );
+
+  late final _coursesCache = SecureStudentCoursesCache(
+    _storage,
+    _namespace,
+    _courseItem,
+  );
+
+  @override
+  Future<StudentCoursesSnapshot?> coursesSnapshot(
+    GoogleIdentity identity, {
+    required bool mine,
+    required int page,
+  }) async {
+    final epoch = _sessionEpoch;
+    if (!_metadataSnapshotsAllowed || _owner != identity.firebaseUid) {
+      return null;
+    }
+    final snapshot = await _coursesCache.read(
+      identity.firebaseUid,
+      mine: mine,
+      page: page,
+    );
+    if (epoch != _sessionEpoch ||
+        !_metadataSnapshotsAllowed ||
+        _owner != identity.firebaseUid) {
+      return null;
+    }
+    return snapshot;
+  }
 
   @override
   Future<StudentSubjectsSnapshot?> subjectsSnapshot(
@@ -129,6 +161,7 @@ final class StudentSessionGateway
         _profileCache.clear(owner),
         _homeCache.clear(owner),
         _subjectsCache.clear(owner),
+        _coursesCache.clear(owner),
       ]);
     }
   }
@@ -267,6 +300,7 @@ final class StudentSessionGateway
       _profileCache.clear(identity.firebaseUid),
       _homeCache.clear(identity.firebaseUid),
       _subjectsCache.clear(identity.firebaseUid),
+      _coursesCache.clear(identity.firebaseUid),
     ]);
     if (_owner == identity.firebaseUid) {
       _access = null;
@@ -698,20 +732,39 @@ final class StudentSessionGateway
     required bool mine,
     required int page,
   }) => _captureLearning(() async {
+    final epoch = _sessionEpoch;
     final response = await _authorized(
       identity,
       'GET',
       'courses',
       query: {'scope': mine ? 'mine' : 'all', 'page': '$page', 'limit': '20'},
     );
-    if (response.json case {
-      'data': List data,
-      'meta': {'page': int current, 'limit': int limit, 'total': int total},
-    }) {
-      return (
+    if (response.json
+        case {
+          'data': List data,
+          'meta': {'page': int current, 'limit': int limit, 'total': int total},
+        }
+        when page >= 1 &&
+            current == page &&
+            limit > 0 &&
+            limit <= 20 &&
+            total >= 0 &&
+            data.length <= limit) {
+      final courses = (
         courses: List<StudentCourseItem>.unmodifiable(data.map(_courseItem)),
         hasMore: current * limit < total,
       );
+      if (_metadataSnapshotsAllowed &&
+          epoch == _sessionEpoch &&
+          _owner == identity.firebaseUid) {
+        await _coursesCache.write(
+          identity.firebaseUid,
+          courses,
+          mine: mine,
+          page: page,
+        );
+      }
+      return courses;
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   });

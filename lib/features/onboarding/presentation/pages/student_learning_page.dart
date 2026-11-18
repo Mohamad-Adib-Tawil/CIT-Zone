@@ -14,6 +14,7 @@ import '../../../auth/domain/student_learning.dart';
 import '../../../auth/domain/student_profile_snapshot.dart';
 import '../../../auth/domain/student_home_snapshot.dart';
 import '../../../auth/domain/student_subjects_snapshot.dart';
+import '../../../auth/domain/student_courses_snapshot.dart';
 import '../../../auth/domain/student_session_repository.dart';
 import '../../../auth/presentation/cubit/google_identity_cubit.dart';
 import '../cubit/student_learning_data_cubit.dart';
@@ -1661,6 +1662,10 @@ class _LearningShellState extends State<_LearningShell> {
         key: ValueKey((mine, page)),
         cache: _cache,
         cacheKey: ('courses', mine, page),
+        restore: widget.repository is StudentCoursesSnapshotSource
+            ? () => (widget.repository as StudentCoursesSnapshotSource)
+                  .coursesSnapshot(widget.identity, mine: mine, page: page)
+            : null,
         load: () =>
             widget.repository.courses(widget.identity, mine: mine, page: page),
         fallback: (_, placeholder) => scaffold(

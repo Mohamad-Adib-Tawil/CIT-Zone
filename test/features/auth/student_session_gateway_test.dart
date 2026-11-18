@@ -1042,6 +1042,113 @@ void main() {
     },
   );
 
+  test(
+    'course snapshots preserve filter and page keys after restart',
+    () async {
+      final sessions = gateway(_Api()..next = 'home');
+      await sessions.start(_identity);
+      for (final mine in [false, true]) {
+        for (final page in [1, 2]) {
+          expect(
+            (await sessions.courses(
+              _identity,
+              mine: mine,
+              page: page,
+            )).isRight(),
+            isTrue,
+          );
+        }
+      }
+      final restarted = gateway(_Api()..next = 'home');
+      expect(
+        await restarted.coursesSnapshot(_identity, mine: false, page: 1),
+        isNull,
+      );
+      await restarted.restore(_identity);
+      for (final mine in [false, true]) {
+        expect(
+          (await restarted.coursesSnapshot(
+            _identity,
+            mine: mine,
+            page: 1,
+          ))?.data.hasMore,
+          isTrue,
+        );
+        final second = await restarted.coursesSnapshot(
+          _identity,
+          mine: mine,
+          page: 2,
+        );
+        expect(second?.data.hasMore, isFalse);
+        expect(second?.data.courses.single.priceUsd, '15.00');
+      }
+      await restarted.end(_identity);
+      await restarted.start(_identity);
+      expect(
+        await restarted.coursesSnapshot(_identity, mine: false, page: 1),
+        isNull,
+      );
+      expect(
+        await restarted.coursesSnapshot(_identity, mine: true, page: 2),
+        isNull,
+      );
+    },
+  );
+
+  test('mismatched course pagination is rejected rather than cached', () async {
+    final api = _Api()..next = 'home';
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    api.courseResponsePage = 2;
+    final result = await sessions.courses(_identity, mine: false, page: 1);
+    expect(
+      result.getLeft().toNullable(),
+      StudentSessionFailure.invalidResponse,
+    );
+    expect(
+      await sessions.coursesSnapshot(_identity, mine: false, page: 1),
+      isNull,
+    );
+  });
+
+  test(
+    'invalid course limits and totals never enter the snapshot cache',
+    () async {
+      for (final (limit, total) in [(0, 21), (-1, 21), (21, 21), (20, -1)]) {
+        final api = _Api()
+          ..next = 'home'
+          ..courseResponseLimit = limit
+          ..courseResponseTotal = total;
+        final sessions = gateway(api);
+        await sessions.start(_identity);
+        final result = await sessions.courses(_identity, mine: false, page: 1);
+        expect(
+          result.getLeft().toNullable(),
+          StudentSessionFailure.invalidResponse,
+        );
+        expect(
+          await sessions.coursesSnapshot(_identity, mine: false, page: 1),
+          isNull,
+        );
+      }
+    },
+  );
+
+  test('course cache is purged by a session restriction', () async {
+    final api = _Api()..next = 'home';
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    await sessions.courses(_identity, mine: true, page: 1);
+    api.profileDenial = 'DEVICE_NOT_AUTHORIZED';
+    await sessions.profile(_identity);
+    api.profileDenial = null;
+    await sessions.read(_identity);
+    expect(
+      await sessions.coursesSnapshot(_identity, mine: true, page: 1),
+      isNull,
+    );
+  });
+
   test('restriction removes the persisted profile', () async {
     final api = _Api()..next = 'home';
     final sessions = gateway(api);
@@ -1177,6 +1284,9 @@ final class _Proof implements FirebaseIdentityProofSource {
 
 final class _Api implements ApiClient {
   final requests = <ApiRequest>[];
+  int? courseResponsePage;
+  int courseResponseLimit = 20;
+  int courseResponseTotal = 21;
   Completer<void>? subjectsStarted;
   Completer<void>? pendingSubjects;
   Completer<void>? homeStarted;
@@ -1370,7 +1480,7 @@ final class _Api implements ApiClient {
           },
         );
       case 'courses':
-        return const ApiResponse(
+        return ApiResponse(
           statusCode: 200,
           requestId: 'test',
           json: {
@@ -1384,7 +1494,11 @@ final class _Api implements ApiClient {
                 'subscribed': true,
               },
             ],
-            'meta': {'page': 2, 'limit': 20, 'total': 21},
+            'meta': {
+              'page': courseResponsePage ?? int.parse(request.query['page']!),
+              'limit': courseResponseLimit,
+              'total': courseResponseTotal,
+            },
           },
         );
       case 'lessons/lesson':
