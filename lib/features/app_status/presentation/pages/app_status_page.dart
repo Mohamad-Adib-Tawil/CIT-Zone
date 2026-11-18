@@ -7,6 +7,7 @@ import '../../../onboarding/presentation/widgets/hasobjy_3d_button.dart';
 import '../cubit/app_availability_cubit.dart';
 import '../../domain/app_availability.dart';
 import '../widgets/app_status_background.dart';
+import 'startup_loading_page.dart';
 
 /// Server gate: no preview navigation, demo downloads, or local access grant.
 class AppStatusPage extends StatelessWidget {
@@ -24,6 +25,7 @@ class AppStatusPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (state is AppAvailabilityLoading) return const StartupLoadingPage();
     final l10n = AppLocalizations.of(context);
     final frame = switch (state) {
       AppAvailabilityLoading() => 'I-01',
@@ -43,45 +45,6 @@ class AppStatusPage extends StatelessWidget {
       frameName: light ? '$frame-LIGHT' : frame,
       child: Builder(
         builder: (context) {
-          if (frame == 'I-01') {
-            return HasobjyFigmaFrame(
-              backgroundLayer: AppStatusBackground(frame: frame, light: light),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
-                child: Center(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(
-                        width: 120,
-                        height: 120,
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: HasobjySvg(
-                            context.designFrame!.assets['imgH']!,
-                            width: 96,
-                            height: 96,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        l10n.appStatusBrand,
-                        style: context.design.title,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        l10n.appStatusInstitute,
-                        style: context.design.bodySmall,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }
           final (title, fallback) = switch (frame) {
             'I-02' => (
               l10n.appStatusOfflineTitle,

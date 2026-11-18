@@ -6,18 +6,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../auth/domain/google_identity.dart';
 import '../theme/hasobjy_visual_scope.dart';
 import '../widgets/hasobjy_figma_components.dart';
+import '../widgets/welcome_loading_fade.dart';
 
 class HasobjyWelcomeScreen extends StatelessWidget {
   const HasobjyWelcomeScreen({
     super.key,
     required this.onGoogleSignIn,
     required this.working,
+    this.loading = false,
     this.error,
     this.onOpenLegal,
   });
 
   final VoidCallback? onGoogleSignIn;
   final bool working;
+  final bool loading;
   final String? error;
   final ValueChanged<bool>? onOpenLegal;
 
@@ -30,64 +33,90 @@ class HasobjyWelcomeScreen extends StatelessWidget {
           children: [
             Spacer(),
             SizedBox(height: 16),
-            SizedBox(
-              width: 150,
-              height: 150,
-              child: Center(
-                child: SvgPicture.asset(
-                  'assets/hasobjy/app_icon_foreground.svg',
-                  width: 93.75,
-                  height: 93.75,
-                ),
-              ),
-            ),
-            SizedBox(height: 16),
-            ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 80),
-              child: Center(
-                child: Text(
-                  AppLocalizations.of(context).designWelcomeTitle,
-                  textAlign: TextAlign.center,
-                  style: context.design.display,
-                ),
-              ),
-            ),
-            SizedBox(height: 16),
-            ConstrainedBox(
-              constraints: BoxConstraints(minHeight: 78),
-              child: Text(
-                AppLocalizations.of(context).designWelcomeDescription,
-                textAlign: TextAlign.center,
-                style: context.design.bodyLarge,
-              ),
-            ),
+            if (loading)
+              const WelcomeLoadingFade(child: _WelcomeBranding())
+            else
+              const _WelcomeBranding(),
             SizedBox(height: 16),
             Spacer(),
             SizedBox(height: 16),
-            HasobjyButton(
-              label: AppLocalizations.of(context).continueViaGoogle,
-              primary: false,
-              onPressed: working ? null : onGoogleSignIn,
-              icon: HasobjySvg('96346', width: 24, height: 24),
-              cornerLine: '84987',
-            ),
-            SizedBox(height: 16),
-            _WelcomeLegalNotice(onOpenLegal: onOpenLegal),
-            if (error != null) ...[
-              SizedBox(height: 4),
-              Text(
-                error!,
-                textAlign: TextAlign.center,
-                style: context.design.bodySmall.copyWith(
-                  color: Color(0xFFFFA6A6),
-                ),
+            Visibility(
+              visible: !loading,
+              maintainSize: true,
+              maintainState: true,
+              maintainAnimation: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  HasobjyButton(
+                    label: AppLocalizations.of(context).continueViaGoogle,
+                    primary: false,
+                    onPressed: working ? null : onGoogleSignIn,
+                    icon: HasobjySvg('96346', width: 24, height: 24),
+                    cornerLine: '84987',
+                  ),
+                  SizedBox(height: 16),
+                  _WelcomeLegalNotice(onOpenLegal: onOpenLegal),
+                  if (error != null) ...[
+                    SizedBox(height: 4),
+                    Text(
+                      error!,
+                      textAlign: TextAlign.center,
+                      style: context.design.bodySmall.copyWith(
+                        color: Color(0xFFFFA6A6),
+                      ),
+                    ),
+                  ],
+                ],
               ),
-            ],
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+class _WelcomeBranding extends StatelessWidget {
+  const _WelcomeBranding();
+
+  @override
+  Widget build(BuildContext context) => Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      SizedBox(
+        width: 150,
+        height: 150,
+        child: Center(
+          child: SvgPicture.asset(
+            'assets/hasobjy/app_icon_foreground.svg',
+            width: 93.75,
+            height: 93.75,
+          ),
+        ),
+      ),
+      SizedBox(height: 16),
+      ConstrainedBox(
+        constraints: BoxConstraints(minHeight: 80),
+        child: Center(
+          child: Text(
+            AppLocalizations.of(context).designWelcomeTitle,
+            textAlign: TextAlign.center,
+            style: context.design.display,
+          ),
+        ),
+      ),
+      SizedBox(height: 16),
+      ConstrainedBox(
+        constraints: BoxConstraints(minHeight: 78),
+        child: Text(
+          AppLocalizations.of(context).designWelcomeDescription,
+          textAlign: TextAlign.center,
+          style: context.design.bodyLarge,
+        ),
+      ),
+    ],
+  );
 }
 
 class _WelcomeLegalNotice extends StatefulWidget {

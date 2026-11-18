@@ -1,5 +1,7 @@
 import 'package:cit_zone/core/localization/generated/app_localizations.dart';
-import 'package:cit_zone/core/widgets/app_skeleton.dart';
+
+import '../../../app_status/presentation/pages/startup_loading_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +15,7 @@ class StudentSessionPage extends StatelessWidget {
   Widget build(BuildContext context) =>
       BlocBuilder<GoogleIdentityCubit, GoogleIdentityState>(
         builder: (context, state) {
+          if (state is GoogleIdentityWorking) return const StartupLoadingPage();
           final cubit = context.read<GoogleIdentityCubit>();
           final messages = AppLocalizations.of(context);
           final ready = state is GoogleIdentityReady ? state : null;
@@ -37,18 +40,7 @@ class StudentSessionPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      if (state is GoogleIdentityWorking)
-                        const AppSkeleton(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            spacing: 12,
-                            children: [
-                              SkeletonBlock(width: 220, height: 18),
-                              SkeletonBlock(width: 144, height: 14),
-                            ],
-                          ),
-                        )
-                      else if (ready != null) ...[
+                      if (ready != null) ...[
                         Text(message, textAlign: TextAlign.center),
                         if (ready.sessionFailure != null && ready.error == null)
                           TextButton(

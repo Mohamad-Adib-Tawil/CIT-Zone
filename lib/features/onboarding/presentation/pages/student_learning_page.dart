@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/errors/either.dart';
+import '../../../app_status/presentation/pages/startup_loading_page.dart';
 import '../../../auth/domain/google_identity.dart';
 import '../../../auth/domain/student_learning.dart';
 import '../../../auth/domain/student_profile_snapshot.dart';
@@ -123,6 +124,7 @@ class _LearningShellState extends State<_LearningShell> {
     onSessionRestricted: _restrictLearningSession,
   );
   _LearningTab _tab = _LearningTab.home;
+  bool _homeShown = false;
   String? _detail;
   String? _lessonId;
   List<StudentCourseContent>? _lessonCourseContent;
@@ -983,6 +985,7 @@ class _LearningShellState extends State<_LearningShell> {
       frameName: light ? 'C-01-LIGHT' : 'C-01',
       child: _LiveData<StudentHomeData>(
         loadingLayout: StudentLoadingLayout.home,
+        startupLoading: !_homeShown,
         key: const ValueKey('home'),
         cache: _cache,
         cacheKey: 'home',
@@ -994,6 +997,7 @@ class _LearningShellState extends State<_LearningShell> {
         load: () => repository.home(identity),
         fallback: (_, placeholder) => scaffold(placeholder),
         builder: (context, data) {
+          _homeShown = true;
           final coursesOnly = widget.coursesOnly;
           final greeting = PreviewText(
             'مرحباً ${data.name}',
@@ -1826,6 +1830,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
     required this.builder,
     this.fallback,
     this.restore,
+    this.startupLoading = false,
   });
 
   final Future<({T data, DateTime storedAt})?> Function()? restore;
@@ -1833,6 +1838,7 @@ class _LiveData<T extends Object> extends StatelessWidget {
   final Object cacheKey;
 
   final Future<Either<StudentSessionFailure, T>> Function() load;
+  final bool startupLoading;
   final StudentLoadingLayout? loadingLayout;
   final Widget Function(BuildContext, T) builder;
   final Widget Function(BuildContext, Widget)? fallback;
@@ -1859,6 +1865,9 @@ class _LiveData<T extends Object> extends StatelessWidget {
                 current.data == null || !identical(previous.data, current.data),
             builder: (context, state) {
               if (state.data case final data?) return builder(context, data);
+              if (state.working && startupLoading) {
+                return const StartupLoadingPage();
+              }
               final layout = loadingLayout;
               final placeholder = state.working
                   ? (layout == null

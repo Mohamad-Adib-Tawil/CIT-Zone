@@ -6,6 +6,7 @@ import 'dart:ui' as ui;
 
 import 'package:cit_zone/core/errors/either.dart';
 import 'package:cit_zone/core/widgets/app_skeleton.dart';
+import 'package:cit_zone/features/app_status/presentation/pages/startup_loading_page.dart';
 import 'package:cit_zone/core/localization/generated/app_localizations_ar.dart';
 import 'package:cit_zone/features/auth/data/google_identity_repository_impl.dart';
 import 'package:cit_zone/features/auth/domain/google_identity.dart';
@@ -41,8 +42,9 @@ void main() {
       await tester.binding.setSurfaceSize(size);
       addTearDown(() => tester.binding.setSurfaceSize(null));
       final repository = _StudentRepository();
-      await _openLearning(tester, repository, mode);
-      expect(find.byType(AppSkeleton), findsOneWidget);
+      await _openLearning(tester, repository, mode, holdHome: true);
+      expect(find.byType(StartupLoadingPage), findsOneWidget);
+      expect(find.byType(AppSkeleton), findsNothing);
       expect(find.byType(HasobjyLearningEmptyState), findsNothing);
       await _capture(tester, size, mode, 'home-loading');
 
@@ -90,7 +92,7 @@ void main() {
         await tester.binding.setSurfaceSize(size);
         addTearDown(() => tester.binding.setSurfaceSize(null));
         final repository = _StudentRepository()..manySubjects = true;
-        await _openLearning(tester, repository, mode);
+        await _openLearning(tester, repository, mode, holdHome: true);
         repository.homeResult.complete(
           const Right((
             name: 'طالب اختبار',
@@ -133,7 +135,7 @@ void main() {
       await tester.binding.setSurfaceSize(size);
       addTearDown(() => tester.binding.setSurfaceSize(null));
       final repository = _StudentRepository(withLessons: true);
-      await _openLearning(tester, repository, mode);
+      await _openLearning(tester, repository, mode, holdHome: true);
       repository.homeResult.complete(
         const Right((
           name: 'طالب اختبار',
@@ -481,7 +483,7 @@ void main() {
         await tester.binding.setSurfaceSize(size);
         addTearDown(() => tester.binding.setSurfaceSize(null));
         final repository = _StudentRepository();
-        await _openLearning(tester, repository, mode);
+        await _openLearning(tester, repository, mode, holdHome: true);
         repository.homeResult.complete(
           const Right((
             name: 'طالب اختبار',
@@ -535,7 +537,12 @@ void main() {
   ) async {
     final repository = _StudentRepository()
       ..ratingDenial = StudentSessionFailure.deviceUnauthorized;
-    final cubit = await _openLearning(tester, repository, ThemeMode.dark);
+    final cubit = await _openLearning(
+      tester,
+      repository,
+      ThemeMode.dark,
+      holdHome: true,
+    );
     repository.homeResult.complete(
       const Right((
         name: 'طالب اختبار',
@@ -873,7 +880,12 @@ void main() {
     tester,
   ) async {
     final repository = _StudentRepository();
-    final cubit = await _openLearning(tester, repository, ThemeMode.dark);
+    final cubit = await _openLearning(
+      tester,
+      repository,
+      ThemeMode.dark,
+      holdHome: true,
+    );
     repository.homeResult.complete(
       const Right((
         name: 'طالب اختبار',
@@ -983,7 +995,12 @@ void main() {
     'a device rejection from a content request wins over a late session check',
     (tester) async {
       final repository = _StudentRepository();
-      final cubit = await _openLearning(tester, repository, ThemeMode.dark);
+      final cubit = await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        holdHome: true,
+      );
       final check = cubit.revalidateSession();
       repository.homeResult.complete(
         const Left(StudentSessionFailure.deviceUnauthorized),
@@ -1259,6 +1276,7 @@ void main() {
       repository,
       ThemeMode.dark,
       cacheClock: () => now,
+      holdHome: true,
     );
     final home = (
       name: 'طالب اختبار',
@@ -1311,7 +1329,7 @@ void main() {
         year: 2,
       )),
     );
-    await _openLearning(tester, repository, ThemeMode.dark);
+    await _openLearning(tester, repository, ThemeMode.dark, holdHome: true);
     repository.homeResult.complete(
       const Right((
         name: 'طالب اختبار',
@@ -1498,6 +1516,7 @@ void main() {
         repository,
         ThemeMode.dark,
         cacheClock: () => now,
+        holdHome: true,
       );
       repository.homeResult.complete(
         const Right((
@@ -1545,7 +1564,7 @@ void main() {
     tester,
   ) async {
     final repository = _StudentRepository()..unreadCount = 3;
-    await _openLearning(tester, repository, ThemeMode.dark);
+    await _openLearning(tester, repository, ThemeMode.dark, holdHome: true);
     repository.homeResult.complete(
       const Right((
         name: 'طالب اختبار',
@@ -1604,7 +1623,7 @@ void main() {
       await tester.binding.setSurfaceSize(size);
       addTearDown(() => tester.binding.setSurfaceSize(null));
       final repository = _StudentRepository()..unreadCount = 120;
-      await _openLearning(tester, repository, mode);
+      await _openLearning(tester, repository, mode, holdHome: true);
       repository.homeResult.complete(
         const Right((
           name: 'طالب اختبار',
@@ -1632,7 +1651,7 @@ void main() {
     tester,
   ) async {
     final repository = _StudentRepository()..failNotificationRead = true;
-    await _openLearning(tester, repository, ThemeMode.dark);
+    await _openLearning(tester, repository, ThemeMode.dark, holdHome: true);
     repository.homeResult.complete(
       const Right((
         name: 'طالب اختبار',
@@ -1669,6 +1688,7 @@ void main() {
       repository,
       ThemeMode.dark,
       cacheClock: () => now,
+      holdHome: true,
     );
     repository.homeResult.complete(
       const Right((
@@ -1743,7 +1763,7 @@ void main() {
     tester,
   ) async {
     final repository = _StudentRepository();
-    await _openLearning(tester, repository, ThemeMode.light);
+    await _openLearning(tester, repository, ThemeMode.light, holdHome: true);
     repository.homeResult.complete(
       const Left(StudentSessionFailure.unavailable),
     );
@@ -1760,7 +1780,18 @@ Future<GoogleIdentityCubit> _openLearning(
   ThemeMode mode, {
   VoidCallback? onOpenLegal,
   DateTime Function()? cacheClock,
+  bool holdHome = false,
 }) async {
+  if (!holdHome && !repository.homeResult.isCompleted) {
+    repository.homeResult.complete(
+      const Right((
+        name: 'طالب اختبار',
+        resumeLesson: null,
+        subjects: [],
+        courses: [],
+      )),
+    );
+  }
   final themeMode = ValueNotifier(mode);
   final cubit = GoogleIdentityCubit(
     GoogleIdentityRepositoryImpl(FakeGoogleIdentityGateway()),
@@ -1792,6 +1823,7 @@ Future<GoogleIdentityCubit> _openLearning(
       ),
     ),
   );
+  if (!holdHome) await tester.pumpAndSettle();
   return cubit;
 }
 
