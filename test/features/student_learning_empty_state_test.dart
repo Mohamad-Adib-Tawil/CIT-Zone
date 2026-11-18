@@ -263,10 +263,61 @@ void main() {
     }
   });
 
-  testWidgets('returning from a lesson restores the subject scroll', (
+  for (final expires in [false, true]) {
+    testWidgets('subject lessons restore scroll with cache expiry=$expires', (
+      tester,
+    ) async {
+      final repository = _StudentRepository()..manyLessons = true;
+      var now = DateTime.utc(2026, 11, 17);
+      await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        cacheClock: () => now,
+      );
+      await tester.tap(find.text('المواد'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('الفصول السابقة'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('قواعد البيانات'));
+      await tester.pumpAndSettle();
+
+      final lesson = find.text('الدرس 12');
+      expect(lesson, findsNothing);
+      await tester.scrollUntilVisible(lesson, 220);
+      await tester.pumpAndSettle();
+      final scrollable = find.byType(Scrollable);
+      final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+      expect(offset, greaterThan(0));
+
+      await tester.tap(lesson);
+      await tester.pumpAndSettle();
+      expect(repository.lessonRequests, ['lesson-12']);
+      final gate = Completer<void>();
+      if (expires) {
+        now = now.add(const Duration(minutes: 6));
+        repository.subjectLessonsGate = gate.future;
+      }
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+
+      if (expires) {
+        expect(lesson, findsNothing);
+        gate.complete();
+        await tester.pumpAndSettle();
+      }
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+      expect(lesson.hitTestable(), findsOneWidget);
+    });
+  }
+
+  testWidgets('leaving files discards an older download attempt', (
     tester,
   ) async {
-    final repository = _StudentRepository()..manyLessons = true;
+    final first = Completer<Either<StudentSessionFailure, Uri>>();
+    final second = Completer<Either<StudentSessionFailure, Uri>>();
+    final repository = _StudentRepository()
+      ..downloadAttempts.addAll([first.future, second.future]);
     await _openLearning(tester, repository, ThemeMode.dark);
     await tester.tap(find.text('المواد'));
     await tester.pumpAndSettle();
@@ -274,23 +325,29 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.text('قواعد البيانات'));
     await tester.pumpAndSettle();
-
-    final lesson = find.text('الدرس 12');
-    expect(lesson, findsNothing);
-    await tester.scrollUntilVisible(lesson, 220);
-    await tester.pumpAndSettle();
-    final scrollable = find.byType(Scrollable);
-    final offset = tester.state<ScrollableState>(scrollable).position.pixels;
-    expect(offset, greaterThan(0));
-
-    await tester.tap(lesson);
-    await tester.pumpAndSettle();
-    expect(repository.lessonRequests, ['lesson-12']);
-    expect(await tester.binding.handlePopRoute(), isTrue);
+    await tester.tap(find.text('الملفات'));
     await tester.pumpAndSettle();
 
-    expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
-    expect(lesson.hitTestable(), findsOneWidget);
+    final file = find.text('ملف المادة');
+    await tester.tap(file);
+    await tester.pumpAndSettle();
+    expect(find.text('جارٍ تجهيز رابط التنزيل…'), findsOneWidget);
+    await tester.tap(find.text('الدروس'));
+    await tester.pumpAndSettle();
+    expect(repository.cancelledDownloads, 1);
+    await tester.tap(find.text('الملفات'));
+    await tester.pumpAndSettle();
+    await tester.tap(file);
+    await tester.pumpAndSettle();
+    expect(repository.downloadAttempts, isEmpty);
+
+    first.complete(Right(Uri.https('storage.example.test', '/file.pdf')));
+    await tester.pumpAndSettle();
+    expect(find.text('جارٍ تجهيز رابط التنزيل…'), findsOneWidget);
+    expect(find.byType(SnackBar), findsNothing);
+    second.complete(const Left(StudentSessionFailure.unavailable));
+    await tester.pumpAndSettle();
+    expect(find.text('تعذّر فتح رابط التنزيل. أعد المحاولة.'), findsOneWidget);
   });
 
   testWidgets('file reader keeps its page during a network retry', (
@@ -528,6 +585,79 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('كل الكورسات'), findsOneWidget);
   });
+
+  testWidgets('subscriptions can open the catalog after a read failure', (
+    tester,
+  ) async {
+    final pending =
+        Completer<Either<StudentSessionFailure, List<StudentSubscription>>>();
+    final repository = _StudentRepository()
+      ..pendingSubscriptions = pending.future;
+    await _openLearning(tester, repository, ThemeMode.dark);
+    await tester.tap(find.text('الإعدادات'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('اشتراكاتي'));
+    await tester.pumpAndSettle();
+    expect(find.text('تصفّح الكورسات'), findsOneWidget);
+
+    pending.complete(const Left(StudentSessionFailure.unavailable));
+    await tester.pumpAndSettle();
+    expect(find.text('إعادة المحاولة'), findsOneWidget);
+    final browse = find.text('تصفّح الكورسات');
+    await tester.ensureVisible(browse);
+    await tester.tap(browse);
+    await tester.pumpAndSettle();
+    expect(find.text('كل الكورسات'), findsOneWidget);
+  });
+
+  for (final expires in [false, true]) {
+    testWidgets('the support list restores scroll with cache expiry=$expires', (
+      tester,
+    ) async {
+      final repository = _StudentRepository()..longSupport = true;
+      var now = DateTime.utc(2026, 11, 17);
+      await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        cacheClock: () => now,
+      );
+      await tester.tap(find.text('الإعدادات'));
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('الدعم والتواصل'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('الدعم والتواصل'));
+      await tester.pumpAndSettle();
+
+      final ticket = find.text('التذكرة 12');
+      await tester.ensureVisible(ticket);
+      await tester.pumpAndSettle();
+      final scrollable = find.byType(Scrollable);
+      final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+      expect(offset, greaterThan(0));
+
+      await tester.tap(ticket);
+      await tester.pumpAndSettle();
+      expect(find.text('رد فريق الدعم'), findsOneWidget);
+      final gate = Completer<void>();
+      if (expires) {
+        now = now.add(const Duration(minutes: 6));
+        repository.supportReadGate = gate.future;
+      }
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      if (expires) {
+        expect(ticket, findsNothing);
+        expect(repository.supportReads, 2);
+        gate.complete();
+        await tester.pumpAndSettle();
+      }
+
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+      expect(ticket.hitTestable(), findsOneWidget);
+      expect(repository.supportReads, expires ? 2 : 1);
+    });
+  }
 
   testWidgets('settings opens the support conversation', (tester) async {
     final repository = _StudentRepository();
@@ -878,6 +1008,45 @@ void main() {
     },
   );
 
+  for (final (tab, last) in [('المواد', 'آخر مادة'), ('الكورسات', 'كورس 20')]) {
+    testWidgets('catalog restores $last after its cache expires', (
+      tester,
+    ) async {
+      final repository = _StudentRepository()
+        ..manySubjects = true
+        ..manyCourses = true;
+      var now = DateTime.utc(2026, 11, 17);
+      await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        cacheClock: () => now,
+      );
+      await tester.tap(find.text(tab));
+      await tester.pumpAndSettle();
+      final card = find.text(last);
+      await tester.scrollUntilVisible(card, 320);
+      await tester.pumpAndSettle();
+      final scrollable = find.byType(Scrollable);
+      final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+      expect(offset, greaterThan(0));
+      await tester.tap(card);
+      await tester.pumpAndSettle();
+
+      now = now.add(const Duration(minutes: 6));
+      final gate = Completer<void>();
+      repository.catalogGate = gate.future;
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      expect(card.hitTestable(), findsNothing);
+      gate.complete();
+      await tester.pumpAndSettle();
+
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+      expect(card.hitTestable(), findsOneWidget);
+    });
+  }
+
   testWidgets('returning to the subjects tab restores its scroll position', (
     tester,
   ) async {
@@ -931,68 +1100,100 @@ void main() {
     expect(find.text('كورس 21'), findsOneWidget);
     expect(tester.state<ScrollableState>(scrollable).position.pixels, 0);
 
+    await tester.tap(find.text('كل الكورسات'));
+    await tester.pumpAndSettle();
+    expect(find.text('كورس 21'), findsOneWidget);
+    expect(repository.coursePages, [(false, 1), (false, 2)]);
+
     await tester.tap(find.text('السابق'));
     await tester.pumpAndSettle();
     expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
     expect(repository.coursePages, [(false, 1), (false, 2)]);
   });
 
-  testWidgets('course content builds lazily and restores its scroll', (
-    tester,
-  ) async {
-    final repository = _StudentRepository()
-      ..showCourse = true
-      ..longCourse = true;
-    await _openLearning(tester, repository, ThemeMode.dark);
-    await tester.tap(find.text('الكورسات'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('كورس قواعد البيانات'));
-    await tester.pumpAndSettle();
+  for (final expires in [false, true]) {
+    testWidgets('course content restores scroll with cache expiry=$expires', (
+      tester,
+    ) async {
+      final repository = _StudentRepository()
+        ..showCourse = true
+        ..longCourse = true;
+      var now = DateTime.utc(2026, 11, 17);
+      await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        cacheClock: () => now,
+      );
+      await tester.tap(find.text('الكورسات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('كورس قواعد البيانات'));
+      await tester.pumpAndSettle();
 
-    final last = find.text('درس الكورس 24');
-    expect(last, findsNothing);
-    await tester.scrollUntilVisible(last, 260);
-    await tester.pumpAndSettle();
-    final scrollable = find.byType(Scrollable);
-    final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+      final last = find.text('درس الكورس 24');
+      expect(last, findsNothing);
+      await tester.scrollUntilVisible(last, 260);
+      await tester.pumpAndSettle();
+      final scrollable = find.byType(Scrollable);
+      final offset = tester.state<ScrollableState>(scrollable).position.pixels;
 
-    await tester.tap(last);
-    await tester.pumpAndSettle();
-    expect(repository.lessonRequests, ['course-lesson-24']);
-    expect(await tester.binding.handlePopRoute(), isTrue);
-    await tester.pumpAndSettle();
-    expect(last.hitTestable(), findsOneWidget);
-    expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
-  });
+      await tester.tap(last);
+      await tester.pumpAndSettle();
+      expect(repository.lessonRequests, ['course-lesson-24']);
+      final gate = Completer<void>();
+      if (expires) {
+        now = now.add(const Duration(minutes: 6));
+        repository.courseContentGate = gate.future;
+      }
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      if (expires) {
+        expect(last, findsNothing);
+        gate.complete();
+        await tester.pumpAndSettle();
+      }
+      expect(last.hitTestable(), findsOneWidget);
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+    });
+  }
 
-  testWidgets('course content opens previews and keeps locked lessons closed', (
-    tester,
-  ) async {
-    final repository = _StudentRepository()..showCourse = true;
-    await _openLearning(tester, repository, ThemeMode.dark);
-    await tester.tap(find.text('الكورسات'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('كورس قواعد البيانات'));
-    await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.text('درس مقفل'), 180);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('درس مقفل'));
-    await tester.pumpAndSettle();
-    expect(find.text('محتوى الكورس'), findsOneWidget);
-    await tester.scrollUntilVisible(find.text('درس المعاينة'), -180);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('درس المعاينة'));
-    await tester.pumpAndSettle();
-    expect(find.text('تفاصيل العلاقات بين الجداول'), findsOneWidget);
-    expect(find.text('12:40 / 27:00'), findsOneWidget);
-    repository.lessonDuration = 60;
-    repository.lessonPosition = 120;
-    await tester.tap(find.text('الدرس التالي'));
-    await tester.pumpAndSettle();
-    expect(repository.lessonRequests, ['preview', 'course-next']);
-    expect(find.text('1:00 / 1:00'), findsOneWidget);
-    expect(find.text('الدرس التالي'), findsNothing);
-  });
+  for (final mode in [ThemeMode.light, ThemeMode.dark]) {
+    testWidgets('course preview and locks work in ${mode.name}', (
+      tester,
+    ) async {
+      const size = Size(390, 844);
+      await tester.binding.setSurfaceSize(size);
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      final repository = _StudentRepository()..showCourse = true;
+      await _openLearning(tester, repository, mode);
+      await tester.tap(find.text('الكورسات'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('كورس قواعد البيانات'));
+      await tester.pumpAndSettle();
+      expect(find.text('عدد الدروس'), findsOneWidget);
+      expect(find.text('3'), findsOneWidget);
+      expect(find.text('عرض فقط، بدون تحميل'), findsOneWidget);
+      await _capture(tester, size, mode, 'course-detail');
+      await tester.scrollUntilVisible(find.text('درس مقفل'), 180);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('درس مقفل'));
+      await tester.pumpAndSettle();
+      expect(find.text('محتوى الكورس'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('درس المعاينة'), -180);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('درس المعاينة'));
+      await tester.pumpAndSettle();
+      expect(find.text('تفاصيل العلاقات بين الجداول'), findsOneWidget);
+      expect(find.text('12:40 / 27:00'), findsOneWidget);
+      repository.lessonDuration = 60;
+      repository.lessonPosition = 120;
+      await tester.tap(find.text('الدرس التالي'));
+      await tester.pumpAndSettle();
+      expect(repository.lessonRequests, ['preview', 'course-next']);
+      expect(find.text('1:00 / 1:00'), findsOneWidget);
+      expect(find.text('الدرس التالي'), findsNothing);
+    });
+  }
 
   testWidgets(
     'profile opens published grades without turning pending marks into zero',
@@ -1046,6 +1247,53 @@ void main() {
     await tester.ensureVisible(link);
     await tester.tap(link);
     expect(opened, isTrue);
+  });
+
+  testWidgets('home restores scroll after its cached data expires', (
+    tester,
+  ) async {
+    final repository = _StudentRepository();
+    var now = DateTime.utc(2026, 11, 17);
+    await _openLearning(
+      tester,
+      repository,
+      ThemeMode.dark,
+      cacheClock: () => now,
+    );
+    final home = (
+      name: 'طالب اختبار',
+      resumeLesson: null,
+      subjects: <StudentSubjectItem>[],
+      courses: [
+        for (var index = 1; index <= 12; index++)
+          (id: 'course-$index', name: 'اشتراك $index'),
+      ],
+    );
+    repository.homeResult.complete(Right(home));
+    await tester.pumpAndSettle();
+    final last = find.text('اشتراك 12');
+    await tester.ensureVisible(last);
+    await tester.pumpAndSettle();
+    final scrollable = find.byType(Scrollable);
+    final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+    expect(offset, greaterThan(0));
+
+    await tester.tap(last);
+    await tester.pumpAndSettle();
+    expect(find.text('محتوى الكورس'), findsOneWidget);
+    now = now.add(const Duration(minutes: 6));
+    repository.homeResult =
+        Completer<Either<StudentSessionFailure, StudentHomeData>>();
+    expect(await tester.binding.handlePopRoute(), isTrue);
+    await tester.pumpAndSettle();
+    expect(find.text('محتوى الكورس'), findsNothing);
+    expect(repository.homeRequests, 2);
+    expect(last, findsNothing);
+    repository.homeResult.complete(Right(home));
+    await tester.pumpAndSettle();
+
+    expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+    expect(last.hitTestable(), findsOneWidget);
   });
 
   testWidgets('profile saves to the cache and reopens without a GET', (
@@ -1239,40 +1487,59 @@ void main() {
     expect(find.text('نشاطك اليومي'), findsOneWidget);
   });
 
-  testWidgets('the inbox builds lazily and restores its scroll', (
-    tester,
-  ) async {
-    final repository = _StudentRepository()..manyNotifications = true;
-    await _openLearning(tester, repository, ThemeMode.dark);
-    repository.homeResult.complete(
-      const Right((
-        name: 'طالب اختبار',
-        resumeLesson: null,
-        subjects: [],
-        courses: [],
-      )),
-    );
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('الإشعارات'));
-    await tester.pumpAndSettle();
+  for (final expires in [false, true]) {
+    testWidgets('the inbox restores scroll with cache expiry=$expires', (
+      tester,
+    ) async {
+      final repository = _StudentRepository()..manyNotifications = true;
+      var now = DateTime.utc(2026, 11, 17);
+      await _openLearning(
+        tester,
+        repository,
+        ThemeMode.dark,
+        cacheClock: () => now,
+      );
+      repository.homeResult.complete(
+        const Right((
+          name: 'طالب اختبار',
+          resumeLesson: null,
+          subjects: [],
+          courses: [],
+        )),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('الإشعارات'));
+      await tester.pumpAndSettle();
 
-    final notice = find.text('الإشعار 20');
-    expect(notice, findsNothing);
-    await tester.scrollUntilVisible(notice, 250);
-    await tester.pumpAndSettle();
-    final scrollable = find.byType(Scrollable);
-    final offset = tester.state<ScrollableState>(scrollable).position.pixels;
-    await tester.tap(notice);
-    await tester.pumpAndSettle();
-    expect(repository.readNotifications, ['notice-20']);
-    expect(repository.gradesTermId, _notificationTermId);
+      final notice = find.text('الإشعار 20');
+      expect(notice, findsNothing);
+      await tester.scrollUntilVisible(notice, 250);
+      await tester.pumpAndSettle();
+      final scrollable = find.byType(Scrollable);
+      final offset = tester.state<ScrollableState>(scrollable).position.pixels;
+      await tester.tap(notice);
+      await tester.pumpAndSettle();
+      expect(repository.readNotifications, ['notice-20']);
+      expect(repository.gradesTermId, _notificationTermId);
 
-    expect(await tester.binding.handlePopRoute(), isTrue);
-    await tester.pumpAndSettle();
-    expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
-    expect(notice.hitTestable(), findsOneWidget);
-    expect(repository.notificationRequests, 1);
-  });
+      final gate = Completer<void>();
+      if (expires) {
+        now = now.add(const Duration(minutes: 6));
+        repository.notificationReadGate = gate.future;
+      }
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      if (expires) {
+        expect(notice, findsNothing);
+        expect(repository.notificationRequests, 2);
+        gate.complete();
+        await tester.pumpAndSettle();
+      }
+      expect(tester.state<ScrollableState>(scrollable).position.pixels, offset);
+      expect(notice.hitTestable(), findsOneWidget);
+      expect(repository.notificationRequests, expires ? 2 : 1);
+    });
+  }
 
   testWidgets('opens the inbox and marks an item read after confirmation', (
     tester,
@@ -1557,6 +1824,7 @@ class _StudentRepository implements StudentSessionRepository {
 
   final bool withLessons;
   bool manySubjects = false;
+  Future<void>? catalogGate;
   bool manyLessons = false;
   int homeRequests = 0;
   bool examNotification = false;
@@ -1623,22 +1891,25 @@ class _StudentRepository implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, List<StudentSubjectItem>>> subjects(
     GoogleIdentity identity, {
     required bool previous,
-  }) async => Right(
-    manySubjects
-        ? [
-            ...List.filled(19, _subject),
-            (
-              id: 'last-subject',
-              name: 'آخر مادة',
-              completed: 0,
-              total: 0,
-              percent: 0,
-            ),
-          ]
-        : previous
-        ? [_subject]
-        : [],
-  );
+  }) async {
+    await catalogGate;
+    return Right(
+      manySubjects
+          ? [
+              ...List.filled(19, _subject),
+              (
+                id: 'last-subject',
+                name: 'آخر مادة',
+                completed: 0,
+                total: 0,
+                percent: 0,
+              ),
+            ]
+          : previous
+          ? [_subject]
+          : [],
+    );
+  }
 
   @override
   Future<Either<StudentSessionFailure, StudentSubjectDetails>> subject(
@@ -1648,10 +1919,12 @@ class _StudentRepository implements StudentSessionRepository {
 
   Completer<Either<StudentSessionFailure, List<StudentLessonSummary>>>?
   pendingLessons;
+  Future<void>? subjectLessonsGate;
 
   @override
   Future<Either<StudentSessionFailure, List<StudentLessonSummary>>>
   subjectLessons(GoogleIdentity identity, String id) async {
+    await subjectLessonsGate;
     if (pendingLessons case final pending?) return pending.future;
     return Right([
       if (manyLessons)
@@ -1688,6 +1961,7 @@ class _StudentRepository implements StudentSessionRepository {
     required int page,
   }) async {
     coursePages.add((mine, page));
+    await catalogGate;
     if (!manyCourses) {
       return Right((courses: showCourse ? [_testCourse] : [], hasMore: false));
     }
@@ -1726,40 +2000,52 @@ class _StudentRepository implements StudentSessionRepository {
     String id,
   ) async => const Right(_testCourse);
 
+  Future<void>? courseContentGate;
+
   @override
   Future<Either<StudentSessionFailure, List<StudentCourseContent>>>
-  courseContent(GoogleIdentity identity, String id) async => Right([
-    (
-      id: 'preview',
-      title: 'درس المعاينة',
-      type: StudentCourseContentType.lesson,
-      locked: false,
-      isFree: true,
-    ),
-    (
-      id: 'course-next',
-      title: 'درس آخر متاح',
-      type: StudentCourseContentType.lesson,
-      locked: false,
-      isFree: false,
-    ),
-    (
-      id: 'locked',
-      title: 'درس مقفل',
-      type: StudentCourseContentType.lesson,
-      locked: true,
-      isFree: false,
-    ),
-    if (longCourse)
-      for (var number = 1; number <= 24; number++)
-        (
-          id: 'course-lesson-$number',
-          title: 'درس الكورس $number',
-          type: StudentCourseContentType.lesson,
-          locked: false,
-          isFree: false,
-        ),
-  ]);
+  courseContent(GoogleIdentity identity, String id) async {
+    await courseContentGate;
+    return Right([
+      (
+        id: 'preview',
+        title: 'درس المعاينة',
+        type: StudentCourseContentType.lesson,
+        locked: false,
+        isFree: true,
+      ),
+      (
+        id: 'course-next',
+        title: 'درس آخر متاح',
+        type: StudentCourseContentType.lesson,
+        locked: false,
+        isFree: false,
+      ),
+      (
+        id: 'locked',
+        title: 'درس مقفل',
+        type: StudentCourseContentType.lesson,
+        locked: true,
+        isFree: false,
+      ),
+      (
+        id: 'course-file',
+        title: 'ملف الكورس',
+        type: StudentCourseContentType.file,
+        locked: true,
+        isFree: false,
+      ),
+      if (longCourse)
+        for (var number = 1; number <= 24; number++)
+          (
+            id: 'course-lesson-$number',
+            title: 'درس الكورس $number',
+            type: StudentCourseContentType.lesson,
+            locked: false,
+            isFree: false,
+          ),
+    ]);
+  }
 
   StudentSessionFailure? profileSaveFailure;
   final savedNames = <String?>[];
@@ -1817,6 +2103,20 @@ class _StudentRepository implements StudentSessionRepository {
 
   int fileRequests = 0;
 
+  final downloadAttempts = <Future<Either<StudentSessionFailure, Uri>>>[];
+
+  @override
+  Future<Either<StudentSessionFailure, Uri>> academicFileDownload(
+    GoogleIdentity identity,
+    String id, {
+    Future<void>? whenCanceled,
+  }) {
+    unawaited(whenCanceled?.then((_) => cancelledDownloads++));
+    return downloadAttempts.removeAt(0);
+  }
+
+  int cancelledDownloads = 0;
+
   @override
   Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
     GoogleIdentity identity,
@@ -1833,7 +2133,12 @@ class _StudentRepository implements StudentSessionRepository {
             downloadable: false,
           )
       else
-        (id: 'file', title: 'ملف المادة', pages: 12, downloadable: false),
+        (
+          id: 'file',
+          title: 'ملف المادة',
+          pages: 12,
+          downloadable: downloadAttempts.isNotEmpty,
+        ),
     ]);
   }
 
@@ -1890,18 +2195,24 @@ class _StudentRepository implements StudentSessionRepository {
     ));
   }
 
+  Future<Either<StudentSessionFailure, List<StudentSubscription>>>?
+  pendingSubscriptions;
+
   @override
   Future<Either<StudentSessionFailure, List<StudentSubscription>>>
-  subscriptions(GoogleIdentity identity) async => Right([
-    (
-      name: 'كورس الاختبار',
-      scope: 'course',
-      state: StudentSubscriptionState.active,
-      startsAt: DateTime.utc(2026, 10),
-      expiresAt: DateTime.utc(2026, 11, 17),
-      daysLeft: 3,
-    ),
-  ]);
+  subscriptions(GoogleIdentity identity) async {
+    if (pendingSubscriptions case final pending?) return pending;
+    return Right([
+      (
+        name: 'كورس الاختبار',
+        scope: 'course',
+        state: StudentSubscriptionState.active,
+        startsAt: DateTime.utc(2026, 10),
+        expiresAt: DateTime.utc(2026, 11, 17),
+        daysLeft: 3,
+      ),
+    ]);
+  }
 
   static final StudentTicket _testTicket = (
     id: 'ticket',
@@ -1911,6 +2222,8 @@ class _StudentRepository implements StudentSessionRepository {
   );
 
   int supportReads = 0;
+  bool longSupport = false;
+  Future<void>? supportReadGate;
   Completer<Either<StudentSessionFailure, StudentTicketPage>>?
   pendingSupportPage;
 
@@ -1920,8 +2233,23 @@ class _StudentRepository implements StudentSessionRepository {
     int page,
   ) async {
     supportReads++;
+    await supportReadGate;
     if (pendingSupportPage case final pending?) return pending.future;
-    return Right((tickets: [_testTicket], hasMore: false));
+    return Right((
+      tickets: [
+        if (longSupport)
+          for (var number = 1; number <= 12; number++)
+            (
+              id: 'ticket-$number',
+              subject: 'التذكرة $number',
+              status: _testTicket.status,
+              updatedAt: _testTicket.updatedAt,
+            )
+        else
+          _testTicket,
+      ],
+      hasMore: false,
+    ));
   }
 
   int threadReads = 0;
@@ -2134,6 +2462,7 @@ class _StudentRepository implements StudentSessionRepository {
 
   final readNotifications = <String>[];
   int notificationRequests = 0;
+  Future<void>? notificationReadGate;
   bool manyNotifications = false;
   int unreadCount = 0;
   int unreadRequests = 0;
@@ -2156,6 +2485,7 @@ class _StudentRepository implements StudentSessionRepository {
     String? cursor,
   ) async {
     notificationRequests++;
+    await notificationReadGate;
     return Right((
       items: [
         if (manyNotifications)

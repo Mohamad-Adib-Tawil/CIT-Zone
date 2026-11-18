@@ -10,12 +10,14 @@ class StudentSubscriptions extends StatelessWidget {
   const StudentSubscriptions({
     super.key,
     required this.actions,
-    required this.subscriptions,
+    this.subscriptions = const [],
+    this.placeholder,
     required this.onBrowseCourses,
   });
 
   final PreviewActions actions;
   final List<StudentSubscription> subscriptions;
+  final Widget? placeholder;
   final VoidCallback onBrowseCourses;
 
   @override
@@ -65,7 +67,9 @@ class StudentSubscriptions extends StatelessWidget {
       actions: actions,
       gap: 12,
       children: [
-        if (subscriptions.isEmpty)
+        if (placeholder case final content?)
+          content
+        else if (subscriptions.isEmpty)
           const PreviewText('لا توجد اشتراكات لهذا الحساب.'),
         if (academic.isNotEmpty) ...[
           PreviewText('المواد الدراسية', style: context.design.labelSemiBold),

@@ -34,6 +34,42 @@ final class StudentLearningCache {
       >{};
   final _requests = <Object, ({Object token, Future<Object> result})>{};
   int _sessionRevision = 0;
+  int get sessionRevision => _sessionRevision;
+  final _restores = <Object, Object>{};
+
+  Future<void> restore<T extends Object>(
+    Object key,
+    Future<({T data, DateTime storedAt})?> Function() readSnapshot,
+  ) async {
+    if (read<T>(key) != null) return;
+    final token = Object();
+    final session = _sessionRevision;
+    _restores[key] = token;
+    try {
+      final snapshot = await readSnapshot().timeout(
+        const Duration(milliseconds: 250),
+      );
+      if (snapshot == null ||
+          session != _sessionRevision ||
+          !identical(_restores[key], token) ||
+          _entries.containsKey(key)) {
+        return;
+      }
+      final age = _now().difference(snapshot.storedAt);
+      if (age.isNegative || age >= _lifetime) return;
+      _entries[key] = (
+        data: snapshot.data,
+        storedAt: snapshot.storedAt,
+        retryAfter: null,
+        needsRefresh: true,
+      );
+      if (_entries.length > _capacity) _entries.remove(_entries.keys.first);
+    } catch (_) {
+      // A local cache miss must not block the live request.
+    } finally {
+      if (identical(_restores[key], token)) _restores.remove(key);
+    }
+  }
 
   T? read<T extends Object>(Object key) {
     final entry = _entries.remove(key);
@@ -91,6 +127,7 @@ final class StudentLearningCache {
   }
 
   void invalidate(Object key) {
+    _restores.remove(key);
     _entries.remove(key);
     _requests.remove(key);
   }
@@ -117,6 +154,7 @@ final class StudentLearningCache {
     _sessionRevision++;
     _entries.clear();
     _requests.clear();
+    _restores.clear();
   }
 
   Future<Either<StudentSessionFailure, T>> refresh<T extends Object>(
@@ -141,6 +179,11 @@ final class StudentLearningCache {
               onSessionRestricted?.call(failure);
               return result;
             }
+            if (result case Left(value: StudentSessionFailure.expired)
+                when sessionRevision == _sessionRevision) {
+              clear();
+              return result;
+            }
             if (!identical(_requests[key]?.token, revision)) {
               return Left<StudentSessionFailure, T>(
                 StudentSessionFailure.unavailable,
@@ -149,8 +192,6 @@ final class StudentLearningCache {
             switch (result) {
               case Right(:final value):
                 _store(key, value);
-              case Left(value: StudentSessionFailure.expired):
-                clear();
               case Left(value: StudentSessionFailure.learningDataDenied):
                 _entries.remove(key);
               case Left(value: StudentSessionFailure.unavailable):
@@ -177,9 +218,14 @@ final class StudentLearningCache {
 
 final class StudentLearningDataCubit<T extends Object>
     extends Cubit<StudentLearningDataState<T>> {
-  StudentLearningDataCubit(this._cache, this._key, this._request)
-    : super((data: _cache.read<T>(_key), working: false, failure: null));
+  StudentLearningDataCubit(
+    this._cache,
+    this._key,
+    this._request, {
+    this.restore,
+  }) : super((data: _cache.read<T>(_key), working: false, failure: null));
 
+  final Future<({T data, DateTime storedAt})?> Function()? restore;
   final StudentLearningCache _cache;
   final Object _key;
   final Future<Either<StudentSessionFailure, T>> Function() _request;
@@ -189,6 +235,20 @@ final class StudentLearningDataCubit<T extends Object>
       return;
     }
     emit((data: _cache.read<T>(_key), working: true, failure: null));
+    final revision = _cache.sessionRevision;
+    if (restore case final readSnapshot? when state.data == null) {
+      await _cache.restore<T>(_key, readSnapshot);
+      if (isClosed) return;
+      if (revision != _cache.sessionRevision) {
+        emit((
+          data: null,
+          working: false,
+          failure: StudentSessionFailure.expired,
+        ));
+        return;
+      }
+      emit((data: _cache.read<T>(_key), working: true, failure: null));
+    }
     final result = await _cache.refresh(_key, _request);
     if (isClosed) return;
     emit(switch (result) {

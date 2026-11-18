@@ -16,9 +16,20 @@ import '../domain/student_session_repository.dart';
 import '../domain/student_registration.dart';
 import '../domain/student_learning.dart';
 import 'firebase_identity_proof.dart';
+import 'secure_student_profile_cache.dart';
+import 'secure_student_home_cache.dart';
+import 'secure_student_subjects_cache.dart';
+import '../domain/student_subjects_snapshot.dart';
+import '../domain/student_home_snapshot.dart';
+import '../domain/student_profile_snapshot.dart';
 
 /// Coordinates the session exchange while keeping credentials out of UI state.
-final class StudentSessionGateway implements StudentSessionRepository {
+final class StudentSessionGateway
+    implements
+        StudentSessionRepository,
+        StudentProfileSnapshotSource,
+        StudentHomeSnapshotSource,
+        StudentSubjectsSnapshotSource {
   StudentSessionGateway({
     required this._api,
     required this._proofSource,
@@ -39,6 +50,101 @@ final class StudentSessionGateway implements StudentSessionRepository {
   String get _deviceKey => 'device_v1_$_namespace';
   String _sessionKey(GoogleIdentity identity) =>
       'refresh_v1_${_namespace}_${base64Url.encode(utf8.encode(identity.firebaseUid))}';
+
+  late final _profileCache = SecureStudentProfileCache(_storage, _namespace);
+  late final _homeCache = SecureStudentHomeCache(
+    _storage,
+    _namespace,
+    _homeData,
+  );
+  late final _subjectsCache = SecureStudentSubjectsCache(
+    _storage,
+    _namespace,
+    _subjectItem,
+  );
+
+  @override
+  Future<StudentSubjectsSnapshot?> subjectsSnapshot(
+    GoogleIdentity identity, {
+    required bool previous,
+  }) async {
+    final epoch = _sessionEpoch;
+    if (!_metadataSnapshotsAllowed || _owner != identity.firebaseUid) {
+      return null;
+    }
+    final snapshot = await _subjectsCache.read(
+      identity.firebaseUid,
+      previous: previous,
+    );
+    if (epoch != _sessionEpoch ||
+        !_metadataSnapshotsAllowed ||
+        _owner != identity.firebaseUid) {
+      return null;
+    }
+    return snapshot;
+  }
+
+  int _homeRevision = 0;
+  bool _metadataSnapshotsAllowed = false;
+
+  @override
+  Future<StudentHomeSnapshot?> homeSnapshot(GoogleIdentity identity) async {
+    final epoch = _sessionEpoch;
+    final revision = _homeRevision;
+    if (!_metadataSnapshotsAllowed || _owner != identity.firebaseUid) {
+      return null;
+    }
+    final snapshot = await _homeCache.read(identity.firebaseUid);
+    if (epoch != _sessionEpoch ||
+        revision != _homeRevision ||
+        !_metadataSnapshotsAllowed ||
+        _owner != identity.firebaseUid) {
+      return null;
+    }
+    return snapshot;
+  }
+
+  @override
+  Future<StudentProfileSnapshot?> profileSnapshot(
+    GoogleIdentity identity,
+  ) async {
+    final epoch = _sessionEpoch;
+    if (!_metadataSnapshotsAllowed || _owner != identity.firebaseUid) {
+      return null;
+    }
+    final snapshot = await _profileCache.read(identity.firebaseUid);
+    if (epoch != _sessionEpoch ||
+        !_metadataSnapshotsAllowed ||
+        _owner != identity.firebaseUid) {
+      return null;
+    }
+    return snapshot;
+  }
+
+  Future<void> _discardMetadataSnapshots({String? account}) async {
+    _metadataSnapshotsAllowed = false;
+    final owner = account ?? _owner;
+    if (owner != null) {
+      await Future.wait([
+        _profileCache.clear(owner),
+        _homeCache.clear(owner),
+        _subjectsCache.clear(owner),
+      ]);
+    }
+  }
+
+  Future<void> _saveProfileSnapshot(
+    GoogleIdentity identity,
+    StudentProfileData profile,
+    int epoch,
+  ) async {
+    if (!_metadataSnapshotsAllowed ||
+        epoch != _sessionEpoch ||
+        _owner != identity.firebaseUid) {
+      return;
+    }
+    await _profileCache.write(identity.firebaseUid, profile);
+  }
 
   String? _access;
   String? _owner;
@@ -156,12 +262,19 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, void>> end(GoogleIdentity identity) {
     _sessionEpoch++;
+    _metadataSnapshotsAllowed = false;
+    final clearingMetadata = Future.wait([
+      _profileCache.clear(identity.firebaseUid),
+      _homeCache.clear(identity.firebaseUid),
+      _subjectsCache.clear(identity.firebaseUid),
+    ]);
     if (_owner == identity.firebaseUid) {
       _access = null;
       _owner = null;
     }
     return _capture(
       () => _changeSession(() async {
+        await clearingMetadata;
         if (_owner == identity.firebaseUid) {
           _access = null;
           _owner = null;
@@ -198,7 +311,10 @@ final class StudentSessionGateway implements StudentSessionRepository {
       await _revoke(refresh);
       rethrow;
     }
-    if (_owner != identity.firebaseUid) _viewerSession = Object();
+    if (_owner != identity.firebaseUid) {
+      _viewerSession = Object();
+      _metadataSnapshotsAllowed = false;
+    }
     _owner = identity.firebaseUid;
     _access = access;
   }
@@ -218,6 +334,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
           kind: ApiFailureKind.forbidden,
           code: 'ACCOUNT_SUSPENDED',
         ):
+          await _discardMetadataSnapshots();
           return const StudentSession(
             next: StudentNextStep.suspended,
             usageType: null,
@@ -226,6 +343,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
           kind: ApiFailureKind.forbidden,
           code: 'DEVICE_NOT_AUTHORIZED',
         ):
+          await _discardMetadataSnapshots();
           return const StudentSession(
             next: StudentNextStep.deviceUnauthorized,
             usageType: null,
@@ -255,6 +373,8 @@ final class StudentSessionGateway implements StudentSessionRepository {
     if (next == StudentNextStep.completeBasicInfo && usageType == null) {
       throw const ApiFailure(ApiFailureKind.invalidResponse);
     }
+    _metadataSnapshotsAllowed = next == StudentNextStep.home;
+    if (!_metadataSnapshotsAllowed) await _discardMetadataSnapshots();
     return StudentSession(next: next, usageType: usageType);
   }
 
@@ -452,8 +572,20 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentHomeData>> home(
     GoogleIdentity identity,
   ) => _captureLearning(() async {
+    final epoch = _sessionEpoch;
+    final revision = _homeRevision;
     final response = await _authorized(identity, 'GET', 'home');
-    final data = response.json['data'];
+    final home = _homeData(response.json['data']);
+    if (_metadataSnapshotsAllowed &&
+        epoch == _sessionEpoch &&
+        revision == _homeRevision &&
+        _owner == identity.firebaseUid) {
+      await _homeCache.write(identity.firebaseUid, home);
+    }
+    return home;
+  });
+
+  StudentHomeData _homeData(Object? data) {
     if (data case {
       'name': String name,
       'subjects': List subjects,
@@ -476,7 +608,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
       );
     }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
-  });
+  }
 
   StudentResumeLesson? _resumeLesson(Object? items) {
     if (items is! List) return null;
@@ -510,6 +642,7 @@ final class StudentSessionGateway implements StudentSessionRepository {
     GoogleIdentity identity, {
     required bool previous,
   }) => _captureLearning(() async {
+    final epoch = _sessionEpoch;
     final response = await _authorized(
       identity,
       'GET',
@@ -518,7 +651,19 @@ final class StudentSessionGateway implements StudentSessionRepository {
     );
     final items = response.json['data'];
     if (items is! List) throw const ApiFailure(ApiFailureKind.invalidResponse);
-    return List.unmodifiable(items.map(_subjectItem));
+    final subjects = List<StudentSubjectItem>.unmodifiable(
+      items.map(_subjectItem),
+    );
+    if (_metadataSnapshotsAllowed &&
+        epoch == _sessionEpoch &&
+        _owner == identity.firebaseUid) {
+      await _subjectsCache.write(
+        identity.firebaseUid,
+        subjects,
+        previous: previous,
+      );
+    }
+    return subjects;
   });
 
   StudentSubjectItem _subjectItem(Object? item) {
@@ -758,12 +903,14 @@ final class StudentSessionGateway implements StudentSessionRepository {
   @override
   Future<Either<StudentSessionFailure, Uri>> academicFileDownload(
     GoogleIdentity identity,
-    String id,
-  ) => _captureLearning(() async {
+    String id, {
+    Future<void>? whenCanceled,
+  }) => _captureLearning(() async {
     final response = await _authorized(
       identity,
       'GET',
       'files/${Uri.encodeComponent(id)}/download',
+      cancellationToken: _readCancellation(whenCanceled),
     );
     if (response.json['data'] case {
       'url': String url,
@@ -1170,7 +1317,15 @@ final class StudentSessionGateway implements StudentSessionRepository {
   });
 
   String _deviceRequestStatus(ApiResponse response) {
-    if (response.json['data'] case {'status': String status}) return status;
+    if (response.json['data'] case {'status': String status}
+        when const {
+          'pending',
+          'approved',
+          'rejected',
+          'cancelled',
+        }.contains(status)) {
+      return status;
+    }
     throw const ApiFailure(ApiFailureKind.invalidResponse);
   }
 
@@ -1209,7 +1364,9 @@ final class StudentSessionGateway implements StudentSessionRepository {
               : StudentDeviceStatus.unauthorized,
           name: name,
           platform: platform,
-          registeredAt: DateTime.tryParse(date),
+          registeredAt:
+              DateTime.tryParse(date) ??
+              (throw const ApiFailure(ApiFailureKind.invalidResponse)),
         ),
       _ => throw const ApiFailure(ApiFailureKind.invalidResponse),
     };
@@ -1480,8 +1637,11 @@ final class StudentSessionGateway implements StudentSessionRepository {
   Future<Either<StudentSessionFailure, StudentProfileData>> profile(
     GoogleIdentity identity,
   ) => _captureLearning(() async {
+    final epoch = _sessionEpoch;
     final response = await _authorized(identity, 'GET', 'me');
-    return _profileData(response.json['data']);
+    final profile = _profileData(response.json['data']);
+    await _saveProfileSnapshot(identity, profile, epoch);
+    return profile;
   });
 
   StudentProfileData _profileData(Object? data) {
@@ -1515,8 +1675,15 @@ final class StudentSessionGateway implements StudentSessionRepository {
   }) => _captureLearning(() async {
     final changes = {'officialName': ?officialName, 'phone': ?phone};
     if (changes.isEmpty) return null;
+    final epoch = _sessionEpoch;
     final response = await _authorized(identity, 'PATCH', 'me', body: changes);
-    return _profileData(response.json['data']);
+    final profile = _profileData(response.json['data']);
+    if (epoch == _sessionEpoch && _owner == identity.firebaseUid) {
+      _homeRevision++;
+      await _homeCache.clear(identity.firebaseUid);
+    }
+    await _saveProfileSnapshot(identity, profile, epoch);
+    return profile;
   });
 
   Future<Either<StudentSessionFailure, StudentSession>> _save(
@@ -1633,9 +1800,18 @@ final class StudentSessionGateway implements StudentSessionRepository {
     Future<T> Function() operation, {
     bool classifyLearningDenials = false,
   }) async {
+    final epoch = _sessionEpoch;
+    final owner = _owner;
     try {
       return Right(await operation());
     } on ApiFailure catch (failure) {
+      if (epoch == _sessionEpoch &&
+          (_owner == null || owner == _owner) &&
+          (failure.kind == ApiFailureKind.unauthenticated ||
+              failure.code == 'ACCOUNT_SUSPENDED' ||
+              failure.code == 'DEVICE_NOT_AUTHORIZED')) {
+        await _discardMetadataSnapshots(account: owner);
+      }
       return Left(switch (failure) {
         ApiFailure(code: 'LESSON_NOT_WATCHED') =>
           StudentSessionFailure.lessonNotWatched,

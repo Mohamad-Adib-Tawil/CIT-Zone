@@ -25,6 +25,7 @@ class StudentDeviceRequestPage extends StatefulWidget {
 class _StudentDeviceRequestPageState extends State<StudentDeviceRequestPage> {
   bool _open = false;
   bool _busy = false;
+  bool _statusVerified = false;
   String? _status;
   String? _error;
 
@@ -39,14 +40,20 @@ class _StudentDeviceRequestPageState extends State<StudentDeviceRequestPage> {
     );
     if (!mounted) return;
     setState(() {
-      _status = result.getRight().toNullable();
+      _statusVerified = result.isRight();
+      if (_statusVerified) _status = result.getRight().toNullable();
       _busy = false;
       if (result.isLeft()) _error = 'تعذّر جلب حالة الطلب.';
     });
   }
 
   Future<void> _submit(String reason) async {
-    if (_busy || _status == 'pending') return;
+    if (_busy ||
+        !_statusVerified ||
+        _status == 'pending' ||
+        _status == 'approved') {
+      return;
+    }
     if (reason.isEmpty || reason.length > 500) {
       setState(() => _error = 'أدخل سبب التغيير بحد أقصى 500 حرف.');
       return;
@@ -66,12 +73,19 @@ class _StudentDeviceRequestPageState extends State<StudentDeviceRequestPage> {
     if (!mounted) return;
     setState(() {
       _busy = false;
-      _status =
-          result.getRight().toNullable() ?? latest?.getRight().toNullable();
+      _statusVerified = result.isRight() || latest?.isRight() == true;
+      if (_statusVerified) {
+        _status =
+            result.getRight().toNullable() ?? latest?.getRight().toNullable();
+      }
       if (result.isLeft() && _status != 'pending') {
         _error = 'تعذّر تأكيد إرسال الطلب.';
       }
     });
+  }
+
+  void _back() {
+    if (!_busy) setState(() => _open = false);
   }
 
   @override
@@ -87,23 +101,31 @@ class _StudentDeviceRequestPageState extends State<StudentDeviceRequestPage> {
           'rejected' => 'رفضت الإدارة الطلب السابق.',
           _ => null,
         };
-    return HasobjyVisualScope(
-      frameName: light ? '$frame-LIGHT' : frame,
-      child: _open
-          ? HasobjyDeviceTransferScreen(
-              onSubmit: () {},
-              onSubmitReason: _submit,
-              onBack: () {
-                if (!_busy) setState(() => _open = false);
-              },
-              deviceName: 'هذا الجهاز',
-              enabled: !_busy && _status != 'pending' && _status != 'approved',
-              message: _busy ? 'جارٍ التحقق…' : message,
-            )
-          : HasobjyDeviceConflictScreen(
-              onRequestTransfer: _openForm,
-              onSignOut: widget.onSignOut,
-            ),
+    return PopScope<Object?>(
+      canPop: !_open,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _back();
+      },
+      child: HasobjyVisualScope(
+        frameName: light ? '$frame-LIGHT' : frame,
+        child: _open
+            ? HasobjyDeviceTransferScreen(
+                onSubmit: () {},
+                onSubmitReason: _submit,
+                onBack: _back,
+                deviceName: 'هذا الجهاز',
+                enabled:
+                    !_busy &&
+                    _statusVerified &&
+                    _status != 'pending' &&
+                    _status != 'approved',
+                message: _busy ? 'جارٍ التحقق…' : message,
+              )
+            : HasobjyDeviceConflictScreen(
+                onRequestTransfer: _openForm,
+                onSignOut: widget.onSignOut,
+              ),
+      ),
     );
   }
 }

@@ -14,6 +14,86 @@ void main() {
     cache = StudentLearningCache(now: () => now);
   });
 
+  test('restored data appears before the live request completes', () async {
+    final pending = Completer<Either<StudentSessionFailure, String>>();
+    final states = <StudentLearningDataState<String>>[];
+    final cubit = StudentLearningDataCubit<String>(
+      cache,
+      'profile',
+      () => pending.future,
+      restore: () async => (data: 'disk', storedAt: now),
+    );
+    addTearDown(cubit.close);
+    final subscription = cubit.stream.listen(states.add);
+    addTearDown(subscription.cancel);
+    final loading = cubit.load();
+    await pumpEventQueue();
+    expect(cubit.state.data, 'disk');
+    expect(cubit.state.working, isTrue);
+    pending.complete(const Right('server'));
+    await loading;
+    expect(cubit.state.data, 'server');
+    expect(states.any((state) => state.data == 'disk'), isTrue);
+  });
+
+  testWidgets('slow local storage yields to the live request', (tester) async {
+    final disk = Completer<({String data, DateTime storedAt})?>();
+    var requests = 0;
+    final cubit = StudentLearningDataCubit<String>(cache, 'profile', () async {
+      requests++;
+      return const Right('server');
+    }, restore: () => disk.future);
+    addTearDown(cubit.close);
+    final loading = cubit.load();
+    await tester.pump(const Duration(milliseconds: 251));
+    await loading;
+    expect(requests, 1);
+    expect(cubit.state.data, 'server');
+    disk.complete((data: 'late disk', storedAt: now));
+    await tester.pump();
+    expect(cubit.state.data, 'server');
+  });
+
+  test('failed refresh keeps the original snapshot expiration', () async {
+    final cubit = StudentLearningDataCubit<String>(
+      cache,
+      'profile',
+      () async => const Left(StudentSessionFailure.unavailable),
+      restore: () async =>
+          (data: 'disk', storedAt: now.subtract(const Duration(minutes: 4))),
+    );
+    addTearDown(cubit.close);
+    await cubit.load();
+    expect(cubit.state.data, 'disk');
+    now = now.add(const Duration(minutes: 1));
+    expect(cache.read<String>('profile'), isNull);
+  });
+
+  test('restoration rejects expired and future snapshots', () async {
+    for (final date in [
+      now.subtract(const Duration(minutes: 5)),
+      now.add(const Duration(seconds: 1)),
+    ]) {
+      await cache.restore<String>(
+        'profile',
+        () async => (data: 'disk', storedAt: date),
+      );
+      expect(cache.read<String>('profile'), isNull);
+    }
+  });
+
+  test('restoration cannot overwrite an edit or a cleared session', () async {
+    for (final clear in [false, true]) {
+      final pending = Completer<({String data, DateTime storedAt})?>();
+      final restoring = cache.restore<String>('profile', () => pending.future);
+      if (clear) cache.clear();
+      cache.replace('profile', 'current');
+      pending.complete((data: 'old disk', storedAt: now));
+      await restoring;
+      expect(cache.read<String>('profile'), 'current');
+    }
+  });
+
   test('a confirmed update takes precedence over a pending read', () async {
     final pending = Completer<Either<StudentSessionFailure, String>>();
     final read = cache.refresh('profile', () => pending.future);
@@ -222,6 +302,37 @@ void main() {
 
     expect(restrictions, [StudentSessionFailure.accountSuspended]);
     expect(cache.read<String>('profile'), isNull);
+  });
+
+  test('expiration from a replaced read clears the same session', () async {
+    final expired = Completer<Either<StudentSessionFailure, String>>();
+    final late = Completer<Either<StudentSessionFailure, String>>();
+    final reading = cache.refresh('profile', () => expired.future);
+    final loading = cache.refresh('grades', () => late.future);
+    cache.replace('profile', 'updated');
+    cache.replace('home', 'private');
+    expired.complete(const Left(StudentSessionFailure.expired));
+
+    expect(
+      (await reading).match((failure) => failure, (_) => null),
+      StudentSessionFailure.expired,
+    );
+    expect(cache.read<String>('home'), isNull);
+    expect(cache.read<String>('profile'), isNull);
+    late.complete(const Right('old grades'));
+    expect((await loading).isLeft(), isTrue);
+    expect(cache.read<String>('grades'), isNull);
+  });
+
+  test('expiration from an old session preserves the new session', () async {
+    final pending = Completer<Either<StudentSessionFailure, String>>();
+    final reading = cache.refresh('profile', () => pending.future);
+    cache.clear();
+    cache.replace('profile', 'new session');
+    pending.complete(const Left(StudentSessionFailure.expired));
+
+    expect((await reading).isLeft(), isTrue);
+    expect(cache.read<String>('profile'), 'new session');
   });
 
   test('clearing the cache ignores restrictions from old reads', () async {

@@ -1,0 +1,10 @@
+{
+  "base_commit": "6600dc9a704955a971519730c1f804a425366b6b",
+  "worktree_dirty": true,
+  "source_sha256": {
+    "integration_test/student_metadata_restart_test.dart": "a3c71dc57517de10bb5dad5c6c579e0774c70881782341815f877202c999e286",
+    "lib/features/auth/data/secure_student_home_cache.dart": "f8a52aa52d281a6fb6b204ff458386bf59851849e83aaf16994cf8dbbce458a6",
+    "lib/features/auth/data/secure_student_profile_cache.dart": "c2dfe0cf0aa396a93ad22037547f22523e0218001037762c6351e5afe6b0ecf9",
+    "lib/core/security/secure_session_secret_store.dart": "1c24c04871c9a4cf2dccfe54b81aa468955185c795d20d15c5e8a222aa5f1d65"
+  }
+}

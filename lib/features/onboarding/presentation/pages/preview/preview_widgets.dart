@@ -35,12 +35,14 @@ class PreviewScaffold extends StatelessWidget {
     this.topPadding = 16,
     this.bottomPadding = 24,
     this.bottomNavigation,
+    this.scrollKey,
   });
   final String? title;
   final PreviewActions actions;
   final List<Widget> children;
   final bool navigation;
   final Widget? bottomNavigation;
+  final Key? scrollKey;
   final Widget? header;
   final Widget? backgroundLayer;
   final double gap;
@@ -50,6 +52,7 @@ class PreviewScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) => HasobjyFigmaFrame(
     appBarTitle: title,
+    scrollKey: scrollKey,
     onBack: actions.back,
     header: header,
     backgroundLayer: backgroundLayer,

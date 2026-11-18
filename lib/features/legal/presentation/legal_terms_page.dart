@@ -107,6 +107,10 @@ class _LegalTermsPageState extends State<LegalTermsPage> {
           else
             FutureBuilder<Either<LegalTermsFailure, LegalTerms?>>(
               future: _terms,
+              initialData: switch (widget.repository.cachedPublished) {
+                final document? => Right(document),
+                null => null,
+              },
               builder: (context, snapshot) => _termsPanel(context, snapshot),
             ),
           const Spacer(),
@@ -122,7 +126,9 @@ class _LegalTermsPageState extends State<LegalTermsPage> {
   ) {
     return PreviewPanel(
       gap: 14,
-      children: snapshot.connectionState == ConnectionState.waiting
+      children:
+          snapshot.connectionState == ConnectionState.waiting &&
+              snapshot.data?.getRight().toNullable() == null
           ? const [
               AppSkeleton(
                 child: Column(

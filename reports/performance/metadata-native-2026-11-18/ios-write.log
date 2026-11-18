@@ -1,0 +1,6 @@
+00:00 +0: loading /Users/abo_alhuda/Documents/flutter_projects_abo_alhuda/    E-Learning Platform/Hasobjy/integration_test/student_metadata_restart_test.dart
+Running Xcode build...                                          
+Xcode build done.                                           116.6s
+00:00 +0: native metadata persistence phase: write
+00:00 +1: (tearDownAll)
+00:00 +1: All tests passed!

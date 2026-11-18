@@ -24,7 +24,8 @@ void main() {
     'decodes only published documents or the exact unpublished sentinel',
     () async {
       final api = _LegalApi();
-      final repository = ApiLegalTermsRepository(api);
+      var now = DateTime.utc(2026, 11, 17);
+      final repository = ApiLegalTermsRepository(api, now: () => now);
       expect((await repository.load()).getRight().toNullable(), isNull);
       expect((await repository.load()).isRight(), isTrue);
 
@@ -34,6 +35,12 @@ void main() {
       expect(document?.version, 3);
       expect(document?.publishedAt, DateTime.utc(2026, 11, 16));
 
+      expect(repository.cachedPublished, document);
+      expect((await repository.load()).getRight().toNullable(), document);
+      expect(api.requests, hasLength(3));
+
+      now = now.add(const Duration(minutes: 1));
+      expect(repository.cachedPublished, isNull);
       api.payload = {..._published, 'body': ' '};
       expect(
         (await repository.load()).getLeft().toNullable(),
@@ -41,6 +48,21 @@ void main() {
       );
     },
   );
+
+  test('concurrent openings share one request for published terms', () async {
+    final response = Completer<void>();
+    final api = _LegalApi()
+      ..payload = _published
+      ..responseGate = response.future;
+    final repository = ApiLegalTermsRepository(api);
+    final first = repository.load();
+    final second = repository.load();
+    expect(api.requests, hasLength(1));
+    response.complete();
+    expect((await first).getRight().toNullable()?.version, 3);
+    expect((await second).getRight().toNullable()?.version, 3);
+    expect(api.requests, hasLength(1));
+  });
 
   testWidgets(
     'configured privacy link opens once and allows retry after failure',

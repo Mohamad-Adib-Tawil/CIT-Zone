@@ -104,8 +104,9 @@ abstract interface class StudentSessionRepository {
   );
   Future<Either<StudentSessionFailure, Uri>> academicFileDownload(
     GoogleIdentity identity,
-    String id,
-  );
+    String id, {
+    Future<void>? whenCanceled,
+  });
   StudentFileViewer fileViewer(GoogleIdentity identity, String id);
   Future<Either<StudentSessionFailure, List<StudentSubjectFile>>> subjectFiles(
     GoogleIdentity identity,

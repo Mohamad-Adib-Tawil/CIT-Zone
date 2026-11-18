@@ -187,6 +187,61 @@ void main() {
     },
   );
 
+  test('canceling an academic download discards a late link', () async {
+    final api = _Api()
+      ..downloadStarted = Completer<ApiCancellationToken?>()
+      ..pendingDownload = Completer<void>();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    final ended = Completer<void>();
+    final result = sessions.academicFileDownload(
+      _identity,
+      'file',
+      whenCanceled: ended.future,
+    );
+    final token = await api.downloadStarted!.future;
+    expect(token?.isCanceled, isFalse);
+    ended.complete();
+    await Future<void>.value();
+    expect(token?.isCanceled, isTrue);
+    api.pendingDownload!.complete();
+    expect((await result).isLeft(), isTrue);
+  });
+
+  test('device transfer rejects an unknown server status', () async {
+    final api = _Api();
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    for (final status in [
+      'pending',
+      'approved',
+      'rejected',
+      'cancelled',
+      '',
+      'unknown',
+    ]) {
+      api.transferStatus = status;
+      final current = await sessions.currentDeviceRequest(_identity);
+      final submitted = await sessions.requestDeviceChange(
+        _identity,
+        'هاتفي تالف',
+      );
+      if (status.isEmpty || status == 'unknown') {
+        expect(
+          current.getLeft().toNullable(),
+          StudentSessionFailure.invalidResponse,
+        );
+        expect(
+          submitted.getLeft().toNullable(),
+          StudentSessionFailure.invalidResponse,
+        );
+      } else {
+        expect(current.getRight().toNullable(), status);
+        expect(submitted.getRight().toNullable(), status);
+      }
+    }
+  });
+
   test('opening a restricted viewer preserves the session denial', () async {
     final api = _Api();
     final sessions = gateway(api);
@@ -294,6 +349,19 @@ void main() {
     expect(device?.status.name, 'authorized');
     expect(device?.registeredAt, DateTime.utc(2026, 11, 14, 12));
     expect(api.requests.last.method, 'GET');
+
+    api.deviceResponse = {
+      'status': 'authorized',
+      'device': {
+        'name': 'جهاز الاختبار',
+        'platform': 'android',
+        'registeredAt': 'invalid-date',
+      },
+    };
+    expect(
+      (await sessions.device(_identity)).getLeft().toNullable(),
+      StudentSessionFailure.invalidResponse,
+    );
 
     api.deviceResponse = null;
     final exempt = (await sessions.device(_identity)).getRight().toNullable();
@@ -690,6 +758,26 @@ void main() {
       await cubit.revalidateSession();
       await tester.pumpAndSettle();
       expect(find.text('هذا الحساب مرتبط بجهاز آخر'), findsOneWidget);
+      api.failDeviceRequestRead = true;
+      await tester.ensureVisible(find.text('طلب تغيير الجهاز'));
+      await tester.tap(find.text('طلب تغيير الجهاز'));
+      await tester.pumpAndSettle();
+      expect(find.text('تعذّر جلب حالة الطلب.'), findsOneWidget);
+      await tester.enterText(find.byType(TextField), 'هاتفي السابق تالف');
+      await tester.ensureVisible(find.text('إرسال الطلب'));
+      await tester.tap(find.text('إرسال الطلب'), warnIfMissed: false);
+      await tester.pumpAndSettle();
+      expect(
+        api.requests.where(
+          (request) => request.path == 'me/device-change-requests',
+        ),
+        isEmpty,
+      );
+      api.failDeviceRequestRead = false;
+      expect(await tester.binding.handlePopRoute(), isTrue);
+      await tester.pumpAndSettle();
+      expect(find.text('هذا الحساب مرتبط بجهاز آخر'), findsOneWidget);
+      expect(find.byType(TextField), findsNothing);
       await tester.ensureVisible(find.text('طلب تغيير الجهاز'));
       await tester.tap(find.text('طلب تغيير الجهاز'));
       await tester.pumpAndSettle();
@@ -789,6 +877,184 @@ void main() {
       });
     },
   );
+
+  test(
+    'profile snapshot restores only after a new validated home session',
+    () async {
+      final api = _Api()..next = 'home';
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      await sessions.profile(_identity);
+      final restored = gateway(_Api()..next = 'home');
+      expect(await restored.profileSnapshot(_identity), isNull);
+      await restored.restore(_identity);
+      expect(
+        (await restored.profileSnapshot(_identity))?.data.email,
+        _identity.email,
+      );
+      final otherEnvironment = StudentSessionGateway(
+        api: _Api()..next = 'home',
+        proofSource: _Proof(),
+        environment: Uri.parse('https://other.example.test/api/v1/'),
+        platform: 'android',
+        androidDeviceId: () async => 'device',
+      );
+      await otherEnvironment.start(_identity);
+      expect(await otherEnvironment.profileSnapshot(_identity), isNull);
+      await restored.end(_identity);
+      final afterLogout = gateway(_Api()..next = 'home');
+      await afterLogout.start(_identity);
+      expect(await afterLogout.profileSnapshot(_identity), isNull);
+    },
+  );
+
+  test(
+    'home metadata survives restart after server session validation',
+    () async {
+      final sessions = gateway(_Api()..next = 'home');
+      await sessions.start(_identity);
+      final live = (await sessions.home(_identity)).getRight().toNullable()!;
+      final restarted = gateway(_Api()..next = 'home');
+      expect(await restarted.homeSnapshot(_identity), isNull);
+      await restarted.restore(_identity);
+      final disk = (await restarted.homeSnapshot(_identity))!.data;
+      expect(disk.name, live.name);
+      expect(disk.resumeLesson, live.resumeLesson);
+      expect(disk.subjects, live.subjects);
+      expect(disk.courses, live.courses);
+      await restarted.end(_identity);
+      final afterLogout = gateway(_Api()..next = 'home');
+      await afterLogout.start(_identity);
+      expect(await afterLogout.homeSnapshot(_identity), isNull);
+    },
+  );
+
+  test('confirmed profile edit invalidates home persisted before it', () async {
+    final sessions = gateway(_Api()..next = 'home');
+    await sessions.start(_identity);
+    await sessions.home(_identity);
+    expect(await sessions.homeSnapshot(_identity), isNotNull);
+    await sessions.updateProfile(_identity, officialName: 'Updated');
+    expect(await sessions.homeSnapshot(_identity), isNull);
+  });
+
+  test(
+    'late home response cannot restore metadata invalidated by an edit',
+    () async {
+      final api = _Api()..next = 'home';
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      api.homeStarted = Completer<void>();
+      api.pendingHome = Completer<void>();
+      final reading = sessions.home(_identity);
+      await api.homeStarted!.future;
+      await sessions.updateProfile(_identity, officialName: 'Updated');
+      api.pendingHome!.complete();
+      await reading;
+      expect(await sessions.homeSnapshot(_identity), isNull);
+    },
+  );
+
+  test('restriction purges persisted home as well as profile', () async {
+    final api = _Api()..next = 'home';
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    await sessions.home(_identity);
+    await sessions.profile(_identity);
+    api.profileDenial = 'DEVICE_NOT_AUTHORIZED';
+    await sessions.profile(_identity);
+    expect(await sessions.homeSnapshot(_identity), isNull);
+    api.profileDenial = null;
+    await sessions.read(_identity);
+    expect(await sessions.homeSnapshot(_identity), isNull);
+  });
+
+  test(
+    'subject filters restore independently after session validation',
+    () async {
+      final sessions = gateway(_Api()..next = 'home');
+      await sessions.start(_identity);
+      await sessions.subjects(_identity, previous: false);
+      await sessions.subjects(_identity, previous: true);
+      final restarted = gateway(_Api()..next = 'home');
+      expect(
+        await restarted.subjectsSnapshot(_identity, previous: false),
+        isNull,
+      );
+      await restarted.restore(_identity);
+      expect(
+        (await restarted.subjectsSnapshot(
+          _identity,
+          previous: false,
+        ))?.data.single.id,
+        'current-subject',
+      );
+      expect(
+        (await restarted.subjectsSnapshot(_identity, previous: true))?.data,
+        isEmpty,
+      );
+      await restarted.end(_identity);
+      final loggedOut = gateway(_Api()..next = 'home');
+      await loggedOut.start(_identity);
+      expect(
+        await loggedOut.subjectsSnapshot(_identity, previous: false),
+        isNull,
+      );
+      expect(
+        await loggedOut.subjectsSnapshot(_identity, previous: true),
+        isNull,
+      );
+    },
+  );
+
+  test('restricted session removes both persisted subject filters', () async {
+    final api = _Api()..next = 'home';
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    await sessions.subjects(_identity, previous: false);
+    await sessions.subjects(_identity, previous: true);
+    api.profileDenial = 'ACCOUNT_SUSPENDED';
+    await sessions.profile(_identity);
+    api.profileDenial = null;
+    await sessions.read(_identity);
+    expect(await sessions.subjectsSnapshot(_identity, previous: false), isNull);
+    expect(await sessions.subjectsSnapshot(_identity, previous: true), isNull);
+  });
+
+  test(
+    'late subjects read after logout cannot restore persisted data',
+    () async {
+      final api = _Api()..next = 'home';
+      final sessions = gateway(api);
+      await sessions.start(_identity);
+      api.subjectsStarted = Completer<void>();
+      api.pendingSubjects = Completer<void>();
+      final reading = sessions.subjects(_identity, previous: false);
+      await api.subjectsStarted!.future;
+      await sessions.end(_identity);
+      api.pendingSubjects!.complete();
+      expect((await reading).isLeft(), isTrue);
+      await sessions.start(_identity);
+      expect(
+        await sessions.subjectsSnapshot(_identity, previous: false),
+        isNull,
+      );
+    },
+  );
+
+  test('restriction removes the persisted profile', () async {
+    final api = _Api()..next = 'home';
+    final sessions = gateway(api);
+    await sessions.start(_identity);
+    await sessions.profile(_identity);
+    expect(await sessions.profileSnapshot(_identity), isNotNull);
+    api.profileDenial = 'ACCOUNT_SUSPENDED';
+    await sessions.profile(_identity);
+    expect(await sessions.profileSnapshot(_identity), isNull);
+    api.profileDenial = null;
+    await sessions.read(_identity);
+    expect(await sessions.profileSnapshot(_identity), isNull);
+  });
 
   test(
     'profile patch sends only changed fields and leaves no-op saves local',
@@ -911,6 +1177,10 @@ final class _Proof implements FirebaseIdentityProofSource {
 
 final class _Api implements ApiClient {
   final requests = <ApiRequest>[];
+  Completer<void>? subjectsStarted;
+  Completer<void>? pendingSubjects;
+  Completer<void>? homeStarted;
+  Completer<void>? pendingHome;
   bool rejectRefresh = false;
   String? rejectedAccess;
   String accessFailure = 'TOKEN_EXPIRED';
@@ -921,6 +1191,8 @@ final class _Api implements ApiClient {
   String? usageType;
   Completer<void>? pendingUsage;
   bool failNextRead = false;
+  bool failDeviceRequestRead = false;
+  String? transferStatus;
   String? sessionDenial;
   bool rejectBasicInfo = false;
   int? academicYear;
@@ -934,6 +1206,8 @@ final class _Api implements ApiClient {
   int lessonPosition = 760;
   Completer<void>? pageStarted;
   Completer<void>? pendingPage;
+  Completer<ApiCancellationToken?>? downloadStarted;
+  Completer<void>? pendingDownload;
   String? downloadUrl = 'https://storage.example.test/file.pdf';
 
   @override
@@ -1045,7 +1319,27 @@ final class _Api implements ApiClient {
       case 'me/term-reregistration/confirm':
         next = 'home';
         return const ApiResponse(statusCode: 200, requestId: 'test', json: {});
+      case 'subjects':
+        subjectsStarted?.complete();
+        await pendingSubjects?.future;
+        return ApiResponse(
+          statusCode: 200,
+          requestId: 'test',
+          json: {
+            'data': request.query['scope'] == 'previous'
+                ? []
+                : [
+                    {
+                      'id': 'current-subject',
+                      'name': 'Subject',
+                      'progress': {'completed': 1, 'total': 2, 'percent': 50},
+                    },
+                  ],
+          },
+        );
       case 'home':
+        homeStarted?.complete();
+        await pendingHome?.future;
         return const ApiResponse(
           statusCode: 200,
           requestId: 'test',
@@ -1110,6 +1404,8 @@ final class _Api implements ApiClient {
           },
         );
       case 'files/file/download':
+        downloadStarted?.complete(cancellationToken);
+        await pendingDownload?.future;
         final url = downloadUrl;
         if (url == null) throw const ApiFailure(ApiFailureKind.forbidden);
         return ApiResponse(
@@ -1182,17 +1478,29 @@ final class _Api implements ApiClient {
           },
         );
       case 'me/device-change-requests/current':
+        if (transferStatus case final status?) {
+          return ApiResponse(
+            statusCode: 200,
+            requestId: 'test',
+            json: {
+              'data': {'status': status},
+            },
+          );
+        }
+        if (failDeviceRequestRead) {
+          throw const ApiFailure(ApiFailureKind.network);
+        }
         return const ApiResponse(
           statusCode: 200,
           requestId: 'test',
           json: {'data': null},
         );
       case 'me/device-change-requests':
-        return const ApiResponse(
+        return ApiResponse(
           statusCode: 201,
           requestId: 'test',
           json: {
-            'data': {'status': 'pending'},
+            'data': {'status': transferStatus ?? 'pending'},
           },
         );
       case 'me/device':
@@ -1205,7 +1513,7 @@ final class _Api implements ApiClient {
         if (profileDenial case final code?) {
           throw ApiFailure(ApiFailureKind.forbidden, code: code);
         }
-        final changes = request.jsonBody as Map;
+        final changes = request.jsonBody as Map? ?? {};
         if (changes.containsKey('phone')) {
           throw const ApiFailure(ApiFailureKind.conflict, code: 'PHONE_TAKEN');
         }
